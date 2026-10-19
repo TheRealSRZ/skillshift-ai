@@ -1,0 +1,47 @@
+[
+  {
+    "id": "role_data_analyst",
+    "title": "Data Analyst",
+    "required_skills": {
+      "skill_python": 3,
+      "skill_sql": 3,
+      "skill_power_bi": 3,
+      "skill_data_viz": 2
+    },
+    "sdgs": [
+      4,
+      8
+    ],
+    "evidence_status": "synthetic_demo"
+  },
+  {
+    "id": "role_security_analyst",
+    "title": "Cybersecurity Analyst",
+    "required_skills": {
+      "skill_networking": 3,
+      "skill_security": 4,
+      "skill_python": 1,
+      "skill_automation": 2
+    },
+    "sdgs": [
+      4,
+      9
+    ],
+    "evidence_status": "synthetic_demo"
+  },
+  {
+    "id": "role_cloud_engineer",
+    "title": "Cloud Engineer",
+    "required_skills": {
+      "skill_cloud": 4,
+      "skill_networking": 3,
+      "skill_python": 2,
+      "skill_security": 1
+    },
+    "sdgs": [
+      4,
+      9
+    ],
+    "evidence_status": "synthetic_demo"
+  }
+]

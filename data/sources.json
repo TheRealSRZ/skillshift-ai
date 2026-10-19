@@ -1,0 +1,11 @@
+[
+  {
+    "id": "src_demo",
+    "title": "Synthetic integration-test fixture",
+    "url": null,
+    "published_date": null,
+    "geography": "synthetic_demo",
+    "source_type": "synthetic",
+    "usable_as_real_evidence": false
+  }
+]

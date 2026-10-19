@@ -1,0 +1,34 @@
+[
+  {
+    "id": "skill_python",
+    "name": "Python"
+  },
+  {
+    "id": "skill_sql",
+    "name": "SQL"
+  },
+  {
+    "id": "skill_power_bi",
+    "name": "Power BI"
+  },
+  {
+    "id": "skill_data_viz",
+    "name": "Data Visualization"
+  },
+  {
+    "id": "skill_cloud",
+    "name": "Cloud Fundamentals"
+  },
+  {
+    "id": "skill_networking",
+    "name": "Networking"
+  },
+  {
+    "id": "skill_security",
+    "name": "Security Fundamentals"
+  },
+  {
+    "id": "skill_automation",
+    "name": "Automation"
+  }
+]

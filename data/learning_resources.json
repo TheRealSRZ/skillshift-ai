@@ -1,0 +1,35 @@
+[
+  {
+    "id": "course_powerbi",
+    "title": "Power BI course — needs verification",
+    "skill_ids": [
+      "skill_power_bi"
+    ],
+    "url": "",
+    "estimated_hours": 8,
+    "cost": "unknown",
+    "verified": false
+  },
+  {
+    "id": "course_data_viz",
+    "title": "Data visualization course — needs verification",
+    "skill_ids": [
+      "skill_data_viz"
+    ],
+    "url": "",
+    "estimated_hours": 6,
+    "cost": "unknown",
+    "verified": false
+  },
+  {
+    "id": "course_cloud",
+    "title": "Cloud basics course — needs verification",
+    "skill_ids": [
+      "skill_cloud"
+    ],
+    "url": "",
+    "estimated_hours": 8,
+    "cost": "unknown",
+    "verified": false
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "sdg": 4,
+    "title": "Quality Education",
+    "rationale": "Reskilling pathways can support access to relevant lifelong learning; effect not measured."
+  },
+  {
+    "sdg": 8,
+    "title": "Decent Work and Economic Growth",
+    "rationale": "Skills preparation may support employability; effect not measured."
+  },
+  {
+    "sdg": 9,
+    "title": "Industry, Innovation and Infrastructure",
+    "rationale": "Digital capabilities may support innovation; effect not measured."
+  }
+]

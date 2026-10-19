@@ -1,0 +1,26 @@
+[
+  {
+    "id": "profile_student_demo",
+    "label": "SYNTHETIC IT student",
+    "education": "IT undergraduate",
+    "skills": [
+      "skill_python",
+      "skill_sql"
+    ],
+    "interests": [
+      "data"
+    ]
+  },
+  {
+    "id": "profile_security_demo",
+    "label": "SYNTHETIC junior IT worker",
+    "education": "diploma",
+    "skills": [
+      "skill_networking",
+      "skill_python"
+    ],
+    "interests": [
+      "security"
+    ]
+  }
+]

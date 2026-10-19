@@ -1,0 +1,15 @@
+{
+  "snapshot_id": "synthetic_snapshot_oct2026",
+  "label": "SYNTHETIC TEST SIGNALS — NOT MALAYSIAN MARKET DATA",
+  "observed_date": "2026-10-01",
+  "retrieved_date": "2026-10-19",
+  "region": "synthetic_demo",
+  "source_ids": [
+    "src_demo"
+  ],
+  "multipliers": {
+    "skill_cloud": 1.05,
+    "skill_power_bi": 1.02,
+    "skill_automation": 1.08
+  }
+}

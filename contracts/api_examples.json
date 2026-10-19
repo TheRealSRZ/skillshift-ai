@@ -1,0 +1,30 @@
+{
+  "contract_version": "v0.1",
+  "note": "Demo fixtures, not verified Malaysian results.",
+  "post_analyze_request": {
+    "profile": {
+      "education": "IT undergraduate",
+      "skills": [
+        "skill_python",
+        "skill_sql"
+      ],
+      "interests": [
+        "data"
+      ]
+    },
+    "scenario": "moderate"
+  },
+  "post_roadmap_request": {
+    "target_role": "role_data_analyst",
+    "missing_skills": [
+      "skill_power_bi",
+      "skill_data_viz"
+    ],
+    "scenario": "moderate"
+  },
+  "get_health_response": {
+    "status": "ok",
+    "project": "skillshift-ai",
+    "stage": "starter_scaffold"
+  }
+}

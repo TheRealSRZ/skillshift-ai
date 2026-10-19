@@ -1,0 +1,88 @@
+skillshift-ai/
+├── .github/
+│   ├── workflows/
+│   │   ├── frontend-build.yml
+│   │   └── python-tests.yml
+│   └── pull_request_template.md
+├── ai/
+│   ├── __init__.py
+│   ├── learning_planner.py
+│   ├── prompts.py
+│   ├── runpod_client.py
+│   ├── skill_extractor.py
+│   └── validators.py
+├── backend/
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── analysis.py
+│   │   ├── catalog.py
+│   │   ├── roadmap.py
+│   │   └── trends.py
+│   ├── __init__.py
+│   ├── main.py
+│   ├── matching.py
+│   ├── scenarios.py
+│   ├── schemas.py
+│   └── store.py
+├── contracts/
+│   └── api_examples.json
+├── data/
+│   ├── careers.json
+│   ├── learning_resources.json
+│   ├── sdg_mapping.json
+│   ├── skills.json
+│   ├── sources.json
+│   ├── synthetic_profiles.json
+│   └── trends.json
+├── data_pipeline/
+│   ├── __init__.py
+│   ├── fetch_dosm.py
+│   ├── import_trends.py
+│   ├── normalize_skills.py
+│   ├── sdg_mapping.py
+│   └── validate_sources.py
+├── docs/
+│   ├── ai_integration.md
+│   ├── ai_tools_declaration.md
+│   ├── architecture.md
+│   ├── backend.md
+│   ├── data_sources.md
+│   ├── frontend.md
+│   └── SETUP_WINDOWS_BILINGUAL.md
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── client.ts
+│   │   ├── components/
+│   │   │   └── Layout.tsx
+│   │   ├── pages/
+│   │   │   ├── CareersPage.tsx
+│   │   │   ├── ProfilePage.tsx
+│   │   │   ├── RoadmapPage.tsx
+│   │   │   ├── SDGPage.tsx
+│   │   │   ├── SimulatorPage.tsx
+│   │   │   └── TrendsPage.tsx
+│   │   ├── App.tsx
+│   │   ├── index.css
+│   │   ├── main.tsx
+│   │   └── types.ts
+│   ├── index.html
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── vite.config.ts
+├── scripts/
+│   ├── check.sh
+│   └── start.sh
+├── tests/
+│   ├── ai/
+│   │   └── test_learning_planner.py
+│   ├── backend/
+│   │   ├── test_api.py
+│   │   └── test_matching.py
+│   └── data_pipeline/
+│       └── test_catalog.py
+├── .env.example
+├── .gitignore
+├── .replit
+├── README.md
+└── requirements.txt
