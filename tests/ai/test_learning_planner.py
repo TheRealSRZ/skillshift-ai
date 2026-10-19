@@ -1,5 +1,6 @@
 from ai.learning_planner import generate_roadmap
 from ai.skill_extractor import extract_skills
+from unittest.mock import patch
 
 def test_unverified_courses_never_recommended():
     sample=[{'id':'c1','title':'Unverified','url':'https://example.invalid', 'verified':False,'skill_ids':['skill_sql']}]
@@ -73,4 +74,33 @@ def test_missing_skills_without_courses_are_uncovered():
         "skill_python",
         "skill_sql"
     }
+
+
+def test_runpod_failure_uses_fallback():
+    courses = [
+        {
+            "id": "course_python",
+            "title": "Python Basics",
+            "url": "https://example.com/python",
+            "verified": True,
+            "skill_ids": ["skill_python"],
+            "estimated_hours": 10,
+        }
+    ]
+
+    with patch(
+        "ai.runpod_client.ask_ai",
+        side_effect=RuntimeError("RunPod unavailable"),
+    ):
+        result = generate_roadmap(
+            target_role="Data Analyst",
+            missing_skills=["skill_python"],
+            scenario="moderate",
+            verified_courses=courses,
+            use_ai=True,
+        )
+
+    assert result["generation_mode"] == "deterministic_fallback"
+    assert result["steps"][0]["course_id"] == "course_python"
+    assert result["uncovered_skills"] == []
 
