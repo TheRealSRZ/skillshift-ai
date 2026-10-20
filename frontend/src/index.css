@@ -340,3 +340,18 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
   .trend-track { grid-column: 1 / -1; order: 3; }
   .trend-val { order: 2; }
 }
+
+.error-banner { display: flex; align-items: flex-start; gap: 12px; background: var(--danger-bg); color: var(--danger); border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; }
+.error-banner > svg { flex: none; margin-top: 2px; }
+.error-text { flex: 1; }
+.error-text strong { display: block; }
+.error-text p { margin: 2px 0 4px; font-size: 14px; }
+.error-text small { color: var(--muted); font-size: 12px; word-break: break-word; }
+.error-actions { display: flex; align-items: center; gap: 8px; }
+.error-actions button { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; }
+.error-actions .icon-btn { padding: 6px; border: none; background: transparent; }
+
+.skill-skeleton { height: 40px; border-radius: 99px; background: linear-gradient(90deg, #eef2f6 25%, #f7f9fb 50%, #eef2f6 75%); background-size: 200% 100%; animation: shimmer 1.2s linear infinite; }
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.spin { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

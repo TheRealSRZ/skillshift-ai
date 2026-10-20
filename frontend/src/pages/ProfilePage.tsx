@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, Loader2  } from 'lucide-react'
 import type { Profile, Skill } from '../types'
 
 type Props = {
@@ -7,9 +7,10 @@ type Props = {
   onChange: (profile: Profile) => void
   onAnalyze: () => void
   loading: boolean
+  booting: boolean
 }
 
-export default function ProfilePage({ skills, profile, onChange, onAnalyze, loading }: Props) {
+export default function ProfilePage({ skills, profile, onChange, onAnalyze, loading, booting }: Props) {
   const toggle = (id: string, on: boolean) =>
     onChange({ ...profile, skills: on ? [...profile.skills, id] : profile.skills.filter(s => s !== id) })
 
@@ -31,9 +32,10 @@ export default function ProfilePage({ skills, profile, onChange, onAnalyze, load
       <div className="form-block">
         <div className="form-label-row">
           <span className="form-label">Your skills</span>
-          <span className="count-pill">{profile.skills.length} of {skills.length} selected</span>
+          {!booting && <span className="count-pill">{profile.skills.length} of {skills.length} selected</span>}
         </div>
         <div className="skill-grid">
+          {booting && Array.from({ length: 8 }).map((_, i) => <span className="skill-skeleton" key={i} style={{ width: 80 + (i % 4) * 25 }} />)}
           {skills.map(s => {
             const on = profile.skills.includes(s.id)
             return (
@@ -50,6 +52,7 @@ export default function ProfilePage({ skills, profile, onChange, onAnalyze, load
       <div className="form-actions">
         <span className="muted">{profile.skills.length === 0 ? 'Pick a few skills to get started.' : 'Ready when you are.'}</span>
         <button type="button" className="primary" onClick={onAnalyze} disabled={loading}>
+          {loading && <Loader2 size={16} className="spin" aria-hidden="true" />}
           {loading ? 'Analysing…' : 'Analyse my skills'}
           {!loading && <ArrowRight size={16} aria-hidden="true" />}
         </button>

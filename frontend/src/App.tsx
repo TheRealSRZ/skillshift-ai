@@ -10,6 +10,7 @@ import DashboardPage from './pages/DashboardPage'
 import LoginPage from './pages/LoginPage'
 import AccountPage from './pages/AccountPage'
 import { api } from './api/client'
+import ErrorBanner from './components/ErrorBanner'
 import type { AnalyzeResponse, Career, Profile, RoadmapResponse, Skill, TrendData } from './types'
 
 type DemoUser = { name: string; email: string }
@@ -36,13 +37,19 @@ export default function App() {
   const [roadmap, setRoadmap] = useState<RoadmapResponse | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [booting, setBooting] = useState(true)
   const [analysedAt, setAnalysedAt] = useState<Date | null>(null)
 
-  useEffect(() => {
+  const loadData = () => {
+    setBooting(true)
+    setError('')
     void Promise.all([api.catalog(), api.trends(), api.sdgs()])
       .then(([c, t, s]) => { setSkills(c.skills); setCareers(c.careers); setTrend(t); setSdgs(s.mappings) })
       .catch(e => setError(String(e)))
-  }, [])
+      .finally(() => setBooting(false))
+  }
+
+  useEffect(() => { loadData() }, [])
 
   const analyze = async () => {
     setLoading(true); setError('')
@@ -68,9 +75,9 @@ export default function App() {
   if (!user) return <LoginPage onSignIn={signIn} />
 
   return <Layout active={tab} onSelect={setTab} userName={user.name}>
-    {error && <p role="alert" className="error">{error}. Make sure FastAPI is running on port 8000.</p>}
+    {error && <ErrorBanner message={error} onRetry={skills.length === 0 ? loadData : undefined} onDismiss={() => setError('')} />}
     {tab === 'Dashboard' && <DashboardPage name={user.name} matches={matches} scenarios={scenarios} roadmap={roadmap} skills={skills} sdgs={sdgs} loading={loading} onNavigate={setTab} onAnalyze={() => void analyze()} analysedAt={analysedAt} />}
-    {tab === 'Profile' && <ProfilePage skills={skills} profile={profile} onChange={setProfile} onAnalyze={() => void analyze()} loading={loading} />}
+    {tab === 'Profile' && <ProfilePage skills={skills} profile={profile} onChange={setProfile} onAnalyze={() => void analyze()} loading={loading} booting={booting} />}
     {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} />}
     {tab === 'Careers' && <CareersPage results={matches} skills={skills} sdgs={sdgs} />}
     {tab === 'Simulator' && <SimulatorPage results={scenarios} />}
