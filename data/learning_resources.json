@@ -281,5 +281,308 @@
     "verified_date": "2026-10-20",
     "learning_category": "ai_adaptation",
     "notes": "83-minute intermediate module on finance AI agents, invoice workflows, anomaly detection and reconciliation. Partial link to financial reporting, not a general attention-to-detail course. Prior accounts-receivable knowledge is expected; hands-on software may require licences."
+  },
+  {
+    "id": "course_data_python_intro",
+    "title": "Python",
+    "skill_ids": [
+      "skill_python"
+    ],
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/python",
+    "estimated_hours": 5,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free beginner Python course. Provider estimates 5 hours; it teaches programming basics, not an entire data science curriculum."
+  },
+  {
+    "id": "course_data_sql_intro",
+    "title": "Intro to SQL",
+    "skill_ids": [
+      "skill_sql"
+    ],
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/intro-to-sql",
+    "estimated_hours": 3,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free introductory SQL course using Google BigQuery; provider estimates 3 hours."
+  },
+  {
+    "id": "course_data_analysis_intro",
+    "title": "Get started with data analytics",
+    "skill_ids": [
+      "skill_data_analysis"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/get-started-data-analytics/",
+    "estimated_hours": 0.6,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "36-minute beginner introduction to grouping, aggregating and visualizing data. Introductory coverage only, not a complete job-ready Data Analysis qualification."
+  },
+  {
+    "id": "course_data_cleaning_kaggle",
+    "title": "Data Cleaning",
+    "skill_ids": [
+      "skill_data_cleaning"
+    ],
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/data-cleaning",
+    "estimated_hours": 4,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free four-hour data cleaning course covering missing values, inconsistent entries and data formats. Pandas knowledge recommended first."
+  },
+  {
+    "id": "course_data_pandas_kaggle",
+    "title": "Pandas",
+    "skill_ids": [
+      "skill_data_analysis",
+      "skill_data_cleaning"
+    ],
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/pandas",
+    "estimated_hours": 4,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free four-hour practice with loading, grouping and manipulating data. Supports data analysis and helps prepare learners for the Data Cleaning course; Python knowledge assumed."
+  },
+  {
+    "id": "course_mkt_strategy_hubspot",
+    "title": "Digital Marketing Certification Course",
+    "skill_ids": [
+      "skill_marketing_strategy"
+    ],
+    "provider": "HubSpot Academy",
+    "url": "https://academy.hubspot.com/courses/digital-marketing",
+    "estimated_hours": 3.4,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Covers digital marketing strategy and campaign planning; broader marketing strategy only partially. Duration derived from provider-listed course time; may change."
+  },
+  {
+    "id": "course_mkt_social_hubspot",
+    "title": "Social Media Marketing Certification Course",
+    "skill_ids": [
+      "skill_digital_marketing"
+    ],
+    "provider": "HubSpot Academy",
+    "url": "https://academy.hubspot.com/courses/social-media",
+    "estimated_hours": 5.3,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Social media strategy, content, distribution and performance. Duration derived from provider-listed course time; may change."
+  },
+  {
+    "id": "course_mkt_research_alison",
+    "title": "Market Research Essentials",
+    "skill_ids": [
+      "skill_market_research"
+    ],
+    "provider": "Alison",
+    "url": "https://alison.com/course/market-research-essentials",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Covers market research methods, consumer behaviour, questionnaires, sampling, data quality and research reporting. Provider estimates 1.5–3 hours, so no exact duration is assigned. Course learning is free; optional certificates may require payment."
+  },
+  {
+    "id": "course_mkt_reporting_hubspot",
+    "title": "HubSpot Reporting Certification",
+    "skill_ids": [
+      "skill_campaign_performance"
+    ],
+    "provider": "HubSpot Academy",
+    "url": "https://academy.hubspot.com/courses/hubspot-reporting",
+    "estimated_hours": 5.7,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Marketing reporting and performance measurement; software-specific course. Some practical exercises may need an account or tools. Duration derived from provider-listed course time; may change."
+  },
+  {
+    "id": "course_mkt_communication_hubspot",
+    "title": "Inbound Marketing Certification Course",
+    "skill_ids": [
+      "skill_marketing_communication"
+    ],
+    "provider": "HubSpot Academy",
+    "url": "https://academy.hubspot.com/courses/inbound-marketing",
+    "estimated_hours": 4.88,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Customer-focused marketing messaging, content and lead nurturing; not a full public-speaking course. Duration derived from provider-listed course time; may change."
+  },
+  {
+    "id": "course_ee_intro_electronics",
+    "title": "An introduction to electronics",
+    "skill_ids": [
+      "skill_electrical_circuits"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/science-maths-technology/an-introduction-electronics/",
+    "estimated_hours": 10,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Covers elementary circuits and basic design, not professional power system engineering."
+  },
+  {
+    "id": "course_ee_intro_labs",
+    "title": "Introduction to Electrical Engineering Based Lab Activity Material",
+    "skill_ids": [
+      "skill_electrical_system_design"
+    ],
+    "provider": "Analog Devices University Program",
+    "url": "https://wiki.analog.com/university/labs/intro_ee",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Free educational laboratory materials. Partial foundation for electrical design; some hands-on activities require hardware."
+  },
+  {
+    "id": "course_ee_ltspice",
+    "title": "LTspice Tutorial for Beginners",
+    "skill_ids": [
+      "skill_electrical_simulation"
+    ],
+    "provider": "Analog Devices",
+    "url": "https://www.analog.com/en/resources/media-center/videos/video-series/ltspice-getting-started-tutorial.html",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Free introductory videos for circuit simulation. No verified total course duration."
+  },
+  {
+    "id": "course_ee_risk",
+    "title": "Assessing risk in engineering, work and life",
+    "skill_ids": [
+      "skill_electrical_safety"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/science-maths-technology/engineering-technology/assessing-risk-engineering-work-and-life/content-section-0",
+    "estimated_hours": 10,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Engineering risk principles, not a substitute for Malaysia-specific electrical safety certification."
+  },
+  {
+    "id": "course_ee_circuits_labs",
+    "title": "Troubleshooting Electrical Control Systems",
+    "skill_ids": [
+      "skill_electrical_fault_diagnosis"
+    ],
+    "provider": "Alison",
+    "url": "https://alison.com/course/troubleshooting-electrical-control-systems",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Free intermediate course covering electrical fault identification, visual inspection, continuity testing, voltage measurements and troubleshooting of power and control circuits. Provider estimates 1.5-3 hours; exact duration is not specified. This supports fault diagnosis but does not fully cover industrial electrical maintenance or replace supervised practical training. Optional certificates may require payment."
+  },
+  {
+    "id": "course_nurse_intro",
+    "title": "Nursing Studies - The Physical Examination",
+    "skill_ids": [
+      "skill_patient_care_monitoring"
+    ],
+    "provider": "Alison",
+    "url": "https://alison.com/course/nursing-studies-the-physical-examination-revised-2018",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Free introductory nursing course covering patient observation, physical examination, health history and vital signs. Provider estimates 1.5-3 hours. Does not replace supervised clinical practice or Malaysian nursing registration. Optional certificates may require payment."
+  },
+  {
+    "id": "course_nurse_practical_care",
+    "title": "Introducing practical healthcare",
+    "skill_ids": [
+      "skill_patient_care_monitoring",
+      "skill_infection_prevention"
+    ],
+    "provider": "OpenLearn Create - The Open University",
+    "url": "https://www.open.edu/openlearncreate/course/view.php?id=2170",
+    "estimated_hours": 15,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Healthcare support-worker course, not professional nurse training. Infection prevention covered in Your healthcare practice section. Total duration 15 hours."
+  },
+  {
+    "id": "course_nurse_care_plans",
+    "title": "Foundations of Nursing",
+    "skill_ids": [
+      "skill_nursing_assessment_care_planning",
+      "skill_patient_communication"
+    ],
+    "provider": "Alison",
+    "url": "https://alison.com/course/foundations-of-nursing",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Free foundational nursing course covering nursing processes, care planning, patient conditions, medication safety and infection control. Provider estimates 4-5 hours. Relevant introductory knowledge, not comprehensive clinical assessment training. Optional certificates may require payment; professional practice requires appropriate qualifications and supervised training."
+  },
+  {
+    "id": "course_nurse_infection",
+    "title": "Your healthcare practice",
+    "skill_ids": [
+      "skill_infection_prevention"
+    ],
+    "provider": "OpenLearn Create - The Open University",
+    "url": "https://www.open.edu/openlearncreate/mod/oucontent/view.php?id=79884",
+    "estimated_hours": 3,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Three-hour course section introducing PPE, hygiene and infection prevention to healthcare assistants; not specialist nursing certification."
+  },
+  {
+    "id": "course_nurse_medication_moh",
+    "title": "Medication Safety: Handling and Administration",
+    "skill_ids": [
+      "skill_medication_safety"
+    ],
+    "provider": "Alison",
+    "url": "https://alison.com/course/medication-safety-handling-and-administration",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-21",
+    "learning_category": "foundational",
+    "notes": "Free course covering medication administration processes, medication handling and storage, administration routes, adverse drug reactions and common medication errors. Provider estimates 1.5-3 hours, so no exact duration is assigned. Relevant to medication safety knowledge but does not qualify learners to administer medication independently. Follow Malaysian clinical policies and professional scope-of-practice requirements. Optional certificates may require payment."
   }
 ]
