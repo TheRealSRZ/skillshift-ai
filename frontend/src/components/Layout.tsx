@@ -3,9 +3,9 @@ import { BarChart3, Briefcase, Globe, Route, SlidersHorizontal, User } from 'luc
 import type { LucideIcon } from 'lucide-react'
 
 const tabs = ['Profile', 'Trends', 'Careers', 'Simulator', 'Roadmap', 'SDG Impact'] as const
-export type Tab = typeof tabs[number]
+export type Tab = typeof tabs[number] | 'Account'
 
-const icons: Record<Tab, LucideIcon> = {
+const icons: Record<typeof tabs[number], LucideIcon> = {
   Profile: User,
   Trends: BarChart3,
   Careers: Briefcase,
@@ -14,7 +14,9 @@ const icons: Record<Tab, LucideIcon> = {
   'SDG Impact': Globe,
 }
 
-export default function Layout({ active, onSelect, children }: { active: Tab; onSelect: (tab: Tab) => void; children: ReactNode }) {
+const initials = (name: string) => name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
+
+export default function Layout({ active, onSelect, userName, children }: { active: Tab; onSelect: (tab: Tab) => void; userName: string; children: ReactNode }) {
   return (
     <div className="app">
       <aside className="sidebar">
@@ -30,6 +32,12 @@ export default function Layout({ active, onSelect, children }: { active: Tab; on
             )
           })}
         </nav>
+        <div className="sidebar-bottom">
+          <button type="button" className={active === 'Account' ? 'nav-item selected' : 'nav-item'} onClick={() => onSelect('Account')}>
+            <span className="avatar">{initials(userName)}</span>
+            Account
+          </button>
+        </div>
       </aside>
       <div className="content">
         <header className="topbar">

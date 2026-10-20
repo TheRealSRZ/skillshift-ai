@@ -62,3 +62,44 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
   .nav-item { width: auto; }
   .content { padding: 0 14px 20px; }
 }
+
+.sidebar { display: flex; flex-direction: column; }
+.sidebar-bottom { margin-top: auto; border-top: 1px solid var(--border); padding-top: 10px; }
+.avatar { width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex: none; }
+.avatar.large { width: 48px; height: 48px; font-size: 15px; }
+
+.login-split { min-height: 100vh; display: grid; grid-template-columns: 0.8fr 1.2fr; }
+.login-brand { background: var(--accent); color: #fff; padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+.login-brand h1 { font-size: 44px; line-height: 1.1; margin-bottom: 16px; }
+.login-brand p { color: #d6eef1; font-size: 20px; line-height: 1.5; max-width: 480px; margin-bottom: 40px; }
+.login-brand ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
+.login-brand li { display: flex; align-items: center; gap: 14px; font-size: 18px; color: #fff; }
+.login-brand li svg { width: 24px; height: 24px; flex: none; }
+
+.login-panel { background: var(--surface); display: flex; align-items: center; justify-content: center; padding: 48px; }
+.login-box { width: 100%; max-width: 580px; text-align: center; }
+.login-box h2 { font-size: 30px; margin-bottom: 8px; }
+.login-sub { color: var(--muted); font-size: 17px; margin-bottom: 32px; }
+.persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.persona { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 32px 20px; border-radius: 16px; text-align: center; }
+.persona .avatar.large { width: 64px; height: 64px; font-size: 20px; margin-bottom: 4px; }
+.persona strong { font-size: 18px; }
+.persona span:last-child { font-size: 15px; line-height: 1.4; color: var(--muted); }
+.persona:hover { border-color: var(--accent); background: var(--accent-soft); }
+.login-note { font-size: 14px; color: var(--muted); margin: 28px 0 0; }
+
+@media (max-width: 800px) {
+  .login-split { grid-template-columns: 1fr; }
+  .login-brand { padding: 36px 24px; }
+  .login-brand h1 { font-size: 32px; }
+  .login-brand p { font-size: 17px; margin-bottom: 24px; }
+  .login-panel { padding: 32px 20px; }
+  .persona-grid { grid-template-columns: 1fr; }
+}
+
+.account-card { max-width: 560px; }
+.account-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.account-head .badge { margin-left: auto; }
+.account-head h3 { margin-bottom: 2px; }
+.account-head p { margin: 0; }
+.account-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid var(--border); font-size: 14px; }
