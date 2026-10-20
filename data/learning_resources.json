@@ -1,35 +1,180 @@
 [
   {
     "id": "course_powerbi",
-    "title": "Power BI course — needs verification",
+    "title": "Prepare and visualize data with Microsoft Power BI",
     "skill_ids": [
       "skill_power_bi"
     ],
-    "url": "",
-    "estimated_hours": 8,
-    "cost": "unknown",
-    "verified": false
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/paths/prepare-visualize-data-power-bi/",
+    "estimated_hours": 8.2,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational"
   },
   {
     "id": "course_data_viz",
-    "title": "Data visualization course — needs verification",
+    "title": "Design effective reports in Power BI",
     "skill_ids": [
       "skill_data_viz"
     ],
-    "url": "",
-    "estimated_hours": 6,
-    "cost": "unknown",
-    "verified": false
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/paths/build-power-bi-visuals-reports/",
+    "estimated_hours": 5.12,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Teaches data visualization specifically using Power BI."
   },
   {
     "id": "course_cloud",
-    "title": "Cloud basics course — needs verification",
+    "title": "Introduction to Cloud Infrastructure: Describe cloud concepts",
     "skill_ids": [
       "skill_cloud"
     ],
-    "url": "",
-    "estimated_hours": 8,
-    "cost": "unknown",
-    "verified": false
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+    "estimated_hours": 0.93,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational"
+  },
+  {
+    "id": "course_software_configuration_git",
+    "title": "Introduction to Git",
+    "skill_ids": [
+      "skill_software_configuration"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-git/",
+    "estimated_hours": 1.43,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Foundational coverage of software configuration through version control, tracking changes, and branching. Does not cover all configuration management practices."
+  },
+  {
+    "id": "course_software_design",
+    "title": "An introduction to software development",
+    "skill_ids": [
+      "skill_software_design"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/science-maths-technology/an-introduction-software-development",
+    "estimated_hours": 6,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Foundational coverage of software modelling, object-oriented concepts and development processes. Not a comprehensive software architecture course."
+  },
+  {
+    "id": "course_software_testing",
+    "title": "Get started with unit testing",
+    "skill_ids": [
+      "skill_software_testing"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/visualstudio/test/create-a-unit-test-project",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Practical unit-testing tutorial using Visual Studio and primarily C# examples. Covers a subset of software testing; duration not published."
+  },
+  {
+    "id": "course_ai_fluency",
+    "title": "AI Fluency",
+    "skill_ids": [
+      "skill_ai_fluency"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/paths/ai-fluency/",
+    "estimated_hours": 4.63,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Covers foundational AI, generative AI, responsible usage and critical evaluation."
+  },
+  {
+    "id": "course_critical_thinking",
+    "title": "Extending and developing your thinking skills",
+    "skill_ids": [
+      "skill_critical_thinking"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/education-development/extending-and-developing-your-thinking-skills/content-section-0",
+    "estimated_hours": 6,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "General analytical and structured thinking course, applicable across occupations."
+  },
+  {
+    "id": "course_innovative_thinking",
+    "title": "Making creativity and innovation happen",
+    "skill_ids": [
+      "skill_innovative_thinking"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/money-business/making-creativity-and-innovation-happen/content-section-0",
+    "estimated_hours": 10,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "General creativity and innovation course. Not specific to software engineering."
+  },
+  {
+    "id": "course_ai_assisted_coding",
+    "title": "Develop Code Features Using GitHub Copilot Tools",
+    "skill_ids": [
+      "skill_ai_fluency"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/develop-code-features-using-github-copilot-tools/",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "ai_adaptation",
+    "notes": "Practical AI-assisted coding using GitHub Copilot. Teaches generating, reviewing, modifying and rejecting AI code suggestions. Exercises require Copilot access; the Free plan is sufficient according to the provider."
+  },
+  {
+    "id": "course_ai_assisted_testing",
+    "title": "Develop Unit Tests Using GitHub Copilot Tools",
+    "skill_ids": [
+      "skill_software_testing"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/develop-unit-tests-using-github-copilot-tools/",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "ai_adaptation",
+    "notes": "Generate, run and improve unit tests using AI assistance. Exercises focus on C# in VS Code. GitHub Copilot Free is sufficient for the exercises."
+  },
+  {
+    "id": "course_responsible_ai_copilot",
+    "title": "Responsible AI with GitHub Copilot",
+    "skill_ids": [
+      "skill_ai_fluency"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/responsible-ai-with-github-copilot/",
+    "estimated_hours": 0.25,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "ai_adaptation",
+    "notes": "15-minute module on responsible AI use, limitations, ethical risks and accountability when using AI-generated code."
   }
 ]
