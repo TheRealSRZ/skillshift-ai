@@ -194,3 +194,49 @@ def test_ai_cannot_reduce_skill_coverage():
     }
 
     assert result["uncovered_skills"] == []
+
+    
+def test_runpod_cancels_job_on_timeout(monkeypatch):
+    import pytest
+    import requests
+    import ai.runpod_client as client
+
+    monkeypatch.setenv("RUNPOD_API_KEY", "fake-test-key")
+    monkeypatch.setenv("RUNPOD_ENDPOINT_ID", "fake-endpoint")
+    monkeypatch.setenv("RUNPOD_POLL_TIMEOUT", "0")
+
+    calls = []
+
+    class FakeResponse:
+        def __init__(self, data):
+            self.data = data
+
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return self.data
+
+    def fake_post(url, **kwargs):
+        calls.append(url)
+
+        if url.endswith("/run"):
+            return FakeResponse({"id": "test-job-123"})
+
+        if url.endswith("/cancel/test-job-123"):
+            return FakeResponse({"status": "CANCELLED"})
+
+        raise AssertionError(f"Unexpected POST URL: {url}")
+
+    monkeypatch.setattr(requests, "post", fake_post)
+
+    # Replace this with the actual public function name
+    # from ai/runpod_client.py if it differs.
+    with pytest.raises(TimeoutError):
+        client.ask_ai("Test prompt")
+
+    assert any(
+        url.endswith("/cancel/test-job-123")
+        for url in calls
+    )
+

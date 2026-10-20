@@ -49,8 +49,12 @@ def ask_ai(prompt: str) -> str:
     if not job_id:
         raise RuntimeError("RunPod did not return a job ID")
 
-    # Wait for the job to complete (maximum 90 seconds).
-    deadline = time.monotonic() + 90
+    # Maximum time to wait for a RunPod job.
+    # Default: 30 seconds for a responsive demo.
+    timeout_seconds = float(
+        os.getenv("RUNPOD_POLL_TIMEOUT", "30")
+    )
+    deadline = time.monotonic() + timeout_seconds
 
     while time.monotonic() < deadline:
         response = requests.get(
@@ -84,6 +88,23 @@ def ask_ai(prompt: str) -> str:
         if status in ("FAILED", "CANCELLED", "TIMED_OUT"):
             raise RuntimeError(f"RunPod job failed: {status}")
 
-        time.sleep(3)
+        
+        # Still waiting: check the job again after a short delay.
+        time.sleep(min(3, max(0, deadline - time.monotonic())))
 
-    raise TimeoutError("RunPod job did not finish within 90 seconds")
+    # This section is OUTSIDE the while loop.
+    # It runs only after the polling deadline expires.
+    try:
+        cancel_response = requests.post(
+            f"{base_url}/cancel/{job_id}",
+            headers=headers,
+            timeout=5,
+        )
+        cancel_response.raise_for_status()
+    except requests.RequestException:
+        # Cancellation is best-effort.
+        pass
+
+    raise TimeoutError(
+        f"RunPod job did not finish within {timeout_seconds:g} seconds"
+    )
