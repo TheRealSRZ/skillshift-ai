@@ -13,5 +13,15 @@
     "sdg": 9,
     "title": "Industry, Innovation and Infrastructure",
     "rationale": "Digital capabilities may support innovation; effect not measured."
+  },
+  {
+    "sdg": 12,
+    "title": "Responsible Consumption and Production",
+    "rationale": "Evaluating costs and benefits may support more responsible resource decisions; effect not measured."
+  },
+  {
+    "sdg": 16,
+    "title": "Peace, Justice and Strong Institutions",
+    "rationale": "Ethical judgement and transparent financial practices may support accountability; effect not measured."
   }
 ]

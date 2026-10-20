@@ -8,5 +8,15 @@
         "source_id": "src_dosm_jmi_q2_2026",
         "evidence_status": "official_reported",
         "notes": "DOSM Job Market Insights Q2 2026. This figure measures occupation-level online job offerings, not individual skill demand."
+    },
+    {
+        "occupation_id": "role_accountant_auditor",
+        "market": "Malaysia",
+        "metric": "online_job_postings",
+        "period": "2026-Q2",
+        "value": 22067,
+        "source_id": "src_dosm_jmi_q2_2026",
+        "evidence_status": "official_reported",
+        "notes": "Transcribed from DOSM JMI Q2 2026 release overview and media statement (page 1). Occupation-level online job offerings; not total employment or skill-level demand."
     }
 ]
