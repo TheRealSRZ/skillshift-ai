@@ -40,7 +40,7 @@ export default function App(){
     {tab==='Careers'&&<CareersPage results={matches} skills={skills} sdgs={sdgs}/>}
     {tab==='Simulator'&&<SimulatorPage results={scenarios}/>}
     {tab==='Roadmap'&&<RoadmapPage roadmap={roadmap} skills={skills} careers={careers}/>}
-    {tab==='SDG Impact'&&<SDGPage mappings={sdgs}/>}
+    {tab==='SDG Impact'&&<SDGPage mappings={sdgs} topMatch={matches?.matches[0] ?? null}/>}
     <p className="muted">Loaded {skills.length} synthetic skills / {careers.length} synthetic roles. Replace before judging.</p>
   </Layout>
 }
