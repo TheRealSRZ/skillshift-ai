@@ -30,5 +30,29 @@
   {
     "id": "skill_automation",
     "name": "Automation"
+  },
+  {
+    "id": "skill_software_configuration",
+    "name": "Software Configuration"
+  },
+  {
+    "id": "skill_software_design",
+    "name": "Software Design"
+  },
+  {
+    "id": "skill_software_testing",
+    "name": "Software Testing"
+  },
+  {
+    "id": "skill_ai_fluency",
+    "name": "Digital and AI Fluency"
+  },
+  {
+    "id": "skill_critical_thinking",
+    "name": "Critical Thinking"
+  },
+  {
+    "id": "skill_innovative_thinking",
+    "name": "Innovative Thinking"
   }
 ]

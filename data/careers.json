@@ -43,5 +43,35 @@
       9
     ],
     "evidence_status": "synthetic_demo"
+  },
+  {
+    "id": "role_software_developer",
+    "title": "Software Developer",
+    "market": "Malaysia",
+    "masco_code": "2512",
+    "industry": "Information and Communications Technology",
+    "required_skills": {
+      "skill_software_configuration": 3,
+      "skill_software_design": 4,
+      "skill_software_testing": 3,
+      "skill_ai_fluency": 2,
+      "skill_critical_thinking": 2,
+      "skill_innovative_thinking": 2
+    },
+    "sdgs": [
+      4,
+      8,
+      9
+    ],
+    "source_ids": [
+      "src_mycol_2024",
+      "src_ict_2024",
+      "src_esco_121"
+    ],
+    "evidence_status": "curated_with_assumptions",
+    "weight_method": "Team-defined illustrative skill importance weights (1-4). Not official TalentCorp or ESCO scores.",
+    "occupation_mapping_note": "Malaysian Software Developers (MASCO 2512) mapped to TalentCorp ICT Software Engineer and ESCO software developer (ISCO 2512). The six selected skills are based on TalentCorp's Software Engineer profile. ESCO provides supplementary international occupational classification evidence; these occupation records are not identical.",
+    "ai_impact": "low",
+    "ai_impact_note": "Low AI impact according to the TalentCorp ICT Impact Study's Software Engineer classification. This does not mean low job demand, low job importance, or zero automation risk."
   }
 ]
