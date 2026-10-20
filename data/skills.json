@@ -1,58 +1,192 @@
 [
   {
     "id": "skill_python",
-    "name": "Python"
+    "name": "Python",
+    "sdgs": [
+      4,
+      9
+    ],
+    "sdg_rationale": "Programming builds employable technical skills and supports digital innovation.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_sql",
-    "name": "SQL"
+    "name": "SQL",
+    "sdgs": [
+      4,
+      9
+    ],
+    "sdg_rationale": "Database querying supports technical skills and data-driven digital systems.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_power_bi",
-    "name": "Power BI"
+    "name": "Power BI",
+    "sdgs": [
+      4,
+      8
+    ],
+    "sdg_rationale": "Data analytics skills support lifelong learning and evidence-informed productivity.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_data_viz",
-    "name": "Data Visualization"
+    "name": "Data Visualization",
+    "sdgs": [
+      4,
+      8
+    ],
+    "sdg_rationale": "Communicating data clearly supports workforce skills and informed organisational decisions.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_cloud",
-    "name": "Cloud Fundamentals"
+    "name": "Cloud Fundamentals",
+    "sdgs": [
+      4,
+      9
+    ],
+    "sdg_rationale": "Cloud knowledge develops technical skills for modern digital infrastructure.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_networking",
-    "name": "Networking"
+    "name": "Networking",
+    "sdgs": [
+      4,
+      9
+    ],
+    "sdg_rationale": "Networking knowledge builds technical skills needed for reliable digital infrastructure.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_security",
-    "name": "Security Fundamentals"
+    "name": "Security Fundamentals",
+    "sdgs": [
+      9,
+      16
+    ],
+    "sdg_rationale": "Security skills support resilient digital systems and protection of organisational information.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_automation",
-    "name": "Automation"
+    "name": "Automation",
+    "sdgs": [
+      8,
+      9
+    ],
+    "sdg_rationale": "Workflow automation can improve productivity and support technological innovation.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_software_configuration",
-    "name": "Software Configuration"
+    "name": "Software Configuration",
+    "sdgs": [
+      8,
+      9
+    ],
+    "sdg_rationale": "Configuration management helps maintain reliable software and productive development workflows.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_software_design",
-    "name": "Software Design"
+    "name": "Software Design",
+    "sdgs": [
+      4,
+      9
+    ],
+    "sdg_rationale": "Software design develops technical capabilities used to build innovative digital solutions.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_software_testing",
-    "name": "Software Testing"
+    "name": "Software Testing",
+    "sdgs": [
+      8,
+      9
+    ],
+    "sdg_rationale": "Software testing improves the reliability of digital products and development processes.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_ai_fluency",
-    "name": "Digital and AI Fluency"
+    "name": "Digital and AI Fluency",
+    "sdgs": [
+      4,
+      8
+    ],
+    "sdg_rationale": "AI literacy develops relevant workforce skills for responsible adaptation to new tools.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_critical_thinking",
-    "name": "Critical Thinking"
+    "name": "Critical Thinking",
+    "sdgs": [
+      4,
+      8
+    ],
+    "sdg_rationale": "Critical thinking supports lifelong learning and informed work decisions.",
+    "sdg_mapping_method": "team_defined_interpretation"
   },
   {
     "id": "skill_innovative_thinking",
-    "name": "Innovative Thinking"
+    "name": "Innovative Thinking",
+    "sdgs": [
+      8,
+      9
+    ],
+    "sdg_rationale": "Innovative thinking supports more productive work and new solutions across industries.",
+    "sdg_mapping_method": "team_defined_interpretation"
+  },
+  {
+    "id": "skill_financial_analysis_reporting",
+    "name": "Financial Analysis and Reporting",
+    "sdgs": [
+      8,
+      16
+    ],
+    "sdg_rationale": "Financial analysis supports sound economic decisions and more accountable reporting.",
+    "sdg_mapping_method": "team_defined_interpretation"
+  },
+  {
+    "id": "skill_accounting_principles",
+    "name": "Accounting Principles",
+    "sdgs": [
+      8,
+      16
+    ],
+    "sdg_rationale": "Accounting knowledge supports reliable economic activity and transparent records.",
+    "sdg_mapping_method": "team_defined_interpretation"
+  },
+  {
+    "id": "skill_attention_to_detail",
+    "name": "Attention to Detail",
+    "sdgs": [
+      8,
+      16
+    ],
+    "sdg_rationale": "Accuracy in financial work reduces reporting errors and improves accountability.",
+    "sdg_mapping_method": "team_defined_interpretation"
+  },
+  {
+    "id": "skill_ethical_judgement",
+    "name": "Ethical Judgement",
+    "sdgs": [
+      8,
+      16
+    ],
+    "sdg_rationale": "Ethical financial decisions support responsible work and institutional integrity.",
+    "sdg_mapping_method": "team_defined_interpretation"
+  },
+  {
+    "id": "skill_cost_benefit_analysis",
+    "name": "Cost-Benefit Analysis",
+    "sdgs": [
+      8,
+      12
+    ],
+    "sdg_rationale": "Evaluating costs and benefits supports efficient investment and responsible resource choices.",
+    "sdg_mapping_method": "team_defined_interpretation"
   }
 ]
