@@ -1,0 +1,12 @@
+[
+    {
+        "occupation_id": "role_software_developer",
+        "market": "Malaysia",
+        "metric": "online_job_postings",
+        "period": "2026-Q2",
+        "value": 19899,
+        "source_id": "src_dosm_jmi_q2_2026",
+        "evidence_status": "official_reported",
+        "notes": "DOSM Job Market Insights Q2 2026. This figure measures occupation-level online job offerings, not individual skill demand."
+    }
+]
