@@ -144,3 +144,99 @@ def test_ai_selects_only_verified_courses():
     ]
     assert result["uncovered_skills"] == []
 
+
+def test_ai_cannot_reduce_skill_coverage():
+    """AI must not omit skills covered by verified courses."""
+
+    courses = [
+        {
+            "id": "course_powerbi",
+            "title": "Power BI Basics",
+            "url": "https://example.com/powerbi",
+            "verified": True,
+            "skill_ids": ["skill_power_bi"],
+            "estimated_hours": 8,
+        },
+        {
+            "id": "course_data_viz",
+            "title": "Data Visualization",
+            "url": "https://example.com/dataviz",
+            "verified": True,
+            "skill_ids": ["skill_data_viz"],
+            "estimated_hours": 5,
+        },
+    ]
+
+    # Simulate RunPod selecting only one course.
+    with patch(
+        "ai.learning_planner.ask_ai",
+        return_value='["course_powerbi"]',
+    ):
+        result = generate_roadmap(
+            target_role="Data Analyst",
+            missing_skills=[
+                "skill_power_bi",
+                "skill_data_viz",
+            ],
+            scenario="moderate",
+            verified_courses=courses,
+            use_ai=True,
+        )
+
+    selected_ids = {
+        step["course_id"]
+        for step in result["steps"]
+    }
+
+    assert selected_ids == {
+        "course_powerbi",
+        "course_data_viz",
+    }
+
+    assert result["uncovered_skills"] == []
+
+    
+def test_runpod_cancels_job_on_timeout(monkeypatch):
+    import pytest
+    import requests
+    import ai.runpod_client as client
+
+    monkeypatch.setenv("RUNPOD_API_KEY", "fake-test-key")
+    monkeypatch.setenv("RUNPOD_ENDPOINT_ID", "fake-endpoint")
+    monkeypatch.setenv("RUNPOD_POLL_TIMEOUT", "0")
+
+    calls = []
+
+    class FakeResponse:
+        def __init__(self, data):
+            self.data = data
+
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return self.data
+
+    def fake_post(url, **kwargs):
+        calls.append(url)
+
+        if url.endswith("/run"):
+            return FakeResponse({"id": "test-job-123"})
+
+        if url.endswith("/cancel/test-job-123"):
+            return FakeResponse({"status": "CANCELLED"})
+
+        raise AssertionError(f"Unexpected POST URL: {url}")
+
+    monkeypatch.setattr(requests, "post", fake_post)
+
+    # Replace this with the actual public function name
+    # from ai/runpod_client.py if it differs.
+    with pytest.raises(TimeoutError):
+        client.ask_ai("Test prompt")
+
+    assert any(
+        url.endswith("/cancel/test-job-123")
+        for url in calls
+    )
+
