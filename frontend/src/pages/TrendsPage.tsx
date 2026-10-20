@@ -4,9 +4,18 @@ import type { Skill, TrendData } from '../types'
 
 const LIMIT = 6
 
-export default function TrendsPage({ trend, skills }: { trend: TrendData | null; skills: Skill[] }) {
+export default function TrendsPage({ trend, skills, booting }: { trend: TrendData | null; skills: Skill[]; booting: boolean }) {
   const [showAll, setShowAll] = useState(false)
   const nameOf = (id: string) => skills.find(s => s.id === id)?.name ?? id
+
+  if (booting) {
+    return (
+      <section>
+        <h2>Future skills radar</h2>
+        {[0, 1, 2].map(i => <div className="skeleton-row" key={i} />)}
+      </section>
+    )
+  }
 
   if (!trend) {
     return (

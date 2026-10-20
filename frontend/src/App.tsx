@@ -78,11 +78,11 @@ export default function App() {
     {error && <ErrorBanner message={error} onRetry={skills.length === 0 ? loadData : undefined} onDismiss={() => setError('')} />}
     {tab === 'Dashboard' && <DashboardPage name={user.name} matches={matches} scenarios={scenarios} roadmap={roadmap} skills={skills} sdgs={sdgs} loading={loading} onNavigate={setTab} onAnalyze={() => void analyze()} analysedAt={analysedAt} />}
     {tab === 'Profile' && <ProfilePage skills={skills} profile={profile} onChange={setProfile} onAnalyze={() => void analyze()} loading={loading} booting={booting} />}
-    {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} />}
+    {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} booting={booting} />}
     {tab === 'Careers' && <CareersPage results={matches} skills={skills} sdgs={sdgs} />}
     {tab === 'Simulator' && <SimulatorPage results={scenarios} />}
     {tab === 'Roadmap' && <RoadmapPage roadmap={roadmap} skills={skills} careers={careers} />}
-    {tab === 'SDG Impact' && <SDGPage mappings={sdgs} topMatch={matches?.matches[0] ?? null} />}
+    {tab === 'SDG Impact' && <SDGPage mappings={sdgs} topMatch={matches?.matches[0] ?? null} booting={booting} />}
     {tab === 'Account' && <AccountPage name={user.name} email={user.email} onSignOut={signOut} />}
     <p className="muted">Loaded {skills.length} synthetic skills / {careers.length} synthetic roles. Replace before judging.</p>
   </Layout>

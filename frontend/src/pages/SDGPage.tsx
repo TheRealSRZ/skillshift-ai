@@ -22,7 +22,7 @@ function SdgIcon({ n, size, src }: { n: number; size: number; src?: string }) {
   )
 }
 
-export default function SDGPage({ mappings, topMatch }: { mappings: Mapping[]; topMatch: Match | null }) {
+export default function SDGPage({ mappings, topMatch, booting }: { mappings: Mapping[]; topMatch: Match | null; booting: boolean }) {
   const roleSdgs = topMatch?.sdgs ?? []
   const titleOf = (n: number) => mappings.find(m => m.sdg === n)?.title
   const primaryTitle = titleOf(PRIMARY_SDG)
@@ -59,6 +59,7 @@ export default function SDGPage({ mappings, topMatch }: { mappings: Mapping[]; t
 
       <p className="sdg-label">All goals in the data</p>
       <div className="sdg-grid">
+        {booting && [0, 1, 2].map(i => <div className="sdg-skeleton" key={i} />)}
         {mappings.map(s => {
           const linked = roleSdgs.includes(s.sdg)
           return (
