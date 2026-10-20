@@ -1,8 +1,11 @@
 import { ArrowRight, Check, Loader2  } from 'lucide-react'
-import type { Profile, Skill } from '../types'
+import type { Career, Profile, Skill } from '../types'
 
 type Props = {
   skills: Skill[]
+  careers: Career[]
+  targetRoleId: string
+  onSelectTarget: (roleId: string) => void
   profile: Profile
   onChange: (profile: Profile) => void
   onAnalyze: () => void
@@ -10,7 +13,7 @@ type Props = {
   booting: boolean
 }
 
-export default function ProfilePage({ skills, profile, onChange, onAnalyze, loading, booting }: Props) {
+export default function ProfilePage({ skills, careers, targetRoleId, onSelectTarget, profile, onChange, onAnalyze, loading, booting }: Props) {
   const toggle = (id: string, on: boolean) =>
     onChange({ ...profile, skills: on ? [...profile.skills, id] : profile.skills.filter(s => s !== id) })
 
@@ -27,6 +30,15 @@ export default function ProfilePage({ skills, profile, onChange, onAnalyze, load
           value={profile.education}
           onChange={e => onChange({ ...profile, education: e.target.value })}
         />
+      </div>
+
+      <div className="form-block">
+        <label htmlFor="target-career" className="form-label">Target career</label>
+        <select id="target-career" className="text-field" value={targetRoleId} onChange={e => onSelectTarget(e.target.value)} disabled={booting}>
+          <option value="">Choose a career (optional for matching)</option>
+          {careers.map(role => <option key={role.id} value={role.id}>{role.title}</option>)}
+        </select>
+        <p className="muted field-hint">You can compare every career first and choose a target later.</p>
       </div>
 
       <div className="form-block">

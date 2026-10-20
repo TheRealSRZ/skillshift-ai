@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { BarChart3, Briefcase, Globe, LayoutDashboard, Route, SlidersHorizontal, User } from 'lucide-react'
+import { BarChart3, Briefcase, Globe, LayoutDashboard, Moon, Route, SlidersHorizontal, Sun, User } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 const tabs = ['Dashboard', 'Profile', 'Trends', 'Careers', 'Simulator', 'Roadmap', 'SDG Impact'] as const
@@ -17,7 +17,7 @@ const icons: Record<typeof tabs[number], LucideIcon> = {
 
 const initials = (name: string) => name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
 
-export default function Layout({ active, onSelect, userName, children }: { active: Tab; onSelect: (tab: Tab) => void; userName: string; children: ReactNode }) {
+export default function Layout({ active, onSelect, userName, theme, onToggleTheme, children }: { active: Tab; onSelect: (tab: Tab) => void; userName: string; theme: 'light' | 'dark'; onToggleTheme: () => void; children: ReactNode }) {
   return (
     <div className="app">
       <aside className="sidebar">
@@ -43,10 +43,16 @@ export default function Layout({ active, onSelect, userName, children }: { activ
       <div className="content">
         <header className="topbar">
           <h1>{active}</h1>
-          <span className="badge">Synthetic demo data</span>
+          <div className="topbar-actions">
+            <span className="badge">Demo data</span>
+            <button type="button" className="theme-toggle" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
+              {theme === 'light' ? <Moon size={17} aria-hidden="true" /> : <Sun size={17} aria-hidden="true" />}
+              <span>{theme === 'light' ? 'Dark' : 'Light'} mode</span>
+            </button>
+          </div>
         </header>
         <main>{children}</main>
-        <footer>SYNTHETIC DEMO DATA — Not validated Malaysian market trends. Scores are not employment probabilities.</footer>
+        <footer>SYNTHETIC SCENARIO WEIGHTS — Scores measure skill compatibility, not employment probability. Occupation evidence is separate.</footer>
       </div>
     </div>
   )

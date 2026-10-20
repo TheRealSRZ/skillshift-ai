@@ -359,3 +359,100 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
 .skeleton-row, .sdg-skeleton { border-radius: 12px; background: linear-gradient(90deg, #eef2f6 25%, #f7f9fb 50%, #eef2f6 75%); background-size: 200% 100%; animation: shimmer 1.2s linear infinite; }
 .skeleton-row { height: 40px; margin-bottom: 12px; }
 .sdg-skeleton { height: 150px; }
+
+/* Phase 5A: target-career selection and deliberately separate roadmap generation */
+.text-field, select.text-field {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  min-height: 42px;
+  border: 1px solid var(--border-strong, #b8c5d2);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 9px 12px;
+  margin-top: 6px;
+  font: inherit;
+}
+.field-hint { margin: 6px 0 0; }
+.section-lead { margin: 0 0 18px; }
+.role-card.target { border: 2px solid var(--accent); padding: 17px; }
+.role-badges { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.target-badge { background: var(--accent-soft); color: var(--accent); border-radius: 99px; padding: 3px 10px; font-size: 12px; font-weight: 600; }
+.role-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 15px; }
+.role-select-btn, .target-selected-btn { padding: 7px 11px; font-size: 13px; }
+.target-selected-btn { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.roadmap-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; padding: 16px; border: 1px solid var(--border); border-radius: 12px; margin: 14px 0 18px; }
+.roadmap-field { flex: 1; min-width: min(230px, 100%); }
+.roadmap-field .form-label { margin-bottom: 5px; }
+.roadmap-field .text-field { max-width: 100%; }
+.roadmap-controls .primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; }
+.target-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0 0 15px; }
+.target-summary > div { display: flex; flex-direction: column; gap: 5px; padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+.target-summary strong { font-size: 17px; }
+.roadmap-gaps { margin: 12px 0; }
+.roadmap-gaps .form-label { margin-bottom: 9px; }
+.empty-state { border: 1px dashed var(--border); border-radius: 10px; padding: 20px; background: var(--bg); color: var(--muted); line-height: 1.5; margin: 12px 0; }
+.roadmap-loading { display: flex; gap: 12px; align-items: flex-start; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px; padding: 18px; margin: 16px 0; }
+.roadmap-loading .muted { margin: 4px 0 0; }
+.roadmap-error { margin-top: 12px; }
+.roadmap-mode strong { font-weight: 700; }
+.data-footnote { padding-top: 15px; }
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: var(--surface); color: var(--text); border-color: var(--border); }
+.theme-toggle:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .target-summary { grid-template-columns: 1fr; }
+  .topbar-actions { gap: 6px; }
+  .theme-toggle { padding: 9px; }
+  .theme-toggle span { display: none; }
+  .roadmap-controls .primary { width: 100%; }
+}
+
+/* Dark theme builds on Member 1's original layout and uses the same teal brand. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0e1824;
+  --surface: #162332;
+  --border: #344757;
+  --border-strong: #71889d;
+  --text: #f2f7fa;
+  --muted: #b2c3d0;
+  --accent: #67e0d3;
+  --accent-soft: #1c4144;
+  --danger: #ffc2c2;
+  --danger-bg: #4e262e;
+  --warn: #ffdd9d;
+  --warn-bg: #493924;
+}
+:root[data-theme='dark'] body { background: var(--bg); }
+:root[data-theme='dark'] button:not(.primary):not(.nav-item):not(.link-btn):not(.chip):not(.theme-toggle):not(.role-select-btn):not(.target-selected-btn) { background: var(--surface); border-color: var(--border); color: var(--text); }
+:root[data-theme='dark'] .nav-item { color: var(--muted); }
+:root[data-theme='dark'] .nav-item.selected { color: var(--accent); }
+:root[data-theme='dark'] .role-select-btn { background: var(--surface); border-color: var(--border); color: var(--text); }
+:root[data-theme='dark'] .login-brand { background: #164f58; }
+:root[data-theme='dark'] .login-brand p { color: #ecf8fa; }
+:root[data-theme='dark'] .bar-track, :root[data-theme='dark'] .trend-track, :root[data-theme='dark'] .sim-track { background: #263848; }
+:root[data-theme='dark'] .sim-tv.m, :root[data-theme='dark'] .sim-tv.r, :root[data-theme='dark'] .trend-val { color: var(--text); }
+:root[data-theme='dark'] .sim-tile.m { border-color: var(--accent); }
+:root[data-theme='dark'] .sim-tile.r { border-color: #72afba; }
+:root[data-theme='dark'] .sim-ic.r { background: #418998; color: #fff; }
+:root[data-theme='dark'] .sim-gap, :root[data-theme='dark'] .verdict.warn, :root[data-theme='dark'] .sim-tag.down { background: var(--warn-bg); color: var(--warn); }
+:root[data-theme='dark'] .verdict.ok, :root[data-theme='dark'] .verdict-pill, :root[data-theme='dark'] .sim-tag.up, :root[data-theme='dark'] .updated-pill, :root[data-theme='dark'] .note-banner.ok { background: #1e4238; color: #abf1cf; }
+:root[data-theme='dark'] .note-banner.ok svg { color: #abf1cf; }
+:root[data-theme='dark'] .chip.tag, :root[data-theme='dark'] .sdg-tag.not { background: #283849; color: var(--muted); }
+:root[data-theme='dark'] .sdg-tag.primary { background: #542b33; color: #ffd2da; }
+:root[data-theme='dark'] .trend-row:hover { background: var(--accent-soft); }
+:root[data-theme='dark'] .trend-row:hover .trend-fill { background: #90fcf1; }
+:root[data-theme='dark'] .skill-skeleton, :root[data-theme='dark'] .skeleton-row, :root[data-theme='dark'] .sdg-skeleton { background: linear-gradient(90deg, #203041 25%, #2a3b4a 50%, #203041 75%); background-size: 200% 100%; }
+:root[data-theme='dark'] .kpi strong, :root[data-theme='dark'] .score-val, :root[data-theme='dark'] .card strong, :root[data-theme='dark'] .path-title { color: var(--accent); }
+:root[data-theme='dark'] a { color: var(--accent); }
+:root[data-theme='dark'] button.primary,
+:root[data-theme='dark'] .step-num,
+:root[data-theme='dark'] .skill-chip.on,
+:root[data-theme='dark'] .top-badge,
+:root[data-theme='dark'] .sim-ic.m,
+:root[data-theme='dark'] .sdg-badge { color: #07363a; }
+:root[data-theme='dark'] .sim-ic.m { background: var(--accent); }
+:root[data-theme='dark'] .form-label { color: var(--text); }
+:root[data-theme='dark'] .badge { background: var(--warn-bg); color: var(--warn); }

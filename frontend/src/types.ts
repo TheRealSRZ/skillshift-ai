@@ -6,3 +6,4 @@ export type AnalyzeResponse = { scenario: string; trend_snapshot_id: string; dat
 export type TrendData = { snapshot_id: string; label: string; observed_date: string; retrieved_date: string; region: string; multipliers: Record<string, number> }
 export type RoadmapStep = { step: number; course_id: string; title: string; url: string; estimated_hours?: number; reason: string }
 export type RoadmapResponse = { target_role: string; scenario: string; generation_mode: string; steps: RoadmapStep[]; uncovered_skills: string[]; note: string }
+export type Scenario = "moderate" | "rapid";

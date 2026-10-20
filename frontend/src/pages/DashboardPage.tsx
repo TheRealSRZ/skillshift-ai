@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import type { Tab } from '../components/Layout'
-import type { AnalyzeResponse, RoadmapResponse, Skill } from '../types'
+import type { AnalyzeResponse, Match, RoadmapResponse, Skill } from '../types'
 
 type Sdg = { sdg: number; title: string; rationale: string }
 type Scenarios = { moderate: AnalyzeResponse; rapid: AnalyzeResponse }
@@ -16,6 +16,9 @@ type Props = {
   analysedAt: Date | null
   onNavigate: (tab: Tab) => void
   onAnalyze: () => void
+  selectedMatch: Match | null
+  targetRoleId: string
+  roadmapLoading: boolean
 }
 
 const pct = (score: number) => Math.round((score <= 1 ? score * 100 : score) * 10) / 10
@@ -32,8 +35,9 @@ function Widget({ title, to, onNavigate, children }: { title: string; to: Tab; o
   )
 }
 
-export default function DashboardPage({analysedAt, name, matches, scenarios, roadmap, skills, sdgs, loading, onNavigate, onAnalyze }: Props) {
+export default function DashboardPage({analysedAt, name, matches, scenarios, roadmap, skills, sdgs, loading, onNavigate, onAnalyze, selectedMatch, targetRoleId, roadmapLoading }: Props) {
   const top = matches?.matches[0]
+  const focus = selectedMatch ?? top
   const [justUpdated, setJustUpdated] = useState(false)
 
   useEffect(() => {
@@ -73,9 +77,9 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
 
       <div key={`k${analysedAt?.getTime()}`} className={loading ? 'kpi-grid fade-in dim' : 'kpi-grid fade-in'}>
         <div className="kpi"><span>Top match</span><strong>{top.title}</strong><small>{pct(top.readiness_score)}% skill fit</small></div>
-        <div className="kpi"><span>Skills you have</span><strong>{top.matched_skills.length}</strong><small>for {top.title}</small></div>
-        <div className="kpi"><span>Skills to learn</span><strong>{top.missing_skills.length}</strong><small>for {top.title}</small></div>
-        <div className="kpi"><span>Roadmap time</span><strong>{hours > 0 ? `${hours} h` : '—'}</strong><small>{roadmap ? `${roadmap.steps.length} steps` : 'No roadmap yet'}</small></div>
+        <div className="kpi"><span>Skills you have</span><strong>{focus?.matched_skills.length ?? 0}</strong><small>for {focus?.title ?? top.title}</small></div>
+        <div className="kpi"><span>Skills to learn</span><strong>{focus?.missing_skills.length ?? 0}</strong><small>for {focus?.title ?? top.title}</small></div>
+        <div className="kpi"><span>Selected target</span><strong>{selectedMatch ? selectedMatch.title : 'Not set'}</strong><small>{selectedMatch ? `${selectedMatch.readiness_score}% readiness` : 'Choose one on Careers'}</small></div>
       </div>
 
       <div key={`w${analysedAt?.getTime()}`} className={loading ? 'widget-grid fade-in dim' : 'widget-grid fade-in'}>
@@ -89,16 +93,16 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
           ))}
         </Widget>
 
-        <Widget title={`Skills for ${top.title}`} to="Careers" onNavigate={onNavigate}>
+        <Widget title={`Skills for ${focus?.title ?? top.title}`} to="Careers" onNavigate={onNavigate}>
           <p className="chip-label">You have</p>
           <div className="chips">
-            {top.matched_skills.length === 0 && <span className="muted">None yet</span>}
-            {top.matched_skills.map(id => <span className="chip have" key={id}>{nameOf(id)}</span>)}
+            {focus?.matched_skills.length === 0 && <span className="muted">None yet</span>}
+            {focus?.matched_skills.map(id => <span className="chip have" key={id}>{nameOf(id)}</span>)}
           </div>
           <p className="chip-label">To learn</p>
           <div className="chips">
-            {top.missing_skills.length === 0 && <span className="muted">Nothing missing</span>}
-            {top.missing_skills.map(id => <span className="chip miss" key={id}>{nameOf(id)}</span>)}
+            {focus?.missing_skills.length === 0 && <span className="muted">Nothing missing</span>}
+            {focus?.missing_skills.map(id => <span className="chip miss" key={id}>{nameOf(id)}</span>)}
           </div>
         </Widget>
 
@@ -112,7 +116,10 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
         </Widget>
 
         <Widget title="Roadmap" to="Roadmap" onNavigate={onNavigate}>
-          {steps.length === 0 && <p className="muted">No roadmap steps yet.</p>}
+          {!targetRoleId && <p className="muted">Select a target career on Careers or Roadmap.</p>}
+          {targetRoleId && roadmapLoading && <p className="muted">Generating your roadmap…</p>}
+          {targetRoleId && !roadmapLoading && steps.length === 0 && <p className="muted">No roadmap generated yet. Open Roadmap to request one.</p>}
+          {roadmap && <p className="muted">{hours > 0 ? `${Math.round(hours * 10) / 10} h · ` : ''}{roadmap.generation_mode === 'runpod_validated' ? 'AI-assisted' : 'Verified fallback'}</p>}
           <ol className="mini-steps">
             {steps.map(s => (
               <li key={s.step}>
@@ -124,9 +131,9 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
           </ol>
         </Widget>
 
-        <Widget title={`SDGs for ${top.title}`} to="SDG Impact" onNavigate={onNavigate}>
+        <Widget title={`SDGs for ${focus?.title ?? top.title}`} to="SDG Impact" onNavigate={onNavigate}>
           <div className="chips">
-            {top.sdgs.map(n => <span className="chip sdg" key={n} title={sdgs.find(s => s.sdg === n)?.title}>SDG {n}</span>)}
+            {focus?.sdgs.map(n => <span className="chip sdg" key={n} title={sdgs.find(s => s.sdg === n)?.title}>SDG {n}</span>)}
           </div>
         </Widget>
       </div>
