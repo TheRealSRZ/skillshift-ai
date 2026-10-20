@@ -144,3 +144,53 @@ def test_ai_selects_only_verified_courses():
     ]
     assert result["uncovered_skills"] == []
 
+
+def test_ai_cannot_reduce_skill_coverage():
+    """AI must not omit skills covered by verified courses."""
+
+    courses = [
+        {
+            "id": "course_powerbi",
+            "title": "Power BI Basics",
+            "url": "https://example.com/powerbi",
+            "verified": True,
+            "skill_ids": ["skill_power_bi"],
+            "estimated_hours": 8,
+        },
+        {
+            "id": "course_data_viz",
+            "title": "Data Visualization",
+            "url": "https://example.com/dataviz",
+            "verified": True,
+            "skill_ids": ["skill_data_viz"],
+            "estimated_hours": 5,
+        },
+    ]
+
+    # Simulate RunPod selecting only one course.
+    with patch(
+        "ai.learning_planner.ask_ai",
+        return_value='["course_powerbi"]',
+    ):
+        result = generate_roadmap(
+            target_role="Data Analyst",
+            missing_skills=[
+                "skill_power_bi",
+                "skill_data_viz",
+            ],
+            scenario="moderate",
+            verified_courses=courses,
+            use_ai=True,
+        )
+
+    selected_ids = {
+        step["course_id"]
+        for step in result["steps"]
+    }
+
+    assert selected_ids == {
+        "course_powerbi",
+        "course_data_viz",
+    }
+
+    assert result["uncovered_skills"] == []

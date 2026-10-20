@@ -2,7 +2,10 @@
 """Member 3: verified learning roadmap with RunPod fallback."""
 
 import json
+import logging
 import re
+
+logger = logging.getLogger(__name__)
 
 from ai.runpod_client import ask_ai
 
@@ -78,14 +81,38 @@ def generate_roadmap(
             ):
                 raise ValueError("Invalid AI course selection")
 
+            
             selected_courses = [
                 eligible_by_id[cid] for cid in selected_ids
             ]
 
+            # Calculate the skills covered by all eligible courses.
+            baseline_coverage = set()
+            for course in eligible:
+                baseline_coverage.update(
+                    missing.intersection(course.get("skill_ids", []))
+                )
+
+            # Calculate the skills covered by AI-selected courses.
+            ai_coverage = set()
+            for course in selected_courses:
+                ai_coverage.update(
+                    missing.intersection(course.get("skill_ids", []))
+                )
+
+            # Reject AI selections that miss coverable skills.
+            if not baseline_coverage.issubset(ai_coverage):
+                raise ValueError("AI selection has incomplete skill coverage")
+
             generation_mode = "runpod_ai"
 
+
         except Exception as e:
-            print("AI fallback reason:", type(e).__name__, str(e))
+            # Log only the error category, never the full exception.
+            logger.warning(
+                "AI roadmap fallback: %s",
+                type(e).__name__,
+            )
             selected_courses = []
             generation_mode = "deterministic_fallback"
 
