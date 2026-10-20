@@ -89,7 +89,7 @@ def test_runpod_failure_uses_fallback():
     ]
 
     with patch(
-        "ai.runpod_client.ask_ai",
+        "ai.learning_planner.ask_ai",
         side_effect=RuntimeError("RunPod unavailable"),
     ):
         result = generate_roadmap(
@@ -102,5 +102,45 @@ def test_runpod_failure_uses_fallback():
 
     assert result["generation_mode"] == "deterministic_fallback"
     assert result["steps"][0]["course_id"] == "course_python"
+    assert result["uncovered_skills"] == []
+
+
+def test_ai_selects_only_verified_courses():
+    courses = [
+        {
+            "id": "course_python",
+            "title": "Python Basics",
+            "url": "https://example.com/python",
+            "verified": True,
+            "skill_ids": ["skill_python"],
+            "estimated_hours": 10,
+        },
+        {
+            "id": "course_sql",
+            "title": "SQL Basics",
+            "url": "https://example.com/sql",
+            "verified": True,
+            "skill_ids": ["skill_sql"],
+            "estimated_hours": 8,
+        },
+    ]
+
+    with patch(
+        "ai.learning_planner.ask_ai",
+        return_value='["course_sql", "course_python"]',
+    ):
+        result = generate_roadmap(
+            target_role="Data Analyst",
+            missing_skills=["skill_python", "skill_sql"],
+            scenario="moderate",
+            verified_courses=courses,
+            use_ai=True,
+        )
+
+    assert result["generation_mode"] == "runpod_ai"
+    assert [s["course_id"] for s in result["steps"]] == [
+        "course_sql",
+        "course_python",
+    ]
     assert result["uncovered_skills"] == []
 

@@ -1,5 +1,11 @@
 
-"""Member 3: safe learning roadmap with RunPod fallback."""
+"""Member 3: verified learning roadmap with RunPod fallback."""
+
+import json
+import re
+
+from ai.runpod_client import ask_ai
+
 
 def generate_roadmap(
     target_role: str,
@@ -7,44 +13,94 @@ def generate_roadmap(
     scenario: str,
     verified_courses: list[dict],
     *,
-    use_ai=False
+    use_ai=False,
 ):
-    # Try RunPod only when AI is requested.
-    if use_ai:
-        try:
-            from ai.runpod_client import ask_ai
+    missing = set(missing_skills)
 
+    # Never let the AI invent courses or URLs.
+    eligible = [
+        course
+        for course in verified_courses
+        if course.get("verified")
+        and course.get("url")
+        and course.get("id")
+        and missing.intersection(course.get("skill_ids", []))
+    ]
+
+    selected_courses = []
+    generation_mode = "deterministic_fallback"
+
+    if use_ai and eligible:
+        try:
             prompt = (
+                "You are SkillShift AI, a learning roadmap assistant.\n"
+                "Select courses ONLY from the supplied list.\n"
+                "Return ONLY a valid JSON array of course IDs.\n"
+                "Do not invent course IDs, URLs, or statistics.\n\n"
                 f"Target career: {target_role}\n"
-                f"Missing skills: {missing_skills}\n"
+                f"Missing skill IDs: {sorted(missing)}\n"
                 f"Scenario: {scenario}\n"
-                "Suggest a learning roadmap using verified courses only."
+                "Available verified courses:\n"
+                + json.dumps(
+                    [
+                        {
+                            "id": c["id"],
+                            "title": c["title"],
+                            "skill_ids": c.get("skill_ids", []),
+                        }
+                        for c in eligible
+                    ]
+                )
             )
 
-            ai_response = ask_ai(prompt)
+            raw = ask_ai(prompt)
 
-            # Do not trust AI-generated recommendations yet.
-            # Structured validation will be implemented later.
-            if not ai_response:
-                raise ValueError("Empty AI response")
+            # Accept a JSON array even when Qwen wraps it in explanations.
+            match = re.search(r'\[\s*"[^"]+"(?:\s*,\s*"[^"]+")*\s*\]', raw)
 
-            raise ValueError("AI response validation not implemented yet")
+            if not match:
+                raise ValueError("AI did not return a valid course ID array")
 
-        except Exception:
-            # If RunPod fails, use the safe fallback below.
-            pass
+            selected_ids = json.loads(match.group(0))
 
-    missing = set(missing_skills)
+            if not isinstance(selected_ids, list):
+                raise ValueError("AI must return a JSON array")
+
+            eligible_by_id = {c["id"]: c for c in eligible}
+
+            if (
+                not selected_ids
+                or not all(
+                    isinstance(cid, str) and cid in eligible_by_id
+                    for cid in selected_ids
+                )
+                or len(selected_ids) != len(set(selected_ids))
+            ):
+                raise ValueError("Invalid AI course selection")
+
+            selected_courses = [
+                eligible_by_id[cid] for cid in selected_ids
+            ]
+
+            generation_mode = "runpod_ai"
+
+        except Exception as e:
+            print("AI fallback reason:", type(e).__name__, str(e))
+            selected_courses = []
+            generation_mode = "deterministic_fallback"
+
+    # Safe fallback if AI is unavailable or returns invalid data.
+    if generation_mode == "deterministic_fallback":
+        selected_courses = eligible
+
     covered = set()
     steps = []
 
-    for course in verified_courses:
-        if not course.get("verified") or not course.get("url"):
-            continue
-
-        matched = missing.intersection(
-            course.get("skill_ids", [])
-        ) - covered
+    for course in selected_courses:
+        matched = (
+            missing.intersection(course.get("skill_ids", []))
+            - covered
+        )
 
         if not matched:
             continue
@@ -60,19 +116,18 @@ def generate_roadmap(
             "reason": (
                 "Covers missing skills: "
                 + ", ".join(sorted(matched))
-            )
+            ),
         })
 
     return {
         "target_role": target_role,
         "scenario": scenario,
-        "generation_mode": "deterministic_fallback",
+        "generation_mode": generation_mode,
         "steps": steps,
         "uncovered_skills": sorted(missing - covered),
         "note": (
-            "Starter dataset has no verified courses. "
-            "Member 4 must validate real resources."
-            if not steps and missing
+            "No verified courses cover the remaining skills."
+            if missing - covered
             else "Times are course estimates, not guarantees."
-        )
+        ),
     }
