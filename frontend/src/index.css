@@ -181,3 +181,21 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
 
 .form-actions { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 20px; }
 .form-actions button { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; padding: 12px 24px; }
+
+.role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.role-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px; background: var(--surface); }
+.role-card.top { border: 2px solid var(--accent); padding: 17px; }
+.role-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+.role-head h3 { margin: 0; font-size: 17px; }
+.top-badge { font-size: 12px; background: var(--accent); color: #fff; border-radius: 99px; padding: 3px 10px; white-space: nowrap; }
+.score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.score-val { font-size: 24px; color: var(--accent); min-width: 70px; }
+.score-row .bar-track { flex: 1; }
+.role-card .chips:last-child { margin-bottom: 0; }
+.chip.tag { background: #eef2f6; color: #3f5468; }
+.chip.none, .chip.more { background: transparent; border: 1px dashed var(--border); color: var(--muted); }
+.chip.more { cursor: pointer; font: inherit; font-size: 12px; }
+.chip.more:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+.page-foot { font-size: 12px; color: var(--muted); margin: 24px 0 0; }
+.data-note { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; }
+@media (max-width: 800px) { .role-grid { grid-template-columns: 1fr; } }
