@@ -1,7 +1,71 @@
-import type { TrendData } from '../types'
-export default function TrendsPage({trend}:{trend:TrendData|null}){
-  return <section><h2>Future Skills Radar</h2><p>Starter trend fixture; replace with dated verified Malaysian observations.</p>
-    {trend?<><p><strong>{trend.label}</strong></p><p>Snapshot: {trend.snapshot_id} | Date: {trend.observed_date} | Region: {trend.region}</p>
-      <ul>{Object.entries(trend.multipliers).map(([id,v])=><li key={id}>{id}: demo multiplier {v}</li>)}</ul></>:<p>Trend data unavailable.</p>}
-  </section>
+import { useState } from 'react'
+import { CalendarCheck, CalendarDays, ChevronDown, ChevronUp, MapPin, Tag } from 'lucide-react'
+import type { Skill, TrendData } from '../types'
+
+const LIMIT = 6
+
+export default function TrendsPage({ trend, skills, booting }: { trend: TrendData | null; skills: Skill[]; booting: boolean }) {
+  const [showAll, setShowAll] = useState(false)
+  const nameOf = (id: string) => skills.find(s => s.id === id)?.name ?? id
+
+  if (booting) {
+    return (
+      <section>
+        <h2>Future skills radar</h2>
+        {[0, 1, 2].map(i => <div className="skeleton-row" key={i} />)}
+      </section>
+    )
+  }
+
+  if (!trend) {
+    return (
+      <section>
+        <h2>Future skills radar</h2>
+        <p className="muted">Trend data unavailable.</p>
+      </section>
+    )
+  }
+
+  const data = Object.entries(trend.multipliers)
+    .map(([id, value]) => ({ id, name: nameOf(id), value }))
+    .sort((a, b) => b.value - a.value)
+  const max = data.length ? Math.max(...data.map(d => d.value)) : 0
+  const visible = showAll ? data : data.slice(0, LIMIT)
+
+  return (
+    <section>
+      <div className="trend-head">
+        <div>
+          <h2>Future skills radar</h2>
+          <p className="muted">{trend.label}</p>
+        </div>
+      </div>
+
+      <p className="trend-src">
+        <span><Tag size={14} aria-hidden="true" />{trend.snapshot_id}</span>
+        <span><CalendarDays size={14} aria-hidden="true" />Observed {trend.observed_date}</span>
+        <span><CalendarCheck size={14} aria-hidden="true" />Retrieved {trend.retrieved_date}</span>
+        <span><MapPin size={14} aria-hidden="true" />{trend.region}</span>
+      </p>
+
+      {visible.map((d, i) => (
+        <div className="trend-row" key={d.id} title={`${d.name}: ${d.value}`}>
+          <span>{d.name}</span>
+          <div className="trend-track">
+            <div className="trend-fill" style={{ width: `${max > 0 ? (d.value / max) * 100 : 0}%`, animationDelay: `${i * 0.05}s` }} />
+          </div>
+          <span className="trend-val">{d.value}</span>
+        </div>
+      ))}
+
+      {data.length > LIMIT && (
+        <div className="trend-more">
+          <button type="button" onClick={() => setShowAll(!showAll)}>
+            {showAll ? <ChevronUp size={16} aria-hidden="true" /> : <ChevronDown size={16} aria-hidden="true" />}
+            {showAll ? `Show top ${LIMIT}` : `Show all ${data.length}`}
+          </button>
+        </div>
+      )}
+    </section>
+  )
 }
