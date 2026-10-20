@@ -5,11 +5,42 @@
     "publisher": "TalentCorp",
     "url": "https://www.talentcorp.com.my/images/uploads/publication/204/MyMahir-Malaysia-Critical-Occupations-List-MyCOL20242025-1773385490.pdf",
     "publication_year": null,
+    "published_date": null,
+    "report_period": null,
     "retrieved_date": "2026-10-20",
     "geography": "Malaysia",
     "source_type": "critical_occupations_report",
-    "evidence_location": "Table 7, printed pages 85-87 (critical occupations list); Software Developers (MASCO 2512) detailed occupation profile, printed pages 249-250",
-    "usable_as_real_evidence": true
+    "data_update_type": null,
+    "evidence_location": "Table 7, printed pages 85-87; Accountants and Auditors (MASCO 2411), printed pages 223-224; Software Developers (MASCO 2512), printed pages 249-250",
+    "supported_claims": [
+      {
+        "claim_id": "mycol_sw_critical_2024_2025",
+        "claim": "Software Developers (MASCO 2512) is included in MyCOL 2024/2025.",
+        "evidence_location": "Software Developers profile, printed pages 249-250"
+      },
+      {
+        "claim_id": "mycol_acc_critical_2024_2025",
+        "claim": "Accountants and Auditors (MASCO 2411) is included in MyCOL 2024/2025 for the specified job titles.",
+        "evidence_location": "Accountants and Auditors profile, printed pages 223-224"
+      }
+    ],
+    "limitations": [
+      "MyCOL critical-occupation status does not establish individual skill importance weights, AI-impact levels or future employment growth.",
+      "Occupation-level inclusion may apply to specific job titles listed within each profile."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": [
+      "The report is publicly accessible, but permission to redistribute or adapt its full contents has not been independently verified.",
+      "Source is referenced for factual occupation, skill, and workforce information with attribution."
+    ]
   },
   {
     "id": "src_dosm_jmi_q2_2026",
@@ -18,12 +49,50 @@
     "url": "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026",
     "publication_year": 2026,
     "published_date": "2026-08-18",
+    "report_period": "2026-Q2",
     "retrieved_date": "2026-10-20",
     "geography": "Malaysia",
     "source_type": "online_job_postings_report",
-    "evidence_location": "Official Q2 2026 release overview and media statement, page 1: Software Developers, 19,899 online job offerings",
+    "data_update_type": "periodic_report",
+    "evidence_location": "Official Q2 2026 DOSM release overview and media statement, page 1: Accountants and Auditors (22,067) and Software Developers (19,899) online job offerings",
+    "supported_claims": [
+      {
+        "claim_id": "dosm_sw_job_offerings_2026_q2",
+        "claim": "DOSM reported 19,899 online job offerings for Software Developers in Q2 2026.",
+        "evidence_location": "Q2 2026 media statement, page 1"
+      },
+      {
+        "claim_id": "dosm_acc_job_offerings_2026_q2",
+        "claim": "DOSM reported 22,067 online job offerings for Accountants and Auditors in Q2 2026.",
+        "evidence_location": "Q2 2026 media statement, page 1"
+      }
+    ],
+    "limitations": [
+      "Measures online job offerings for occupations, not skill-level demand, total employment, or unique job vacancies."
+    ],
     "usable_as_real_evidence": true,
-    "limitation": "Measures online job offerings for occupations, not skill-level demand, total employment, or unique job vacancies."
+    "license": "DOSM Government Open Data Terms of Use 1.0",
+    "license_status": "terms_identified",
+    "license_url": "https://www.dosm.gov.my/portal-main/article/term-of-use",
+    "attribution": "Data source: Department of Statistics Malaysia",
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": false,
+    "data_files": [
+      {
+        "path": "data/Data JMI Q2 2026.xlsx",
+        "role": "Original downloaded DOSM workbook",
+        "evidence_level": "Major occupational groups"
+      },
+      {
+        "path": "data/jmi_major_occupation_2025_2026.csv",
+        "role": "Cleaned dataset derived from the DOSM workbook",
+        "evidence_level": "Major occupational groups"
+      }
+    ],
+    "notes": [
+      "The DOSM Government Open Data Terms of Use 1.0 apply to data made available through the DOSM portal. No separate licence statement has been verified for the original Excel workbook."
+    ]
   },
   {
     "id": "src_ict_2024",
@@ -31,11 +100,47 @@
     "publisher": "TalentCorp",
     "url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf",
     "publication_year": 2024,
+    "published_date": null,
+    "report_period": "2024",
     "retrieved_date": "2026-10-20",
     "geography": "Malaysia",
     "source_type": "workforce_impact_report",
+    "data_update_type": null,
     "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
-    "usable_as_real_evidence": true
+    "supported_claims": [
+      {
+        "claim_id": "ict_sw_ai_impact",
+        "claim": "Software Engineer is classified as a low AI-impacted role in the TalentCorp ICT impact study.",
+        "evidence_location": "Chapter 4, Software Engineer profile, printed pages 106-107"
+      },
+      {
+        "claim_id": "ict_sw_specific_skills",
+        "claim": "Software configuration, software design and software testing are listed as specific skills for Software Engineer.",
+        "evidence_location": "Chapter 4, Software Engineer profile, printed pages 106-107"
+      },
+      {
+        "claim_id": "ict_sw_basic_skills",
+        "claim": "AI fluency, critical thinking and innovative thinking are listed as basic skills for Software Engineer.",
+        "evidence_location": "Chapter 4, Software Engineer profile, printed pages 106-107"
+      }
+    ],
+    "limitations": [
+      "The source describes Software Engineer, while the project career uses Software Developer under MASCO 2512. This is an approximate occupational mapping.",
+      "TalentCorp does not assign the project's skill importance weights of 1 to 4.",
+      "Low AI impact does not establish future job security or employment growth."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": [
+      "Reuse and redistribution permissions have not been verified for this report."
+    ]
   },
   {
     "id": "src_gbs_2024",
@@ -43,11 +148,48 @@
     "publisher": "TalentCorp",
     "url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf",
     "publication_year": 2024,
+    "published_date": null,
+    "report_period": null,
     "retrieved_date": "2026-10-20",
     "geography": "Malaysia",
     "source_type": "workforce_impact_report",
-    "evidence_location": "Chapter 4, pages 38-103",
-    "usable_as_real_evidence": true
+    "data_update_type": null,
+    "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+    "supported_claims": [
+      {
+        "claim_id": "gbs_acc_medium_ai_impact",
+        "claim": "Cost Accountant, Internal Auditor and General Ledger Accountant are included among the medium AI-impacted roles in the GBS finance and accounting function.",
+        "evidence_location": "Chapter 4, Medium Impacted Roles, printed page 95"
+      },
+      {
+        "claim_id": "gbs_acc_specific_skills",
+        "claim": "The GBS finance and accounting function lists Ethical Judgement, Financial Analysis and Reporting, Attention to Detail, Accounting Principles and Cost-Benefit Analysis as specific skills.",
+        "evidence_location": "Chapter 4, Finance and Accounting Function skills table, printed page 95"
+      },
+      {
+        "claim_id": "gbs_acc_basic_skills",
+        "claim": "The GBS finance and accounting function lists Influencing and Negotiation, Innovative Thinking, Learning Agility, Planning and Organising, and Conflict Management as basic skills.",
+        "evidence_location": "Chapter 4, Finance and Accounting Function skills table, printed page 95"
+      }
+    ],
+    "limitations": [
+      "The findings concern the Global Business Services finance and accounting function and do not automatically represent every Accountant and Auditor under MASCO 2411.",
+      "The medium AI-impact classification applies to the specified GBS roles, not the entire Accountants and Auditors occupation.",
+      "The report does not establish the project's individual skill importance weights of 1 to 4."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": [
+      "The report is publicly accessible, but permission to redistribute or adapt its full contents has not been independently verified.",
+      "Source is referenced for factual occupation, skill, and workforce information with attribution."
+    ]
   },
   {
     "id": "src_ee_2024",
@@ -55,11 +197,28 @@
     "publisher": "TalentCorp",
     "url": "https://www.talentcorp.com.my/images/uploads/publication/195/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Electrical-and-Electronics-1747879257.pdf",
     "publication_year": 2024,
+    "published_date": null,
+    "report_period": null,
     "retrieved_date": "2026-10-20",
     "geography": "Malaysia",
     "source_type": "workforce_impact_report",
+    "data_update_type": null,
     "evidence_location": "Chapter 4, pages 40-77",
-    "usable_as_real_evidence": true
+    "supported_claims": [],
+    "limitations": [],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": [
+      "The report is publicly accessible, but permission to redistribute or adapt its full contents has not been independently verified.",
+      "Source is referenced for factual occupation, skill, and workforce information with attribution."
+    ]
   },
   {
     "id": "src_retail_2024",
@@ -67,33 +226,154 @@
     "publisher": "TalentCorp",
     "url": "https://www.talentcorp.com.my/images/uploads/publication/202/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Wholesale-and-Retail-Trade-1747879709.pdf",
     "publication_year": 2024,
+    "published_date": null,
+    "report_period": null,
     "retrieved_date": "2026-10-20",
     "geography": "Malaysia",
     "source_type": "workforce_impact_report",
+    "data_update_type": null,
     "evidence_location": "Chapter 4, pages 36-97",
-    "usable_as_real_evidence": true
+    "supported_claims": [],
+    "limitations": [],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": [
+      "The report is publicly accessible, but permission to redistribute or adapt its full contents has not been independently verified.",
+      "Source is referenced for factual occupation, skill, and workforce information with attribution."
+    ]
   },
   {
     "id": "src_esco_121",
-    "title": "ESCO classification v1.2.1 \u2014 English CSV dataset",
+    "title": "ESCO classification v1.2.1 — English CSV dataset",
     "publisher": "European Commission",
     "url": "https://esco.ec.europa.eu/en/use-esco/download",
     "publication_year": 2025,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
     "geography": "Europe / international reference",
     "source_type": "occupation_skills_classification",
+    "data_update_type": null,
     "evidence_location": "occupations_en.csv: software developer; occupationSkillRelations_en.csv (essential/optional relations)",
+    "supported_claims": [],
+    "limitations": [
+      "ESCO is an international occupation-and-skills classification, not Malaysian labour-market statistics. Adapted occupation-to-skill relationships are not independently verified Malaysian employer requirements and must not be presented as observed Malaysian skill demand or trends."
+    ],
     "usable_as_real_evidence": true,
-    "limitation": "Not Malaysian labour-market statistics; role-skill mapping must be labelled as adapted.",
+    "license": "European Commission Decision 2011/833/EU - ESCO classification reuse conditions",
+    "license_status": "terms_identified",
+    "license_url": "https://esco.ec.europa.eu/en/use-esco/download/privacy-statement",
+    "attribution": "This service uses the ESCO classification of the European Commission.",
+    "reuse_conditions": [
+      "Acknowledge the European Commission's ESCO classification.",
+      "Clearly identify modifications or adaptations to ESCO."
+    ],
+    "adapted": true,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": [
+      "ESCO classification data is adapted as supporting international occupational information; the API software licence is separate from classification reuse conditions."
+    ]
+  },
+  {
+    "id": "src_masco_2020",
+    "title": "Malaysia Standard Classification of Occupations (MASCO) 2020",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2512",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
     "retrieved_date": "2026-10-20",
-    "adaptation_note": "International ESCO occupation-to-skill relationships are used as supporting classification evidence. They are not independently verified Malaysian employer requirements."
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "MASCO 2020, unit group 2512 - Software Developers",
+    "supported_claims": [
+      {
+        "claim_id": "masco_sw_classification_2512",
+        "claim": "Software Developers are classified under MASCO occupation code 2512.",
+        "evidence_location": "MASCO 2020, unit group 2512 - Software Developers"
+      }
+    ],
+    "limitations": [
+      "Supports occupational classification and role descriptions, not employment growth or current job vacancy counts."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": []
+  },
+  {
+    "id": "src_masco_accountants_2020",
+    "title": "MASCO 2020 - Accountants and Auditors (2411)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2411",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "eMASCO, unit group 2411 - Accountants and Auditors",
+    "supported_claims": [
+      {
+        "claim_id": "masco_accountants_2411",
+        "claim": "Accountants and Auditors are classified under MASCO 2020 unit group 2411.",
+        "evidence_location": "eMASCO, unit group 2411"
+      }
+    ],
+    "limitations": [
+      "Occupation classification only; does not measure labour-market demand or AI impact."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": []
   },
   {
     "id": "src_demo",
     "title": "Synthetic integration-test fixture",
+    "publisher": null,
     "url": null,
+    "publication_year": null,
     "published_date": null,
+    "report_period": null,
+    "retrieved_date": null,
     "geography": "synthetic_demo",
     "source_type": "synthetic",
-    "usable_as_real_evidence": false
+    "data_update_type": null,
+    "evidence_location": null,
+    "supported_claims": [],
+    "limitations": [],
+    "usable_as_real_evidence": false,
+    "license": null,
+    "license_status": "not_applicable",
+    "license_url": null,
+    "attribution": null,
+    "reuse_conditions": [],
+    "adapted": null,
+    "trend_claim_allowed": null,
+    "data_files": [],
+    "notes": []
   }
 ]

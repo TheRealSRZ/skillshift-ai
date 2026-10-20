@@ -66,12 +66,75 @@
     "source_ids": [
       "src_mycol_2024",
       "src_ict_2024",
-      "src_esco_121"
+      "src_esco_121",
+      "src_masco_2020",
+      "src_dosm_jmi_q2_2026"
     ],
+    "evidence_claim_ids": [
+      "ict_sw_ai_impact",
+      "ict_sw_specific_skills",
+      "ict_sw_basic_skills",
+      "masco_sw_classification_2512",
+      "dosm_sw_job_offerings_2026_q2"
+    ],
+    "evidence_notes": {
+      "occupation_classification": "MASCO 2512 is supported by the official MASCO 2020 classification.",
+      "skills": "Six selected skills are based on TalentCorp's Software Engineer profile, printed pages 106-107.",
+      "ai_impact": "Low AI impact is based on TalentCorp's Software Engineer classification, not an independently calculated prediction.",
+      "skill_weights": "Skill importance weights (1-4) are team-defined assumptions and are not official TalentCorp scores.",
+      "job_market": "DOSM Q2 2026 reports 19,899 online job offerings for Software Developers. This is a single observation, not proof of increasing demand."
+    },
     "evidence_status": "curated_with_assumptions",
     "weight_method": "Team-defined illustrative skill importance weights (1-4). Not official TalentCorp or ESCO scores.",
-    "occupation_mapping_note": "Malaysian Software Developers (MASCO 2512) mapped to TalentCorp ICT Software Engineer and ESCO software developer (ISCO 2512). The six selected skills are based on TalentCorp's Software Engineer profile. ESCO provides supplementary international occupational classification evidence; these occupation records are not identical.",
+    "occupation_mapping_note": "Malaysian Software Developers (MASCO 2512) mapped to TalentCorp ICT Software Engineer and ESCO software developer (ISCO 2512). These occupation records are not identical.",
     "ai_impact": "low",
-    "ai_impact_note": "Low AI impact according to the TalentCorp ICT Impact Study's Software Engineer classification. This does not mean low job demand, low job importance, or zero automation risk."
+    "ai_impact_note": "Low AI impact according to the TalentCorp ICT Software Engineer classification. This does not imply zero automation risk or guaranteed job security."
+  },
+  {
+    "id": "role_accountant_auditor",
+    "title": "Accountants and Auditors",
+    "market": "Malaysia",
+    "masco_code": "2411",
+    "industry": "Accounting and Finance",
+    "required_skills": {
+      "skill_financial_analysis_reporting": 4,
+      "skill_accounting_principles": 4,
+      "skill_attention_to_detail": 3,
+      "skill_ethical_judgement": 3,
+      "skill_cost_benefit_analysis": 2,
+      "skill_innovative_thinking": 2
+    },
+    "sdgs": [
+      4,
+      8,
+      16
+    ],
+    "source_ids": [
+      "src_mycol_2024",
+      "src_masco_accountants_2020",
+      "src_gbs_2024",
+      "src_dosm_jmi_q2_2026"
+    ],
+    "evidence_claim_ids": [
+      "mycol_acc_critical_2024_2025",
+      "masco_accountants_2411",
+      "gbs_acc_medium_ai_impact",
+      "gbs_acc_specific_skills",
+      "gbs_acc_basic_skills",
+      "dosm_acc_job_offerings_2026_q2"
+    ],
+    "evidence_notes": {
+      "occupation_classification": "Accountants and Auditors are classified under MASCO 2411.",
+      "skills": "Six selected skills are drawn from TalentCorp's Global Business Services Finance and Accounting Function skills table, printed page 95. The table describes a job cluster, not every individual accounting role.",
+      "ai_impact": "TalentCorp identifies Cost Accountant, Internal Auditor and General Ledger Accountant among medium AI-impacted GBS roles. No single AI-impact level is assigned to the entire MASCO 2411 occupation.",
+      "skill_weights": "Skill importance weights from 1 to 4 are team-defined estimates, not official TalentCorp scores.",
+      "job_market": "DOSM reported 22,067 online job offerings for Accountants and Auditors in Q2 2026. This is a quarterly observation, not a forecast or a skill-demand measurement.",
+      "sdgs": "SDG 4, 8 and 16 mappings are project-defined interpretations, not official TalentCorp classifications."
+    },
+    "evidence_status": "curated_with_assumptions",
+    "weight_method": "Team-defined illustrative skill importance weights (1-4). Not official TalentCorp scores.",
+    "occupation_mapping_note": "MASCO 2411 Accountants and Auditors is broader than the Finance and Accounting Function roles covered by the TalentCorp GBS study.",
+    "ai_impact": null,
+    "ai_impact_note": "AI impact varies by accounting role. Medium impact is documented for specified GBS specialisations, but should not be generalized to every Accountant and Auditor."
   }
 ]

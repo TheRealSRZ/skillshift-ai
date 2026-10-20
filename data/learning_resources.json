@@ -176,5 +176,110 @@
     "verified_date": "2026-10-20",
     "learning_category": "ai_adaptation",
     "notes": "15-minute module on responsible AI use, limitations, ethical risks and accountability when using AI-generated code."
+  },
+  {
+    "id": "course_acc_accounting_principles",
+    "title": "Introduction to bookkeeping and accounting",
+    "skill_ids": [
+      "skill_accounting_principles"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/money-business/introduction-bookkeeping-and-accounting",
+    "estimated_hours": 8,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Introductory double-entry bookkeeping, trial balances and financial statements. General accounting education; not specific to Malaysian reporting rules."
+  },
+  {
+    "id": "course_acc_financial_analysis",
+    "title": "Financial statement analysis and interpretation",
+    "skill_ids": [
+      "skill_financial_analysis_reporting"
+    ],
+    "provider": "OpenLearn - The Open University",
+    "url": "https://www.open.edu/openlearn/money-business/financial-statement-analysis-and-interpretation",
+    "estimated_hours": 12,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Financial ratio analysis and interpreting statements; does not fully teach preparation of financial reports."
+  },
+  {
+    "id": "course_acc_audit_evidence",
+    "title": "Assertions and audit evidence",
+    "skill_ids": [
+      "skill_attention_to_detail"
+    ],
+    "provider": "OpenTuition",
+    "url": "https://opentuition.com/fia/fau/notes/fau-6-assertions-and-audit-evidence/",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free audit study notes on assertions, accuracy, completeness and evidence. Partial coverage of attention to detail; no provider-published duration."
+  },
+  {
+    "id": "course_acc_professional_ethics",
+    "title": "Professional Ethics",
+    "skill_ids": [
+      "skill_ethical_judgement"
+    ],
+    "provider": "OpenTuition",
+    "url": "https://opentuition.com/acca/aa/notes/aa-4-professional-ethics/",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free accountancy and audit ethics study notes, including integrity, objectivity and independence. No provider-published duration."
+  },
+  {
+    "id": "course_acc_cost_benefit",
+    "title": "Capital Investment Appraisal",
+    "skill_ids": [
+      "skill_cost_benefit_analysis"
+    ],
+    "provider": "OpenTuition",
+    "url": "https://opentuition.com/fia/ma2/notes/ma2-10-capital-investment-appraisal/",
+    "estimated_hours": null,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "foundational",
+    "notes": "Free investment-appraisal notes on cash flows, net present value, internal rate of return and payback. Relevant to financial cost-benefit reasoning, but not a complete general cost-benefit analysis course; no provider-published duration."
+  },
+  {
+    "id": "course_acc_ai_finance_prompts",
+    "title": "Work smarter with Copilot prompts for finance professionals",
+    "skill_ids": [
+      "skill_financial_analysis_reporting"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/work-smarter-copilot-finance/",
+    "estimated_hours": 0.47,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "ai_adaptation",
+    "notes": "28-minute beginner module on AI-supported finance analysis, models and reports. AI adaptation rather than financial analysis fundamentals; using Microsoft 365 Copilot features may require a paid licence."
+  },
+  {
+    "id": "course_acc_ai_finance_agents",
+    "title": "Get started with finance agents",
+    "skill_ids": [
+      "skill_financial_analysis_reporting"
+    ],
+    "provider": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/training/modules/get-started-copilot-for-finance/",
+    "estimated_hours": 1.38,
+    "cost": "free_learning",
+    "verified": true,
+    "verified_date": "2026-10-20",
+    "learning_category": "ai_adaptation",
+    "notes": "83-minute intermediate module on finance AI agents, invoice workflows, anomaly detection and reconciliation. Partial link to financial reporting, not a general attention-to-detail course. Prior accounts-receivable knowledge is expected; hands-on software may require licences."
   }
 ]
