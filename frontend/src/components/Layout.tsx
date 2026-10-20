@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { BarChart3, Briefcase, Globe, LayoutDashboard, Moon, Route, SlidersHorizontal, Sun, User } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import UserAvatar from './UserAvatar'
 
 const tabs = ['Dashboard', 'Profile', 'Trends', 'Careers', 'Simulator', 'Roadmap', 'SDG Impact'] as const
 export type Tab = typeof tabs[number] | 'Account'
@@ -15,9 +16,7 @@ const icons: Record<typeof tabs[number], LucideIcon> = {
   'SDG Impact': Globe,
 }
 
-const initials = (name: string) => name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
-
-export default function Layout({ active, onSelect, userName, theme, onToggleTheme, children }: { active: Tab; onSelect: (tab: Tab) => void; userName: string; theme: 'light' | 'dark'; onToggleTheme: () => void; children: ReactNode }) {
+export default function Layout({ active, onSelect, userName, avatarUrl, theme, onToggleTheme, children }: { active: Tab; onSelect: (tab: Tab) => void; userName: string; avatarUrl?: string | null; theme: 'light' | 'dark'; onToggleTheme: () => void; children: ReactNode }) {
   return (
     <div className="app">
       <aside className="sidebar">
@@ -35,8 +34,8 @@ export default function Layout({ active, onSelect, userName, theme, onToggleThem
         </nav>
         <div className="sidebar-bottom">
           <button type="button" className={active === 'Account' ? 'nav-item selected' : 'nav-item'} onClick={() => onSelect('Account')}>
-            <span className="avatar">{initials(userName)}</span>
-            Account
+            <UserAvatar name={userName} imageUrl={avatarUrl} size="small" />
+            <span className="sidebar-account-label">Account</span>
           </button>
         </div>
       </aside>
@@ -44,10 +43,14 @@ export default function Layout({ active, onSelect, userName, theme, onToggleThem
         <header className="topbar">
           <h1>{active}</h1>
           <div className="topbar-actions">
-            <span className="badge">Demo data</span>
+            <span className="badge" title="Trend scenario weights are synthetic, even if you are signed in">Demo data</span>
             <button type="button" className="theme-toggle" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
               {theme === 'light' ? <Moon size={17} aria-hidden="true" /> : <Sun size={17} aria-hidden="true" />}
               <span>{theme === 'light' ? 'Dark' : 'Light'} mode</span>
+            </button>
+            <button type="button" className="topbar-user" title={`Account: ${userName}`} onClick={() => onSelect('Account')} aria-label={`Open account for ${userName}`}>
+              <UserAvatar name={userName} imageUrl={avatarUrl} size="small" />
+              <span>{userName}</span>
             </button>
           </div>
         </header>
