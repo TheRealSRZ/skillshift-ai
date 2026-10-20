@@ -39,7 +39,7 @@ export default function App(){
     {tab==='Trends'&&<TrendsPage trend={trend} skills={skills}/>}
     {tab==='Careers'&&<CareersPage results={matches} skills={skills}/>}
     {tab==='Simulator'&&<SimulatorPage results={scenarios}/>}
-    {tab==='Roadmap'&&<RoadmapPage roadmap={roadmap}/>}
+    {tab==='Roadmap'&&<RoadmapPage roadmap={roadmap} skills={skills} careers={careers}/>}
     {tab==='SDG Impact'&&<SDGPage mappings={sdgs}/>}
     <p className="muted">Loaded {skills.length} synthetic skills / {careers.length} synthetic roles. Replace before judging.</p>
   </Layout>
