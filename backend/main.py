@@ -2,11 +2,11 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from backend.routes import catalog, trends, analysis, roadmap
+from backend.routes import catalog, trends, analysis, roadmap, account
 
 app = FastAPI(title='SkillShift AI — Synthetic Starter', version='0.1.0')
 
-for module in (catalog, trends, analysis, roadmap):
+for module in (catalog, trends, analysis, roadmap, account):
     app.include_router(module.router)
 
 @app.get('/api/health')
