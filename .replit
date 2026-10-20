@@ -1,5 +1,6 @@
-run = "python src/main.py"
-entrypoint = "src/main.py"
+run = "bash scripts/start.sh"
+entrypoint = "backend/main.py"
 
 [nix]
 channel = "stable-24_05"
+      
