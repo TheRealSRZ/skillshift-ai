@@ -1,2 +1,11 @@
-# Add your project dependencies here, one per line.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2
+httpx>=0.27
+pytest>=8
+openai>=1
+pandas>=2
+openpyxl>=3
 runpod
+python-dotenv>=1
+      

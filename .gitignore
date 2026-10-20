@@ -11,3 +11,21 @@ venv/
 .DS_Store
 .vscode/
 .idea/
+
+# Frontend Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+
+# Frontend Build Outputs
+dist/
+build/
+.next/
+out/
+.docusaurus/
+
+# Frontend Testing & Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
