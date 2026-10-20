@@ -1,0 +1,44 @@
+[
+  {
+    "career_id": "software_developer",
+    "malaysian_occupation": "Software Developers",
+    "masco_code": "2512",
+    "onet_code": "15-1252.00",
+    "mapping_status": "verified"
+  },
+  {
+    "career_id": "data_professional",
+    "malaysian_occupation": "Data Professionals",
+    "masco_code": "2524",
+    "onet_code": null,
+    "mapping_status": "pending"
+  },
+  {
+    "career_id": "accountant_auditor",
+    "malaysian_occupation": "Accountants and Auditors",
+    "masco_code": "2411",
+    "onet_code": "13-2011.00",
+    "mapping_status": "verified"
+  },
+  {
+    "career_id": "marketing_professional",
+    "malaysian_occupation": "Advertising and Marketing Professionals",
+    "masco_code": "2431",
+    "onet_code": null,
+    "mapping_status": "pending"
+  },
+  {
+    "career_id": "electrical_engineer",
+    "malaysian_occupation": "Electrical Engineers",
+    "masco_code": "2151",
+    "onet_code": null,
+    "mapping_status": "pending"
+  },
+  {
+    "career_id": "nursing_professional",
+    "malaysian_occupation": "Nursing Professionals",
+    "masco_code": "2221",
+    "onet_code": null,
+    "mapping_status": "pending"
+  }
+]
