@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react'
-import { BarChart3, Briefcase, Globe, Route, SlidersHorizontal, User } from 'lucide-react'
+import { BarChart3, Briefcase, Globe, LayoutDashboard, Route, SlidersHorizontal, User } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
-const tabs = ['Profile', 'Trends', 'Careers', 'Simulator', 'Roadmap', 'SDG Impact'] as const
+const tabs = ['Dashboard', 'Profile', 'Trends', 'Careers', 'Simulator', 'Roadmap', 'SDG Impact'] as const
 export type Tab = typeof tabs[number] | 'Account'
 
 const icons: Record<typeof tabs[number], LucideIcon> = {
+  Dashboard: LayoutDashboard,
   Profile: User,
   Trends: BarChart3,
   Careers: Briefcase,

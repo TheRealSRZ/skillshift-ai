@@ -6,6 +6,7 @@ import CareersPage from './pages/CareersPage'
 import SimulatorPage from './pages/SimulatorPage'
 import RoadmapPage from './pages/RoadmapPage'
 import SDGPage from './pages/SDGPage'
+import DashboardPage from './pages/DashboardPage'
 import LoginPage from './pages/LoginPage'
 import AccountPage from './pages/AccountPage'
 import { api } from './api/client'
@@ -24,7 +25,7 @@ export default function App() {
       return null
     }
   })
-  const [tab, setTab] = useState<Tab>('Profile')
+  const [tab, setTab] = useState<Tab>('Dashboard')
   const [skills, setSkills] = useState<Skill[]>([])
   const [careers, setCareers] = useState<Career[]>([])
   const [trend, setTrend] = useState<TrendData | null>(null)
@@ -35,6 +36,7 @@ export default function App() {
   const [roadmap, setRoadmap] = useState<RoadmapResponse | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [analysedAt, setAnalysedAt] = useState<Date | null>(null)
 
   useEffect(() => {
     void Promise.all([api.catalog(), api.trends(), api.sdgs()])
@@ -46,10 +48,10 @@ export default function App() {
     setLoading(true); setError('')
     try {
       const [result, comparison] = await Promise.all([api.analyze(profile, 'moderate'), api.scenarios(profile)])
-      setMatches(result); setScenarios(comparison)
+      setMatches(result); setScenarios(comparison); setAnalysedAt(new Date())
       const selected = result.matches[0]
       if (selected) setRoadmap(await api.roadmap(selected.role_id, selected.missing_skills, 'moderate'))
-      setTab('Careers')
+      setTab('Dashboard')
     } catch (e) { setError(String(e)) } finally { setLoading(false) }
   }
 
@@ -59,7 +61,7 @@ export default function App() {
   }
 
   const signOut = () => {
-    setUser(null); setTab('Profile'); setMatches(null); setScenarios(null); setRoadmap(null)
+    setUser(null); setTab('Dashboard'); setMatches(null); setScenarios(null); setRoadmap(null)
     try { sessionStorage.removeItem('demoUser') } catch { /* storage unavailable */ }
   }
 
@@ -67,6 +69,7 @@ export default function App() {
 
   return <Layout active={tab} onSelect={setTab} userName={user.name}>
     {error && <p role="alert" className="error">{error}. Make sure FastAPI is running on port 8000.</p>}
+    {tab === 'Dashboard' && <DashboardPage name={user.name} matches={matches} scenarios={scenarios} roadmap={roadmap} skills={skills} sdgs={sdgs} loading={loading} onNavigate={setTab} onAnalyze={() => void analyze()} analysedAt={analysedAt} />}
     {tab === 'Profile' && <ProfilePage skills={skills} profile={profile} onChange={setProfile} onAnalyze={() => void analyze()} loading={loading} />}
     {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} />}
     {tab === 'Careers' && <CareersPage results={matches} skills={skills} sdgs={sdgs} />}
