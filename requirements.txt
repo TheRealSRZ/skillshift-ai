@@ -8,4 +8,4 @@ pandas>=2
 openpyxl>=3
 runpod
 python-dotenv>=1
-      
+requests>=2.31
