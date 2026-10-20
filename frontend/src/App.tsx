@@ -36,8 +36,8 @@ export default function App(){
   return <Layout active={tab} onSelect={setTab}>
     {error&&<p role="alert" className="error">{error}. Make sure FastAPI is running on port 8000.</p>}
     {tab==='Profile'&&<ProfilePage skills={skills} profile={profile} onChange={setProfile} onAnalyze={()=>void analyze()} loading={loading}/>}
-    {tab==='Trends'&&<TrendsPage trend={trend}/>}
-    {tab==='Careers'&&<CareersPage results={matches}/>}
+    {tab==='Trends'&&<TrendsPage trend={trend} skills={skills}/>}
+    {tab==='Careers'&&<CareersPage results={matches} skills={skills}/>}
     {tab==='Simulator'&&<SimulatorPage results={scenarios}/>}
     {tab==='Roadmap'&&<RoadmapPage roadmap={roadmap}/>}
     {tab==='SDG Impact'&&<SDGPage mappings={sdgs}/>}
