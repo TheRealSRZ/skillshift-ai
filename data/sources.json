@@ -11,7 +11,7 @@
     "geography": "Malaysia",
     "source_type": "critical_occupations_report",
     "data_update_type": null,
-    "evidence_location": "Table 7, printed pages 85-87; Accountants and Auditors (MASCO 2411), printed pages 223-224; Software Developers (MASCO 2512), printed pages 249-250",
+    "evidence_location": "Table 7, printed pages 85–87; Accountants and Auditors (2411), printed pages 223–224; Software Developers (2512), printed pages 249–250; Data Professionals (2524), printed pages 271–274 (profile notes on 273–274, PDF page 138).; Advertising and Marketing Professionals (MASCO 2431), printed pages 239–240",
     "supported_claims": [
       {
         "claim_id": "mycol_sw_critical_2024_2025",
@@ -22,6 +22,16 @@
         "claim_id": "mycol_acc_critical_2024_2025",
         "claim": "Accountants and Auditors (MASCO 2411) is included in MyCOL 2024/2025 for the specified job titles.",
         "evidence_location": "Accountants and Auditors profile, printed pages 223-224"
+      },
+      {
+        "claim_id": "mycol_data_critical_2024_2025",
+        "claim": "Data Professionals (MASCO 2524) is included in MyCOL 2024/2025 for the listed job titles: Data Scientist, Data Analyst, Business Data Analyst, and Data Governance Migration Specialist.",
+        "evidence_location": "MyCOL 2024/2025, Data Professionals (MASCO 2524), printed pages 271–274; job-title discussion on printed pages 273–274 (PDF page 138)."
+      },
+      {
+        "claim_id": "mycol_marketing_critical_2024_2025",
+        "claim": "MyCOL 2024/2025 includes selected Advertising and Marketing Professionals job titles within MASCO 2431. It does not establish every job title in this group is critical.",
+        "evidence_location": "Advertising and Marketing Professionals profile, printed pages 239–240; see listed critical job titles."
       }
     ],
     "limitations": [
@@ -203,9 +213,18 @@
     "geography": "Malaysia",
     "source_type": "workforce_impact_report",
     "data_update_type": null,
-    "evidence_location": "Chapter 4, pages 40-77",
-    "supported_claims": [],
-    "limitations": [],
+    "evidence_location": "Chapter 2, printed pp. 16–19 (PDF pp. 9–10); Chapter 3 AI adoption in E&E, printed pp. 28–29 (PDF p. 15)",
+    "supported_claims": [
+      {
+        "claim_id": "ee_sector_ai_upskilling_2024",
+        "claim": "The E&E study discusses AI-assisted testing, predictive maintenance and the need for engineers and technicians in the sector to continue upskilling.",
+        "evidence_location": "Chapter 3, printed pp. 28–29, PDF p. 15, Artificial Intelligence: AI Trends and AI Impact"
+      }
+    ],
+    "limitations": [
+      "Sector-wide AI trends are not a measured AI-impact classification for MASCO 2151 Electrical Engineers.",
+      "Specialist E&E job titles cannot be assumed equivalent to the whole electrical engineering occupation."
+    ],
     "usable_as_real_evidence": true,
     "license": null,
     "license_status": "not_verified",
@@ -375,5 +394,524 @@
     "trend_claim_allowed": null,
     "data_files": [],
     "notes": []
+  },
+  {
+    "id": "src_ilo_genai_exposure_2025",
+    "title": "Generative AI and Jobs: A Refined Global Index of Occupational Exposure",
+    "publisher": "International Labour Organization (ILO)",
+    "url": "https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure",
+    "publication_year": 2025,
+    "published_date": "2025-05-20",
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
+    "geography": "Global",
+    "source_type": "research_report",
+    "data_update_type": "periodic_research",
+    "evidence_location": "Working Paper 140, methodology and findings on task-level and occupation-level GenAI exposure",
+    "supported_claims": [
+      {
+        "claim_id": "ilo_ai_task_exposure_method",
+        "claim": "The ILO assesses potential generative AI exposure using occupation tasks and distinguishes different degrees of exposure across occupations.",
+        "evidence_location": "Working Paper 140, methodology"
+      },
+      {
+        "claim_id": "ilo_ai_job_transformation",
+        "claim": "Most occupations contain tasks requiring human input, so occupational transformation is more likely than complete job automation.",
+        "evidence_location": "Working Paper 140, abstract and findings"
+      }
+    ],
+    "limitations": [
+      "Potential exposure to generative AI is not a probability of job loss.",
+      "Global research is not direct evidence of Malaysian employer demand or AI adoption.",
+      "The report does not establish the team's career skill weights or scenario multipliers."
+    ],
+    "usable_as_real_evidence": true,
+    "license": "CC BY 4.0",
+    "license_status": "identified",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "International Labour Organization (2025), Generative AI and Jobs: A Refined Global Index of Occupational Exposure, Working Paper 140.",
+    "reuse_conditions": [
+      "Provide appropriate attribution and identify adaptations."
+    ],
+    "adapted": false,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Supporting research for task-exposure and uncertainty methodology, not an occupation-specific Malaysian AI displacement forecast."
+    ]
+  },
+  {
+    "id": "src_masco_data_2020",
+    "title": "Malaysia Standard Classification of Occupations (MASCO) 2020 — Data Professionals (2524)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://www.dosm.gov.my/uploads/content-downloads/file_20220920110308.pdf",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "MASCO 2020, printed page 82 (PDF page 96), Unit Group 2524 — Data Professionals; occupation description and task list",
+    "supported_claims": [
+      {
+        "claim_id": "masco_data_classification_2524",
+        "claim": "Data Professionals belong to MASCO unit group 2524.",
+        "evidence_location": "MASCO 2020, printed page 82 (PDF page 96), Unit Group 2524 heading"
+      },
+      {
+        "claim_id": "masco_data_tasks_2524",
+        "claim": "Listed duties include extracting and integrating datasets, cleaning and managing data, identifying patterns, and processing structured and unstructured data.",
+        "evidence_location": "MASCO 2020, printed page 82 (PDF page 96), Unit Group 2524 task descriptions"
+      }
+    ],
+    "limitations": [
+      "MASCO describes occupation responsibilities; it does not supply skill importance weights, job-growth rates or AI replacement probabilities."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "Ministry of Human Resources Malaysia, Malaysia Standard Classification of Occupations (MASCO) 2020, Unit Group 2524 — Data Professionals.",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Paraphrased occupation classification and responsibilities; full-text redistribution rights were not verified."
+    ]
+  },
+  {
+    "id": "src_emasco_data_analyst_skills_2524",
+    "title": "eMASCO — Data Analyst (2524-02): Tasks and Skills",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2524-02",
+    "publication_year": null,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-21",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_skills_profile",
+    "data_update_type": null,
+    "evidence_location": "Data Analyst (2524-02), Tugasan and Kemahiran sections: Asas and Khusus",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_data_analyst_technical_skills",
+        "claim": "The Data Analyst specialization includes Python or R, SQL, data preparation, data analysis and data visualization skills.",
+        "evidence_location": "Data Analyst (2524-02), Kemahiran > Khusus"
+      },
+      {
+        "claim_id": "emasco_data_analyst_critical_thinking",
+        "claim": "Critical thinking is listed among the basic skills for the Data Analyst specialization.",
+        "evidence_location": "Data Analyst (2524-02), Kemahiran > Asas"
+      }
+    ],
+    "limitations": [
+      "Data Analyst is a specialization within MASCO 2524. Its specific skills do not necessarily apply equally to all Data Professionals.",
+      "This page does not provide official skill importance weights, AI job replacement probabilities or dated labour-market trends."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "Ministry of Human Resources Malaysia (KESUMA), eMASCO, Data Analyst (2524-02).",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Specific skills are paraphrased from the official Data Analyst occupation profile.",
+      "Used as supporting evidence for a representative specialization within the broader Data Professionals occupation."
+    ]
+  },
+  {
+    "id": "src_emasco_data_2524",
+    "title": "eMASCO — Data Professionals (MASCO 2524)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2524",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "MASCO 2524 — Profesional Data; occupational description and 'Tugasan' (Tasks) section",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_data_classification_2524",
+        "claim": "Data Professionals are classified under MASCO unit group 2524.",
+        "evidence_location": "Kod MASCO: 2524; Profesional Data"
+      },
+      {
+        "claim_id": "emasco_data_tasks_2524",
+        "claim": "Data Professionals perform tasks involving data extraction, dataset integration, data cleaning, identifying patterns, data processing, analysis and visualization.",
+        "evidence_location": "Tugasan section, MASCO 2524"
+      }
+    ],
+    "limitations": [
+      "The page describes the broader Data Professionals occupation group and does not provide individual skill importance weights.",
+      "Python and SQL are not explicitly listed on this group-level page.",
+      "The classification does not measure job-market growth, AI exposure or job replacement probability."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "Ministry of Human Resources Malaysia (KESUMA), eMASCO, Data Professionals (2524).",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Occupational descriptions and tasks are paraphrased from the official eMASCO portal.",
+      "The portal states that its content is currently based on MASCO 2020 and is undergoing updates."
+    ]
+  },
+  {
+    "id": "src_emasco_marketing_2431",
+    "title": "eMASCO — Advertising and Marketing Professionals (MASCO 2431)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2431",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "eMASCO MASCO 2431, description (Profesional Pengiklanan dan Pemasaran) and Tugasan (Tasks)",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_marketing_2431_class",
+        "claim": "Advertising and Marketing Professionals belong to MASCO unit group 2431.",
+        "evidence_location": "Kod MASCO 2431, Profesional Pengiklanan dan Pemasaran"
+      },
+      {
+        "claim_id": "emasco_marketing_2431_tasks",
+        "claim": "The occupation covers planning marketing and advertising activities, creating campaign ideas, advising on ad spending, and communicating with customers and media.",
+        "evidence_location": "Tugasan (Tasks), MASCO 2431"
+      }
+    ],
+    "limitations": [
+      "The unit-group page covers different marketing and advertising specialisations, not one standard job description.",
+      "No quantitative skill weights, AI exposure or skill-demand growth measurements are provided."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "Ministry of Human Resources Malaysia (KESUMA), eMASCO, MASCO 2431.",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Source material paraphrased; eMASCO says its site is being updated and refers to MASCO 2020."
+    ]
+  },
+  {
+    "id": "src_emasco_marketing_exec_2431_02",
+    "title": "eMASCO — Marketing Executive (MASCO 2431-02), task and skills profile",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2431-02",
+    "publication_year": null,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-20",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_skills_profile",
+    "data_update_type": null,
+    "evidence_location": "eMASCO 2431-02 Eksekutif Pemasaran; Tugasan (Tasks); Kemahiran > Asas (Basic) and Khusus (Specific)",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_marketing_exec_digital_campaign",
+        "claim": "Marketing Executive responsibilities include digital marketing, online/social-media campaigns, planning and evaluating campaigns, and monitoring campaign performance.",
+        "evidence_location": "Tugasan, MASCO 2431-02; Kemahiran > Khusus"
+      },
+      {
+        "claim_id": "emasco_marketing_exec_research",
+        "claim": "The Marketing Executive profile lists market research, analysis of consumer trends, and evaluation of market opportunities.",
+        "evidence_location": "Tugasan and Kemahiran > Khusus, MASCO 2431-02"
+      },
+      {
+        "claim_id": "emasco_marketing_exec_basic",
+        "claim": "The Marketing Executive basic skills include communication, critical thinking, creativity and analytical skills.",
+        "evidence_location": "Kemahiran > Asas, MASCO 2431-02"
+      }
+    ],
+    "limitations": [
+      "Detailed skills are for Marketing Executive (2431-02), one specialization under MASCO 2431.",
+      "The profile does not assign numeric occupational skill weights or AI displacement probabilities."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "Ministry of Human Resources Malaysia (KESUMA), eMASCO, Marketing Executive (2431-02).",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Marketing Executive is used as a representative specialization, not as a perfect description of every MASCO 2431 job."
+    ]
+  },
+  {
+    "id": "src_emasco_electrical_2151",
+    "title": "eMASCO — Electrical Engineers (MASCO 2151)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2151",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-21",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_ee_class_2151",
+        "claim": "eMASCO lists Electrical Engineers under unit group 2151.",
+        "evidence_location": "Kod MASCO 2151, Jurutera Elektrik heading"
+      },
+      {
+        "claim_id": "emasco_ee_design_tasks_2151",
+        "claim": "The occupation tasks include planning and designing electrical installations, circuits, transformers and other electrical equipment.",
+        "evidence_location": "Tugasan section, items 1–3, MASCO 2151"
+      },
+      {
+        "claim_id": "emasco_ee_safety_maintenance_2151",
+        "claim": "The occupation tasks include interpreting standards and regulations, overseeing operation and maintenance, safety procedures, and fault detection/correction.",
+        "evidence_location": "Tugasan section, items 4 and 7–9, MASCO 2151"
+      }
+    ],
+    "limitations": [
+      "Occupation tasks do not constitute numeric skill-importance measurements or AI-displacement probabilities.",
+      "Individual specialisations have different requirements."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "Ministry of Human Resources Malaysia (KESUMA), eMASCO 2151.",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "The eMASCO portal notes that current content is based on MASCO 2020 and is being updated."
+    ]
+  },
+  {
+    "id": "src_emasco_nursing_2221",
+    "title": "eMASCO — Nursing Professionals (MASCO 2221)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2221",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-21",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_classification",
+    "data_update_type": null,
+    "evidence_location": "Kod MASCO: 2221; Profesional Kejururawatan; Description and Tugasan section",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_nurse_2221_class",
+        "claim": "Nursing Professionals are classified in MASCO unit group 2221.",
+        "evidence_location": "Kod MASCO: 2221; Profesional Kejururawatan"
+      },
+      {
+        "claim_id": "emasco_nurse_2221_duties",
+        "claim": "Nursing Professionals provide nursing care and support to people requiring care due to illness, injury or ageing.",
+        "evidence_location": "Description and Tugasan section, MASCO 2221"
+      }
+    ],
+    "limitations": [
+      "MASCO occupation classification is not evidence of AI exposure, job-growth rates or skill importance weights.",
+      "Tasks shown at group level are not necessarily performed by every nursing specialty."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "KESUMA, eMASCO — Nursing Professionals (2221).",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "The eMASCO portal indicates ongoing updates; source content is currently based on MASCO 2020."
+    ]
+  },
+  {
+    "id": "src_emasco_professional_nurse_2221_01",
+    "title": "eMASCO — Professional Nurse (MASCO 2221-01)",
+    "publisher": "Ministry of Human Resources Malaysia (KESUMA)",
+    "url": "https://emasco.mohr.gov.my/masco/2221-01",
+    "publication_year": 2020,
+    "published_date": null,
+    "report_period": null,
+    "retrieved_date": "2026-10-21",
+    "geography": "Malaysia",
+    "source_type": "official_occupation_skills_profile",
+    "data_update_type": null,
+    "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+    "supported_claims": [
+      {
+        "claim_id": "emasco_prof_nurse_assessment_care",
+        "claim": "Professional Nurse (2221-01) duties include patient assessment, nursing-care plans, monitoring and patient/family education.",
+        "evidence_location": "Jururawat Profesional (2221-01), description and Tugasan section"
+      },
+      {
+        "claim_id": "emasco_prof_nurse_medication_infection",
+        "claim": "Professional Nurse skills include safe medication administration, hygiene and infection prevention/control.",
+        "evidence_location": "Jururawat Profesional (2221-01), Tugasan and Kemahiran > Khusus"
+      },
+      {
+        "claim_id": "emasco_prof_nurse_communication_thinking",
+        "claim": "Professional Nurse basic skills include empathy, communication, active listening, critical thinking and attention to detail.",
+        "evidence_location": "Jururawat Profesional (2221-01), Kemahiran > Asas"
+      }
+    ],
+    "limitations": [
+      "This page describes Professional Nurse (2221-01), one specialization within Nursing Professionals (2221).",
+      "No measured 1–4 skill importance scores are provided.",
+      "A job profile does not authorise untrained practice of medication administration."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "KESUMA, eMASCO — Professional Nurse (2221-01).",
+    "reuse_conditions": [],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [],
+    "notes": [
+      "Skills are representative for the selected Professional Nurse sub-occupation, not all nursing specializations."
+    ]
+  },
+  {
+    "id": "src_onet_31_0",
+    "title": "O*NET 31.0 Database — Skills and Occupational Tasks",
+    "publisher": "U.S. Department of Labor, Employment and Training Administration (USDOL/ETA); National Center for O*NET Development",
+    "url": "https://www.onetcenter.org/database.html",
+    "publication_year": 2026,
+    "published_date": null,
+    "report_period": "O*NET 31.0 (August 2026); individual occupation measurements have different dates",
+    "retrieved_date": "2026-10-21",
+    "geography": "United States",
+    "source_type": "occupational_skills_and_tasks_database",
+    "data_update_type": "periodic_research",
+    "evidence_location": "Skills (IM and LV) and Task Ratings/Task Statements for six representative O*NET-SOC occupations; observe record-specific Date and Recommend Suppress flags",
+    "supported_claims": [
+      {
+        "claim_id": "onet_direct_skill_importance",
+        "claim": "O*NET publishes general-skill importance (IM) ratings for US occupations; the project converts only directly matched, unsuppressed values using its own proposed 1–4 mapping.",
+        "evidence_location": "O*NET 31.0 Skills (IM) dataset and data/processed/onet_skill_importance_evidence.json"
+      },
+      {
+        "claim_id": "onet_occupation_task_support",
+        "claim": "Published O*NET occupational tasks support relevance of selected project skills but their task importance ratings are not numerical skill-importance ratings.",
+        "evidence_location": "O*NET Task Statements and Task Ratings; data/processed/onet_task_skill_evidence.json"
+      }
+    ],
+    "limitations": [
+      "O*NET-SOC occupations are US occupation profiles and not an official Malaysian MASCO crosswalk.",
+      "Individual measurement dates differ, including older entries within the 2026 database release.",
+      "The team-defined 1–4 weight conversion is not an official O*NET score.",
+      "Task importance is not skill importance; neither estimates AI displacement or Malaysian labour-market demand."
+    ],
+    "usable_as_real_evidence": true,
+    "license": "CC BY 4.0",
+    "license_status": "identified",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "This project uses information from the O*NET 31.0 Database by USDOL/ETA, used under CC BY 4.0. O*NET® is a trademark of USDOL/ETA. SkillShift AI has adapted some information; USDOL/ETA has not approved, endorsed, or tested these modifications.",
+    "reuse_conditions": [
+      "Credit the source and link the CC BY 4.0 licence.",
+      "Clearly identify project adaptations and derived indicators."
+    ],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [
+      {
+        "path": "data/processed/onet_occupation_skills.csv",
+        "role": "Processed occupation-level O*NET general-skill ratings",
+        "evidence_level": "US O*NET occupation"
+      },
+      {
+        "path": "data/processed/onet_occupation_tasks.csv",
+        "role": "Processed occupation task rating records",
+        "evidence_level": "US O*NET occupation"
+      },
+      {
+        "path": "data/processed/onet_combined_skill_evidence.json",
+        "role": "Team-defined linkage of selected career skills to direct and task evidence",
+        "evidence_level": "Project-reviewed representative career-skill mapping"
+      }
+    ],
+    "notes": [
+      "Database release is August 2026, not the measurement date for all occupation records.",
+      "The database content licensing source is https://www.onetcenter.org/license_db.html.",
+      "The Task-to-Skill links were selected by the project and require teammate review; evidence is separate from production career weights."
+    ]
+  },
+  {
+    "id": "src_oecd_ai_exposure_2026",
+    "title": "The OECD AI exposure measure: Mapping the OECD AI Capability Indicators to occupations",
+    "publisher": "Organisation for Economic Co-operation and Development (OECD)",
+    "url": "https://doi.org/10.1787/f3da0f0a-en",
+    "publication_year": 2026,
+    "published_date": "2026-05-26",
+    "report_period": null,
+    "retrieved_date": "2026-10-21",
+    "geography": "United States O*NET-SOC occupation mapping; OECD research",
+    "source_type": "occupational_ai_capability_exposure_research",
+    "data_update_type": "research_dataset_snapshot",
+    "evidence_location": "OECD AI Capability Gap Index public workbook (README, Data, Scenario, Codebook); reversed normalized index (AI Capability Gap Index_Rev. norm.)",
+    "supported_claims": [
+      {
+        "claim_id": "oecd_ai_exposure_index_2026",
+        "claim": "The OECD reversed normalized AI Capability Gap Index is a research measure of overlap between occupation capability requirements and AI capabilities, not the likelihood of losing a job.",
+        "evidence_location": "Workbook Codebook and Data sheets; OECD Artificial Intelligence Papers No. 59"
+      },
+      {
+        "claim_id": "oecd_capability_scenario_2026",
+        "claim": "The workbook Scenario sheet explores a hypothetical one-level increase in selected AI cognitive capabilities; it is not a date-specific adoption prediction.",
+        "evidence_location": "Workbook README, Scenario and Codebook sheets"
+      }
+    ],
+    "limitations": [
+      "Exposure index is not a job-loss/replacement probability, Malaysian adoption rate, salary prediction or guaranteed future outcome.",
+      "Four of the six project O*NET codes matched exactly in the supplied workbook; Software Developers and Data Professionals remain null.",
+      "OECD one-level cognitive capability scenario is not equivalent to SkillShift AI moderate/fast adoption scenarios.",
+      "The original OECD index has been kept separate from team-selected career skill weights."
+    ],
+    "usable_as_real_evidence": true,
+    "license": "CC BY 4.0",
+    "license_status": "identified",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "OECD (2026), “The OECD AI exposure measure: Mapping the OECD AI Capability Indicators to occupations”, OECD Artificial Intelligence Papers, No. 59, OECD Publishing, Paris, https://doi.org/10.1787/f3da0f0a-en. Project extraction and presentation are adaptations.",
+    "reuse_conditions": [
+      "Credit the source and link the CC BY 4.0 licence.",
+      "Clearly identify project adaptations and derived indicators."
+    ],
+    "adapted": true,
+    "trend_claim_allowed": false,
+    "data_files": [
+      {
+        "path": "data/processed/oecd_ai_exposure_evidence.json",
+        "role": "Processed OECD baseline and research-scenario indicators for six mapped project careers",
+        "evidence_level": "Four exact US O*NET-SOC matches; two explicit missing values"
+      }
+    ],
+    "notes": [
+      "OECD workbook README lists the full dataset at https://aicapabilityindicators.oecd.org/publications.html and states CC BY 4.0.",
+      "The baseline indicator is best displayed as an index out of 1, not as a percentage of jobs replaced.",
+      "Original workbook kept outside the processed application source registry file paths because local workbook placement can vary."
+    ]
   }
 ]

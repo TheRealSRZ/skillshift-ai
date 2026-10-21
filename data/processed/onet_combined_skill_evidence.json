@@ -1,0 +1,1313 @@
+{
+  "dataset_id": "onet_combined_skill_evidence_v1",
+  "generated_at_utc": "2026-10-21T04:39:24+00:00",
+  "input_datasets": [
+    "data\\processed\\onet_skill_importance_evidence.json",
+    "data\\processed\\onet_task_skill_evidence.json"
+  ],
+  "source_geography": "United States (O*NET-SOC representative occupations; not official MASCO-to-O*NET crosswalk)",
+  "scoring_policy": {
+    "current_backend_weight": "Always the unmodified careers.json required_skills value (1–4).",
+    "direct_general_skill_rating": "For directly equivalent and unsuppressed O*NET Skills IM only, a proposed project conversion min(4, floor(IM)); not automatically adopted.",
+    "related_occupation_tasks": "Task IM is task importance, NOT skill importance; no numerical skill-score derivation.",
+    "missing_evidence": "Retain team weight; null is unknown, not zero.",
+    "not_ai_risk": "Neither skill nor task importance measures AI exposure or replacement probability."
+  },
+  "coverage": {
+    "curated_careers": 6,
+    "career_skill_pairs": 36,
+    "direct_general_skill_ratings": 5,
+    "task_linked_pairs": 24,
+    "evidence_categories": {
+      "direct_rating_only": 5,
+      "task_support": 17,
+      "task_support_partial": 7,
+      "team_estimate_only": 7
+    }
+  },
+  "warnings": [
+    "Source rating dates vary; preserve dates per rating/task and do not imply all evidence was measured this year.",
+    "All task-to-skill links are human-reviewed interpretations, including partial links; not official crosswalks.",
+    "The US Registered Nurses occupational tasks do not define Malaysian legal nursing scope.",
+    "Software-specific technologies and other unmatched concepts must not receive invented O*NET general-skill ratings.",
+    "This evidence output changes no career weights, matching logic, forecasts, or scenario multipliers."
+  ],
+  "career_skill_evidence": [
+    {
+      "career_id": "role_software_developer",
+      "skill_id": "skill_software_configuration",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21670",
+            "task_text": "Modify existing software to correct errors, adapt it to new hardware, or upgrade interfaces and improve performance.",
+            "task_importance_1_to_5": 3.74,
+            "rating_date": "08/2025",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21666",
+            "task_text": "Coordinate installation of software system.",
+            "task_importance_1_to_5": 3.75,
+            "rating_date": "08/2025",
+            "task_type": "Supplemental"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_software_developer",
+      "skill_id": "skill_software_design",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21662",
+            "task_text": "Analyze user needs and software requirements to determine feasibility of design within time and cost constraints.",
+            "task_importance_1_to_5": 4.08,
+            "rating_date": "08/2025",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21667",
+            "task_text": "Design, develop and modify software systems, using scientific analysis and mathematical models to predict and measure outcomes and consequences of design.",
+            "task_importance_1_to_5": 3.56,
+            "rating_date": "08/2025",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_software_developer",
+      "skill_id": "skill_software_testing",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "21669",
+            "task_text": "Develop or direct software system testing or validation procedures, programming, or documentation.",
+            "task_importance_1_to_5": 3.9,
+            "rating_date": "08/2025",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_software_developer",
+      "skill_id": "skill_ai_fluency",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_software_developer",
+      "skill_id": "skill_critical_thinking",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": 3,
+      "evidence_category": "direct_rating_only",
+      "direct_skill_evidence": {
+        "status": "direct_onet_importance",
+        "onet_element_id": "2.A.2.a",
+        "onet_element_name": "Critical Thinking",
+        "importance_1_to_5": 3.88,
+        "rating_date": "08/2025",
+        "conversion": "min(4, floor(IM)) for unsuppressed directly equivalent Skills IM; project-defined, not official",
+        "notes": "Direct O*NET general-skill importance. Proposed weight uses project-defined thresholds; US-based evidence, not a Malaysian measurement. No automatic change to careers.json."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "A direct O*NET general-skill importance rating supports a proposed 1–4 weight; the current team weight is unchanged. Related tasks only support relevance."
+    },
+    {
+      "career_id": "role_software_developer",
+      "skill_id": "skill_innovative_thinking",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "skill_id": "skill_financial_analysis_reporting",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21514",
+            "task_text": "Prepare, examine, or analyze accounting records, financial statements, or other financial reports to assess accuracy, completeness, and conformance to reporting and procedural standards.",
+            "task_importance_1_to_5": 4.6,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21532",
+            "task_text": "Prepare, analyze, or verify annual reports, financial statements, and other records, using accepted accounting and statistical procedures to assess financial condition and facilitate financial planning.",
+            "task_importance_1_to_5": 4.07,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "skill_id": "skill_accounting_principles",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21508",
+            "task_text": "Inspect account books and accounting systems for efficiency, effectiveness, and use of accepted accounting procedures to record transactions.",
+            "task_importance_1_to_5": 4.18,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21515",
+            "task_text": "Prepare adjusting journal entries.",
+            "task_importance_1_to_5": 4.29,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "skill_id": "skill_attention_to_detail",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21516",
+            "task_text": "Review accounts for discrepancies and reconcile differences.",
+            "task_importance_1_to_5": 4.47,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21512",
+            "task_text": "Inspect cash on hand, notes receivable and payable, negotiable securities, and canceled checks to confirm records are accurate.",
+            "task_importance_1_to_5": 3.71,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "skill_id": "skill_ethical_judgement",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "skill_id": "skill_cost_benefit_analysis",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21519",
+            "task_text": "Analyze business operations, trends, costs, revenues, financial commitments, and obligations to project future revenues and expenses or to provide advice.",
+            "task_importance_1_to_5": 3.64,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21531",
+            "task_text": "Develop, maintain, or analyze budgets, preparing periodic reports that compare budgeted costs to actual costs.",
+            "task_importance_1_to_5": 3.64,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "skill_id": "skill_innovative_thinking",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_data_professional",
+      "skill_id": "skill_data_analysis",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "21823",
+            "task_text": "Analyze, manipulate, or process large sets of data using statistical software.",
+            "task_importance_1_to_5": 4.33,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "21831",
+            "task_text": "Identify business problems or management objectives that can be addressed through data analysis.",
+            "task_importance_1_to_5": 4.13,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_data_professional",
+      "skill_id": "skill_data_cleaning",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "21826",
+            "task_text": "Clean and manipulate raw data using statistical software.",
+            "task_importance_1_to_5": 4.04,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_data_professional",
+      "skill_id": "skill_python",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_data_professional",
+      "skill_id": "skill_sql",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_data_professional",
+      "skill_id": "skill_data_viz",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "21828",
+            "task_text": "Create graphs, charts, or other visualizations to convey the results of data analysis using specialized software.",
+            "task_importance_1_to_5": 4.33,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_data_professional",
+      "skill_id": "skill_critical_thinking",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": 4,
+      "evidence_category": "direct_rating_only",
+      "direct_skill_evidence": {
+        "status": "direct_onet_importance",
+        "onet_element_id": "2.A.2.a",
+        "onet_element_name": "Critical Thinking",
+        "importance_1_to_5": 4.25,
+        "rating_date": "08/2026",
+        "conversion": "min(4, floor(IM)) for unsuppressed directly equivalent Skills IM; project-defined, not official",
+        "notes": "Direct O*NET general-skill importance. Proposed weight uses project-defined thresholds; US-based evidence, not a Malaysian measurement. No automatic change to careers.json."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "A direct O*NET general-skill importance rating supports a proposed 1–4 weight; the current team weight is unchanged. Related tasks only support relevance."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "skill_id": "skill_marketing_strategy",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "5439",
+            "task_text": "Conduct research on consumer opinions and marketing strategies, collaborating with marketing professionals, statisticians, pollsters, and other professionals.",
+            "task_importance_1_to_5": 3.94,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "5440",
+            "task_text": "Attend staff conferences to provide management with information and proposals concerning the promotion, distribution, design, and pricing of company products or services.",
+            "task_importance_1_to_5": 3.45,
+            "rating_date": "08/2026",
+            "task_type": "Supplemental"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "skill_id": "skill_digital_marketing",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "team_estimate_only",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "No direct rating or sufficiently specific linked task in these extracts. Keep the current team-estimated weight; this does not mean the skill is unimportant."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "skill_id": "skill_market_research",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "5433",
+            "task_text": "Collect and analyze data on customer demographics, preferences, needs, and buying habits to identify potential markets and factors affecting product demand.",
+            "task_importance_1_to_5": 3.88,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "5443",
+            "task_text": "Devise and evaluate methods and procedures for collecting data, such as surveys, opinion polls, or questionnaires, or arrange to obtain existing data.",
+            "task_importance_1_to_5": 3.85,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "skill_id": "skill_campaign_performance",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "5438",
+            "task_text": "Measure the effectiveness of marketing, advertising, and communications programs and strategies.",
+            "task_importance_1_to_5": 3.36,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "skill_id": "skill_marketing_communication",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "5434",
+            "task_text": "Prepare reports of findings, illustrating data graphically and translating complex findings into written text.",
+            "task_importance_1_to_5": 4.06,
+            "rating_date": "08/2026",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "5440",
+            "task_text": "Attend staff conferences to provide management with information and proposals concerning the promotion, distribution, design, and pricing of company products or services.",
+            "task_importance_1_to_5": 3.45,
+            "rating_date": "08/2026",
+            "task_type": "Supplemental"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "skill_id": "skill_critical_thinking",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": 4,
+      "evidence_category": "direct_rating_only",
+      "direct_skill_evidence": {
+        "status": "direct_onet_importance",
+        "onet_element_id": "2.A.2.a",
+        "onet_element_name": "Critical Thinking",
+        "importance_1_to_5": 4.0,
+        "rating_date": "08/2026",
+        "conversion": "min(4, floor(IM)) for unsuppressed directly equivalent Skills IM; project-defined, not official",
+        "notes": "Direct O*NET general-skill importance. Proposed weight uses project-defined thresholds; US-based evidence, not a Malaysian measurement. No automatic change to careers.json."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "A direct O*NET general-skill importance rating supports a proposed 1–4 weight; the current team weight is unchanged. Related tasks only support relevance."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_electrical_system_design",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "1348",
+            "task_text": "Design, implement, maintain, or improve electrical instruments, equipment, facilities, components, products, or systems for commercial, industrial, or domestic purposes.",
+            "task_importance_1_to_5": 4.19,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "1364",
+            "task_text": "Collect data relating to commercial or residential development, population, or power system interconnection to determine operating efficiency of electrical systems.",
+            "task_importance_1_to_5": 3.69,
+            "rating_date": "08/2023",
+            "task_type": "Supplemental"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_electrical_circuits",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "1348",
+            "task_text": "Design, implement, maintain, or improve electrical instruments, equipment, facilities, components, products, or systems for commercial, industrial, or domestic purposes.",
+            "task_importance_1_to_5": 4.19,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "1358",
+            "task_text": "Prepare technical drawings, specifications of electrical systems, or topographical maps to ensure that installation and operations conform to standards and customer requirements.",
+            "task_importance_1_to_5": 3.64,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_electrical_safety",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "20731",
+            "task_text": "Inspect completed installations and observe operations to ensure conformance to design and equipment specifications and compliance with operational, safety, or environmental standards.",
+            "task_importance_1_to_5": 3.68,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "1350",
+            "task_text": "Direct or coordinate manufacturing, construction, installation, maintenance, support, documentation, or testing activities to ensure compliance with specifications, codes, or customer requirements.",
+            "task_importance_1_to_5": 3.96,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_electrical_fault_diagnosis",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "1365",
+            "task_text": "Conduct field surveys or study maps, graphs, diagrams, or other data to identify and correct power system problems.",
+            "task_importance_1_to_5": 3.21,
+            "rating_date": "08/2023",
+            "task_type": "Supplemental"
+          },
+          {
+            "task_id": "20730",
+            "task_text": "Investigate customer or public complaints to determine the nature and extent of problems.",
+            "task_importance_1_to_5": 3.65,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_electrical_simulation",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "1349",
+            "task_text": "Operate computer-assisted engineering or design software or equipment to perform engineering tasks.",
+            "task_importance_1_to_5": 3.83,
+            "rating_date": "08/2023",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_critical_thinking",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": 4,
+      "evidence_category": "direct_rating_only",
+      "direct_skill_evidence": {
+        "status": "direct_onet_importance",
+        "onet_element_id": "2.A.2.a",
+        "onet_element_name": "Critical Thinking",
+        "importance_1_to_5": 4.0,
+        "rating_date": "08/2023",
+        "conversion": "min(4, floor(IM)) for unsuppressed directly equivalent Skills IM; project-defined, not official",
+        "notes": "Direct O*NET general-skill importance. Proposed weight uses project-defined thresholds; US-based evidence, not a Malaysian measurement. No automatic change to careers.json."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "A direct O*NET general-skill importance rating supports a proposed 1–4 weight; the current team weight is unchanged. Related tasks only support relevance."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_patient_care_monitoring",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "1841",
+            "task_text": "Record patients' medical information and vital signs.",
+            "task_importance_1_to_5": 4.74,
+            "rating_date": "08/2021",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "1840",
+            "task_text": "Monitor, record, and report symptoms or changes in patients' conditions.",
+            "task_importance_1_to_5": 4.61,
+            "rating_date": "08/2021",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_nursing_assessment_care_planning",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "current_team_weight_1_to_4": 4,
+      "recommended_backend_weight_1_to_4": 4,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 2,
+        "tasks": [
+          {
+            "task_id": "1843",
+            "task_text": "Consult and coordinate with healthcare team members to assess, plan, implement, or evaluate patient care plans.",
+            "task_importance_1_to_5": 4.48,
+            "rating_date": "08/2021",
+            "task_type": "Core"
+          },
+          {
+            "task_id": "1842",
+            "task_text": "Modify patient treatment plans as indicated by patients' responses and conditions.",
+            "task_importance_1_to_5": 4.34,
+            "rating_date": "08/2021",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_medication_safety",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "20413",
+            "task_text": "Administer medications to patients and monitor patients for reactions or side effects.",
+            "task_importance_1_to_5": 4.7,
+            "rating_date": "08/2021",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_infection_prevention",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support_partial",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "partial_task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "1860",
+            "task_text": "Direct or coordinate infection control programs, advising or consulting with specified personnel about necessary precautions.",
+            "task_importance_1_to_5": 4.38,
+            "rating_date": "08/2021",
+            "task_type": "Supplemental"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_patient_communication",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "current_team_weight_1_to_4": 3,
+      "recommended_backend_weight_1_to_4": 3,
+      "proposed_direct_rating_weight_1_to_4": null,
+      "evidence_category": "task_support",
+      "direct_skill_evidence": {
+        "status": "team_estimate_pending_manual_review",
+        "onet_element_id": null,
+        "onet_element_name": null,
+        "importance_1_to_5": null,
+        "rating_date": null,
+        "conversion": null,
+        "notes": "No direct O*NET general-skill importance equivalent has been verified. Existing team weight remains unchanged; task and technology evidence need separate review."
+      },
+      "task_evidence": {
+        "status": "task_relevance",
+        "task_count": 1,
+        "tasks": [
+          {
+            "task_id": "1850",
+            "task_text": "Instruct individuals, families, or other groups on topics such as health education, disease prevention, or childbirth and develop health improvement programs.",
+            "task_importance_1_to_5": 4.35,
+            "rating_date": "08/2021",
+            "task_type": "Core"
+          }
+        ],
+        "notes": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+      },
+      "explanation": "Related O*NET tasks support occupational relevance, but do not establish a numerical skill importance rating. Keep the current team-estimated weight."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_critical_thinking",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "current_team_weight_1_to_4": 2,
+      "recommended_backend_weight_1_to_4": 2,
+      "proposed_direct_rating_weight_1_to_4": 4,
+      "evidence_category": "direct_rating_only",
+      "direct_skill_evidence": {
+        "status": "direct_onet_importance",
+        "onet_element_id": "2.A.2.a",
+        "onet_element_name": "Critical Thinking",
+        "importance_1_to_5": 4.0,
+        "rating_date": "08/2021",
+        "conversion": "min(4, floor(IM)) for unsuppressed directly equivalent Skills IM; project-defined, not official",
+        "notes": "Direct O*NET general-skill importance. Proposed weight uses project-defined thresholds; US-based evidence, not a Malaysian measurement. No automatic change to careers.json."
+      },
+      "task_evidence": {
+        "status": "none_in_available_tasks",
+        "task_count": 0,
+        "tasks": [],
+        "notes": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+      },
+      "explanation": "A direct O*NET general-skill importance rating supports a proposed 1–4 weight; the current team weight is unchanged. Related tasks only support relevance."
+    }
+  ]
+}

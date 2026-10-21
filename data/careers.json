@@ -136,5 +136,182 @@
     "occupation_mapping_note": "MASCO 2411 Accountants and Auditors is broader than the Finance and Accounting Function roles covered by the TalentCorp GBS study.",
     "ai_impact": null,
     "ai_impact_note": "AI impact varies by accounting role. Medium impact is documented for specified GBS specialisations, but should not be generalized to every Accountant and Auditor."
+  },
+  {
+    "id": "role_data_professional",
+    "title": "Data Professionals",
+    "market": "Malaysia",
+    "masco_code": "2524",
+    "industry": "Data and Information Services",
+    "required_skills": {
+      "skill_data_analysis": 4,
+      "skill_data_cleaning": 4,
+      "skill_python": 3,
+      "skill_sql": 3,
+      "skill_data_viz": 3,
+      "skill_critical_thinking": 2
+    },
+    "sdgs": [
+      4,
+      8,
+      9
+    ],
+    "source_ids": [
+      "src_mycol_2024",
+      "src_masco_data_2020",
+      "src_emasco_data_2524",
+      "src_emasco_data_analyst_skills_2524"
+    ],
+    "evidence_claim_ids": [
+      "mycol_data_critical_2024_2025",
+      "masco_data_classification_2524",
+      "masco_data_tasks_2524",
+      "emasco_data_tasks_2524",
+      "emasco_data_analyst_technical_skills",
+      "emasco_data_analyst_critical_thinking"
+    ],
+    "evidence_notes": {
+      "occupation_classification": "MASCO 2524 is the Malaysian Data Professionals occupation group. It covers multiple data-related specializations, not just Data Analysts.",
+      "skills": "Six selected skills are informed by MASCO 2524 duties and the eMASCO Data Analyst (2524-02) specialization. Python, SQL and Critical Thinking are supported by the specialization, not necessarily every job in the broader occupation group.",
+      "skill_weights": "Weights 1-4 are team-defined estimates. MASCO and eMASCO do not supply these numeric importance weights.",
+      "job_market": "MyCOL 2024/2025 includes specified Data Professionals job titles. No occupation-specific DOSM time-series or growth rate has been established for this career.",
+      "ai_impact": "No occupation-wide AI-impact grade or job-replacement probability is asserted for Data Professionals.",
+      "sdgs": "SDG 4, 8 and 9 are team-defined relevance interpretations, not measured social outcomes."
+    },
+    "evidence_status": "curated_with_assumptions",
+    "weight_method": "Team-defined illustrative 1-4 skill weights. General duties are supported by MASCO 2524; additional skills are supported by the eMASCO Data Analyst (2524-02) specialization. No official numerical skill ratings are claimed.",
+    "occupation_mapping_note": "MASCO 2524 covers Data Scientists, Data Analysts and other data professionals; no precise O*NET-SOC equivalence has been verified.",
+    "ai_impact": null,
+    "ai_impact_note": "No validated Malaysian occupation-wide AI impact score. OECD/ILO occupational exposure will be linked separately after reviewing the MASCO-to-O*NET mapping."
+  },
+  {
+    "id": "role_marketing_professional",
+    "title": "Advertising and Marketing Professionals",
+    "market": "Malaysia",
+    "masco_code": "2431",
+    "industry": "Advertising and Marketing",
+    "required_skills": {
+      "skill_marketing_strategy": 4,
+      "skill_digital_marketing": 4,
+      "skill_market_research": 3,
+      "skill_campaign_performance": 3,
+      "skill_marketing_communication": 3,
+      "skill_critical_thinking": 2
+    },
+    "sdgs": [
+      4,
+      8
+    ],
+    "source_ids": [
+      "src_mycol_2024",
+      "src_emasco_marketing_2431",
+      "src_emasco_marketing_exec_2431_02"
+    ],
+    "evidence_claim_ids": [
+      "mycol_marketing_critical_2024_2025",
+      "emasco_marketing_2431_class",
+      "emasco_marketing_2431_tasks",
+      "emasco_marketing_exec_digital_campaign",
+      "emasco_marketing_exec_research",
+      "emasco_marketing_exec_basic"
+    ],
+    "evidence_notes": {
+      "occupation_classification": "eMASCO identifies Advertising and Marketing Professionals under MASCO 2431; this is a broad occupational group.",
+      "skills": "The specific six-skill selection uses eMASCO group-level tasks and Marketing Executive (2431-02) skills as a representative subset. Not every speciality has identical requirements.",
+      "skill_weights": "The six importance weights 1–4 are team estimates for a hackathon readiness model, not official MASCO or employer-rated scores.",
+      "job_market": "MyCOL 2024/2025 includes selected marketing-related job titles, which does not establish a current vacancy trend or growth percentage.",
+      "ai_impact": "No verified, group-wide Malaysian AI-impact classification is assigned. OECD/ILO exposure integration pending.",
+      "sdgs": "SDG 4 and SDG 8 are team-defined interpretations, not official outcome measurements."
+    },
+    "evidence_status": "curated_with_assumptions",
+    "weight_method": "Team-defined illustrative skill importance weights (1-4). Not official eMASCO or TalentCorp ratings.",
+    "occupation_mapping_note": "Marketing Executive (2431-02) is a representative sub-occupation used to support several skills for the wider MASCO 2431 unit group.",
+    "ai_impact": null,
+    "ai_impact_note": "No verified Malaysian occupation-wide AI-impact rating has been established. Do not interpret the skill weights as AI risk."
+  },
+  {
+    "id": "role_electrical_engineer",
+    "title": "Electrical Engineers",
+    "market": "Malaysia",
+    "masco_code": "2151",
+    "industry": "Electrical Engineering",
+    "required_skills": {
+      "skill_electrical_system_design": 4,
+      "skill_electrical_circuits": 4,
+      "skill_electrical_safety": 3,
+      "skill_electrical_fault_diagnosis": 3,
+      "skill_electrical_simulation": 2,
+      "skill_critical_thinking": 2
+    },
+    "sdgs": [
+      4,
+      8,
+      9
+    ],
+    "source_ids": [
+      "src_emasco_electrical_2151",
+      "src_ee_2024"
+    ],
+    "evidence_claim_ids": [
+      "emasco_ee_class_2151",
+      "emasco_ee_design_tasks_2151",
+      "emasco_ee_safety_maintenance_2151",
+      "ee_sector_ai_upskilling_2024"
+    ],
+    "evidence_notes": {
+      "occupation_classification": "eMASCO 2151 describes the broad Malaysian Electrical Engineers occupation.",
+      "skills": "Skills are selected and paraphrased from the eMASCO general duties; simulation is a team-selected learning extension and not explicitly listed as a separate compulsory eMASCO skill.",
+      "industry_ai_context": "TalentCorp E&E report printed pp. 28–29 (PDF p.15) discusses industry trends, not occupation-wide risk for all electrical engineers.",
+      "skill_weights": "All 1–4 weights are team estimates, not official survey measurements.",
+      "sdgs": "SDG tags are team interpretations, not measured societal outcomes."
+    },
+    "evidence_status": "curated_with_assumptions",
+    "weight_method": "Team-defined illustrative skill importance weights (1-4), not official eMASCO or TalentCorp ratings.",
+    "occupation_mapping_note": "E&E specialist roles in TalentCorp report do not map directly onto all MASCO 2151 engineers.",
+    "ai_impact": null,
+    "ai_impact_note": "No verified occupation-wide Malaysian AI impact grade; the E&E report offers sector context only."
+  },
+  {
+    "id": "role_nursing_professional",
+    "title": "Nursing Professionals",
+    "market": "Malaysia",
+    "masco_code": "2221",
+    "industry": "Healthcare and Nursing",
+    "required_skills": {
+      "skill_patient_care_monitoring": 4,
+      "skill_nursing_assessment_care_planning": 4,
+      "skill_medication_safety": 3,
+      "skill_infection_prevention": 3,
+      "skill_patient_communication": 3,
+      "skill_critical_thinking": 2
+    },
+    "sdgs": [
+      3,
+      4,
+      8
+    ],
+    "source_ids": [
+      "src_emasco_nursing_2221",
+      "src_emasco_professional_nurse_2221_01"
+    ],
+    "evidence_claim_ids": [
+      "emasco_nurse_2221_class",
+      "emasco_nurse_2221_duties",
+      "emasco_prof_nurse_assessment_care",
+      "emasco_prof_nurse_medication_infection",
+      "emasco_prof_nurse_communication_thinking"
+    ],
+    "evidence_notes": {
+      "occupation_classification": "MASCO 2221 and its nursing roles: eMASCO official category page, description and Tugasan.",
+      "skills": "Five nursing skills from eMASCO Professional Nurse 2221-01 description, tasks and Asas/Khusus skills; Critical Thinking reused from existing skills.",
+      "skill_weights": "1–4 values are team estimates for demo matching, not official ratings.",
+      "ai_impact": "No nursing occupation-wide AI-exposure or job replacement risk determined from the Medical Devices report.",
+      "learning": "Courses are free foundations/partial coverage; online learning is not supervised clinical practice or Malaysian registration."
+    },
+    "evidence_status": "curated_with_assumptions",
+    "weight_method": "Team-defined illustrative importance weights 1–4; eMASCO supports relevance but not numeric ratings.",
+    "occupation_mapping_note": "MASCO group 2221 is broader than the Professional Nurse 2221-01 skills profile used as a representative specialization.",
+    "ai_impact": null,
+    "ai_impact_note": "Unassessed for the overall MASCO 2221 group. TalentCorp Medical Devices report does not assess Nursing Professionals as a whole."
   }
 ]

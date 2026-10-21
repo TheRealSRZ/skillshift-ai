@@ -11,212 +11,176 @@ Record source title, URL, report period, access/retrieval date, specific page/ta
 `data/*.json` CURRENTLY CONTAINS SYNTHETIC DEMO CONTENT â€” NOT MALAYSIAN LABOR STATISTICS. Replace with verified data before final submission. The live data pipeline must produce real, dated update signals.
 
 ---------------------------------------------------------------------------------------
-# Malaysian Evidence â€” Member 4
+# Malaysian Evidence and Data Sources — Member 4
 
-**Project:** SkillShift AI
-**Dataset review date:** 20 October 2026
-**Status:** Software Developer and Accountants and Auditors prepared as evidence-supported integration drafts; application integration and live/updatable trend behaviour remain to be tested.
+**Project:** SkillShift AI  
+**Review date:** 21 October 2026  
+**Status:** Six Malaysian career profiles and supporting O*NET/OECD evidence pipelines prepared. Career matching still uses the existing team-assigned weights; evidence integrations and a recommendation-changing real trend signal need backend/team work.
 
-## 1. Dataset Overview
+## 1. Dataset overview
 
-SkillShift AI aims to help Malaysian users understand changing career requirements, identify skill gaps, and find relevant learning resources for adapting to AI-driven workplace changes.
+SkillShift AI combines Malaysian occupational references, international occupational evidence, dated Malaysian job-market observations, selected learning resources, and team-defined career matching weights. **A source-supported skill does not mean its 1–4 importance weight was measured by the source.**
 
-Two Malaysian occupation profiles have been curated for integration:
-
-| Occupation | MASCO 2020 code | Sector / scope | Evidence status |
+| Career ID | Malaysian occupation | MASCO | Evidence status |
 |---|---|---|---|
-| Software Developer | 2512 | Information and Communications Technology (ICT) | Curated with documented assumptions |
-| Accountants and Auditors | 2411 | Accounting and Finance | Curated with documented assumptions |
+| `role_software_developer` | Software Developer | 2512 | Curated with assumptions |
+| `role_accountant_auditor` | Accountants and Auditors | 2411 | Curated with assumptions |
+| `role_data_professional` | Data Professionals | 2524 | Curated with assumptions |
+| `role_marketing_professional` | Advertising and Marketing Professionals | 2431 | Curated with assumptions |
+| `role_electrical_engineer` | Electrical Engineers | 2151 | Curated with assumptions |
+| `role_nursing_professional` | Nursing Professionals | 2221 | Curated with assumptions |
 
-The repository also retains **three synthetic demo career profiles** (Data Analyst, Cybersecurity Analyst, and Cloud Engineer) for integration testing. Their illustrative skill requirements are **not verified Malaysian career evidence** and should be excluded from real-user recommendations until replaced or explicitly marked as demo data.
+`data/careers.json` also contains three **synthetic demo careers**: `role_data_analyst`, `role_security_analyst`, `role_cloud_engineer`. These are not verified Malaysian occupational evidence. Member 2/team leader may remove them **only after checking frontend, backend and test dependencies**.
 
-The dataset combines Malaysian workforce reports, official occupational classifications, an international classification reference (ESCO), dated DOSM job-market observations, and skill-linked learning resources. Source titles, URLs, evidence locations, reporting periods, retrieval dates, geography, licensing status, and limitations are recorded in `data/sources.json`.
+The current source registry, `data/sources.json`, contains **21 source entries**, including newly added O*NET and OECD entries. `data/learning_resources.json` contains **39 skill-linked learning resource records** in the last reviewed file. These counts are from the supplied project files, not proof that every external URL is currently reachable.
 
-**Data integrity rule:** A periodic report is not a live feed. A single job-market observation does not demonstrate rising or declining demand. Synthetic skill multipliers must not be presented as measured Malaysian labour-market changes.
+## 2. Source register and scope
 
-## 2. Data Sources and Evidence Register
-
-| Source ID / provider | Evidence used | Exact reference or period | Scope / caution |
-|---|---|---|---|
-| `src_mycol_2024` â€” TalentCorp MyCOL 2024/2025 | Software Developers and Accountants and Auditors critical-occupation profiles | Software Developers: printed pp. 249â€“250; Accountants and Auditors: pp. 223â€“224; list: Table 7, pp. 85â€“87 | Critical-occupation evidence is not an AI-impact score or proof of future growth |
-| `src_masco_2020` â€” MASCO 2020 / eMASCO | Official Software Developers occupation code | Unit group 2512 | Classification only; not labour-market demand |
-| `src_masco_accountants_2020` â€” MASCO 2020 / eMASCO | Official Accountants and Auditors occupation code | Unit group 2411 | Classification only; not labour-market demand |
-| `src_ict_2024` â€” TalentCorp ICT Impact Study | Six Software Engineer skills; low AI-impact classification | Chapter 4, printed pp. 106â€“107 | Software Engineer is mapped approximately to Software Developer |
-| `src_gbs_2024` â€” TalentCorp GBS Impact Study | Finance and Accounting Function skills and selected role-level AI impacts | Chapter 4, pp. 38â€“103; finance/accounting roles and skills at printed p. 95 | Job-cluster findings are not necessarily universal for MASCO 2411 |
-| `src_dosm_jmi_q2_2026` â€” DOSM Job Market Insights | Official Software Developer and Accountants and Auditors online job offerings | **2026-Q2**, release dated 18 August 2026; media statement / release overview | One quarter, occupation-level observations; not a live feed or skill-demand time series |
-| `src_esco_121` â€” European Commission ESCO v1.2.1 | Supporting occupation and skill taxonomy | English CSV downloads, including occupation and occupationâ€“skill relationship files | International classification; not Malaysian observed demand |
-| Microsoft Learn, OpenLearn, OpenTuition | Free-to-learn foundational and AI-adaptation materials | Specific links and review dates in `data/learning_resources.json` | Some content is partial, some durations unknown, and optional software can require paid access |
-
-### Official source links
-
-- **TalentCorp MyCOL 2024/2025:** https://www.talentcorp.com.my/images/uploads/publication/204/MyMahir-Malaysia-Critical-Occupations-List-MyCOL20242025-1773385490.pdf
-- **TalentCorp ICT Impact Study:** https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf
-- **TalentCorp GBS Impact Study:** https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf
-- **eMASCO Software Developers (2512):** https://emasco.mohr.gov.my/masco/2512
-- **eMASCO Accountants and Auditors (2411):** https://emasco.mohr.gov.my/masco/2411
-- **DOSM Job Market Insights Q2 2026:** https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026
-- **ESCO classification downloads:** https://esco.ec.europa.eu/en/use-esco/download
-- **OpenDOSM catalogue (additional dataset discovery):** https://open.dosm.gov.my/data-catalogue
-
-Relevant sources were retrieved/reviewed on **20 October 2026** as recorded in `data/sources.json`. The MyCOL **2024/2025** label describes the report edition; do not infer an exact publication date from the edition name alone.
-
-### Source licensing and attribution
-
-The `license_status` in `data/sources.json` differentiates identified terms from permissions that have not been verified:
-
-- **DOSM:** Government Open Data Terms of Use 1.0 is linked in its source record; attribution to the Department of Statistics Malaysia is recorded. Scope of terms for any particular original workbook should be checked before redistribution.
-- **ESCO classification:** Reuse conditions and European Commission acknowledgement are recorded; adaptations must be identified. ESCO API software licensing is separate from classification-data reuse.
-- **TalentCorp reports and MASCO pages:** Explicit redistribution terms have **not been verified**. `not_verified` describes the project's verification status; it is not an official licence name or a declaration that reuse is forbidden.
-
-Use report citations and limited, accurately attributed facts; do not assume that a publicly accessible PDF may automatically be redistributed in full.
-
-## 3. Career 1 â€” Software Developer (MASCO 2512)
-
-**Country:** Malaysia
-**Sector:** ICT
-**MyCOL:** Included in MyCOL 2024/2025, detailed profile at printed pp. 249â€“250.
-
-### Skills from the TalentCorp ICT study
-
-| TalentCorp category | Skill | Dataset ID | Team-defined weight |
-|---|---|---|---:|
-| Specific | Software Configuration | `skill_software_configuration` | 3 |
-| Specific | Software Design | `skill_software_design` | 4 |
-| Specific | Software Testing | `skill_software_testing` | 3 |
-| Basic | Digital and AI Fluency | `skill_ai_fluency` | 2 |
-| Basic | Critical Thinking | `skill_critical_thinking` | 2 |
-| Basic | Innovative Thinking | `skill_innovative_thinking` | 2 |
-
-The listed skills come from TalentCorp's **Software Engineer** profile, ICT study printed pp. 106â€“107. SkillShift AI maps this profile to **Software Developers (MASCO 2512)**; these two occupation definitions are related but are not treated as identical.
-
-### AI impact
-
-TalentCorp classifies its **Software Engineer** profile among low AI-impacted roles. This assessment is source-specific; it does not establish low demand, future job security, or zero automation exposure for every Software Developer.
-
-### Job-market observation
-
-DOSM Job Market Insights **Q2 2026** reports **19,899 online job offerings for Software Developers**. The record in `data/occupation_trends.json` references `src_dosm_jmi_q2_2026` and is not used as proof of employment growth or a skill-demand forecast.
-
-## 4. Career 2 â€” Accountants and Auditors (MASCO 2411)
-
-**Country:** Malaysia
-**Sector:** Accounting and Finance
-**MyCOL:** Accountants and Auditors are included for the job titles identified in MyCOL 2024/2025, detailed profile at printed pp. 223â€“224.
-**Classification:** eMASCO unit group **2411**.
-
-### Skills from TalentCorp GBS Finance and Accounting Function
-
-| Skill | Dataset ID | Team-defined weight |
-|---|---|---:|
-| Financial Analysis and Reporting | `skill_financial_analysis_reporting` | 4 |
-| Accounting Principles | `skill_accounting_principles` | 4 |
-| Attention to Detail | `skill_attention_to_detail` | 3 |
-| Ethical Judgement | `skill_ethical_judgement` | 3 |
-| Cost-Benefit Analysis | `skill_cost_benefit_analysis` | 2 |
-| Innovative Thinking | `skill_innovative_thinking` | 2 |
-
-TalentCorp's **Finance and Accounting Function** skills table (GBS study, printed p. 95) supports the existence of these skills within the broader GBS job cluster. SkillShift AI selected these six for the MASCO 2411 prototype and assigned illustrative matching weights **1â€“4**. **TalentCorp did not publish these weights**, and the job-cluster list should not be presented as a ranking of all Malaysian accountants' skills.
-
-The existing `skill_innovative_thinking` record is reused across both careers rather than duplicated.
-
-### AI impact
-
-The GBS study identifies certain roles, including **Cost Accountant, Internal Auditor and General Ledger Accountant**, among medium AI-impacted roles. Those observations concern the named specialisations and should not be generalized to all **Accountants and Auditors (MASCO 2411)**. The prototype therefore uses `ai_impact: null` for the combined occupation pending more occupation-specific evidence.
-
-### Job-market observation
-
-DOSM Job Market Insights **Q2 2026** reports **22,067 online job offerings for Accountants and Auditors**. The record in `data/occupation_trends.json` references `src_dosm_jmi_q2_2026`.
-
-This is a single quarterly snapshot, not a forecast, a unique-vacancy count, total employment, or evidence that accounting job demand is increasing.
-
-### Evidence tracing
-
-The career's `source_ids` link to MyCOL, MASCO, TalentCorp GBS, and DOSM. Its `evidence_claim_ids` refer to particular claims within `data/sources.json`, allowing members of the team to identify the supporting source and page. Source mappings and all numerical weights remain subject to team review.
-
-## 5. Malaysian Job-Market Data and Trend Signals
-
-| Occupation | Period | DOSM metric represented in the app | Reported value | Source ID |
-|---|---|---|---:|---|
-| Software Developers (MASCO 2512) | 2026-Q2 | Online job offerings | 19,899 | `src_dosm_jmi_q2_2026` |
-| Accountants and Auditors (MASCO 2411) | 2026-Q2 | Online job offerings | 22,067 | `src_dosm_jmi_q2_2026` |
-
-The application's JSON field uses the key `metric: "online_job_postings"`; the original published measure is described as **online job offerings**.
-
-The downloaded **`data/Data JMI Q2 2026.xlsx`** workbook and the cleaned **`data/jmi_major_occupation_2025_2026.csv`** contain broader **major-occupation-group** statistics. The CSV was produced with `data_pipeline/clean_jmi.py`. These files **must not** be treated as accountant-specific or software-developer-specific historical series. A Q1 2026 workbook was considered separately, but the current occupation-level app dataset intentionally retains **Q2 only** until comparable occupation-specific figures have been fully reconciled.
-
-`data/trends.json` contains **synthetic integration-test skill multipliers**. They are not derived from the two real Q2 occupation observations. A working trend refresh/import mechanism, dated updates and proof that changing a valid signal updates recommendations are still required to meet the Domain 1 trend-signal feature.
-
-## 6. Learning Resources and Personalized Pathways
-
-`data/learning_resources.json` contains **19 skill-linked resources** after the Career 2 update:
-
-- **14 foundational resources** and **5 AI-adaptation resources**.
-- The original 12 resources cover Software Developer and initial demo skills; **7 additional resources** support accounting and finance.
-- Existing Innovative Thinking content is reused across careers.
-
-### Seven new accounting resources
-
-| Course / study material | Provider | Skill ID | Category | Duration |
-|---|---|---|---|---|
-| Introduction to Bookkeeping and Accounting | OpenLearn | `skill_accounting_principles` | Foundational | 8 h |
-| Financial Statement Analysis and Interpretation | OpenLearn | `skill_financial_analysis_reporting` | Foundational | 12 h |
-| Assertions and Audit Evidence | OpenTuition | `skill_attention_to_detail` | Foundational | Not published |
-| Professional Ethics | OpenTuition | `skill_ethical_judgement` | Foundational | Not published |
-| Capital Investment Appraisal | OpenTuition | `skill_cost_benefit_analysis` | Foundational | Not published |
-| Work Smarter with Copilot Prompts for Finance Professionals | Microsoft Learn | `skill_financial_analysis_reporting` | AI adaptation | Approx. 28 min |
-| Get Started with Finance Agents | Microsoft Learn | `skill_financial_analysis_reporting` | AI adaptation | Approx. 83 min |
-
-Course IDs, live-page links, skill IDs, categories, review dates, estimated durations and relevance notes are maintained in `data/learning_resources.json`. Some materials cover only part of a skill; OpenTuition notes are not the same as a timed course. Unknown hours use `estimated_hours: null` and should display as **â€œDuration variesâ€**, never zero hours.
-
-Training content can be free while professional certification, optional software or Microsoft Copilot product features may have separate charges. These are learning opportunities, not guarantees of Malaysian professional qualification, employment or protection against displacement.
-
-For the Domain 1 reskilling feature, the application still needs to order courses according to the user's skill gaps, show estimated time honestly, and explain why each recommendation fits.
-
-## 7. SDG Mapping
-
-Career-to-SDG tags are in `data/careers.json` and skill-to-SDG tags with rationales are in `data/skills.json`. The existing `data/sdg_mapping.json` contains SDG titles and general rationales; `data_pipeline/sdg_mapping.py` provides access helpers.
-
-| Career | Current project-defined SDG tags | Interpretation |
+| Source ID / publisher | Relevant use | Important limitation |
 |---|---|---|
-| Software Developer | 4, 8, 9 | Learning, productive work and innovation |
-| Accountants and Auditors | 4, 8, 16 | Learning, economic activity and accountability |
+| `src_mycol_2024` — TalentCorp MyCOL 2024/2025 | Critical-occupation evidence for specific Malaysian job titles | Critical-occupation status is not an AI risk score or job-growth forecast |
+| `src_masco_2020`, `src_masco_accountants_2020`, `src_masco_data_2020` | Official MASCO classifications | No numeric skill importance or AI exposure |
+| `src_emasco_data_2524`, `src_emasco_data_analyst_skills_2524` | Data occupation duties and Data Analyst-specific skills | Data Analyst specialization does not represent every Data Professional |
+| `src_emasco_marketing_2431`, `src_emasco_marketing_exec_2431_02` | Marketing occupation and specialization duties/skills | Marketing Executive is a representative specialization |
+| `src_emasco_electrical_2151` | Electrical engineering duties | No quantitative weights; specializations vary |
+| `src_emasco_nursing_2221`, `src_emasco_professional_nurse_2221_01` | Nursing duties and professional nurse skills | Scope of practice, training and registration requirements apply |
+| `src_ict_2024`, `src_gbs_2024`, `src_ee_2024` — TalentCorp | Selected role skills and sector AI context | Cannot generalize selected role classifications to an entire MASCO group |
+| `src_dosm_jmi_q2_2026` — DOSM | Q2 2026 Malaysian job offering observations and major-group data | Job offerings are not skill-level demand or a job-loss forecast |
+| `src_esco_121` — European Commission | International occupation/skill taxonomy | Not Malaysian employer demand |
+| `src_onet_31_0` — USDOL/ETA O*NET | US occupational skills importance and task evidence | Representative US occupations, not an official MASCO crosswalk |
+| `src_oecd_ai_exposure_2026` — OECD | Occupational AI capability exposure and a research sensitivity scenario | Not job-replacement probability or Malaysian adoption |
+| `src_ilo_genai_exposure_2025` — ILO | Supporting methodology on task-level GenAI exposure | Not SkillShift's numerical career score |
+| `src_retail_2024` — TalentCorp | Optional background sector research | No current direct supported claim in the registry |
+| `src_demo` | Synthetic test data provenance | Must never be presented as real occupational evidence |
 
-Individual skill mappings additionally include other relevant goals where justified. These links are **team-defined interpretations** of possible contributions, **not** official UN classifications, accreditations, or measured social outcomes. Every user-visible SDG recommendation should include its rationale.
+The **complete source-specific URLs, evidence locations, claim IDs, retrieval dates, licensing status and reuse conditions** live in `data/sources.json`. Avoid maintaining a second competing claim registry in this Markdown file.
 
-## 8. Dataset Files and Validation
+### Direct primary references
 
-| File | Purpose |
-|---|---|
-| `data/careers.json` | Occupation profiles, required skill weights, source and claim links, AI-impact qualifiers and career SDGs |
-| `data/skills.json` | Normalized skill IDs, names, SDG mappings and rationales |
-| `data/sources.json` | Source registry, reporting/retrieval details, claim-level evidence, limitations and licence-status metadata |
-| `data/occupation_trends.json` | Two real Malaysian Q2 2026 occupation-level job-market observations |
-| `data/trends.json` | Explicitly synthetic skill multipliers used for integration testing |
-| `data/learning_resources.json` | 19 skill-linked foundational and AI-adaptation learning resources |
-| `data/sdg_mapping.json` | SDG titles and explanatory text used by the existing team mapping system |
-| `data/Data JMI Q2 2026.xlsx` | Original DOSM workbook, broader occupational-group data; source licence scope warrants review before public redistribution |
-| `data/jmi_major_occupation_2025_2026.csv` | Cleaned DOSM major-occupation-group data |
-| `data_pipeline/clean_jmi.py` | Workbook cleaning script |
-| `data_pipeline/sdg_mapping.py` | Role/skill SDG lookup helpers |
-| `data_pipeline/validate_career2.py` | Cross-file data-integrity checks |
+- **O*NET 31.0:** https://www.onetcenter.org/database.html ; database licence: https://www.onetcenter.org/license_db.html . O*NET database information attributed to USDOL/ETA, under CC BY 4.0; our MASCO crosswalk and weight conversions are adaptations, not endorsed by USDOL/ETA.
+- **OECD AI exposure research:** https://doi.org/10.1787/f3da0f0a-en . The supplied workbook's README describes CC BY 4.0; cite OECD (2026) and identify extraction/display adaptations.
+- **DOSM Q2 2026:** https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026 .
+- **MASCO/eMASCO:** https://emasco.mohr.gov.my/ .
+- **MyCOL and workforce studies:** refer to the exact TalentCorp PDFs in `data/sources.json`; reuse rights for several original reports remain **not verified**.
+- **ESCO:** https://esco.ec.europa.eu/en/use-esco/download ; acknowledge the European Commission and indicate adaptations.
 
-**Validation (20 October 2026):** The user's local run of `python data_pipeline/validate_career2.py` reported **413 / 413 checks passed, 0 errors**, with 5 career records (2 evidence-backed and 3 synthetic demo), 19 skills, 10 sources, 19 learning resources, and 2 official occupation observations.
+## 3. Six curated careers: skills and claims
 
-This is **structural validation**: it checks data formats, references and coverage. It does **not** prove that all external source URLs remain live, independently re-verify every claim, test the backend/frontend, or demonstrate an updatable trend-to-matching workflow.
+All skills below are represented by stable `skill_id` keys and 1–4 team-selected weights in `data/careers.json`. Supporting occupation evidence does **not** establish those exact numbers.
 
-## 9. Assumptions, Limitations, and Next Steps
+| Career | Selected skills, with current team weights | Primary justification and caveat |
+|---|---|---|
+| Software Developer | Software Configuration **3**; Design **4**; Testing **3**; AI Fluency **2**; Critical Thinking **2**; Innovative Thinking **2** | TalentCorp ICT Software Engineer profile and MASCO 2512. TalentCorp's low AI-impact classification applies to its named Software Engineer role, not a universal guarantee for all developers. |
+| Accountants and Auditors | Financial Analysis & Reporting **4**; Accounting Principles **4**; Attention to Detail **3**; Ethical Judgement **3**; Cost-Benefit Analysis **2**; Innovative Thinking **2** | TalentCorp GBS finance/accounting cluster and MASCO 2411. Named medium-impact subroles cannot establish a grade for the full occupation; `ai_impact` remains `null`. |
+| Data Professionals | Data Analysis **4**; Data Cleaning **4**; Python **3**; SQL **3**; Data Visualization **3**; Critical Thinking **2** | MASCO 2524 group duties plus specific eMASCO Data Analyst (2524-02) skills. The broader group includes other specialties. |
+| Advertising and Marketing Professionals | Marketing Strategy **4**; Digital Marketing **4**; Market Research **3**; Campaign Performance **3**; Marketing Communication **3**; Critical Thinking **2** | eMASCO 2431 and Marketing Executive (2431-02), a narrower representative role. |
+| Electrical Engineers | Electrical System Design **4**; Electrical Circuits **4**; Electrical Safety **3**; Fault Diagnosis **3**; Electrical Simulation **2**; Critical Thinking **2** | eMASCO 2151 duties. Simulation is a team-selected learning extension, not an explicitly mandatory group-level skill. |
+| Nursing Professionals | Patient Care & Monitoring **4**; Nursing Assessment & Care Planning **4**; Medication Safety **3**; Infection Prevention **3**; Patient Communication **3**; Critical Thinking **2** | eMASCO 2221 and Professional Nurse (2221-01). Learning resources do not authorize clinical practice or replace professional registration. |
 
-1. **Weights are estimates:** Required skill weights (1â€“4) were chosen by the team; they are not scores supplied by TalentCorp or ESCO.
-2. **Career mappings are approximate:** Software Engineer / Software Developer and GBS finance function / MASCO 2411 are documented approximations.
-3. **AI impacts are scoped:** The published classifications apply to particular roles in each TalentCorp report; no uniform future outcome is guaranteed.
-4. **Real versus synthetic data must remain separate:** Synthetic demo careers and skill multipliers cannot be shown as verified Malaysian evidence.
-5. **DOSM snapshot â‰  trend:** Q2 2026 offerings do not alone establish growth, decline or forecasts; broad occupation CSV must not be mislabelled as role-specific.
-6. **Course links and times may change:** Unknown hours stay `null`; course content may cover only part of a required skill.
-7. **SDGs are interpretations:** Career and skill SDG tags require meaningful explanations, not decorative icons.
-8. **Licence uncertainty must be respected:** Record source attribution and reuse permissions precisely, especially if distributing original reports or workbooks publicly.
+All career SDG tags are project interpretations rather than verified impacts. No occupation-wide AI job-replacement percentage is claimed.
 
-**Completed in this data iteration:** two curated Malaysian career profiles; skill-to-course links; occupation snapshots; evidence metadata; individual skill SDG tags; internal cross-file checks.
+## 4. O*NET occupational mapping and skill evidence
 
-**Still pending:** confirm backend contract and handling of nullable fields, update this documentation in the repository, synchronize with current `main`, run the team application, verify user-facing evidence and pathways, test a refreshable real trend-signal workflow, and continue building the remaining selected careers.
+`data/onet_career_mapping.json` records these **reviewed representative** MASCO-to-O*NET mappings; `mapping_status: verified` in the processing file indicates the project's internal mapping review and is **not an official occupational crosswalk**.
 
-**ESCO acknowledgement:** This service uses the ESCO classification of the European Commission.
+| Malaysian career | O*NET-SOC | Representative US occupation | Fit |
+|---|---|---|---|
+| Software Developer | `15-1252.00` | Software Developers | Representative |
+| Accountants and Auditors | `13-2011.00` | Accountants and Auditors | Representative |
+| Data Professionals | `15-2051.00` | Data Scientists | **Partial**: broader Malaysian data grouping |
+| Advertising and Marketing Professionals | `13-1161.00` | Market Research Analysts and Marketing Specialists | Good, but narrower than all advertising work |
+| Electrical Engineers | `17-2071.00` | Electrical Engineers | Strong, local regulations may differ |
+| Nursing Professionals | `29-1141.00` | Registered Nurses | Strong, legal practice scopes may differ |
+
+**Reproducible processing:**
+
+1. `data_pipeline/clean_onet.py` reads the locally held O*NET workbooks and generates `data/processed/onet_occupation_skills.csv` and `onet_occupation_tasks.csv`.
+2. `data_pipeline/build_onet_skill_importance.py` produces `onet_skill_importance_evidence.json` from **unsuppressed, directly matched Skills IM** ratings only. O*NET LV is a different scale.
+3. `data_pipeline/build_onet_task_evidence.py` produces `onet_task_skill_evidence.json` with manually selected relevant O*NET task IDs and ratings. **Task importance is not a numerical skill-importance score.**
+4. `data_pipeline/build_onet_combined_evidence.py` combines both into `data/processed/onet_combined_skill_evidence.json`, the main **read-only explanation dataset** for Member 2.
+
+Latest combined evidence: **36 curated career–skill pairs**, **5 direct general-skill ratings**, **24 task-linked pairs** (17 stronger task supports; 7 partial), and **7 team-estimate-only pairs**. The direct O*NET proposal uses a *project-defined* conversion `min(4, floor(IM))` on eligible importance ratings (1–5); this is **not O*NET's own 1–4 scale**. `careers.json` weights have **not** been changed. Different O*NET occupations have different original measurement dates; retain per-record dates. Task-to-skill interpretations still require teammate review.
+
+**Method document:** `docs/ONET_SCORING_METHOD.md`.
+
+## 5. OECD AI capability exposure
+
+**Input:** `data/external/oecd/OECD AI Capability Gap Index_public data.xlsx` (workbook location expected by the processor). `data_pipeline/build_oecd_ai_exposure.py` writes `data/processed/oecd_ai_exposure_evidence.json`.
+
+The workbook contains the reversed normalized **AI Capability Gap Index**. Higher values indicate **greater measured overlap between occupational requirements and AI capabilities** under the OECD research method. These are **indices, not percentages of job loss, predicted unemployment, or Malaysia-specific adoption rates**.
+
+| Career | OECD baseline index (0–1) | Match status |
+|---|---:|---|
+| Accountants and Auditors | 0.854066 | Exact mapped O*NET code |
+| Advertising and Marketing Professionals | 0.856771 | Exact mapped O*NET code |
+| Electrical Engineers | 0.8430 (rounded) | Exact mapped O*NET code |
+| Nursing Professionals | 0.6638 (rounded) | Exact mapped O*NET code |
+| Software Developer | `null` | Exact code missing from supplied workbook |
+| Data Professionals | `null` | Exact code missing from supplied workbook |
+
+**Display:** “OECD AI capability exposure index: 0.854 / 1.000”, with source and caveat. A missing value displays as **unavailable**, never zero or low exposure. Do not invent thresholds labelled *high replacement risk*. The workbook's **+1 cognitive capability** case is a hypothetical OECD research scenario, **not** the application's moderate/fast AI adoption prediction. Do not substitute another occupation to fill the missing codes without a documented, justified crosswalk.
+
+**Method document:** `docs/OECD_SCORING_METHOD.md`.
+
+## 6. DOSM job-market evidence and unfinished trend integration
+
+| Evidence | Observed scope | Permitted claim |
+|---|---|---|
+| Q2 2026 occupation snapshot | Software Developers: **19,899** online job offerings; Accountants and Auditors: **22,067** | DOSM-reported quarterly observations only |
+| `data/jmi_major_occupation_2025_2026.csv` | Malaysian **major occupational groups**, multiple quarters | Comparisons for broad groups, not individual careers or skills |
+| `data/processed/dosm_major_group_signals.json` | Latest/previous quarters, generated by `data_pipeline/import_trends.py` | Updatable **when the underlying CSV is updated and importer reruns**; no automatic download |
+| `data/trends.json` | Existing **team-defined synthetic skill multipliers** | App integration assumptions, not measured DOSM trends |
+
+The importer processes the latest available valid periods and has a refresh test (`data_pipeline/test_import_trends_refresh.py`). **It does not autonomously fetch new quarterly releases.** Broad Professionals-group changes must not be described as Software Developer- or Data Professional-specific trends, and cannot directly support a particular skill's multiplier.
+
+**Domain 1 remaining gap:** Evidence display alone is not a genuinely updated signal **changing recommendations**. The team still needs an approved, defensible link between an updatable dated market/AI signal and the relevant career/skill recommendation, plus a test showing that changing valid source observations changes the recommendation. Coordinate this with Member 2; do not relabel existing synthetic multipliers as real DOSM-derived calculations.
+
+## 7. Learning resources and SDGs
+
+- `data/learning_resources.json` contains **39 resources** in the reviewed dataset, linked to stable skill IDs. Foundational and AI-adaptation offerings are distinct; many cover only part of a skill.
+- Use verified provider/course pages, account for country-specific learning applicability and possible paid certificates, and represent unknown course lengths with `estimated_hours: null`, **not zero hours**.
+- Personalized pathways and estimated hours still depend on backend sequencing, skill-gap selection and appropriate frontend rendering.
+- Career/skill SDG mappings are in `data/careers.json` and `data/skills.json`; titles and general explanations live in `data/sdg_mapping.json`. SDGs are **team-defined relevance claims**, not measured impact.
+- **Pending check:** Nursing references **SDG 3**; verify `data/sdg_mapping.json` defines SDG 3 before shipping. Also review other career and skill SDG references, duplicated entries and unused scripts after the handoff.
+
+## 8. Files, ownership, reproducibility and tests
+
+| File(s) | Purpose | Owner / next action |
+|---|---|---|
+| `data/sources.json` | Canonical source registry and claim metadata (**21 records**) | Member 4 maintains; avoid duplicate source IDs |
+| `data/careers.json`, `data/skills.json`, `data/learning_resources.json` | Existing career profiles, IDs, estimated weights and learning references | Member 4 data QA; matching changes require team approval |
+| `data/processed/onet_combined_skill_evidence.json` | Read-only O*NET skill and task explanations | Member 2 joins by `career_id` + `skill_id` |
+| `data/processed/oecd_ai_exposure_evidence.json` | OECD baseline and hypothetical research scenario | Member 2 joins `careers[].career_id`; handle `null` |
+| `data/processed/dosm_major_group_signals.json` | Broad DOSM dated observations | Member 2 displays as context; trend-to-matching work remains open |
+| `data/trends.json` | Existing team-assumption multipliers | Keep labelled synthetic until a separately validated model replaces them |
+| `docs/ONET_SCORING_METHOD.md`, `docs/OECD_SCORING_METHOD.md` | Evidence calculation and caveat documents | Cite in implementation/demo |
+| `docs/MEMBER2_EVIDENCE_INTEGRATION.md` | **Exact JSON fields and handoff instructions** | Member 2's main integration guide |
+
+Run from the repository root after placing the updated source registry and documentation:
+
+```powershell
+python data_pipeline/validate_sources.py
+python data_pipeline/validate_careers.py
+python -m pytest -q
+```
+
+For complete reproduction of the three evidence outputs (with required input files installed locally):
+
+```powershell
+python data_pipeline/build_onet_skill_importance.py
+python data_pipeline/build_onet_task_evidence.py
+python data_pipeline/build_onet_combined_evidence.py
+python data_pipeline/build_oecd_ai_exposure.py
+```
+
+**Validation scope:** Passing tests checks the rules they implement; it does not prove every external course URL, task crosswalk, licence, future trend signal or user interface is correct. Preserve evidence dates and licensing. Do not commit unreviewed third-party `data/external/` workbooks by using `git add .`.
+
+## 9. Handoff and pending tasks
+
+**Ready for Member 2:** six curated Malaysian career records; O*NET skill/task explanations; OECD occupational exposure for four exact matches with two `null`; dated DOSM broad-group evidence; source citations and scoring cautions. **Do not silently replace current 1–4 career weights or moderate/fast scenario values.**
+
+**Pending after sharing the branch:** real updatable trend → recommendation effect; frontend/backend joining and testing; missing SDG 3; script overlap/unused-code review; confirming demo-career dependencies and optional removal; source permissions/URL checks; full demo validation.
+
+**Quick Member 2 reference:** `docs/MEMBER2_EVIDENCE_INTEGRATION.md` — use its dataset lookup table, simple integration flow and unfinished DOSM trend section. When the team agrees on a revised scoring formula, update the source-of-truth inputs and run tests before deploying.
+
+**Attribution:** This project uses information from the O*NET database by USDOL/ETA, and the ESCO classification of the European Commission. OECD research is cited in `src_oecd_ai_exposure_2026`; project-specific mappings and derived displays are adaptations. Consult each source's full attribution and licence terms in `data/sources.json`.

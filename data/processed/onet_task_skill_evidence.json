@@ -1,0 +1,714 @@
+{
+  "dataset_id": "onet_task_skill_evidence_v1",
+  "source": "O*NET task ratings, supplied data/processed/onet_occupation_tasks.csv",
+  "method": "Explicit manual task-ID crosswalk, validated against the occupation-specific IM rows; no keyword scoring or mean-task-score conversion",
+  "limitations": [
+    "US occupational task evidence is not measured Malaysian skill importance or employer demand.",
+    "A related task is evidence of relevance, not an official skill rating.",
+    "Task links and partial mappings are team-reviewed interpretations and should be peer-reviewed.",
+    "Nursing task examples do not establish Malaysian registration or scope of practice.",
+    "These data do not modify careers.json or backend match scores."
+  ],
+  "career_skill_evidence": [
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "skill_id": "skill_software_configuration",
+      "current_team_weight": 3,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "21670",
+          "task_text": "Modify existing software to correct errors, adapt it to new hardware, or upgrade interfaces and improve performance.",
+          "task_importance_1_to_5": 3.74,
+          "rating_date": "08/2025",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21666",
+          "task_text": "Coordinate installation of software system.",
+          "task_importance_1_to_5": 3.75,
+          "rating_date": "08/2025",
+          "task_type": "Supplemental"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "skill_id": "skill_software_design",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21662",
+          "task_text": "Analyze user needs and software requirements to determine feasibility of design within time and cost constraints.",
+          "task_importance_1_to_5": 4.08,
+          "rating_date": "08/2025",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21667",
+          "task_text": "Design, develop and modify software systems, using scientific analysis and mathematical models to predict and measure outcomes and consequences of design.",
+          "task_importance_1_to_5": 3.56,
+          "rating_date": "08/2025",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "skill_id": "skill_software_testing",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21669",
+          "task_text": "Develop or direct software system testing or validation procedures, programming, or documentation.",
+          "task_importance_1_to_5": 3.9,
+          "rating_date": "08/2025",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "skill_id": "skill_ai_fluency",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "skill_id": "skill_critical_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "skill_id": "skill_innovative_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "skill_id": "skill_financial_analysis_reporting",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21514",
+          "task_text": "Prepare, examine, or analyze accounting records, financial statements, or other financial reports to assess accuracy, completeness, and conformance to reporting and procedural standards.",
+          "task_importance_1_to_5": 4.6,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21532",
+          "task_text": "Prepare, analyze, or verify annual reports, financial statements, and other records, using accepted accounting and statistical procedures to assess financial condition and facilitate financial planning.",
+          "task_importance_1_to_5": 4.07,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "skill_id": "skill_accounting_principles",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21508",
+          "task_text": "Inspect account books and accounting systems for efficiency, effectiveness, and use of accepted accounting procedures to record transactions.",
+          "task_importance_1_to_5": 4.18,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21515",
+          "task_text": "Prepare adjusting journal entries.",
+          "task_importance_1_to_5": 4.29,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "skill_id": "skill_attention_to_detail",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21516",
+          "task_text": "Review accounts for discrepancies and reconcile differences.",
+          "task_importance_1_to_5": 4.47,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21512",
+          "task_text": "Inspect cash on hand, notes receivable and payable, negotiable securities, and canceled checks to confirm records are accurate.",
+          "task_importance_1_to_5": 3.71,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "skill_id": "skill_ethical_judgement",
+      "current_team_weight": 3,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "skill_id": "skill_cost_benefit_analysis",
+      "current_team_weight": 2,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "21519",
+          "task_text": "Analyze business operations, trends, costs, revenues, financial commitments, and obligations to project future revenues and expenses or to provide advice.",
+          "task_importance_1_to_5": 3.64,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21531",
+          "task_text": "Develop, maintain, or analyze budgets, preparing periodic reports that compare budgeted costs to actual costs.",
+          "task_importance_1_to_5": 3.64,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "skill_id": "skill_innovative_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "skill_id": "skill_data_analysis",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21823",
+          "task_text": "Analyze, manipulate, or process large sets of data using statistical software.",
+          "task_importance_1_to_5": 4.33,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "21831",
+          "task_text": "Identify business problems or management objectives that can be addressed through data analysis.",
+          "task_importance_1_to_5": 4.13,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "skill_id": "skill_data_cleaning",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21826",
+          "task_text": "Clean and manipulate raw data using statistical software.",
+          "task_importance_1_to_5": 4.04,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "skill_id": "skill_python",
+      "current_team_weight": 3,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "skill_id": "skill_sql",
+      "current_team_weight": 3,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "skill_id": "skill_data_viz",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "21828",
+          "task_text": "Create graphs, charts, or other visualizations to convey the results of data analysis using specialized software.",
+          "task_importance_1_to_5": 4.33,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "skill_id": "skill_critical_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "skill_id": "skill_marketing_strategy",
+      "current_team_weight": 4,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "5439",
+          "task_text": "Conduct research on consumer opinions and marketing strategies, collaborating with marketing professionals, statisticians, pollsters, and other professionals.",
+          "task_importance_1_to_5": 3.94,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "5440",
+          "task_text": "Attend staff conferences to provide management with information and proposals concerning the promotion, distribution, design, and pricing of company products or services.",
+          "task_importance_1_to_5": 3.45,
+          "rating_date": "08/2026",
+          "task_type": "Supplemental"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "skill_id": "skill_digital_marketing",
+      "current_team_weight": 4,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "skill_id": "skill_market_research",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "5433",
+          "task_text": "Collect and analyze data on customer demographics, preferences, needs, and buying habits to identify potential markets and factors affecting product demand.",
+          "task_importance_1_to_5": 3.88,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "5443",
+          "task_text": "Devise and evaluate methods and procedures for collecting data, such as surveys, opinion polls, or questionnaires, or arrange to obtain existing data.",
+          "task_importance_1_to_5": 3.85,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "skill_id": "skill_campaign_performance",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "5438",
+          "task_text": "Measure the effectiveness of marketing, advertising, and communications programs and strategies.",
+          "task_importance_1_to_5": 3.36,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "skill_id": "skill_marketing_communication",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "5434",
+          "task_text": "Prepare reports of findings, illustrating data graphically and translating complex findings into written text.",
+          "task_importance_1_to_5": 4.06,
+          "rating_date": "08/2026",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "5440",
+          "task_text": "Attend staff conferences to provide management with information and proposals concerning the promotion, distribution, design, and pricing of company products or services.",
+          "task_importance_1_to_5": 3.45,
+          "rating_date": "08/2026",
+          "task_type": "Supplemental"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "skill_id": "skill_critical_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "skill_id": "skill_electrical_system_design",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "1348",
+          "task_text": "Design, implement, maintain, or improve electrical instruments, equipment, facilities, components, products, or systems for commercial, industrial, or domestic purposes.",
+          "task_importance_1_to_5": 4.19,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "1364",
+          "task_text": "Collect data relating to commercial or residential development, population, or power system interconnection to determine operating efficiency of electrical systems.",
+          "task_importance_1_to_5": 3.69,
+          "rating_date": "08/2023",
+          "task_type": "Supplemental"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "skill_id": "skill_electrical_circuits",
+      "current_team_weight": 4,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "1348",
+          "task_text": "Design, implement, maintain, or improve electrical instruments, equipment, facilities, components, products, or systems for commercial, industrial, or domestic purposes.",
+          "task_importance_1_to_5": 4.19,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "1358",
+          "task_text": "Prepare technical drawings, specifications of electrical systems, or topographical maps to ensure that installation and operations conform to standards and customer requirements.",
+          "task_importance_1_to_5": 3.64,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "skill_id": "skill_electrical_safety",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "20731",
+          "task_text": "Inspect completed installations and observe operations to ensure conformance to design and equipment specifications and compliance with operational, safety, or environmental standards.",
+          "task_importance_1_to_5": 3.68,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "1350",
+          "task_text": "Direct or coordinate manufacturing, construction, installation, maintenance, support, documentation, or testing activities to ensure compliance with specifications, codes, or customer requirements.",
+          "task_importance_1_to_5": 3.96,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "skill_id": "skill_electrical_fault_diagnosis",
+      "current_team_weight": 3,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "1365",
+          "task_text": "Conduct field surveys or study maps, graphs, diagrams, or other data to identify and correct power system problems.",
+          "task_importance_1_to_5": 3.21,
+          "rating_date": "08/2023",
+          "task_type": "Supplemental"
+        },
+        {
+          "task_id": "20730",
+          "task_text": "Investigate customer or public complaints to determine the nature and extent of problems.",
+          "task_importance_1_to_5": 3.65,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "skill_id": "skill_electrical_simulation",
+      "current_team_weight": 2,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "1349",
+          "task_text": "Operate computer-assisted engineering or design software or equipment to perform engineering tasks.",
+          "task_importance_1_to_5": 3.83,
+          "rating_date": "08/2023",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "skill_id": "skill_critical_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "skill_id": "skill_patient_care_monitoring",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "1841",
+          "task_text": "Record patients' medical information and vital signs.",
+          "task_importance_1_to_5": 4.74,
+          "rating_date": "08/2021",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "1840",
+          "task_text": "Monitor, record, and report symptoms or changes in patients' conditions.",
+          "task_importance_1_to_5": 4.61,
+          "rating_date": "08/2021",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "skill_id": "skill_nursing_assessment_care_planning",
+      "current_team_weight": 4,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "1843",
+          "task_text": "Consult and coordinate with healthcare team members to assess, plan, implement, or evaluate patient care plans.",
+          "task_importance_1_to_5": 4.48,
+          "rating_date": "08/2021",
+          "task_type": "Core"
+        },
+        {
+          "task_id": "1842",
+          "task_text": "Modify patient treatment plans as indicated by patients' responses and conditions.",
+          "task_importance_1_to_5": 4.34,
+          "rating_date": "08/2021",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "skill_id": "skill_medication_safety",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "20413",
+          "task_text": "Administer medications to patients and monitor patients for reactions or side effects.",
+          "task_importance_1_to_5": 4.7,
+          "rating_date": "08/2021",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "skill_id": "skill_infection_prevention",
+      "current_team_weight": 3,
+      "evidence_type": "partial_task_relevance",
+      "tasks": [
+        {
+          "task_id": "1860",
+          "task_text": "Direct or coordinate infection control programs, advising or consulting with specified personnel about necessary precautions.",
+          "task_importance_1_to_5": 4.38,
+          "rating_date": "08/2021",
+          "task_type": "Supplemental"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "skill_id": "skill_patient_communication",
+      "current_team_weight": 3,
+      "evidence_type": "task_relevance",
+      "tasks": [
+        {
+          "task_id": "1850",
+          "task_text": "Instruct individuals, families, or other groups on topics such as health education, disease prevention, or childbirth and develop health improvement programs.",
+          "task_importance_1_to_5": 4.35,
+          "rating_date": "08/2021",
+          "task_type": "Core"
+        }
+      ],
+      "proposed_weight_1_to_4": null,
+      "note": "Explicitly reviewed O*NET task references; task IM measures importance of the OCCUPATIONAL TASK, not importance of this SkillShift skill. No score conversion."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "skill_id": "skill_critical_thinking",
+      "current_team_weight": 2,
+      "evidence_type": "none_in_available_tasks",
+      "tasks": [],
+      "proposed_weight_1_to_4": null,
+      "note": "No sufficiently specific O*NET task IM reference in the supplied extract; retain existing team estimate; check other sources."
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "snapshot_id": "dosm_jmi_major_group_2026_q2",
+  "status": "observed_major_group_qoq_comparison",
+  "geography": "Malaysia",
+  "metric": "online_job_offerings_major_group",
+  "source_id": "src_dosm_jmi_q2_2026",
+  "source_title": "DOSM JMI Q2 2026",
+  "source_url": "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026",
+  "input_file": "data/jmi_major_occupation_2025_2026.csv",
+  "periods_available": [
+    "2025-Q1",
+    "2025-Q2",
+    "2025-Q3",
+    "2025-Q4",
+    "2026-Q1",
+    "2026-Q2"
+  ],
+  "previous_period": "2026-Q1",
+  "latest_period": "2026-Q2",
+  "generated_date": "2026-10-21",
+  "method": "Quarter-on-quarter change = (latest - previous) / previous * 100. Null when previous count is zero; rounded to 2 decimals.",
+  "career_specific": false,
+  "skill_specific": false,
+  "ai_exposure_measure": false,
+  "can_directly_adjust_career_scores": false,
+  "limitations": [
+    "Online job offerings are not unique vacancies, employment totals, or verified skill demand.",
+    "Major occupation groups are broader than MASCO four-digit career groups.",
+    "Quarterly movement is not a forecast, AI impact, or evidence of an individual career's growth.",
+    "A backend must not apply these group-level percentages as career- or skill-specific score multipliers."
+  ],
+  "missing_latest_quarter_groups": [],
+  "group_comparisons": [
+    {
+      "occupation_group": "Clerical support workers",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 48784,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 40408,
+      "absolute_change": -8376,
+      "percent_change": -17.17,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Craft and related trades workers",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 6094,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 4558,
+      "absolute_change": -1536,
+      "percent_change": -25.21,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Elementary Occupations",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 4070,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 4646,
+      "absolute_change": 576,
+      "percent_change": 14.15,
+      "direction": "increase",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Managers",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 99447,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 87950,
+      "absolute_change": -11497,
+      "percent_change": -11.56,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Plant and machine operators and assemblers",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 16378,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 12916,
+      "absolute_change": -3462,
+      "percent_change": -21.14,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Professionals",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 315768,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 285907,
+      "absolute_change": -29861,
+      "percent_change": -9.46,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Service and sales workers",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 42094,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 32511,
+      "absolute_change": -9583,
+      "percent_change": -22.77,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Skilled agricultural, forestry, livestock and fishery workers",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 239,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 101,
+      "absolute_change": -138,
+      "percent_change": -57.74,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    },
+    {
+      "occupation_group": "Technicians and associate professionals",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 93987,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 86512,
+      "absolute_change": -7475,
+      "percent_change": -7.95,
+      "direction": "decrease",
+      "evidence_level": "major_occupation_group"
+    }
+  ]
+}

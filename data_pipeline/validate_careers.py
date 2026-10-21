@@ -113,7 +113,7 @@ def run():
         check(skill.get("sdg_mapping_method") == "team_defined_interpretation",
               f"{sid}: SDG mapping must be explicitly team-defined")
 
-    required_careers = ["role_software_developer", "role_accountant_auditor"]
+    required_careers = ["role_software_developer", "role_accountant_auditor","role_data_professional","role_marketing_professional","role_electrical_engineer","role_nursing_professional"]
     for rid in required_careers:
         check(rid in careers, f"Missing career: {rid}")
     for career_id, career in careers.items():
@@ -214,9 +214,9 @@ def run():
     for note in WARNINGS:
         print("  NOTE:", note)
     if ERRORS:
-        print("FAIL: Correct the errors before committing Career 2.")
+        print("FAIL: Correct the dataset errors before committing.")
         return 1
-    print("PASS: Career 1 and Career 2 dataset is cross-file consistent.")
+    print("PASS: All required career datasets are cross-file consistent.")
     print("NOTE: This does not test live URLs, verify all source claims, or test the teammates' backend.")
     print("NOTE: Updatable trends and scenario generation remain team-level Domain 1 work.")
     return 0

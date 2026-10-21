@@ -1,0 +1,91 @@
+{
+  "dataset": "OECD AI Capability Gap Index",
+  "publisher": "OECD",
+  "source_publication_year": 2026,
+  "doi": "10.1787/f3da0f0a-en",
+  "input_file": "data/external/oecd/OECD AI Capability Gap Index_public data.xlsx",
+  "mapping_file": "data/onet_career_mapping.json",
+  "generated_date": "2026-10-21",
+  "geography": "O*NET-SOC occupations (US classification), not Malaysian labour-market observations",
+  "baseline_sheet": "Data",
+  "scenario_sheet": "Scenario (+1 cognitive capability; OECD-defined, NOT SkillShift moderate/fast scenario)",
+  "index_scale": "0-1 (higher indicates greater AI exposure)",
+  "not_job_loss_probability": true,
+  "can_directly_replace_malaysian_occupation_ratings": false,
+  "can_directly_adjust_matching_scores": false,
+  "mapping_policy": "Use exact O*NET code only; unmatched occupations remain null, never substitute loosely similar titles.",
+  "careers": [
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "onet_code": "15-1252.00",
+      "occupation_mapping_status": "verified",
+      "occupation_mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "oecd_record_status": "missing_exact_onet_code",
+      "oecd_occupation_title": null,
+      "baseline_ai_exposure_index_0_to_1": null,
+      "oecd_plus_one_cognitive_scenario_index_0_to_1": null,
+      "interpretation": "Higher index indicates higher measured AI capability overlap; NOT predicted replacement probability."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "onet_code": "15-2051.00",
+      "occupation_mapping_status": "verified",
+      "occupation_mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+      "oecd_record_status": "missing_exact_onet_code",
+      "oecd_occupation_title": null,
+      "baseline_ai_exposure_index_0_to_1": null,
+      "oecd_plus_one_cognitive_scenario_index_0_to_1": null,
+      "interpretation": "Higher index indicates higher measured AI capability overlap; NOT predicted replacement probability."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "onet_code": "13-2011.00",
+      "occupation_mapping_status": "verified",
+      "occupation_mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+      "oecd_record_status": "matched_exact_onet_code",
+      "oecd_occupation_title": "Accountants and Auditors",
+      "baseline_ai_exposure_index_0_to_1": 0.854066,
+      "oecd_plus_one_cognitive_scenario_index_0_to_1": 0.972523,
+      "interpretation": "Higher index indicates higher measured AI capability overlap; NOT predicted replacement probability."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "onet_code": "13-1161.00",
+      "occupation_mapping_status": "verified",
+      "occupation_mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+      "oecd_record_status": "matched_exact_onet_code",
+      "oecd_occupation_title": "Market Research Analysts and Marketing Specialists",
+      "baseline_ai_exposure_index_0_to_1": 0.856771,
+      "oecd_plus_one_cognitive_scenario_index_0_to_1": 0.972451,
+      "interpretation": "Higher index indicates higher measured AI capability overlap; NOT predicted replacement probability."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "onet_code": "17-2071.00",
+      "occupation_mapping_status": "verified",
+      "occupation_mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+      "oecd_record_status": "matched_exact_onet_code",
+      "oecd_occupation_title": "Electrical Engineers",
+      "baseline_ai_exposure_index_0_to_1": 0.843004,
+      "oecd_plus_one_cognitive_scenario_index_0_to_1": 0.967102,
+      "interpretation": "Higher index indicates higher measured AI capability overlap; NOT predicted replacement probability."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "onet_code": "29-1141.00",
+      "occupation_mapping_status": "verified",
+      "occupation_mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+      "oecd_record_status": "matched_exact_onet_code",
+      "oecd_occupation_title": "Registered Nurses",
+      "baseline_ai_exposure_index_0_to_1": 0.663774,
+      "oecd_plus_one_cognitive_scenario_index_0_to_1": 0.816017,
+      "interpretation": "Higher index indicates higher measured AI capability overlap; NOT predicted replacement probability."
+    }
+  ]
+}
