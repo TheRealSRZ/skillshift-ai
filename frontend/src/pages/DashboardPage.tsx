@@ -1,4 +1,5 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useEffect, useState, type KeyboardEvent, type ReactNode } from 'react'
+import { ArrowRight } from 'lucide-react'
 import type { Tab } from '../components/Layout'
 import type { AnalyzeResponse, Match, RoadmapResponse, Skill } from '../types'
 
@@ -23,12 +24,42 @@ type Props = {
 
 const pct = (score: number) => Math.round((score <= 1 ? score * 100 : score) * 10) / 10
 
+function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) {
+  const [shown, setShown] = useState(0)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShown(value)
+      return
+    }
+    let frame = 0
+    const start = performance.now()
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / 900)
+      setShown(value * (1 - Math.pow(1 - p, 3)))
+      if (p < 1) frame = requestAnimationFrame(tick)
+    }
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [value])
+
+  return <>{shown.toFixed(decimals)}</>
+}
+
 function Widget({ title, to, onNavigate, children }: { title: string; to: Tab; onNavigate: (tab: Tab) => void; children: ReactNode }) {
+  const go = () => onNavigate(to)
+  const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      go()
+    }
+  }
+
   return (
-    <div className="widget">
+    <div className="widget clickable" role="link" tabIndex={0} aria-label={`${title}, open ${to}`} onClick={go} onKeyDown={onKey}>
       <div className="widget-head">
         <h3>{title}</h3>
-        <button type="button" className="link-btn" onClick={() => onNavigate(to)}>View all</button>
+        <span className="widget-link">View all <ArrowRight size={14} aria-hidden="true" /></span>
       </div>
       {children}
     </div>
@@ -76,18 +107,18 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
       </div>
 
       <div key={`k${analysedAt?.getTime()}`} className={loading ? 'kpi-grid fade-in dim' : 'kpi-grid fade-in'}>
-        <div className="kpi"><span>Top match</span><strong>{top.title}</strong><small>{pct(top.readiness_score)}% skill fit</small></div>
-        <div className="kpi"><span>Skills you have</span><strong>{focus?.matched_skills.length ?? 0}</strong><small>for {focus?.title ?? top.title}</small></div>
-        <div className="kpi"><span>Skills to learn</span><strong>{focus?.missing_skills.length ?? 0}</strong><small>for {focus?.title ?? top.title}</small></div>
+        <div className="kpi"><span>Top match</span><strong>{top.title}</strong><small><CountUp value={pct(top.readiness_score)} decimals={1} />% skill fit</small></div>
+        <div className="kpi"><span>Skills you have</span><strong><CountUp value={focus?.matched_skills.length ?? 0} /></strong><small>for {focus?.title ?? top.title}</small></div>
+        <div className="kpi"><span>Skills to learn</span><strong><CountUp value={focus?.missing_skills.length ?? 0} /></strong><small>for {focus?.title ?? top.title}</small></div>
         <div className="kpi"><span>Selected target</span><strong>{selectedMatch ? selectedMatch.title : 'Not set'}</strong><small>{selectedMatch ? `${selectedMatch.readiness_score}% readiness` : 'Choose one on Careers'}</small></div>
       </div>
 
       <div key={`w${analysedAt?.getTime()}`} className={loading ? 'widget-grid fade-in dim' : 'widget-grid fade-in'}>
         <Widget title="Career matches" to="Careers" onNavigate={onNavigate}>
-          {matches.matches.map(m => (
+          {matches.matches.map((m, i) => (
             <div className="bar-row" key={m.role_id}>
               <span>{m.title}</span>
-              <div className="bar-track"><div className="bar-fill" style={{ width: `${Math.min(100, pct(m.readiness_score))}%` }} /></div>
+              <div className="bar-track"><div className="bar-fill" style={{ width: `${Math.min(100, pct(m.readiness_score))}%`, animationDelay: `${i * 0.1}s` }} /></div>
               <span className="bar-val">{pct(m.readiness_score)}%</span>
             </div>
           ))}
@@ -133,7 +164,7 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
 
         <Widget title={`SDGs for ${focus?.title ?? top.title}`} to="SDG Impact" onNavigate={onNavigate}>
           <div className="chips">
-            {focus?.sdgs.map(n => <span className="chip sdg" key={n} title={sdgs.find(s => s.sdg === n)?.title}>SDG {n}</span>)}
+            {focus?.sdgs.map(n => <span className="chip sdg tt" key={n} data-tip={sdgs.find(s => s.sdg === n)?.title ?? `SDG ${n}`}>SDG {n}</span>)}
           </div>
         </Widget>
       </div>

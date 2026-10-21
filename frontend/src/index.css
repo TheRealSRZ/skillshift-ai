@@ -721,3 +721,24 @@ button:disabled { cursor: not-allowed; }
   .login-panel { padding-top: 22px; padding-bottom: 22px; }
   .login-heading { margin-bottom: 16px; }
 }
+
+.kpi { transition: transform 0.15s, border-color 0.15s; }
+.kpi:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+.widget { transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
+.widget.clickable { cursor: pointer; }
+.widget.clickable:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 6px 16px rgba(22, 122, 137, 0.12); }
+.widget.clickable:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.widget-link { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; color: var(--accent); transition: gap 0.15s; }
+.widget.clickable:hover .widget-link { gap: 6px; }
+
+.bar-fill { transform-origin: left; animation: simGrow 0.8s ease both; }
+
+.tt { position: relative; }
+.tt::after { content: attr(data-tip); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: #172b40; color: #fff; font-size: 11px; padding: 4px 9px; border-radius: 6px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 5; }
+.tt:hover::after { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kpi, .widget, .widget-link { transition: none; }
+  .bar-fill { animation: none; }
+}
