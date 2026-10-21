@@ -1,7 +1,7 @@
-"""Cross-file validator for SkillShift AI's first two real careers.
+"""Cross-file validator for SkillShift AI career datasets.
 
-Place in data_pipeline/validate_career2.py and run:
-    python data_pipeline/validate_career2.py
+Place in data_pipeline/validate_careers.py and run:
+    python data_pipeline/validate_careers.py
 
 Uses Python standard library only. Read-only: does not change the dataset.
 """
@@ -65,6 +65,7 @@ def run():
         courses_data = load_unique_json("learning_resources.json")
         trends_data = load_unique_json("trends.json")
         occupation_data = load_unique_json("occupation_trends.json")
+        sdg_mapping_data = load_unique_json("sdg_mapping.json")
     except (ValueError, OSError, json.JSONDecodeError) as exc:
         print("FAIL: Could not read all six JSON files:", exc)
         return 1
@@ -72,6 +73,28 @@ def run():
     careers = index_records(careers_data, "careers.json")
     skills = index_records(skills_data, "skills.json")
     sources = index_records(sources_data, "sources.json")
+
+    # SDG reference file must cover every SDG used by career and skill records.
+    check(isinstance(sdg_mapping_data, list), "sdg_mapping.json must contain a JSON array")
+    sdg_reference: dict[int, dict] = {}
+    if isinstance(sdg_mapping_data, list):
+        for row in sdg_mapping_data:
+            if not isinstance(row, dict):
+                check(False, "sdg_mapping.json contains a non-object entry")
+                continue
+            number = row.get("sdg")
+            check(type(number) is int and 1 <= number <= 17,
+                  f"sdg_mapping.json: invalid SDG number {number!r}")
+            if type(number) is not int or not 1 <= number <= 17:
+                continue
+            check(number not in sdg_reference,
+                  f"sdg_mapping.json: duplicate SDG {number}")
+            check(isinstance(row.get("title"), str) and bool(row["title"].strip()),
+                  f"sdg_mapping.json: SDG {number} missing title")
+            check(isinstance(row.get("rationale"), str) and bool(row["rationale"].strip()),
+                  f"sdg_mapping.json: SDG {number} missing rationale")
+            sdg_reference[number] = row
+
     courses = index_records(courses_data, "learning_resources.json")
     check(isinstance(occupation_data, list), "occupation_trends.json must be an array")
     if not isinstance(occupation_data, list):
@@ -109,6 +132,11 @@ def run():
         sdgs = skill.get("sdgs")
         check(isinstance(sdgs, list) and bool(sdgs) and all(type(x) is int and 1 <= x <= 17 for x in sdgs),
               f"{sid}: invalid or missing SDG mapping")
+        if isinstance(sdgs, list):
+            for number in sdgs:
+                if type(number) is int and 1 <= number <= 17:
+                    check(number in sdg_reference,
+                          f"{sid}: SDG {number} missing from sdg_mapping.json")
         check(bool(skill.get("sdg_rationale")), f"{sid}: missing SDG explanation")
         check(skill.get("sdg_mapping_method") == "team_defined_interpretation",
               f"{sid}: SDG mapping must be explicitly team-defined")
@@ -136,6 +164,13 @@ def run():
         else:
             check(career.get("evidence_status") == "synthetic_demo",
                   f"{career_id}: demo career must be clearly labelled synthetic")
+        # Include demo career SDG references if present, without changing their labels.
+        career_sdgs = career.get("sdgs", [])
+        if isinstance(career_sdgs, list):
+            for number in career_sdgs:
+                if type(number) is int and 1 <= number <= 17:
+                    check(number in sdg_reference,
+                          f"{career_id}: SDG {number} missing from sdg_mapping.json")
         source_ids = career.get("source_ids", [])
         for source_id in source_ids:
             check(source_id in sources, f"{career_id}: unknown source {source_id}")
