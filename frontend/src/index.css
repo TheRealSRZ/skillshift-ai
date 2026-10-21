@@ -764,3 +764,18 @@ button:disabled { cursor: not-allowed; }
 .motion-preview { height: 8px; margin-top: 14px; border-radius: 999px; background: var(--border); overflow: hidden; }
 .motion-preview-bar { height: 100%; width: 100%; border-radius: 999px; background: var(--accent); transform-origin: left; animation: motionSlide 2s ease-in-out infinite alternate; }
 @keyframes motionSlide { from { transform: scaleX(0.2); } to { transform: scaleX(1); } }
+
+/*cards and button shrinks on click*/
+button:not(:disabled):active { transform: scale(0.96); }
+
+.role-card { cursor: pointer; transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
+.role-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 6px 16px rgba(22, 122, 137, 0.12); }
+.role-card:hover:active { transform: translateY(-1px) scale(0.97); }
+.widget.clickable:hover:active { transform: translateY(-1px) scale(0.98); }
+
+:root[data-motion="reduced"] button:active,
+:root[data-motion="reduced"] .role-card:hover,
+:root[data-motion="reduced"] .role-card:hover:active,
+:root[data-motion="reduced"] .widget.clickable:hover:active {
+  transform: none;
+}
