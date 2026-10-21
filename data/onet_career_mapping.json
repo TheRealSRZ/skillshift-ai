@@ -4,41 +4,63 @@
     "malaysian_occupation": "Software Developers",
     "masco_code": "2512",
     "onet_code": "15-1252.00",
-    "mapping_status": "verified"
+    "mapping_status": "verified",
+    "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk."
   },
   {
     "career_id": "data_professional",
     "malaysian_occupation": "Data Professionals",
     "masco_code": "2524",
-    "onet_code": null,
-    "mapping_status": "pending"
+    "onet_code": "15-2051.00",
+    "mapping_status": "verified",
+    "onet_title": "Data Scientists",
+    "mapping_assessment": "partial_representative",
+    "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+    "verification_method": "Reviewed representative occupational duties and six project skills; O*NET code checked against locally supplied O*NET Occupation Data workbook.",
+    "limitations": "US occupational evidence only; not an official MASCO-O*NET crosswalk, Malaysian importance score or AI job-loss probability."
   },
   {
     "career_id": "accountant_auditor",
     "malaysian_occupation": "Accountants and Auditors",
     "masco_code": "2411",
     "onet_code": "13-2011.00",
-    "mapping_status": "verified"
+    "mapping_status": "verified",
+    "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk."
   },
   {
     "career_id": "marketing_professional",
     "malaysian_occupation": "Advertising and Marketing Professionals",
     "masco_code": "2431",
-    "onet_code": null,
-    "mapping_status": "pending"
+    "onet_code": "13-1161.00",
+    "mapping_status": "verified",
+    "onet_title": "Market Research Analysts and Marketing Specialists",
+    "mapping_assessment": "good_representative",
+    "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+    "verification_method": "Reviewed representative occupational duties and six project skills; O*NET code checked against locally supplied O*NET Occupation Data workbook.",
+    "limitations": "US occupational evidence only; not an official MASCO-O*NET crosswalk, Malaysian importance score or AI job-loss probability."
   },
   {
     "career_id": "electrical_engineer",
     "malaysian_occupation": "Electrical Engineers",
     "masco_code": "2151",
-    "onet_code": null,
-    "mapping_status": "pending"
+    "onet_code": "17-2071.00",
+    "mapping_status": "verified",
+    "onet_title": "Electrical Engineers",
+    "mapping_assessment": "strong_representative",
+    "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+    "verification_method": "Reviewed representative occupational duties and six project skills; O*NET code checked against locally supplied O*NET Occupation Data workbook.",
+    "limitations": "US occupational evidence only; not an official MASCO-O*NET crosswalk, Malaysian importance score or AI job-loss probability."
   },
   {
     "career_id": "nursing_professional",
     "malaysian_occupation": "Nursing Professionals",
     "masco_code": "2221",
-    "onet_code": null,
-    "mapping_status": "pending"
+    "onet_code": "29-1141.00",
+    "mapping_status": "verified",
+    "onet_title": "Registered Nurses",
+    "mapping_assessment": "strong_representative",
+    "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+    "verification_method": "Reviewed representative occupational duties and six project skills; O*NET code checked against locally supplied O*NET Occupation Data workbook.",
+    "limitations": "US occupational evidence only; not an official MASCO-O*NET crosswalk, Malaysian importance score or AI job-loss probability."
   }
 ]
