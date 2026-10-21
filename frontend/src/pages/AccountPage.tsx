@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, BookMarked, CheckCircle2, ChevronRight, ClipboardList, CloudUpload, Database, Download, KeyRound, LockKeyhole, LogOut, Mail, ShieldCheck, Trash2, UserRound, X } from 'lucide-react'
+import { ArrowRight, BookMarked, CheckCircle2, ChevronRight, ClipboardList, CloudUpload, Database, Download, KeyRound, LockKeyhole, LogOut, Mail, ShieldCheck, Trash2, Sparkles, UserRound, X } from 'lucide-react'
 import type { AnalyzeResponse, Career, Profile, RoadmapResponse } from '../types'
 import { useAuth } from '../auth/AuthContext'
 import { supabase } from '../lib/supabase'
@@ -23,13 +23,27 @@ type Props = {
   matches: AnalyzeResponse | null
   roadmap: RoadmapResponse | null
   onRestoreProfile: (profile: Profile, role: string) => void
+  reduceMotion: boolean
+  onReduceMotion: (value: boolean) => void
 }
 
 const dateLabel = (value: string) => new Date(value).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
 
+function MotionCard({ reduced, onChange }: { reduced: boolean; onChange: (value: boolean) => void }) {
+  return <div className="card account-card account-wide">
+    <div className="account-section-heading"><Sparkles size={20} aria-hidden="true" /><div><h3>Display</h3><p className="muted">Choose how lively the app feels.</p></div></div>
+    <div className="motion-row">
+      <div><strong id="motion-label">Reduce motion</strong><p className="muted">Turns off animations and hover effects.</p></div>
+      <button type="button" role="switch" aria-checked={reduced} aria-labelledby="motion-label" className={`switch${reduced ? ' on' : ''}`} onClick={() => onChange(!reduced)}><span className="switch-knob" /></button>
+    </div>
+    <div className="motion-preview" aria-hidden="true"><div className="motion-preview-bar" /></div>
+    <p className="muted field-hint">Saved in this browser. By default it follows your computer's setting.</p>
+  </div>
+}
+
 export default function AccountPage({
   name, email, avatarUrl, onSignOut, profile, targetRoleId, careers, theme,
-  matches, roadmap, onRestoreProfile,
+  matches, roadmap, onRestoreProfile, reduceMotion, onReduceMotion,
 }: Props) {
   const auth = useAuth()
   const { notify } = useToast()
@@ -88,6 +102,7 @@ export default function AccountPage({
       <p>Create an account to securely save your education, selected skills, target career and learning roadmaps.</p>
       <button type="button" className="primary" onClick={onSignOut}>Go to sign in <ArrowRight size={17} aria-hidden="true" /></button>
     </div>
+    <MotionCard reduced={reduceMotion} onChange={onReduceMotion} />
   </section>
 
   return <section className="account-panel">
@@ -150,6 +165,8 @@ export default function AccountPage({
         <div className="account-tip"><ShieldCheck size={18} aria-hidden="true" /><span>Only your signed-in account can read your saved profile when database policies are correctly configured.</span></div>
       </div>
     </div>
+    
+    <MotionCard reduced={reduceMotion} onChange={onReduceMotion} />
 
     <div className="card account-card account-wide">
       <div className="account-section-heading"><Database size={20} aria-hidden="true" /><div><h3>Saved career progress</h3><p className="muted">Keep your latest analysis and roadmap for future visits.</p></div></div>

@@ -28,6 +28,14 @@ function initialTheme(): Theme {
   return 'light'
 }
 
+function initialMotion(): boolean {
+  try {
+    const saved = localStorage.getItem('skillshift-reduce-motion')
+    if (saved === 'on' || saved === 'off') return saved === 'on'
+  } catch { /* localStorage may be unavailable */ }
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export default function App() {
   const auth = useAuth()
   const { notify } = useToast()
@@ -39,6 +47,7 @@ export default function App() {
     } catch { return null }
   })
   const [theme, setTheme] = useState<Theme>(initialTheme)
+  const [reduceMotion, setReduceMotion] = useState<boolean>(initialMotion)
   const [tab, setTab] = useState<Tab>('Dashboard')
   const [skills, setSkills] = useState<Skill[]>([])
   const [careers, setCareers] = useState<Career[]>([])
@@ -66,6 +75,15 @@ export default function App() {
     document.documentElement.dataset.theme = theme
     try { localStorage.setItem('skillshift-theme', theme) } catch { /* optional preference */ }
   }, [theme])
+
+    useEffect(() => {
+    document.documentElement.dataset.motion = reduceMotion ? 'reduced' : 'full'
+  }, [reduceMotion])
+
+  const changeMotion = (value: boolean) => {
+    setReduceMotion(value)
+    try { localStorage.setItem('skillshift-reduce-motion', value ? 'on' : 'off') } catch { /* optional preference */ }
+  }
 
   const loadData = () => {
     setBooting(true)
@@ -254,7 +272,7 @@ export default function App() {
     {tab === 'Simulator' && <SimulatorPage results={scenarios} />}
     {tab === 'Roadmap' && <RoadmapPage roadmap={roadmap} skills={skills} careers={careers} results={matches} targetRoleId={targetRoleId} onSelectRole={selectTarget} onGenerate={() => void generateRoadmap()} loading={roadmapLoading} error={roadmapError} onNavigate={setTab} />}
     {tab === 'SDG Impact' && <SDGPage mappings={sdgs} topMatch={selectedMatch ?? matches?.matches[0] ?? null} booting={booting} />}
-    {tab === 'Account' && <AccountPage name={userName} email={userEmail} avatarUrl={avatarUrl} onSignOut={() => void signOut()} profile={profile} targetRoleId={targetRoleId} careers={careers} theme={theme} matches={matches} roadmap={roadmap} onRestoreProfile={restoreProfile} />}
+    {tab === 'Account' && <AccountPage name={userName} email={userEmail} avatarUrl={avatarUrl} onSignOut={() => void signOut()} profile={profile} targetRoleId={targetRoleId} careers={careers} theme={theme} matches={matches} roadmap={roadmap} onRestoreProfile={restoreProfile} reduceMotion={reduceMotion} onReduceMotion={changeMotion} />}   
     <p className="muted data-footnote">Demo catalog: {skills.length} skills · {careers.length} careers. Readiness is not hiring probability.</p>
   </Layout>
 }

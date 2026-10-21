@@ -28,7 +28,7 @@ function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) 
   const [shown, setShown] = useState(0)
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (document.documentElement.dataset.motion === 'reduced' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setShown(value)
       return
     }

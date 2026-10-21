@@ -742,3 +742,25 @@ button:disabled { cursor: not-allowed; }
   .kpi, .widget, .widget-link { transition: none; }
   .bar-fill { animation: none; }
 }
+
+/* Reduce motion: the Account switch sets data-motion="reduced" on the page root */
+:root[data-motion="reduced"] *,
+:root[data-motion="reduced"] *::before,
+:root[data-motion="reduced"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+:root[data-motion="reduced"] .kpi:hover,
+:root[data-motion="reduced"] .widget.clickable:hover {
+  transform: none;
+}
+
+.motion-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.motion-row p { margin: 2px 0 0; font-size: 13px; }
+.switch { position: relative; flex-shrink: 0; width: 46px; height: 26px; padding: 0; border-radius: 999px; border: 1px solid var(--border); background: #c9d3dc; cursor: pointer; transition: background 0.2s; }
+.switch.on { background: var(--accent); border-color: var(--accent); }
+.switch-knob { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform 0.2s; }
+.switch.on .switch-knob { transform: translateX(20px); }
+.motion-preview { height: 8px; margin-top: 14px; border-radius: 999px; background: var(--border); overflow: hidden; }
+.motion-preview-bar { height: 100%; width: 100%; border-radius: 999px; background: var(--accent); transform-origin: left; animation: motionSlide 2s ease-in-out infinite alternate; }
+@keyframes motionSlide { from { transform: scaleX(0.2); } to { transform: scaleX(1); } }
