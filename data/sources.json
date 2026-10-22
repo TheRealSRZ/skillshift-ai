@@ -913,5 +913,55 @@
       "The baseline indicator is best displayed as an index out of 1, not as a percentage of jobs replaced.",
       "Original workbook kept outside the processed application source registry file paths because local workbook placement can vary."
     ]
+  },
+  {
+    "id": "src_wef_future_jobs_2025",
+    "title": "The Future of Jobs Report 2025",
+    "publisher": "World Economic Forum",
+    "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025",
+    "publication_year": 2025,
+    "published_date": "2025-01-07",
+    "report_period": "2025–2030 employer outlook",
+    "retrieved_date": "2026-10-22",
+    "geography": "Global employer survey across 55 economies",
+    "source_type": "employer_survey_future_skills_expectations",
+    "data_update_type": "new_report_edition_not_live_api",
+    "evidence_location": "Executive summary and Section 3: Skills outlook",
+    "supported_claims": [
+      {
+        "claim_id": "wef_2025_technology_skills_expected_growth",
+        "claim": "Surveyed global employers expect AI and big data, cybersecurity and technological literacy skills to grow in importance.",
+        "evidence_location": "Executive summary; Section 3"
+      },
+      {
+        "claim_id": "wef_2025_human_skills_expected_growth",
+        "claim": "Analytical thinking, creative thinking and other human-centred capabilities remain important or are expected to grow.",
+        "evidence_location": "Executive summary; Section 3"
+      },
+      {
+        "claim_id": "wef_2025_skill_transformation_expectation",
+        "claim": "Employers expect an average of 39% of existing skill sets to be transformed or become outdated during 2025–2030.",
+        "evidence_location": "Executive summary"
+      }
+    ],
+    "limitations": [
+      "Global employer expectations are not measured Malaysian skill demand.",
+      "The report does not provide numeric readiness multipliers for SkillShift AI skills.",
+      "WEF skill categories are not identical to our 36 skill IDs."
+    ],
+    "usable_as_real_evidence": true,
+    "license": null,
+    "license_status": "not_verified",
+    "license_url": null,
+    "attribution": "World Economic Forum (2025), The Future of Jobs Report 2025.",
+    "reuse_conditions": [
+      "Attribute and paraphrase; do not redistribute the report without licence review."
+    ],
+    "adapted": true,
+    "trend_claim_allowed": true,
+    "data_files": [],
+    "notes": [
+      "Global employer-expectations report, not Malaysian observed hiring or a source of measured skill multipliers."
+    ]
   }
 ]

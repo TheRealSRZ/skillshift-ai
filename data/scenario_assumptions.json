@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "version": "scenario_assumptions_v2_proposal",
+  "status": "proposal_not_integrated",
+  "region_context": "Malaysia-focused careers; international evidence is contextual",
+  "base_scenario": "moderate",
+  "comparison_scenario": "rapid",
+  "purpose": "Illustrate how readiness rankings can change if the relative importance of selected skills increases under faster AI adoption. Not an adoption forecast.",
+  "formula": "effective_skill_weight = career_base_weight * trend_snapshot_multiplier * scenario_multiplier",
+  "no_change_at_0_or_100_note": "With strictly positive weights, users possessing zero/all required skills always score 0/100 in either scenario.",
+  "interpretation": "The factors adjust relative scoring priorities; they do not represent percentage probability of replacement, demand growth, or training efficacy.",
+  "assumptions": [
+    {
+      "skill_id": "skill_ai_fluency",
+      "rapid_multiplier": 1.15,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_software_developer"
+      ],
+      "rationale": "AI-tool literacy may become more useful when developers assess, supervise and verify AI-assisted work.",
+      "context_source_ids": [
+        "src_ict_2024",
+        "src_ilo_genai_exposure_2025"
+      ],
+      "numeric_multiplier_provenance": "team_defined_sensitivity_assumption_not_source_estimate",
+      "evidence_caution": "Sources inform possible tasks/skill relevance, not the numeric factor, observed adoption or job-loss probability."
+    },
+    {
+      "skill_id": "skill_ethical_judgement",
+      "rapid_multiplier": 1.1,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_accountant_auditor"
+      ],
+      "rationale": "Accountability and ethical checks remain important when AI-assisted accounting outputs require professional review.",
+      "context_source_ids": [
+        "src_gbs_2024",
+        "src_ilo_genai_exposure_2025"
+      ],
+      "numeric_multiplier_provenance": "team_defined_sensitivity_assumption_not_source_estimate",
+      "evidence_caution": "Sources inform possible tasks/skill relevance, not the numeric factor, observed adoption or job-loss probability."
+    },
+    {
+      "skill_id": "skill_data_analysis",
+      "rapid_multiplier": 1.12,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_data_professional"
+      ],
+      "rationale": "Human framing, interpretation and verification of analytical questions can remain important in AI-supported workflows.",
+      "context_source_ids": [
+        "src_emasco_data_analyst_skills_2524",
+        "src_ilo_genai_exposure_2025"
+      ],
+      "numeric_multiplier_provenance": "team_defined_sensitivity_assumption_not_source_estimate",
+      "evidence_caution": "Sources inform possible tasks/skill relevance, not the numeric factor, observed adoption or job-loss probability."
+    },
+    {
+      "skill_id": "skill_campaign_performance",
+      "rapid_multiplier": 1.1,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_marketing_professional"
+      ],
+      "rationale": "Evaluating the quality, relevance and effectiveness of AI-assisted campaigns may require stronger performance analysis.",
+      "context_source_ids": [
+        "src_emasco_marketing_exec_2431_02",
+        "src_ilo_genai_exposure_2025"
+      ],
+      "numeric_multiplier_provenance": "team_defined_sensitivity_assumption_not_source_estimate",
+      "evidence_caution": "Sources inform possible tasks/skill relevance, not the numeric factor, observed adoption or job-loss probability."
+    },
+    {
+      "skill_id": "skill_electrical_fault_diagnosis",
+      "rapid_multiplier": 1.1,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_electrical_engineer"
+      ],
+      "rationale": "Engineering fault interpretation and independent verification may complement AI-assisted diagnostics.",
+      "context_source_ids": [
+        "src_ee_2024",
+        "src_ilo_genai_exposure_2025"
+      ],
+      "numeric_multiplier_provenance": "team_defined_sensitivity_assumption_not_source_estimate",
+      "evidence_caution": "Sources inform possible tasks/skill relevance, not the numeric factor, observed adoption or job-loss probability."
+    },
+    {
+      "skill_id": "skill_nursing_assessment_care_planning",
+      "rapid_multiplier": 1.1,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_nursing_professional"
+      ],
+      "rationale": "Clinical assessment and care planning remain accountable human responsibilities when AI supports information review.",
+      "context_source_ids": [
+        "src_emasco_professional_nurse_2221_01",
+        "src_ilo_genai_exposure_2025"
+      ],
+      "numeric_multiplier_provenance": "team_defined_sensitivity_assumption_not_source_estimate",
+      "evidence_caution": "Sources inform possible tasks/skill relevance, not the numeric factor, observed adoption or job-loss probability."
+    },
+    {
+      "skill_id": "skill_cloud",
+      "rapid_multiplier": 1.2,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_cloud_engineer"
+      ],
+      "rationale": "Existing Member 2 baseline assumption; retained to avoid changing demo-career behaviour.",
+      "context_source_ids": [],
+      "numeric_multiplier_provenance": "existing_team_defined_scenario_v1",
+      "evidence_caution": "Retained hypothetical multiplier, not independently estimated."
+    },
+    {
+      "skill_id": "skill_automation",
+      "rapid_multiplier": 1.2,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_security_analyst"
+      ],
+      "rationale": "Existing Member 2 baseline assumption; retained to avoid changing demo-career behaviour.",
+      "context_source_ids": [],
+      "numeric_multiplier_provenance": "existing_team_defined_scenario_v1",
+      "evidence_caution": "Retained hypothetical multiplier, not independently estimated."
+    },
+    {
+      "skill_id": "skill_security",
+      "rapid_multiplier": 1.15,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_security_analyst",
+        "role_cloud_engineer"
+      ],
+      "rationale": "Existing Member 2 baseline assumption; retained to avoid changing demo-career behaviour.",
+      "context_source_ids": [],
+      "numeric_multiplier_provenance": "existing_team_defined_scenario_v1",
+      "evidence_caution": "Retained hypothetical multiplier, not independently estimated."
+    },
+    {
+      "skill_id": "skill_data_viz",
+      "rapid_multiplier": 1.1,
+      "moderate_multiplier": 1.0,
+      "affected_career_ids": [
+        "role_data_analyst",
+        "role_data_professional"
+      ],
+      "rationale": "Existing Member 2 baseline assumption; retained to avoid changing demo-career behaviour.",
+      "context_source_ids": [],
+      "numeric_multiplier_provenance": "existing_team_defined_scenario_v1",
+      "evidence_caution": "Retained hypothetical multiplier, not independently estimated."
+    }
+  ],
+  "source_context": {
+    "already_registered": [
+      "src_ilo_genai_exposure_2025",
+      "src_ict_2024",
+      "src_gbs_2024",
+      "src_ee_2024"
+    ],
+    "additional_suggested_source": "World Economic Forum Future of Jobs Report 2025; https://www.weforum.org/publications/the-future-of-jobs-report-2025; published 2025-01-07; contextual support only; not needed to calculate factors"
+  },
+  "uncertainty": [
+    "National occupational profiles may not represent each specialisation",
+    "No measured Malaysian skill-level AI adoption rate is used",
+    "Multiplier choices have not been empirically calibrated",
+    "AI exposure is not realised substitution; skill-level weights are assumptions",
+    "Snapshot trend must remain independently evidenced and clearly dated"
+  ],
+  "simulation_sanity_check": {
+    "source": "Actual uploaded backend.matching.match_roles run with temporary proposed scenarios module, neutral trend multipliers; NOT a live API test",
+    "examples": [
+      {
+        "career_id": "role_software_developer",
+        "illustrative_user_skill_ids": [
+          "skill_ai_fluency"
+        ],
+        "moderate_readiness": 12.5,
+        "rapid_readiness": 14.1,
+        "increase_percentage_points": 1.6
+      },
+      {
+        "career_id": "role_accountant_auditor",
+        "illustrative_user_skill_ids": [
+          "skill_ethical_judgement"
+        ],
+        "moderate_readiness": 16.7,
+        "rapid_readiness": 18.0,
+        "increase_percentage_points": 1.3
+      },
+      {
+        "career_id": "role_data_professional",
+        "illustrative_user_skill_ids": [
+          "skill_data_analysis"
+        ],
+        "moderate_readiness": 21.1,
+        "rapid_readiness": 22.6,
+        "increase_percentage_points": 1.5
+      },
+      {
+        "career_id": "role_marketing_professional",
+        "illustrative_user_skill_ids": [
+          "skill_campaign_performance"
+        ],
+        "moderate_readiness": 15.8,
+        "rapid_readiness": 17.1,
+        "increase_percentage_points": 1.3
+      },
+      {
+        "career_id": "role_electrical_engineer",
+        "illustrative_user_skill_ids": [
+          "skill_electrical_fault_diagnosis"
+        ],
+        "moderate_readiness": 15.8,
+        "rapid_readiness": 17.1,
+        "increase_percentage_points": 1.3
+      },
+      {
+        "career_id": "role_nursing_professional",
+        "illustrative_user_skill_ids": [
+          "skill_nursing_assessment_care_planning"
+        ],
+        "moderate_readiness": 19.0,
+        "rapid_readiness": 20.6,
+        "increase_percentage_points": 1.6
+      }
+    ]
+  }
+}

@@ -7,7 +7,10 @@
       9
     ],
     "sdg_rationale": "Programming builds employable technical skills and supports digital innovation.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Write and understand Python programs to process information, automate tasks, and develop software.",
+    "practical_example": "Use Python to clean a CSV file, check values, and produce a simple report.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_sql",
@@ -17,7 +20,10 @@
       9
     ],
     "sdg_rationale": "Database querying supports technical skills and data-driven digital systems.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Use Structured Query Language (SQL) to retrieve, combine, filter, and update data in relational databases.",
+    "practical_example": "Write a query joining two tables to answer a business question.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_power_bi",
@@ -27,7 +33,10 @@
       8
     ],
     "sdg_rationale": "Data analytics skills support lifelong learning and evidence-informed productivity.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Build interactive reports and visual dashboards using Microsoft Power BI and structured data.",
+    "practical_example": "Create a dashboard with filters to compare monthly performance.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_data_viz",
@@ -37,7 +46,10 @@
       8
     ],
     "sdg_rationale": "Communicating data clearly supports workforce skills and informed organisational decisions.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Present data clearly using appropriate charts, tables, and visual explanations.",
+    "practical_example": "Choose and label a chart that accurately communicates a trend.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_cloud",
@@ -47,7 +59,10 @@
       9
     ],
     "sdg_rationale": "Cloud knowledge develops technical skills for modern digital infrastructure.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Understand fundamental cloud concepts such as hosted computing, storage, access control, and deployment.",
+    "practical_example": "Compare a locally hosted application with a basic cloud-hosted deployment.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_networking",
@@ -57,7 +72,10 @@
       9
     ],
     "sdg_rationale": "Networking knowledge builds technical skills needed for reliable digital infrastructure.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Understand how devices communicate over networks, including addressing, protocols, and connectivity.",
+    "practical_example": "Investigate why a device cannot reach a network service.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_security",
@@ -67,7 +85,10 @@
       16
     ],
     "sdg_rationale": "Security skills support resilient digital systems and protection of organisational information.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Recognise common digital security risks and apply basic safeguards to systems and information.",
+    "practical_example": "Identify a weak access-control practice and propose a safer alternative.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_automation",
@@ -77,7 +98,10 @@
       9
     ],
     "sdg_rationale": "Workflow automation can improve productivity and support technological innovation.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Use software tools or scripts to carry out repeatable steps with less manual effort while checking results.",
+    "practical_example": "Automate a recurring data-formatting task and verify its output.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_software_configuration",
@@ -87,7 +111,10 @@
       9
     ],
     "sdg_rationale": "Configuration management helps maintain reliable software and productive development workflows.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Set up and manage software settings, dependencies, and environments so applications run as intended.",
+    "practical_example": "Configure an application environment and document the required settings.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_software_design",
@@ -97,7 +124,10 @@
       9
     ],
     "sdg_rationale": "Software design develops technical capabilities used to build innovative digital solutions.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Plan software structure, components, interfaces, and behaviour to meet user and system requirements.",
+    "practical_example": "Sketch the modules and data flow for a small application.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_software_testing",
@@ -107,7 +137,10 @@
       9
     ],
     "sdg_rationale": "Software testing improves the reliability of digital products and development processes.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Check whether software works as intended and identify defects using planned tests and observed results.",
+    "practical_example": "Write test cases for a feature and record unexpected behaviour.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_ai_fluency",
@@ -117,7 +150,10 @@
       8
     ],
     "sdg_rationale": "AI literacy develops relevant workforce skills for responsible adaptation to new tools.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Understand what digital and AI tools can do, their limitations, and how to use their outputs responsibly.",
+    "practical_example": "Evaluate an AI-generated suggestion against trusted information before using it.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_critical_thinking",
@@ -127,7 +163,10 @@
       8
     ],
     "sdg_rationale": "Critical thinking supports lifelong learning and informed work decisions.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Evaluate information, assumptions, and alternatives before forming a reasoned judgement.",
+    "practical_example": "Compare two possible solutions and explain the evidence behind a decision.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_innovative_thinking",
@@ -137,7 +176,10 @@
       9
     ],
     "sdg_rationale": "Innovative thinking supports more productive work and new solutions across industries.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Generate and evaluate useful new ideas or improvements to existing ways of working.",
+    "practical_example": "Propose a practical improvement to a repetitive workflow and test the idea.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_financial_analysis_reporting",
@@ -147,7 +189,10 @@
       16
     ],
     "sdg_rationale": "Financial analysis supports sound economic decisions and more accountable reporting.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Interpret financial information and present meaningful summaries that support decisions.",
+    "practical_example": "Compare financial results against a budget and explain significant differences.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_accounting_principles",
@@ -157,7 +202,10 @@
       16
     ],
     "sdg_rationale": "Accounting knowledge supports reliable economic activity and transparent records.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Apply established accounting concepts to record, classify, and report financial transactions accurately.",
+    "practical_example": "Classify example transactions and explain their financial-statement treatment.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_attention_to_detail",
@@ -167,7 +215,10 @@
       16
     ],
     "sdg_rationale": "Accuracy in financial work reduces reporting errors and improves accountability.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Check information and work products carefully for errors, omissions, and inconsistencies.",
+    "practical_example": "Reconcile two records and investigate amounts that do not match.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_ethical_judgement",
@@ -177,7 +228,10 @@
       16
     ],
     "sdg_rationale": "Ethical financial decisions support responsible work and institutional integrity.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Make decisions that consider honesty, confidentiality, professional responsibilities, and potential harm.",
+    "practical_example": "Identify a conflict of interest and explain an appropriate response.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_cost_benefit_analysis",
@@ -187,7 +241,10 @@
       12
     ],
     "sdg_rationale": "Evaluating costs and benefits supports efficient investment and responsible resource choices.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Compare expected costs, benefits, and trade-offs when evaluating a proposed action.",
+    "practical_example": "List the costs and benefits of two options and justify a recommendation.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_data_analysis",
@@ -197,7 +254,10 @@
       8
     ],
     "sdg_rationale": "Learning to analyse information supports employable skills and better workplace decisions.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Examine datasets to identify patterns, answer questions, and explain findings with appropriate caution.",
+    "practical_example": "Analyse a dataset to compare groups and summarise the differences.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_data_cleaning",
@@ -207,7 +267,10 @@
       9
     ],
     "sdg_rationale": "Preparing accurate datasets builds technical skills and supports reliable digital systems.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Inspect and improve dataset quality by handling missing, duplicate, inconsistent, or invalid records.",
+    "practical_example": "Detect duplicate entries and document how they were handled.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_marketing_strategy",
@@ -217,7 +280,10 @@
       8
     ],
     "sdg_rationale": "Planning marketing campaigns supports relevant vocational learning and productive business activity.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Set marketing objectives, choose audiences, and plan activities that support business goals.",
+    "practical_example": "Outline a campaign objective, target segment, channel, and measurement plan.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_digital_marketing",
@@ -227,7 +293,10 @@
       8
     ],
     "sdg_rationale": "Digital marketing builds practical career skills and supports digital business activity.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Plan and manage marketing activity through digital channels such as search, websites, email, and social media.",
+    "practical_example": "Draft a social-media campaign schedule for a defined audience.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_market_research",
@@ -237,7 +306,10 @@
       8
     ],
     "sdg_rationale": "Market research skills help people analyse customer needs and make informed business decisions.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Gather and interpret information about customers, competitors, and market needs to inform decisions.",
+    "practical_example": "Design a short customer survey and summarise the main findings.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_campaign_performance",
@@ -247,7 +319,10 @@
       8
     ],
     "sdg_rationale": "Evaluating campaigns supports evidence-based learning and effective business decisions.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Measure campaign outcomes using suitable metrics and use results to improve marketing decisions.",
+    "practical_example": "Compare campaign results against targets and recommend one adjustment.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_marketing_communication",
@@ -257,7 +332,10 @@
       8
     ],
     "sdg_rationale": "Clear marketing communication supports employable professional skills and collaboration.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Communicate a clear, accurate marketing message suited to an audience and channel.",
+    "practical_example": "Rewrite a product message for two different customer audiences.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_electrical_system_design",
@@ -267,7 +345,10 @@
       9
     ],
     "sdg_rationale": "Designing reliable electrical systems builds engineering skills and supports infrastructure.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Plan electrical systems and select suitable components while considering performance and design constraints.",
+    "practical_example": "Draw a basic electrical system layout and explain component choices.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_electrical_circuits",
@@ -277,7 +358,10 @@
       9
     ],
     "sdg_rationale": "Electrical circuit knowledge supports technical learning and reliable engineering infrastructure.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Understand circuit behaviour and the function and characteristics of electrical components and equipment.",
+    "practical_example": "Interpret a circuit diagram and explain expected component behaviour.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_electrical_simulation",
@@ -287,7 +371,10 @@
       9
     ],
     "sdg_rationale": "Simulation enables testing of electrical circuit concepts before practical implementation.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Use simulation tools to explore how an electrical circuit may behave under specified conditions.",
+    "practical_example": "Simulate a simple circuit and compare calculated and simulated results.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_electrical_safety",
@@ -298,7 +385,10 @@
       9
     ],
     "sdg_rationale": "Safe electrical work and risk identification support workplace safety and resilient infrastructure.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Recognise electrical hazards and apply safety principles, procedures, and risk controls to engineering activities.",
+    "practical_example": "Review a proposed electrical task and identify hazards and safeguards.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_electrical_fault_diagnosis",
@@ -308,7 +398,10 @@
       9
     ],
     "sdg_rationale": "Fault finding and maintenance support reliability of electrical infrastructure.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Investigate electrical faults systematically and consider suitable maintenance or corrective actions.",
+    "practical_example": "Use symptoms and measurements to outline a fault-finding process.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_patient_care_monitoring",
@@ -318,7 +411,10 @@
       4
     ],
     "sdg_rationale": "Develops patient-centred support and monitoring skills for health and lifelong learning.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Observe patient needs and changes in condition, deliver appropriate care within professional responsibilities, and record relevant observations.",
+    "practical_example": "Describe how routine observations can be documented and escalated appropriately.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_nursing_assessment_care_planning",
@@ -328,7 +424,10 @@
       4
     ],
     "sdg_rationale": "Builds nursing assessment and care planning knowledge for healthcare quality and education.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Gather patient information, identify care needs, and contribute to an appropriate care plan within nursing practice.",
+    "practical_example": "Organise assessment findings into care priorities and proposed follow-up.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_medication_safety",
@@ -338,7 +437,10 @@
       4
     ],
     "sdg_rationale": "Improves learning about safe medicine administration and prevention of harm.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Follow authorised medication procedures and safety checks to reduce preventable administration errors.",
+    "practical_example": "Identify the verification checks required before medication administration in a supervised case exercise.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_infection_prevention",
@@ -348,7 +450,10 @@
       4
     ],
     "sdg_rationale": "Supports infection prevention knowledge and safe healthcare practice.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Apply infection-prevention procedures to reduce the spread of infection in care environments.",
+    "practical_example": "Choose appropriate hand-hygiene and precaution steps for a simulated care scenario.",
+    "description_provenance": "team_authored_general_skill_explanation"
   },
   {
     "id": "skill_patient_communication",
@@ -358,6 +463,9 @@
       4
     ],
     "sdg_rationale": "Builds respectful communication and empathy as professional healthcare skills.",
-    "sdg_mapping_method": "team_defined_interpretation"
+    "sdg_mapping_method": "team_defined_interpretation",
+    "description": "Listen respectfully and communicate clearly and empathetically with patients, families, and care teams.",
+    "practical_example": "Explain a care instruction in accessible language and check understanding.",
+    "description_provenance": "team_authored_general_skill_explanation"
   }
 ]

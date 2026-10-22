@@ -1,0 +1,1024 @@
+{
+  "dataset": "SkillShift AI career-specific skill importance evidence",
+  "status": "research_reviewed_team_defined_rubric_three_changes_applied_in_companion_careers_file",
+  "review_date": "2026-10-22",
+  "provenance_statement": "All 1–4 weights originate in SkillShift AI careers.json; source descriptions justify skill relevance, not numeric ratings.",
+  "rubric": {
+    "1": {
+      "label": "Supplementary",
+      "definition": "Helpful optional capability; not usually central to the selected occupation profile."
+    },
+    "2": {
+      "label": "Supporting",
+      "definition": "Relevant to selected tasks, adaptation, or complementary responsibilities; not central across the broad occupation."
+    },
+    "3": {
+      "label": "Important",
+      "definition": "Strong contribution to substantial job duties, accuracy, or effective performance; importance may vary by specialisation."
+    },
+    "4": {
+      "label": "Essential",
+      "definition": "Foundational to central occupation duties or consistently necessary for safe, competent work."
+    }
+  },
+  "scope": {
+    "expected_ultimately": 36,
+    "reviewed_now": 36,
+    "careers_reviewed": [
+      "role_software_developer",
+      "role_accountant_auditor",
+      "role_data_professional",
+      "role_marketing_professional",
+      "role_electrical_engineer",
+      "role_nursing_professional"
+    ]
+  },
+  "evidence_source_warning": "Relevant TalentCorp job/sector profiles are not exact matches for all duties in a broad Malaysian MASCO occupation. Source URLs and locators should be retained in frontend evidence details.",
+  "assignments": [
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "skill_id": "skill_software_design",
+      "skill_name": "Software Design",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "central_to_core_duties",
+      "justification": "Designing software systems is explicitly a core MASCO 2512 duty, and TalentCorp lists Software Design as a specific skill for the related Software Engineer role. Weight 4 is our judgement that system design is foundational across this occupation.",
+      "evidence": [
+        {
+          "source_id": "src_ict_2024",
+          "claim_id": "ict_sw_specific_skills",
+          "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf"
+        },
+        {
+          "source_id": "src_masco_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2512, Tugasan: design and develop computer software systems",
+          "source_url": "https://emasco.mohr.gov.my/masco/2512",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "Software Engineer profile used as a related occupation within MASCO 2512; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "related_talentcorp_software_engineer_profile",
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "skill_id": "skill_software_configuration",
+      "skill_name": "Software Configuration",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "substantial_role_specific_capability",
+      "justification": "TalentCorp lists Software Configuration as a specific Software Engineer skill. It supports implementation and maintaining working software environments, but the broad MASCO duties do not independently establish that configuration outranks other core activities. Weight 3 remains team-defined.",
+      "evidence": [
+        {
+          "source_id": "src_ict_2024",
+          "claim_id": "ict_sw_specific_skills",
+          "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf"
+        },
+        {
+          "source_id": "src_masco_2020",
+          "claim_id": null,
+          "evidence_location": "TalentCorp ICT report, Software Engineer, printed pages 106–107",
+          "source_url": "https://emasco.mohr.gov.my/masco/2512",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "Software Engineer profile used as a related occupation within MASCO 2512; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "related_talentcorp_software_engineer_profile",
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "skill_id": "skill_software_testing",
+      "skill_name": "Software Testing",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "core_duty_rank_requires_review",
+      "justification": "TalentCorp lists Software Testing as a specific skill, and eMASCO explicitly includes developing and directing software testing and validation procedures. Its importance is supported, but weight 3 versus 4 should be checked under the core-duty rubric.",
+      "evidence": [
+        {
+          "source_id": "src_ict_2024",
+          "claim_id": "ict_sw_specific_skills",
+          "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf"
+        },
+        {
+          "source_id": "src_masco_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2512, Tugasan: software testing and validation",
+          "source_url": "https://emasco.mohr.gov.my/masco/2512",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "Software Engineer profile used as a related occupation within MASCO 2512; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "related_talentcorp_software_engineer_profile",
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Maintain weight 3: occupationally specific and important, but weight 4 is not uniquely established by source.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "skill_id": "skill_ai_fluency",
+      "skill_name": "Digital and AI Fluency",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "supporting_digital_adaptation",
+      "justification": "TalentCorp lists Digital and AI Fluency as a basic skill for Software Engineer. It plausibly supports adaptation to AI-assisted workflows, but the source does not state that it is essential across all MASCO 2512 roles. Weight 2 is a team-defined supporting-skill choice.",
+      "evidence": [
+        {
+          "source_id": "src_ict_2024",
+          "claim_id": "ict_sw_basic_skills",
+          "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf"
+        },
+        {
+          "source_id": "src_masco_2020",
+          "claim_id": null,
+          "evidence_location": "TalentCorp ICT report, Software Engineer basic skills, printed pages 106–107",
+          "source_url": "https://emasco.mohr.gov.my/masco/2512",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "Software Engineer profile used as a related occupation within MASCO 2512; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "related_talentcorp_software_engineer_profile",
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "skill_id": "skill_critical_thinking",
+      "skill_name": "Critical Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "cross_cutting_judgement_review",
+      "justification": "TalentCorp lists Critical Thinking among basic skills; MASCO 2512 also involves analysis, evaluation and solving software problems. The evidence supports the skill, but a weight of 2 may understate its role in technical judgements and merits review.",
+      "evidence": [
+        {
+          "source_id": "src_ict_2024",
+          "claim_id": "ict_sw_basic_skills",
+          "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf"
+        },
+        {
+          "source_id": "src_masco_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2512, research/analyse/evaluate requirements and modify software to correct errors",
+          "source_url": "https://emasco.mohr.gov.my/masco/2512",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "Software Engineer profile used as a related occupation within MASCO 2512; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "related_talentcorp_software_engineer_profile",
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Maintain weight 2 as current modelling choice; cross-cutting relevance is supported but no occupational importance score is reported.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_software_developer",
+      "masco_code": "2512",
+      "skill_id": "skill_innovative_thinking",
+      "skill_name": "Innovative Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "supporting_adaptability",
+      "justification": "TalentCorp lists Innovative Thinking as a basic Software Engineer skill. It is relevant to design and problem-solving, but is not quantified as essential across all roles. Weight 2 is a conservative team-defined supporting-skill choice.",
+      "evidence": [
+        {
+          "source_id": "src_ict_2024",
+          "claim_id": "ict_sw_basic_skills",
+          "evidence_location": "Chapter 4, Low Impacted Roles, Software Engineer, printed pages 106-107 (specific skills, basic skills and impact classification)",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/199/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Information-and-Communications-Technology-1747879475.pdf"
+        },
+        {
+          "source_id": "src_masco_2020",
+          "claim_id": null,
+          "evidence_location": "TalentCorp ICT report, Software Engineer basic skills, printed pages 106–107",
+          "source_url": "https://emasco.mohr.gov.my/masco/2512",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "Software Engineer profile used as a related occupation within MASCO 2512; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "related_talentcorp_software_engineer_profile",
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "skill_id": "skill_financial_analysis_reporting",
+      "skill_name": "Financial Analysis and Reporting",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "central_to_core_duties",
+      "justification": "TalentCorp lists Financial Analysis and Reporting as a finance-and-accounting specific skill. eMASCO 2411 includes analysis of financial reports and preparation/verification of statements. Weight 4 is a team judgement based on central occupational duties.",
+      "evidence": [
+        {
+          "source_id": "src_gbs_2024",
+          "claim_id": "gbs_acc_specific_skills",
+          "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf"
+        },
+        {
+          "source_id": "src_masco_accountants_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2411, Tugasan: financial analysis, prepare and verify financial statements",
+          "source_url": "https://emasco.mohr.gov.my/masco/2411",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "GBS Finance and Accounting Function job cluster is narrower than all MASCO 2411 Accountants and Auditors; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "talentcorp_gbs_finance_accounting_cluster",
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "skill_id": "skill_accounting_principles",
+      "skill_name": "Accounting Principles",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "foundational_professional_knowledge",
+      "justification": "TalentCorp lists Accounting Principles as a specific skill. eMASCO 2411 duties involve accounting systems and compliance with accounting standards and procedures, supporting weight 4 as foundational professional knowledge.",
+      "evidence": [
+        {
+          "source_id": "src_gbs_2024",
+          "claim_id": "gbs_acc_specific_skills",
+          "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf"
+        },
+        {
+          "source_id": "src_masco_accountants_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2411, occupational description: accuracy and compliance with accounting standards",
+          "source_url": "https://emasco.mohr.gov.my/masco/2411",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "GBS Finance and Accounting Function job cluster is narrower than all MASCO 2411 Accountants and Auditors; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "talentcorp_gbs_finance_accounting_cluster",
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "skill_id": "skill_attention_to_detail",
+      "skill_name": "Attention to Detail",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "accuracy_critical_review",
+      "justification": "TalentCorp lists Attention to Detail as a specific skill; MASCO 2411 explicitly centres accuracy in financial records and statements. Weight 3 is defensible as important, but should be reviewed because accuracy is critical in accounting and audit work.",
+      "evidence": [
+        {
+          "source_id": "src_gbs_2024",
+          "claim_id": "gbs_acc_specific_skills",
+          "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf"
+        },
+        {
+          "source_id": "src_masco_accountants_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2411, occupational description: ensure accuracy in accounting and financial records",
+          "source_url": "https://emasco.mohr.gov.my/masco/2411",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "GBS Finance and Accounting Function job cluster is narrower than all MASCO 2411 Accountants and Auditors; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "talentcorp_gbs_finance_accounting_cluster",
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Maintain weight 3; critical accuracy does not establish a source-measured numeric 4.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "skill_id": "skill_ethical_judgement",
+      "skill_name": "Ethical Judgement",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "professional_compliance_significance",
+      "justification": "TalentCorp lists Ethical Judgement as a finance-and-accounting specific skill. MASCO 2411 covers audit and compliance-related responsibilities, but the report does not provide an importance rating; weight 3 remains a team judgement and may differ by specialisation.",
+      "evidence": [
+        {
+          "source_id": "src_gbs_2024",
+          "claim_id": "gbs_acc_specific_skills",
+          "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf"
+        },
+        {
+          "source_id": "src_masco_accountants_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2411, occupational description and duties relating to audits and standards compliance",
+          "source_url": "https://emasco.mohr.gov.my/masco/2411",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "GBS Finance and Accounting Function job cluster is narrower than all MASCO 2411 Accountants and Auditors; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "talentcorp_gbs_finance_accounting_cluster",
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "skill_id": "skill_cost_benefit_analysis",
+      "skill_name": "Cost-Benefit Analysis",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "specialised_financial_decisions",
+      "justification": "TalentCorp lists Cost-Benefit Analysis as a specific skill of the GBS finance-and-accounting cluster; eMASCO 2411 describes project costing and cost-reduction activities. These tasks are relevant but not equally central to every accounting or auditing specialisation, supporting a provisional weight 2.",
+      "evidence": [
+        {
+          "source_id": "src_gbs_2024",
+          "claim_id": "gbs_acc_specific_skills",
+          "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf"
+        },
+        {
+          "source_id": "src_masco_accountants_2020",
+          "claim_id": null,
+          "evidence_location": "eMASCO 2411, Tugasan: project costing and identifying cost reductions",
+          "source_url": "https://emasco.mohr.gov.my/masco/2411",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "GBS Finance and Accounting Function job cluster is narrower than all MASCO 2411 Accountants and Auditors; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "talentcorp_gbs_finance_accounting_cluster",
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "masco_code": "2411",
+      "skill_id": "skill_innovative_thinking",
+      "skill_name": "Innovative Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "rubric_reason_code": "complementary_problem_solving",
+      "justification": "TalentCorp lists Innovative Thinking as a basic skill in the GBS finance-and-accounting cluster, not as an official quantitative requirement for all MASCO 2411 occupations. Weight 2 is a team choice reflecting complementary value.",
+      "evidence": [
+        {
+          "source_id": "src_gbs_2024",
+          "claim_id": "gbs_acc_basic_skills",
+          "evidence_location": "Chapter 4, printed pages 38-103 (overall GBS occupational analysis); Finance and Accounting Function roles and skills table, printed page 95",
+          "source_url": "https://www.talentcorp.com.my/images/uploads/publication/198/Impact-Study-of-Artificial-Intelligence-Digital-and-Green-Economy-on-the-Malaysian-Workforce-Volume-2-Sector-Global-Business-Services-1747879429.pdf"
+        },
+        {
+          "source_id": "src_masco_accountants_2020",
+          "claim_id": null,
+          "evidence_location": "TalentCorp GBS report, Finance and Accounting Function, printed page 95",
+          "source_url": "https://emasco.mohr.gov.my/masco/2411",
+          "note": "Official MASCO occupational duty context; the source registry claim IDs currently capture only the classification, not each individual duty."
+        }
+      ],
+      "occupational_scope_note": "GBS Finance and Accounting Function job cluster is narrower than all MASCO 2411 Accountants and Auditors; not proof of an official numeric weight.",
+      "decision": "retained",
+      "evidence_scope": "talentcorp_gbs_finance_accounting_cluster",
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "skill_id": "skill_data_analysis",
+      "skill_name": "Data Analysis",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "Analysing data, recognising patterns and drawing decision-relevant insights are explicitly core MASCO 2524 tasks. Weight 4 is a team-defined judgement about this foundational activity.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_data_2524",
+          "claim_id": "emasco_data_tasks_2524",
+          "evidence_location": "MASCO 2524 — Profesional Data; occupational description and 'Tugasan' (Tasks) section",
+          "source_url": "https://emasco.mohr.gov.my/masco/2524"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "skill_id": "skill_data_cleaning",
+      "skill_name": "Data Cleaning and Quality Checking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "MASCO 2524 expressly covers cleaning, integrating and checking data quality, making reliable preparation foundational to the selected occupational profile. Weight 4 is a team-defined centrality rating, not an official score.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_data_2524",
+          "claim_id": "emasco_data_tasks_2524",
+          "evidence_location": "MASCO 2524 — Profesional Data; occupational description and 'Tugasan' (Tasks) section",
+          "source_url": "https://emasco.mohr.gov.my/masco/2524"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "skill_id": "skill_python",
+      "skill_name": "Python",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "Python or R is explicitly listed for Data Analyst 2524-02, and broader MASCO 2524 describes developing scripts and code without mandating Python specifically. Weight 3 is applicable to the representative analyst specialisation, not equally to every data profession.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_data_analyst_skills_2524",
+          "claim_id": "emasco_data_analyst_technical_skills",
+          "evidence_location": "Data Analyst (2524-02), Tugasan and Kemahiran sections: Asas and Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2524-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Keep weight 3 for the selected Data Analyst-oriented profile, but do not claim Python is mandatory across all MASCO 2524 specialisations.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "skill_id": "skill_sql",
+      "skill_name": "SQL",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "SQL is listed as a specific skill for Data Analyst 2524-02. It is important for query-oriented data-analysis work, but not a verified universal skill requirement across all MASCO 2524 specialisations.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_data_analyst_skills_2524",
+          "claim_id": "emasco_data_analyst_technical_skills",
+          "evidence_location": "Data Analyst (2524-02), Tugasan and Kemahiran sections: Asas and Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2524-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Keep weight 3 for the selected Data Analyst-oriented profile; not an occupation-wide official score.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "skill_id": "skill_data_viz",
+      "skill_name": "Data Visualization",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "The broader MASCO 2524 duties include visualisation and advanced analysis; the Data Analyst specialisation also includes reporting/dashboard activities. A weight of 3 reflects substantial communication and analysis needs, without claiming a published numeric score.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_data_2524",
+          "claim_id": "emasco_data_tasks_2524",
+          "evidence_location": "MASCO 2524 — Profesional Data; occupational description and 'Tugasan' (Tasks) section",
+          "source_url": "https://emasco.mohr.gov.my/masco/2524"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_data_professional",
+      "masco_code": "2524",
+      "skill_id": "skill_critical_thinking",
+      "skill_name": "Critical Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "Critical Thinking appears in the Data Analyst 2524-02 basic skills and supports evaluation of patterns and analytical results. Weight 2 is team-defined, but merits review against the group’s interpretation and decision-support duties.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_data_analyst_skills_2524",
+          "claim_id": "emasco_data_analyst_critical_thinking",
+          "evidence_location": "Data Analyst (2524-02), Tugasan and Kemahiran sections: Asas and Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2524-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Maintain weight 2 provisionally; analysis relevance supported but no source-measured relative ranking.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "skill_id": "skill_marketing_strategy",
+      "skill_name": "Marketing Strategy and Campaign Planning",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "Planning advertising and marketing strategy and coordinating campaigns is explicitly central to MASCO 2431. The team therefore treats strategy and campaign planning as essential (weight 4).",
+      "evidence": [
+        {
+          "source_id": "src_emasco_marketing_2431",
+          "claim_id": "emasco_marketing_2431_tasks",
+          "evidence_location": "eMASCO MASCO 2431, description (Profesional Pengiklanan dan Pemasaran) and Tugasan (Tasks)",
+          "source_url": "https://emasco.mohr.gov.my/masco/2431"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "skill_id": "skill_digital_marketing",
+      "skill_name": "Digital and Social Media Marketing",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "Digital and social-media campaign execution is explicitly covered by the Marketing Executive 2431-02 specialisation, but the wider MASCO 2431 description includes non-digital marketing and advertising roles. Weight 4 should be checked for occupation-wide scope.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_marketing_exec_2431_02",
+          "claim_id": "emasco_marketing_exec_digital_campaign",
+          "evidence_location": "eMASCO 2431-02 Eksekutif Pemasaran; Tugasan (Tasks); Kemahiran > Asas (Basic) and Khusus (Specific)",
+          "source_url": "https://emasco.mohr.gov.my/masco/2431-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain weight 4 only with an explicit digital-marketing-oriented selected profile; a broader marketing profile would merit reassessment.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "skill_id": "skill_market_research",
+      "skill_name": "Market Research and Consumer Insights",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "Marketing Executive 2431-02 covers conducting market research and examining consumer trends. Weight 3 reflects substantial importance in the representative specialisation but is not a universal measured requirement.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_marketing_exec_2431_02",
+          "claim_id": "emasco_marketing_exec_research",
+          "evidence_location": "eMASCO 2431-02 Eksekutif Pemasaran; Tugasan (Tasks); Kemahiran > Asas (Basic) and Khusus (Specific)",
+          "source_url": "https://emasco.mohr.gov.my/masco/2431-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "skill_id": "skill_campaign_performance",
+      "skill_name": "Campaign Performance Analysis",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "The Marketing Executive specialisation monitors, evaluates and reports campaign outcomes. Weight 3 captures important feedback-and-optimisation work, without treating it as a source-rated score.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_marketing_exec_2431_02",
+          "claim_id": "emasco_marketing_exec_digital_campaign",
+          "evidence_location": "eMASCO 2431-02 Eksekutif Pemasaran; Tugasan (Tasks); Kemahiran > Asas (Basic) and Khusus (Specific)",
+          "source_url": "https://emasco.mohr.gov.my/masco/2431-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "skill_id": "skill_marketing_communication",
+      "skill_name": "Marketing Communication",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "MASCO 2431 specifically lists strategic communication with audiences and interaction with media, so communication is a substantial occupational capability. Weight 3 is a team judgement.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_marketing_2431",
+          "claim_id": "emasco_marketing_2431_tasks",
+          "evidence_location": "eMASCO MASCO 2431, description (Profesional Pengiklanan dan Pemasaran) and Tugasan (Tasks)",
+          "source_url": "https://emasco.mohr.gov.my/masco/2431"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "masco_code": "2431",
+      "skill_id": "skill_critical_thinking",
+      "skill_name": "Critical Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "suboccupation_specialisation",
+      "justification": "Critical Thinking is a basic Marketing Executive 2431-02 skill for strategy and decisions. Weight 2 is plausible as supporting across a broad occupation, but the role’s strategy duties warrant later comparison.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_marketing_exec_2431_02",
+          "claim_id": "emasco_marketing_exec_basic",
+          "evidence_location": "eMASCO 2431-02 Eksekutif Pemasaran; Tugasan (Tasks); Kemahiran > Asas (Basic) and Khusus (Specific)",
+          "source_url": "https://emasco.mohr.gov.my/masco/2431-02"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Maintain weight 2 provisionally; cross-cutting role, no numeric importance measurement.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "skill_id": "skill_electrical_system_design",
+      "skill_name": "Electrical System Design",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "MASCO 2151 expressly involves planning and designing electrical installations and systems. Weight 4 follows team application of the essential-core-duty rubric.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_electrical_2151",
+          "claim_id": "emasco_ee_design_tasks_2151",
+          "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+          "source_url": "https://emasco.mohr.gov.my/masco/2151"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "skill_id": "skill_electrical_circuits",
+      "skill_name": "Electrical Circuits and Equipment",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "MASCO 2151 duties include determining arrangement of circuits, transformers, protective devices and associated electrical equipment. Weight 4 is a team assessment of fundamental electrical engineering competence.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_electrical_2151",
+          "claim_id": "emasco_ee_design_tasks_2151",
+          "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+          "source_url": "https://emasco.mohr.gov.my/masco/2151"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "skill_id": "skill_electrical_safety",
+      "skill_name": "Electrical Engineering Safety and Risk",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "MASCO 2151 tasks include standards, regulations, and safety control procedures. Safety is consequential and possibly essential; weight 3 should be reviewed rather than assumed definitive.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_electrical_2151",
+          "claim_id": "emasco_ee_safety_maintenance_2151",
+          "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+          "source_url": "https://emasco.mohr.gov.my/masco/2151"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "adjusted",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 4,
+      "decision_rationale": "Safety standards and controls are explicitly identified in MASCO electrical-engineering duties. Under the rubric's safety-critical clause, weight 4 is a defensible proposal; some engineering roles vary in day-to-day exposure.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "skill_id": "skill_electrical_fault_diagnosis",
+      "skill_name": "Electrical Fault Diagnosis and Maintenance",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_group_duties",
+      "justification": "MASCO 2151 includes fault detection, correction, operations and maintenance. Weight 3 is defensible as important occupational work, while prevalence varies between design and maintenance roles.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_electrical_2151",
+          "claim_id": "emasco_ee_safety_maintenance_2151",
+          "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+          "source_url": "https://emasco.mohr.gov.my/masco/2151"
+        }
+      ],
+      "occupational_scope_note": "Group-level duties",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "skill_id": "skill_electrical_simulation",
+      "skill_name": "Electrical Circuit Simulation",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "team_inference_not_direct_skill_listing",
+      "justification": "Electrical simulation is a team-selected useful development skill, but the referenced MASCO 2151 group-level duties do not explicitly require standalone circuit simulation. Weight 2 is an illustrative extension only; do not claim direct source validation.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_electrical_2151",
+          "claim_id": "emasco_ee_design_tasks_2151",
+          "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+          "source_url": "https://emasco.mohr.gov.my/masco/2151"
+        }
+      ],
+      "occupational_scope_note": "Team interpretation, not an explicit published skill listing.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Keep as supporting team-selected extension, not compulsory MASCO duty.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "masco_code": "2151",
+      "skill_id": "skill_critical_thinking",
+      "skill_name": "Critical Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "team_inference_not_direct_skill_listing",
+      "justification": "Interpreting engineering standards and diagnosing faults plausibly requires critical evaluation; the referenced group-level duties do not explicitly list Critical Thinking as a separate named skill. Weight 2 is an inference, not a measured rating.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_electrical_2151",
+          "claim_id": "emasco_ee_safety_maintenance_2151",
+          "evidence_location": "Kod MASCO 2151, Jurutera Elektrik; occupational description and Tugasan (Tasks), items 1–9",
+          "source_url": "https://emasco.mohr.gov.my/masco/2151"
+        }
+      ],
+      "occupational_scope_note": "Team interpretation, not an explicit published skill listing.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 2,
+      "weight": 2,
+      "decision_rationale": "Maintain weight 2 provisionally; inferred from evaluation duties, not explicitly ranked.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "skill_id": "skill_patient_care_monitoring",
+      "skill_name": "Patient Care and Monitoring",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_suboccupation_duties",
+      "justification": "MASCO 2221 and the Professional Nurse 2221-01 specialisation explicitly describe direct patient care, monitoring and patient support. Weight 4 is a team judgement identifying a central responsibility.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_professional_nurse_2221_01",
+          "claim_id": "emasco_prof_nurse_assessment_care",
+          "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2221-01"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "skill_id": "skill_nursing_assessment_care_planning",
+      "skill_name": "Nursing Assessment and Care Planning",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_suboccupation_duties",
+      "justification": "Professional Nurse 2221-01 involves patient assessment and developing, implementing and reviewing nursing care plans. The team treats this as foundational (weight 4), not an official score.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_professional_nurse_2221_01",
+          "claim_id": "emasco_prof_nurse_assessment_care",
+          "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2221-01"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 4,
+      "weight": 4,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "skill_id": "skill_medication_safety",
+      "skill_name": "Medication Safety and Administration",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_suboccupation_duties",
+      "justification": "Professional Nurse 2221-01 explicitly includes safe medication administration. Weight 3 needs review because safe administration is a safety-critical duty for applicable nursing roles.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_professional_nurse_2221_01",
+          "claim_id": "emasco_prof_nurse_medication_infection",
+          "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2221-01"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "adjusted",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 4,
+      "decision_rationale": "Safe medication administration is explicitly present in the representative Professional Nurse profile and is safety-critical. Weight 4 is proposed subject to confirmation that this profile represents the app's intended nursing scope.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "skill_id": "skill_infection_prevention",
+      "skill_name": "Infection Prevention and Control",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_suboccupation_duties",
+      "justification": "Professional Nurse 2221-01 includes compliance with hygiene and infection-prevention protocols. Weight 3 is important; evaluate whether safety-critical scope warrants weight 4.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_professional_nurse_2221_01",
+          "claim_id": "emasco_prof_nurse_medication_infection",
+          "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2221-01"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Maintain weight 3 provisionally; safety-critical duties are documented but relative weight 4 needs agreed rubric use.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "skill_id": "skill_patient_communication",
+      "skill_name": "Patient Communication and Empathy",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_suboccupation_duties",
+      "justification": "Professional Nurse 2221-01 basic skills include communication, empathy and active listening and duties include patient/family education. Weight 3 reflects substantial care communication requirements.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_professional_nurse_2221_01",
+          "claim_id": "emasco_prof_nurse_communication_thinking",
+          "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2221-01"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "retained",
+      "rubric_reason_code": null,
+      "previous_weight": 3,
+      "weight": 3,
+      "decision_rationale": "Retain as a transparent team-defined ordinal judgement using the occupational relevance and scope documented in the existing justification; no source gives this exact 1–4 value.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "masco_code": "2221",
+      "skill_id": "skill_critical_thinking",
+      "skill_name": "Critical Thinking",
+      "weight_provenance": "team_defined_judgement_not_official_source_score",
+      "evidence_scope": "direct_suboccupation_duties",
+      "justification": "Professional Nurse 2221-01 explicitly lists critical thinking and problem-solving in assessing situations and making decisions. Weight 2 appears potentially low for clinical judgement and should be reviewed with professional scope in mind.",
+      "evidence": [
+        {
+          "source_id": "src_emasco_professional_nurse_2221_01",
+          "claim_id": "emasco_prof_nurse_communication_thinking",
+          "evidence_location": "Jururawat Profesional (2221-01), Description, Tugasan and Kemahiran > Asas/Khusus",
+          "source_url": "https://emasco.mohr.gov.my/masco/2221-01"
+        }
+      ],
+      "occupational_scope_note": "Representative suboccupation only; not necessarily universal across this MASCO group.",
+      "decision": "adjusted",
+      "rubric_reason_code": null,
+      "previous_weight": 2,
+      "weight": 3,
+      "decision_rationale": "The Professional Nurse profile explicitly includes critical thinking and problem-solving in nursing assessment and decisions. Weight 3 fits substantial responsibilities better than a purely supplementary weight 2.",
+      "evidence_limit": "Published sources support skill relevance/tasks; the numeric weight is a project methodology judgement."
+    }
+  ],
+  "cautions": [
+    "Skill relevance from an occupational source is not the same as a published numeric skill-importance rating.",
+    "MASCO group and suboccupation details have different scope and must not be conflated.",
+    "Review candidates require rubric discussion and regression/sensitivity tests before changing any weights.",
+    "This review is not an empirical calibration of skill importance based on Malaysian survey data."
+  ],
+  "methodology_note": "Values are ordinal, team-defined importance judgments using occupational responsibilities and safety-criticality; not official ratings, frequencies, future-demand, or AI-risk scores. No statistical precision claimed.",
+  "counts": {
+    "career_profiles": 6,
+    "assignments": 36,
+    "retained": 33,
+    "adjusted": 3
+  },
+  "implementation_note": "Team-defined importance weights, not official published values; verify scope and run Member 2 integration tests before merge.",
+  "change_log": [
+    {
+      "career_id": "role_electrical_engineer",
+      "skill_id": "skill_electrical_safety",
+      "old_weight": 3,
+      "new_weight": 4,
+      "rationale": "Safety standards and controls are explicitly identified in MASCO electrical-engineering duties. Under the rubric's safety-critical clause, weight 4 is a defensible proposal; some engineering roles vary in day-to-day exposure."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_medication_safety",
+      "old_weight": 3,
+      "new_weight": 4,
+      "rationale": "Safe medication administration is explicitly present in the representative Professional Nurse profile and is safety-critical. Weight 4 is proposed subject to confirmation that this profile represents the app's intended nursing scope."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "skill_id": "skill_critical_thinking",
+      "old_weight": 2,
+      "new_weight": 3,
+      "rationale": "The Professional Nurse profile explicitly includes critical thinking and problem-solving in nursing assessment and decisions. Weight 3 fits substantial responsibilities better than a purely supplementary weight 2."
+    }
+  ]
+}
