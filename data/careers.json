@@ -238,7 +238,7 @@
     "required_skills": {
       "skill_electrical_system_design": 4,
       "skill_electrical_circuits": 4,
-      "skill_electrical_safety": 3,
+      "skill_electrical_safety": 4,
       "skill_electrical_fault_diagnosis": 3,
       "skill_electrical_simulation": 2,
       "skill_critical_thinking": 2
@@ -280,10 +280,10 @@
     "required_skills": {
       "skill_patient_care_monitoring": 4,
       "skill_nursing_assessment_care_planning": 4,
-      "skill_medication_safety": 3,
+      "skill_medication_safety": 4,
       "skill_infection_prevention": 3,
       "skill_patient_communication": 3,
-      "skill_critical_thinking": 2
+      "skill_critical_thinking": 3
     },
     "sdgs": [
       3,

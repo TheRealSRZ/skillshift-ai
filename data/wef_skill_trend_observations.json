@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "status": "proposed_for_review_not_active",
+  "source_id": "src_wef_future_jobs_2025",
+  "source_title": "Future of Jobs Report 2025",
+  "source_url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025",
+  "published_date": "2025-01-07",
+  "retrieved_date": "2026-10-22",
+  "observation_period": "employer expectations for 2025–2030",
+  "observation_scope": "global, 55 economies, not measured Malaysia-specific job demand",
+  "observation_unit": "employer survey expectations about broad skill categories",
+  "target_career_ids": [
+    "role_software_developer",
+    "role_accountant_auditor",
+    "role_data_professional",
+    "role_marketing_professional",
+    "role_electrical_engineer",
+    "role_nursing_professional"
+  ],
+  "mappings": [
+    {
+      "wef_category": "AI and big data / technological literacy",
+      "skill_id": "skill_ai_fluency",
+      "claim_id": "wef_2025_technology_skills_expected_growth",
+      "observed_direction": "employers_expect_increasing_importance",
+      "mapping_provenance": "team_semantic_mapping",
+      "mapping_rationale": "AI fluency overlaps broad technological literacy; not an exact WEF skill-code match."
+    },
+    {
+      "wef_category": "Creative thinking",
+      "skill_id": "skill_innovative_thinking",
+      "claim_id": "wef_2025_human_skills_expected_growth",
+      "observed_direction": "employers_expect_increasing_importance",
+      "mapping_provenance": "team_semantic_mapping",
+      "mapping_rationale": "Innovation-oriented thinking is an approximation of creative thinking; not an official mapping."
+    },
+    {
+      "wef_category": "Analytical thinking",
+      "skill_id": "skill_critical_thinking",
+      "claim_id": "wef_2025_human_skills_expected_growth",
+      "observed_direction": "employers_expect_increasing_importance",
+      "mapping_provenance": "team_semantic_mapping",
+      "mapping_rationale": "Critical thinking overlaps analytical thinking but is not identical."
+    }
+  ],
+  "model_policy": {
+    "version": "trend_model_policy_v1",
+    "uplift_factor": 1.05,
+    "multiplier_interpretation": "Illustrative +5% RELATIVE SCORING WEIGHT assigned by team to a mapped skill. NOT a WEF reported growth rate and NOT Malaysian labour-market growth.",
+    "mechanism": "For each source category with an expected-increase direction, apply the same conservative illustrative weight factor to exact mapped SkillShift skill IDs; no stacking or compounding between categories.",
+    "activation_status": "requires_member2_review_and_testing",
+    "refresh_trigger": "new official edition or corrected source observations; do not change multiplier silently"
+  },
+  "limitations": [
+    "WEF findings are global employer expectations, not Malaysian observed hiring or a time series of actual skill demand.",
+    "Semantic mappings to SkillShift skill IDs are interpretations, not source-defined skill identifiers.",
+    "1.05 is a team-chosen model sensitivity factor, not measured growth or a calibrated forecast.",
+    "Changes in readiness are weighted skill overlap, not job-employment probabilities.",
+    "Single-edition snapshot is refreshable but not an automatically updated or measured longitudinal trend."
+  ]
+}

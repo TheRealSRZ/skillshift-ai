@@ -22,6 +22,8 @@ CAREERS = ROOT / 'data/careers.json'
 OECD = ROOT / 'data/processed/oecd_ai_exposure_evidence.json'
 ILO = ROOT / 'data/external/ilo/4digits_with_tasks.xlsx'
 OUT = ROOT / 'data/processed/career_ai_exposure_six_careers.json'
+EXPLANATIONS = ROOT / 'data/career_ai_explanations_curated.json'
+SKILLS = ROOT / 'data/skills.json'
 NS = {'x': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 
 CODES = {
@@ -104,6 +106,10 @@ def build():
     wanted=list(CODES)+['role_data_professional']
     if len(wanted)!=6 or len(set(wanted))!=6:raise ValueError('Six career IDs required')
     results=[]
+    explanations = json.loads(EXPLANATIONS.read_text(encoding='utf-8'))
+    skills = {s['id'] for s in json.loads(SKILLS.read_text(encoding='utf-8'))}
+    if set(explanations) != set(wanted):
+        raise ValueError('Curated explanations must cover exactly the six careers')
     for career_id in wanted:
         if career_id not in careers or career_id not in oecd:
             raise ValueError(f'Missing career or OECD record: {career_id}')
@@ -126,6 +132,23 @@ def build():
             ilo_primary={**a,'status':'matched_isco_code','mapping_quality':quality,
                          'occupation_mean_score_2025':None}
             reps=[]
+        # Check curated statements against source-task records and existing skill assignments.
+        explanation = explanations[career_id]
+        if not explanation.get('impact_summary') or not explanation.get('human_responsibilities'):
+            raise ValueError(f'Missing user-facing text for {career_id}')
+        for sid in explanation['related_existing_skill_ids']:
+            if sid not in skills or sid not in c['required_skills']:
+                raise ValueError(f'Unknown or unrelated skill {sid} for {career_id}')
+        for item in explanation['potential_task_changes']:
+            code = item['isco_code']
+            if code not in ilo:
+                raise ValueError(f'Unknown ILO occupation {code}')
+            text = item['task_locator_contains'].lower()
+            matches = [r for r in sheet_rows(ILO) if
+                       isinstance(r[3],str) and r[3].startswith(code+' - ') and
+                       isinstance(r[4],str) and text in r[4].lower()]
+            if len(matches)!=1 or matches[0][6] != item['ilo_task_exposure_band']:
+                raise ValueError(f'ILO task evidence not verifiable: {career_id}: {text}')
         # Source-specific values are deliberately not converted into a unified risk score.
         results.append({
             'career_id':career_id,'career_title':c['title'],'masco_code':c.get('masco_code'),
@@ -147,6 +170,7 @@ def build():
                 'occupation_mapping_note':c.get('occupation_mapping_note'),
                 'source_ids':c.get('source_ids',[]),
                 'evidence_claim_ids':c.get('evidence_claim_ids',[])},
+            'user_facing_explanation':explanation,
             'limitations':['The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.',
                 'AI capability overlap and GenAI exposure are not job replacement probabilities.',
                 'International occupational evidence is not a measured Malaysian employment or AI-adoption rate.'],
@@ -155,7 +179,7 @@ def build():
         })
     bundle={
         'dataset':'SkillShift AI six-career source-separated AI exposure evidence',
-        'schema_version':'1.0','career_count':6,
+        'schema_version':'1.1','career_count':6,
         'not_a_job_replacement_probability':True,'does_not_adjust_readiness_scores':True,
         'source_provenance':{
             'ilo':{'title':'Gmyrek et al. 2025 ILO Working Paper 140 / authors dataset',

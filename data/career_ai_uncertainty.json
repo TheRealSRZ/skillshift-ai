@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "status": "proposed_user_facing_disclosure_not_integrated",
+  "last_reviewed_date": "2026-10-22",
+  "common": {
+    "what_is_measured": "ILO task exposure and OECD research indices; WEF global survey expectations; selected Malaysian occupational evidence",
+    "what_is_not_measured": "Malaysia-specific adoption speed by role or skill, individual displacement probabilities, realised salary changes, and validated future skill importance multipliers",
+    "scenario_label": "Team-defined what-if sensitivity simulation, not empirical workforce forecast",
+    "trend_label": "Only display an external signal as observed when its exact observation unit and geography are specified; global employer expectations are survey observations, not measured Malaysian hiring",
+    "score_label": "Readiness measures overlap with a selected skill catalogue under explicit modelling weights; it is not an employment likelihood"
+  },
+  "careers": [
+    {
+      "career_id": "role_software_developer",
+      "research_context": "GenAI may assist selected design, programming, and testing tasks.",
+      "important_uncertainty": "Role-specific adoption in Malaysia, task frequency and productivity outcomes are not measured.",
+      "proposed_scenario_skills": [
+        {
+          "skill_id": "skill_ai_fluency",
+          "proposed_rapid_multiplier": 1.15,
+          "provenance": "team_assumption_not_source_measure"
+        }
+      ],
+      "display_text": "GenAI may assist selected design, programming, and testing tasks. Faster-AI-adoption settings here are hypothetical and the degree of change in Malaysian workplaces is unknown. Role-specific adoption in Malaysia, task frequency and productivity outcomes are not measured."
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "research_context": "Some financial preparation and information tasks are exposed to GenAI; judgement and accountability remain important.",
+      "important_uncertainty": "TalentCorp evidence covers selected GBS subroles, not every accounting/audit speciality.",
+      "proposed_scenario_skills": [
+        {
+          "skill_id": "skill_ethical_judgement",
+          "proposed_rapid_multiplier": 1.1,
+          "provenance": "team_assumption_not_source_measure"
+        }
+      ],
+      "display_text": "Some financial preparation and information tasks are exposed to GenAI; judgement and accountability remain important. Faster-AI-adoption settings here are hypothetical and the degree of change in Malaysian workplaces is unknown. TalentCorp evidence covers selected GBS subroles, not every accounting/audit speciality."
+    },
+    {
+      "career_id": "role_data_professional",
+      "research_context": "AI-assisted analytics and database work are plausible task changes.",
+      "important_uncertainty": "ILO occupation links are task representatives, not a full MASCO 2524 ILO rating; no exact OECD score.",
+      "proposed_scenario_skills": [
+        {
+          "skill_id": "skill_data_analysis",
+          "proposed_rapid_multiplier": 1.12,
+          "provenance": "team_assumption_not_source_measure"
+        },
+        {
+          "skill_id": "skill_data_viz",
+          "proposed_rapid_multiplier": 1.1,
+          "provenance": "team_assumption_not_source_measure"
+        }
+      ],
+      "display_text": "AI-assisted analytics and database work are plausible task changes. Faster-AI-adoption settings here are hypothetical and the degree of change in Malaysian workplaces is unknown. ILO occupation links are task representatives, not a full MASCO 2524 ILO rating; no exact OECD score."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "research_context": "AI may assist some research, content and campaign analysis tasks.",
+      "important_uncertainty": "Employer practices and adoption vary across marketing specialisations.",
+      "proposed_scenario_skills": [
+        {
+          "skill_id": "skill_campaign_performance",
+          "proposed_rapid_multiplier": 1.1,
+          "provenance": "team_assumption_not_source_measure"
+        }
+      ],
+      "display_text": "AI may assist some research, content and campaign analysis tasks. Faster-AI-adoption settings here are hypothetical and the degree of change in Malaysian workplaces is unknown. Employer practices and adoption vary across marketing specialisations."
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "research_context": "AI-assisted testing and maintenance are plausible for certain engineering workflows.",
+      "important_uncertainty": "ILO Not Exposed refers to its GenAI method, not absence of engineering AI use or safety risk.",
+      "proposed_scenario_skills": [
+        {
+          "skill_id": "skill_electrical_fault_diagnosis",
+          "proposed_rapid_multiplier": 1.1,
+          "provenance": "team_assumption_not_source_measure"
+        }
+      ],
+      "display_text": "AI-assisted testing and maintenance are plausible for certain engineering workflows. Faster-AI-adoption settings here are hypothetical and the degree of change in Malaysian workplaces is unknown. ILO Not Exposed refers to its GenAI method, not absence of engineering AI use or safety risk."
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "research_context": "AI may assist selected documentation or information tasks; patient care remains human-accountable.",
+      "important_uncertainty": "ILO Not Exposed is not a guarantee of no change, and clinical AI deployments vary by setting.",
+      "proposed_scenario_skills": [
+        {
+          "skill_id": "skill_nursing_assessment_care_planning",
+          "proposed_rapid_multiplier": 1.1,
+          "provenance": "team_assumption_not_source_measure"
+        }
+      ],
+      "display_text": "AI may assist selected documentation or information tasks; patient care remains human-accountable. Faster-AI-adoption settings here are hypothetical and the degree of change in Malaysian workplaces is unknown. ILO Not Exposed is not a guarantee of no change, and clinical AI deployments vary by setting."
+    }
+  ],
+  "frontend_disclosure_rules": [
+    "Never describe OECD index, ILO gradient, or career readiness as probability of losing a job.",
+    "Show missing/representative occupation mappings explicitly.",
+    "Do not aggregate OECD and ILO into a single unsupported risk score.",
+    "Show source date and geography alongside WEF global employer expectations.",
+    "Show scenario assumption version and separate active trend snapshot ID.",
+    "Show neutral/nonchanging scores honestly for users with all or no matched skills.",
+    "Do not claim that all six careers have directly measured Malaysian skill-level trends."
+  ]
+}

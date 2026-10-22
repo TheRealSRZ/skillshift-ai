@@ -1,0 +1,31 @@
+{
+  "snapshot_id": "wef_foj_2025_global_expectations_team_mapping_v1",
+  "label": "WEF 2025 global employer skill expectations — TEAM-MAPPED MODEL SIGNAL (not Malaysian observed demand)",
+  "observed_date": "2025-01-07",
+  "retrieved_date": "2026-10-22",
+  "region": "global_employer_survey_not_malaysia_specific",
+  "source_ids": [
+    "src_wef_future_jobs_2025"
+  ],
+  "evidence_status": "source_reported_direction_team_assigned_numeric_multipliers",
+  "multipliers": {
+    "skill_ai_fluency": 1.05,
+    "skill_critical_thinking": 1.05,
+    "skill_innovative_thinking": 1.05
+  },
+  "signal_provenance": {
+    "source_observation": "employer_survey_expected_skill_direction_not_realized_market_change",
+    "skill_mapping": "team_semantic_mapping_not_wef_individual_skill_ids",
+    "multiplier": "team_defined_illustrative_uplift_not_measured_growth",
+    "uplift_factor": 1.05,
+    "policy_version": "trend_model_policy_v1",
+    "source_published_date": "2025-01-07",
+    "limitations": [
+      "WEF findings are global employer expectations, not Malaysian observed hiring or a time series of actual skill demand.",
+      "Semantic mappings to SkillShift skill IDs are interpretations, not source-defined skill identifiers.",
+      "1.05 is a team-chosen model sensitivity factor, not measured growth or a calibrated forecast.",
+      "Changes in readiness are weighted skill overlap, not job-employment probabilities.",
+      "Single-edition snapshot is refreshable but not an automatically updated or measured longitudinal trend."
+    ]
+  }
+}
