@@ -1,4 +1,4 @@
-import { Check, ExternalLink, Info, Loader2 } from 'lucide-react'
+import { Check, ExternalLink, Info, Loader2, Sparkles, ShieldCheck } from 'lucide-react'
 import type { Tab } from '../components/Layout'
 import type { AnalyzeResponse, Career, RoadmapResponse, Skill } from '../types'
 
@@ -10,12 +10,17 @@ type Props = {
   targetRoleId: string
   onSelectRole: (id: string) => void
   onGenerate: () => void
+  onPersonalize: () => void
+  aiAuthenticated: boolean
+  onSignIn: () => void
   loading: boolean
+  aiLoading: boolean
+  aiError: string
   error: string
   onNavigate: (tab: Tab) => void
 }
 
-export default function RoadmapPage({ roadmap, skills, careers, results, targetRoleId, onSelectRole, onGenerate, loading, error, onNavigate }: Props) {
+export default function RoadmapPage({ roadmap, skills, careers, results, targetRoleId, onSelectRole, onGenerate, onPersonalize, aiAuthenticated, onSignIn, loading, aiLoading, aiError, error, onNavigate }: Props) {
   const nameOf = (id: string) => skills.find(s => s.id === id)?.name ?? id
   const cleanText = (text: string) => text.replace(/skill_[a-z0-9_]+/g, id => nameOf(id))
   const selected = results?.matches.find(m => m.role_id === targetRoleId)
@@ -36,9 +41,9 @@ export default function RoadmapPage({ roadmap, skills, careers, results, targetR
             {careers.map(role => <option value={role.id} key={role.id}>{role.title}</option>)}
           </select>
         </div>
-        <button className="primary" type="button" onClick={onGenerate} disabled={!selected || selected.missing_skills.length === 0 || loading}>
+        <button className="primary" type="button" onClick={onGenerate} disabled={!selected || selected.missing_skills.length === 0 || loading || aiLoading}>
           {loading && <Loader2 className="spin" size={16} aria-hidden="true" />}
-          {loading ? 'Generating roadmap…' : roadmap ? 'Regenerate roadmap' : 'Generate my roadmap'}
+          {loading ? 'Preparing approved courses…' : roadmap ? 'Refresh approved roadmap' : 'Generate approved roadmap'}
         </button>
       </div>
 
@@ -54,15 +59,30 @@ export default function RoadmapPage({ roadmap, skills, careers, results, targetR
       {selected && selected.missing_skills.length > 0 && <div className="roadmap-gaps"><span className="form-label">Skills to develop</span><div className="chips">{selected.missing_skills.map(id => <span key={id} className="chip miss">{nameOf(id)}</span>)}</div></div>}
       {selected && selected.missing_skills.length === 0 && <div className="note-banner ok"><Check size={18} aria-hidden="true" /><span>You've matched every required skill for this career. No gap-based courses are needed.</span></div>}
       {error && <div className="error roadmap-error" role="alert">Roadmap request failed: {error}. Your career scores are still available. You can try again.</div>}
-      {loading && <div className="roadmap-loading" role="status" aria-live="polite"><Loader2 className="spin" size={20} aria-hidden="true" /><div><strong>Preparing your learning plan</strong><p className="muted">RunPod may take extra time to start. Your career results remain available.</p></div></div>}
+      {loading && <div className="roadmap-loading" role="status" aria-live="polite"><Loader2 className="spin" size={20} aria-hidden="true" /><div><strong>Preparing approved courses</strong><p className="muted">This first step uses the verified catalog without waiting for AI.</p></div></div>}
 
-      {!loading && selected && selected.missing_skills.length > 0 && !roadmap && !error && <div className="empty-state">Select “Generate my roadmap” to request verified courses. If AI is unavailable, the backend supplies a safe fallback.</div>}
-      {roadmap && !loading && (
+      {!loading && selected && selected.missing_skills.length > 0 && !roadmap && !error && <div className="empty-state">Select “Generate approved roadmap” for an immediate verified learning plan. You can optionally refine it with AI afterwards.</div>}
+      {roadmap && (
         <>
           <div className="note-banner roadmap-mode">
-            <Info size={18} aria-hidden="true" />
-            <span><strong>{roadmap.generation_mode === 'runpod_validated' ? 'AI-assisted course ordering' : 'Verified-course fallback'}</strong> — {roadmap.note}</span>
+            <ShieldCheck size={18} aria-hidden="true" />
+            <span><strong>{roadmap.generation_mode === 'runpod_validated' ? 'AI-assisted roadmap · validated' : 'Approved-course roadmap · ready now'}</strong> — {roadmap.note}</span>
           </div>
+          <div className="roadmap-ai-stage">
+            <div className="roadmap-ai-copy">
+              <span className="roadmap-stage-label"><Sparkles size={16} aria-hidden="true" /> Optional step 2</span>
+              <h3>Personalize with AI</h3>
+              <p className="muted">Ask RunPod to select or reorder approved courses. Your current roadmap stays visible while AI works, even if the worker is starting or the request times out.</p>
+              {!aiAuthenticated && <p className="muted">AI personalization requires a signed-in account to protect limited GPU credits. Guest roadmaps remain free.</p>}
+            </div>
+            {!aiAuthenticated && <button type="button" className="roadmap-ai-button" onClick={onSignIn}>Sign in for AI</button>}
+            <button className="roadmap-ai-button" type="button" onClick={onPersonalize} disabled={!aiAuthenticated || loading || aiLoading || !selected || roadmap.steps.length === 0}>
+              {aiLoading ? <Loader2 size={17} className="spin" aria-hidden="true" /> : <Sparkles size={17} aria-hidden="true" />}
+              {aiLoading ? 'AI is personalizing…' : roadmap.generation_mode === 'runpod_validated' ? 'Personalize again' : 'Personalize with AI'}
+            </button>
+          </div>
+          {aiLoading && <div className="roadmap-ai-status" role="status" aria-live="polite"><Loader2 className="spin" size={17} aria-hidden="true" /> RunPod is processing your request. You can use the approved courses below in the meantime.</div>}
+          {aiError && <div className="note-banner roadmap-ai-warning" role="alert"><Info size={18} aria-hidden="true" /><span>{aiError} You can try again later.</span></div>}
           {roadmap.steps.length > 0 ? (
             <>
               <div className="kpi-grid three">

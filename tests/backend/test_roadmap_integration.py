@@ -12,6 +12,20 @@ from backend.routes import roadmap as roadmap_route
 import backend.roadmap_adapter as adapter
 
 client = TestClient(app)
+
+@pytest.fixture(autouse=True)
+def authenticated_ai_test_client(monkeypatch, tmp_path):
+    """Legacy AI tests exercise a verified user without contacting Supabase."""
+    monkeypatch.setattr(roadmap_route, 'verify_supabase_user', lambda token: '11111111-1111-4111-8111-111111111111')
+    monkeypatch.setenv('AI_QUOTA_DB_PATH', str(tmp_path / 'quota.sqlite3'))
+    monkeypatch.setenv('AI_DAILY_LIMIT', '50')
+    monkeypatch.setenv('AI_GLOBAL_DAILY_LIMIT', '100')
+    monkeypatch.setenv('AI_COOLDOWN_SECONDS', '0')
+    monkeypatch.setenv('AI_MAX_CONCURRENT', '10')
+    client.headers['Authorization'] = 'Bearer mocked-valid-token'
+    yield
+    client.headers.pop('Authorization', None)
+
 REQUEST = {
     "target_role": "role_data_analyst",
     "missing_skills": ["skill_power_bi", "skill_data_viz"],
@@ -46,16 +60,17 @@ def test_flag_off_never_calls_hosted_model(monkeypatch):
     assert client.post("/api/roadmap", json=REQUEST).status_code == 200
 
 
-def test_member3_runpod_exception_returns_fallback(monkeypatch):
-    # Mock the network call, even if a developer has real RunPod credentials.
+def test_runpod_exception_does_not_delay_or_change_approved_stage(monkeypatch):
     monkeypatch.setenv("AI_ENABLED", "true")
     monkeypatch.setattr("ai.learning_planner.ask_ai", lambda _: (_ for _ in ()).throw(RuntimeError("offline")))
-    r = client.post("/api/roadmap", json=REQUEST)
-    assert r.status_code == 200
-    result = r.json()
-    assert result["generation_mode"] == "deterministic_fallback"
-    assert "AI personalization unavailable" in result["note"]
-    assert len(result["steps"]) == 2
+    stage_one = client.post("/api/roadmap", json=REQUEST)
+    assert stage_one.status_code == 200
+    assert stage_one.json()["generation_mode"] == "deterministic_fallback"
+    assert len(stage_one.json()["steps"]) == 2
+    stage_two = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert stage_two.status_code == 503
+    assert "offline" not in stage_two.text
+    assert client.post("/api/roadmap", json=REQUEST).json() == stage_one.json()
 
 
 def test_valid_runpod_selection_is_rehydrated_from_catalog(monkeypatch):
@@ -78,7 +93,7 @@ def test_valid_runpod_selection_is_rehydrated_from_catalog(monkeypatch):
         }
 
     monkeypatch.setattr(adapter, "generate_roadmap", planner)
-    result = client.post("/api/roadmap", json=REQUEST).json()
+    result = client.post("/api/roadmap/personalize", json=REQUEST).json()
     assert result["generation_mode"] == "runpod_validated"
     assert [c["course_id"] for c in result["steps"]] == ["course_data_viz", "course_powerbi"]
     assert result["steps"][0]["title"] == "Design effective reports in Power BI"
@@ -107,11 +122,10 @@ def test_invalid_or_incomplete_model_output_falls_back(monkeypatch, bad_steps):
         return {"steps": bad_steps, "generation_mode": "runpod_ai"}
 
     monkeypatch.setattr(adapter, "generate_roadmap", planner)
-    r = client.post("/api/roadmap", json=REQUEST)
-    assert r.status_code == 200
-    data = r.json()
-    assert data["generation_mode"] == "deterministic_fallback"
-    assert data["uncovered_skills"] == []
+    r = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert r.status_code == 503
+    assert "unverified" not in r.text
+    assert client.post("/api/roadmap", json=REQUEST).json()["uncovered_skills"] == []
 
 
 def test_ai_exception_falls_back_without_leaking_error(monkeypatch):
@@ -124,9 +138,10 @@ def test_ai_exception_falls_back_without_leaking_error(monkeypatch):
         return real(*args, use_ai=False)
 
     monkeypatch.setattr(adapter, "generate_roadmap", planner)
-    text = client.post("/api/roadmap", json=REQUEST).text
-    assert "RUNPOD_PRIVATE_SECRET" not in text
-    assert "deterministic_fallback" in text
+    response = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert response.status_code == 503
+    assert "RUNPOD_PRIVATE_SECRET" not in response.text
+    assert client.post("/api/roadmap", json=REQUEST).json()["generation_mode"] == "deterministic_fallback"
 
 
 def test_unknown_role_is_rejected_422():
@@ -213,7 +228,7 @@ def test_real_member3_planner_mocked_runpod_course_order(monkeypatch):
         "ai.learning_planner.ask_ai",
         lambda _: '["course_data_viz", "course_powerbi"]',
     )
-    result = client.post("/api/roadmap", json=REQUEST)
+    result = client.post("/api/roadmap/personalize", json=REQUEST)
     assert result.status_code == 200
     data = result.json()
     assert data["generation_mode"] == "runpod_validated"
@@ -224,17 +239,18 @@ def test_real_member3_planner_mocked_runpod_course_order(monkeypatch):
 def test_real_member3_planner_mocked_runpod_hallucination_is_fallback(monkeypatch):
     monkeypatch.setenv("AI_ENABLED", "true")
     monkeypatch.setattr("ai.learning_planner.ask_ai", lambda _: '["invented_course"]')
+    result = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert result.status_code == 503
     data = client.post("/api/roadmap", json=REQUEST).json()
-    assert data["generation_mode"] == "deterministic_fallback"
     assert [s["course_id"] for s in data["steps"]] == ["course_powerbi", "course_data_viz"]
 
 
 def test_real_member3_planner_dropped_coverage_is_fallback(monkeypatch):
     monkeypatch.setenv("AI_ENABLED", "true")
     monkeypatch.setattr("ai.learning_planner.ask_ai", lambda _: '["course_powerbi"]')
-    data = client.post("/api/roadmap", json=REQUEST).json()
-    assert data["generation_mode"] == "deterministic_fallback"
-    assert data["uncovered_skills"] == []
+    result = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert result.status_code == 503
+    assert client.post("/api/roadmap", json=REQUEST).json()["uncovered_skills"] == []
 
 
 def test_member3_internal_fallback_is_not_mislabelled_as_ai(monkeypatch):
@@ -244,9 +260,9 @@ def test_member3_internal_fallback_is_not_mislabelled_as_ai(monkeypatch):
         # Member 3 can catch RunPod exceptions itself, returning the fallback.
         return real(*args, use_ai=False)
     monkeypatch.setattr(adapter, "generate_roadmap", planner)
-    data = client.post("/api/roadmap", json=REQUEST).json()
-    assert data["generation_mode"] == "deterministic_fallback"
-    assert "AI personalization unavailable" in data["note"]
+    result = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert result.status_code == 503
+    assert client.post("/api/roadmap", json=REQUEST).json()["generation_mode"] == "deterministic_fallback"
 
 
 def test_member3_direct_runpod_client_parses_serverless_response(monkeypatch):
@@ -286,3 +302,88 @@ def test_member3_runpod_client_rejects_placeholder_worker_output(monkeypatch):
     monkeypatch.setattr(runpod_client.requests, "get", lambda *a, **k: Response({"status": "COMPLETED", "output": {"output": "Echo: test"}}))
     with pytest.raises((TypeError, AttributeError, KeyError, RuntimeError)):
         ask_ai("test prompt")
+
+
+def test_stage_one_never_sends_runpod_job_even_when_enabled(monkeypatch):
+    monkeypatch.setenv("AI_ENABLED", "true")
+    real = adapter.generate_roadmap
+    def planner(*args, use_ai=False):
+        if use_ai:
+            pytest.fail("Stage 1 must never consume RunPod credits")
+        return real(*args, use_ai=False)
+    monkeypatch.setattr(adapter, "generate_roadmap", planner)
+    for _ in range(2):
+        response = client.post("/api/roadmap", json=REQUEST)
+        assert response.status_code == 200
+        assert response.json()["generation_mode"] == "deterministic_fallback"
+
+
+def test_personalization_off_returns_503_without_ai_call(monkeypatch):
+    monkeypatch.setenv("AI_ENABLED", "false")
+    real = adapter.generate_roadmap
+    def planner(*args, use_ai=False):
+        if use_ai:
+            pytest.fail("Disabled AI should never be contacted")
+        return real(*args, use_ai=False)
+    monkeypatch.setattr(adapter, "generate_roadmap", planner)
+    response = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert response.status_code == 503
+    assert "disabled" in response.json()["detail"]
+
+
+def test_personalization_validates_role_and_skills_before_hosted_call(monkeypatch):
+    monkeypatch.setenv("AI_ENABLED", "true")
+    assert client.post("/api/roadmap/personalize", json={**REQUEST, "target_role": "unknown"}).status_code == 422
+    assert client.post("/api/roadmap/personalize", json={**REQUEST, "missing_skills": ["skill_invalid"]}).status_code == 422
+    assert client.post("/api/roadmap/personalize", json={**REQUEST, "missing_skills": []}).status_code == 422
+
+
+def test_timeout_from_member3_returns_error_without_leaking_and_leaves_baseline(monkeypatch):
+    monkeypatch.setenv("AI_ENABLED", "true")
+    baseline = client.post("/api/roadmap", json=REQUEST).json()
+    monkeypatch.setattr("ai.learning_planner.ask_ai", lambda _: (_ for _ in ()).throw(TimeoutError("RunPod private job details")))
+    result = client.post("/api/roadmap/personalize", json=REQUEST)
+    assert result.status_code == 503
+    assert "private job details" not in result.text
+    assert client.post("/api/roadmap", json=REQUEST).json() == baseline
+
+
+def test_two_stage_curated_career_path(monkeypatch):
+    monkeypatch.setenv("AI_ENABLED", "true")
+    body = {
+        "target_role": "role_data_professional",
+        "missing_skills": ["skill_data_analysis", "skill_data_cleaning", "skill_sql", "skill_data_viz", "skill_critical_thinking"],
+        "scenario": "moderate",
+    }
+    baseline = client.post("/api/roadmap", json=body)
+    assert baseline.status_code == 200
+    assert baseline.json()["generation_mode"] == "deterministic_fallback"
+    assert baseline.json()["uncovered_skills"] == []
+    monkeypatch.setattr("ai.learning_planner.ask_ai", lambda _: (_ for _ in ()).throw(TimeoutError("cold start")))
+    ai_result = client.post("/api/roadmap/personalize", json=body)
+    assert ai_result.status_code == 503
+    assert client.post("/api/roadmap", json=body).json() == baseline.json()
+
+
+def test_two_stage_curated_career_valid_ai_selection_can_replace_baseline(monkeypatch):
+    """No actual RunPod spend: Member 3's planner + Member 2's validation, curated role."""
+    monkeypatch.setenv("AI_ENABLED", "true")
+    body = {
+        "target_role": "role_data_professional",
+        "missing_skills": ["skill_data_analysis", "skill_data_cleaning", "skill_sql", "skill_data_viz", "skill_critical_thinking"],
+        "scenario": "moderate",
+    }
+    baseline = client.post("/api/roadmap", json=body)
+    assert baseline.status_code == 200
+    monkeypatch.setattr(
+        "ai.learning_planner.ask_ai",
+        lambda _: '["course_data_analysis_intro", "course_data_sql_intro", "course_data_viz", "course_data_cleaning_kaggle", "course_critical_thinking"]',
+    )
+    refined = client.post("/api/roadmap/personalize", json=body)
+    assert refined.status_code == 200
+    result = refined.json()
+    assert result["target_role"] == "role_data_professional"
+    assert result["generation_mode"] == "runpod_validated"
+    assert result["uncovered_skills"] == []
+    assert len(result["steps"]) == 5
+    assert client.post("/api/roadmap", json=body).json() == baseline.json()

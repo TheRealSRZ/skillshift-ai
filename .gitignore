@@ -92,3 +92,6 @@ desktop.ini
 # Local Runtime Files
 *.pid
 *.seed
+
+# Local GPU allowance state (never commit)
+instance/
