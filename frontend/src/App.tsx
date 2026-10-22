@@ -12,9 +12,9 @@ import AccountPage from './pages/AccountPage'
 import { useAuth } from './auth/AuthContext'
 import { loadProfile, saveProfile } from './lib/accountData'
 import { useToast } from './notifications/ToastProvider'
-import { api } from './api/client'
+import { api, ApiError } from './api/client'
 import ErrorBanner from './components/ErrorBanner'
-import type { AnalyzeResponse, Career, Profile, RoadmapResponse, Skill, TrendData } from './types'
+import type { AnalyzeResponse, Career, Profile, RoadmapResponse, Skill, TrendData, MarketSignalsResponse } from './types'
 
 type DemoUser = { name: string; email: string }
 type Theme = 'light' | 'dark'
@@ -43,6 +43,9 @@ export default function App() {
   const [skills, setSkills] = useState<Skill[]>([])
   const [careers, setCareers] = useState<Career[]>([])
   const [trend, setTrend] = useState<TrendData | null>(null)
+  const [marketSignals, setMarketSignals] = useState<MarketSignalsResponse | null>(null)
+  const [marketLoading, setMarketLoading] = useState(true)
+  const [marketError, setMarketError] = useState('')
   const [sdgs, setSdgs] = useState<{ sdg: number; title: string; rationale: string }[]>([])
   const [profile, setProfile] = useState<Profile>(demoProfile)
   // A career is explicitly chosen by the user, never silently replaced by the top match.
@@ -54,6 +57,8 @@ export default function App() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [roadmapLoading, setRoadmapLoading] = useState(false)
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiError, setAiError] = useState('')
   const [profileSaving, setProfileSaving] = useState(false)
   const [booting, setBooting] = useState(true)
   const [analysedAt, setAnalysedAt] = useState<Date | null>(null)
@@ -61,6 +66,7 @@ export default function App() {
   const analysisSeq = useRef(0)
   const roadmapSeq = useRef(0)
   const identitySeq = useRef(0)
+  const marketSeq = useRef(0)
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
@@ -78,6 +84,29 @@ export default function App() {
 
   useEffect(() => { loadData() }, [])
 
+  // DOSM evidence has its own request lifecycle: failure must never block login,
+  // career analysis or synthetic scenario comparisons. A retry fetches a fresh JSON snapshot.
+  const refreshMarketSignals = () => {
+    const token = ++marketSeq.current
+    setMarketLoading(true)
+    setMarketError('')
+    void api.marketSignals()
+      .then(snapshot => {
+        if (token === marketSeq.current) setMarketSignals(snapshot)
+      })
+      .catch(() => {
+        if (token === marketSeq.current) {
+          setMarketSignals(null) // Never silently show a stale snapshot after refresh failure.
+          setMarketError('Unable to retrieve the latest saved DOSM market evidence.')
+        }
+      })
+      .finally(() => { if (token === marketSeq.current) setMarketLoading(false) })
+  }
+  useEffect(() => {
+    refreshMarketSignals()
+    return () => { marketSeq.current += 1 }
+  }, [])
+
   // User identities never share in-memory profile/analysis/roadmap state.
   useEffect(() => {
     const sequence = ++identitySeq.current
@@ -89,6 +118,8 @@ export default function App() {
     setScenarios(null)
     setRoadmap(null)
     setRoadmapError('')
+    setAiError('')
+    setAiLoading(false)
     setError('')
     setLoading(false)
     setRoadmapLoading(false)
@@ -127,6 +158,8 @@ export default function App() {
     setScenarios(null)
     setRoadmap(null)
     setRoadmapError('')
+    setAiError('')
+    setAiLoading(false)
     setError('')
     setLoading(false)
     setRoadmapLoading(false)
@@ -139,6 +172,8 @@ export default function App() {
     setTargetRoleId(id)
     setRoadmap(null)
     setRoadmapError('')
+    setAiError('')
+    setAiLoading(false)
     setRoadmapLoading(false)
   }
 
@@ -151,6 +186,8 @@ export default function App() {
     setScenarios(null)
     setRoadmap(null)
     setRoadmapError('')
+    setAiError('')
+    setAiLoading(false)
     setRoadmapLoading(false)
     try {
       // Career scores appear immediately; scenarios and RunPod cannot block analysis.
@@ -185,6 +222,8 @@ export default function App() {
     const token = ++roadmapSeq.current
     setRoadmap(null)
     setRoadmapError('')
+    setAiError('')
+    setAiLoading(false)
     setRoadmapLoading(true)
     setTab('Roadmap')
     try {
@@ -194,6 +233,47 @@ export default function App() {
       if (token === roadmapSeq.current) setRoadmapError(String(e))
     } finally {
       if (token === roadmapSeq.current) setRoadmapLoading(false)
+    }
+  }
+
+  // An optional second request cannot remove the immediate approved-course plan.
+  // A shared request sequence prevents old RunPod results from replacing a new target.
+  const personalizeRoadmap = async () => {
+    const role = matches?.matches.find(item => item.role_id === targetRoleId)
+    if (!role || !roadmap || !roadmap.steps.length || aiLoading || roadmapLoading) return
+    const accessToken = auth.session?.access_token
+    if (!accessToken) {
+      setAiError('Sign in with your account to use optional AI personalization.')
+      notify('info', 'Sign in to use AI. Approved courses are still available without an account.')
+      return
+    }
+    const token = ++roadmapSeq.current
+    setAiError('')
+    setAiLoading(true)
+    try {
+      const refined = await api.personalizeRoadmap(role.role_id, role.missing_skills, 'moderate', accessToken)
+      if (token !== roadmapSeq.current) return
+      if (refined.generation_mode !== 'runpod_validated' || refined.target_role !== role.role_id) {
+        throw new Error('AI response was not validated by the server.')
+      }
+      setRoadmap(refined)
+      notify('success', 'AI course selection validated! Your learning roadmap has been updated.')
+    } catch (cause) {
+      if (token === roadmapSeq.current) {
+        const explanation = cause instanceof ApiError && [401, 429, 503].includes(cause.status)
+          ? cause.message
+          : 'AI personalization is unavailable or timed out.'
+        const wait = cause instanceof ApiError && cause.status === 429 && cause.retryAfter
+          ? cause.retryAfter < 60 ? ` Please retry in ${cause.retryAfter} seconds.`
+            : cause.retryAfter < 3600 ? ` Please retry in about ${Math.ceil(cause.retryAfter / 60)} minutes.`
+            : ` Please retry in about ${Math.ceil(cause.retryAfter / 3600)} hours.`
+          : ''
+        const description = explanation + wait
+        setAiError(`${description} Your approved-course roadmap is unchanged.`)
+        notify('info', `${description} Your approved roadmap is still ready to use.`)
+      }
+    } finally {
+      if (token === roadmapSeq.current) setAiLoading(false)
     }
   }
 
@@ -230,6 +310,8 @@ export default function App() {
     setScenarios(null)
     setRoadmap(null)
     setRoadmapError('')
+    setAiError('')
+    setAiLoading(false)
     setLoading(false)
     setRoadmapLoading(false)
     try { sessionStorage.removeItem('demoUser') } catch { /* storage unavailable */ }
@@ -249,10 +331,10 @@ export default function App() {
     {error && <ErrorBanner message={error} onRetry={skills.length === 0 ? loadData : undefined} onDismiss={() => setError('')} />}
     {tab === 'Dashboard' && <DashboardPage name={userName} matches={matches} scenarios={scenarios} roadmap={roadmap} skills={skills} sdgs={sdgs} loading={loading} onNavigate={setTab} onAnalyze={() => void analyze()} analysedAt={analysedAt} selectedMatch={selectedMatch} targetRoleId={targetRoleId} roadmapLoading={roadmapLoading} />}
     {tab === 'Profile' && <ProfilePage skills={skills} careers={careers} profile={profile} onChange={changeProfile} targetRoleId={targetRoleId} onSelectTarget={selectTarget} onAnalyze={() => void analyze()} loading={loading} booting={booting} userName={userName} avatarUrl={avatarUrl} authenticated={Boolean(authUser)} onSave={() => void saveCurrentProfile()} saving={profileSaving} />}
-    {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} booting={booting} />}
-    {tab === 'Careers' && <CareersPage results={matches} skills={skills} sdgs={sdgs} selectedRoleId={targetRoleId} onSelectRole={selectTarget} onOpenRoadmap={() => setTab('Roadmap')} />}
+    {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} booting={booting} marketSignals={marketSignals} marketLoading={marketLoading} marketError={marketError} onRefreshMarket={refreshMarketSignals} />}
+    {tab === 'Careers' && <CareersPage results={matches} skills={skills} sdgs={sdgs} selectedRoleId={targetRoleId} onSelectRole={selectTarget} onOpenRoadmap={() => setTab('Roadmap')} marketSignals={marketSignals} marketLoading={marketLoading} marketError={marketError} onRefreshMarket={refreshMarketSignals} />}
     {tab === 'Simulator' && <SimulatorPage results={scenarios} />}
-    {tab === 'Roadmap' && <RoadmapPage roadmap={roadmap} skills={skills} careers={careers} results={matches} targetRoleId={targetRoleId} onSelectRole={selectTarget} onGenerate={() => void generateRoadmap()} loading={roadmapLoading} error={roadmapError} onNavigate={setTab} />}
+    {tab === 'Roadmap' && <RoadmapPage roadmap={roadmap} skills={skills} careers={careers} results={matches} targetRoleId={targetRoleId} onSelectRole={selectTarget} onGenerate={() => void generateRoadmap()} onPersonalize={() => void personalizeRoadmap()} aiAuthenticated={Boolean(authUser && auth.session?.access_token)} onSignIn={() => void signOut()} loading={roadmapLoading} aiLoading={aiLoading} aiError={aiError} error={roadmapError} onNavigate={setTab} />}
     {tab === 'SDG Impact' && <SDGPage mappings={sdgs} topMatch={selectedMatch ?? matches?.matches[0] ?? null} booting={booting} />}
     {tab === 'Account' && <AccountPage name={userName} email={userEmail} avatarUrl={avatarUrl} onSignOut={() => void signOut()} profile={profile} targetRoleId={targetRoleId} careers={careers} theme={theme} matches={matches} roadmap={roadmap} onRestoreProfile={restoreProfile} />}
     <p className="muted data-footnote">Demo catalog: {skills.length} skills · {careers.length} careers. Readiness is not hiring probability.</p>

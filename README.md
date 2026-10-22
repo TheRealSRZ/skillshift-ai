@@ -1202,3 +1202,18 @@ We intend to reference publicly available work from Malaysian public institution
 *Last README revision: October 2026 · Documentation reflects the inspected starter scaffold; update status as features are completed.*
 
 </div>
+
+### Phase 6E — Protected optional AI and production build
+
+The approved-course roadmap (`POST /api/roadmap`) is always GPU-free. Optional
+`POST /api/roadmap/personalize` requires a Supabase access token and a
+server-side daily/concurrency GPU budget. Guest users can use all standard
+roadmap features without signing in. Configure settings privately using
+`.env.example` as a guide, then review
+[`docs/PHASE6E_SECURITY_DEPLOYMENT.md`](docs/PHASE6E_SECURITY_DEPLOYMENT.md)
+for tests, limitations, environment variables, and Replit deployment steps.
+
+Build the React production files with `bash scripts/build_frontend.sh` before
+starting a production instance. **Do not enable public paid GPU access on a
+multi-instance or filesystem-ephemeral deployment until the local SQLite budget
+is replaced with a shared durable quota store.**

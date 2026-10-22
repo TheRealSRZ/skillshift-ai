@@ -721,3 +721,81 @@ button:disabled { cursor: not-allowed; }
   .login-panel { padding-top: 22px; padding-bottom: 22px; }
   .login-heading { margin-bottom: 16px; }
 }
+
+/* Phase 6C: DOSM six-career evidence (separate from synthetic readiness scenarios). */
+.trend-evidence-page { display: grid; gap: 24px; }
+.market-overview { padding: clamp(16px, 2vw, 24px); border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.market-overview-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+.market-overview-head h2 { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.3; margin: 4px 0 6px; }
+.market-overview-head p { margin: 0; }
+.market-eyebrow { font-size: 11px; letter-spacing: .09em; font-weight: 750; color: var(--accent); margin: 0 0 6px; }
+.market-refresh { background: var(--surface); color: var(--text); border-color: var(--border); display: inline-flex; align-items: center; gap: 8px; font-size: 12px; min-height: 38px; }
+.market-refresh:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.market-spin { animation: market-spin 1.1s linear infinite; }
+@keyframes market-spin { to { transform: rotate(360deg); } }
+.market-api-error { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 13px 15px; background: var(--warn-bg); color: var(--warn); border-radius: 10px; font-size: 13px; margin: 14px 0; }
+.market-api-error button { font-size: 12px; background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.market-loading { padding: 22px 0; }
+.market-summary-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; padding: 12px 15px; border: 1px solid var(--border); background: var(--bg); border-radius: 10px; font-size: 12px; color: var(--muted); overflow-wrap: anywhere; margin-bottom: 14px; }
+.market-summary-strip strong { color: var(--text); }
+.market-career-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+.market-career-item { min-width: 0; border: 1px solid var(--border); padding: 17px; border-radius: 12px; background: var(--surface); }
+.market-career-item h3 { font-size: 14px; margin-bottom: 13px; line-height: 1.4; }
+.market-change-line { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 9px; color: var(--text); }
+.market-change-line > svg { color: var(--accent); }
+.market-change-line strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+.market-status { display: inline-flex; padding: 3px 9px; font-size: 11px; font-weight: 650; background: var(--accent-soft); color: var(--accent); border-radius: 99px; }
+.market-status--unavailable { background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
+.market-counts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 13px 0 10px; }
+.market-counts > span:not(:nth-child(2)) { display: flex; flex-direction: column; gap: 4px; }
+.market-counts small { font-size: 11px; color: var(--muted); }
+.market-counts strong { font-variant-numeric: tabular-nums; font-size: 15px; }
+.market-counts > span:nth-child(2) { color: var(--muted); }
+.market-source-links { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; }
+.market-source-links a { display: inline-flex; align-items: center; gap: 3px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.market-unavailable p { margin: 9px 0 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
+.market-context-note { display: flex; align-items: flex-start; gap: 10px; background: var(--accent-soft); border-radius: 10px; padding: 13px 15px; margin-top: 16px; }
+.market-context-note svg { flex: none; color: var(--accent); margin-top: 2px; }
+.market-context-note p { font-size: 12px; line-height: 1.6; margin: 0; }
+.market-method { margin-top: 14px; border-top: 1px solid var(--border); padding: 12px 2px 0; font-size: 12px; color: var(--muted); }
+.market-method summary { cursor: pointer; font-weight: 650; color: var(--text); }
+.market-method p { margin: 12px 0 6px; }
+.market-method ul { margin: 0; padding-left: 21px; }
+.market-inline { margin-top: 14px; padding: 14px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+.market-inline-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; }
+.market-inline-head strong { font-size: 12px; }
+.market-source-tag { font-size: 10px; color: var(--muted); }
+.market-inline .market-change-line strong { font-size: 18px; }
+.market-inline .market-status { font-size: 10px; }
+.market-inline .market-counts { margin: 10px 0; }
+.market-inline .market-counts strong { font-size: 13px; }
+.market-inline .muted { margin: 6px 0 0; }
+.market-fineprint { font-size: 11px; color: var(--muted); line-height: 1.5; margin: 12px 0 0; }
+.scenario-radar { padding: clamp(16px, 2vw, 24px); border: 1px solid var(--border); border-radius: 14px; }
+.scenario-radar .trend-head { margin-bottom: 14px; }
+.scenario-radar .trend-head h2 { line-height: 1.3; }
+@media (max-width: 850px) { .market-career-grid { grid-template-columns: 1fr; } }
+@media (max-width: 550px) {
+  .market-overview, .scenario-radar { padding: 14px; }
+  .market-overview-head .market-refresh { width: 100%; justify-content: center; }
+  .market-summary-strip { flex-direction: column; align-items: flex-start; }
+  .market-career-item { padding: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .market-spin { animation: none; } }
+
+.market-careers-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; color: var(--muted); font-size: 12px; }
+@media (max-width: 550px) { .market-careers-toolbar .market-refresh { width: 100%; justify-content: center; } }
+
+/* Phase 6D: instant roadmap followed by optional non-blocking AI refinement */
+.roadmap-ai-stage{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.2rem;margin:1rem 0;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
+.roadmap-ai-copy{flex:1 1 280px;min-width:0}
+.roadmap-ai-copy h3{font-size:1.12rem;margin:.3rem 0 .4rem}
+.roadmap-ai-copy p{margin:0;max-width:670px;line-height:1.5}
+.roadmap-stage-label{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent, #5bdcd2);font-weight:700;font-size:.87rem}
+.roadmap-ai-button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.65rem 1rem;border-radius:10px;border:1px solid var(--accent, #5bdcd2);background:transparent;color:var(--accent, #5bdcd2);font-weight:700;cursor:pointer}
+.roadmap-ai-button:hover:not(:disabled){background:rgba(85,210,194,.12)}
+.roadmap-ai-button:focus-visible{outline:3px solid var(--accent, #5bdcd2);outline-offset:3px}
+.roadmap-ai-button:disabled{cursor:wait;opacity:.7}
+.roadmap-ai-status{display:flex;align-items:center;gap:.6rem;margin:.8rem 0;color:var(--text);font-size:.92rem}
+.roadmap-ai-warning{margin:.8rem 0}
+@media(max-width:680px){.roadmap-ai-button{width:100%}}
