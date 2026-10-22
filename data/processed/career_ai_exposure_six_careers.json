@@ -1,0 +1,361 @@
+{
+  "dataset": "SkillShift AI six-career source-separated AI exposure evidence",
+  "schema_version": "1.0",
+  "career_count": 6,
+  "not_a_job_replacement_probability": true,
+  "does_not_adjust_readiness_scores": true,
+  "source_provenance": {
+    "ilo": {
+      "title": "Gmyrek et al. 2025 ILO Working Paper 140 / authors dataset",
+      "url": "https://github.com/pgmyrek/2025_GenAI_scores_ISCO08",
+      "input_file": "data/external/ilo/4digits_with_tasks.xlsx",
+      "license": "CC BY 4.0",
+      "adaptation_notice": "This is an adaptation of copyrighted ILO material; it has not been prepared, reviewed or endorsed by the ILO."
+    },
+    "oecd": {
+      "title": "OECD AI Capability Gap Index",
+      "input_file": "data/processed/oecd_ai_exposure_evidence.json",
+      "doi": "10.1787/f3da0f0a-en",
+      "source_publication_year": 2026
+    },
+    "malaysia": {
+      "title": "TalentCorp and MASCO/eMASCO evidence",
+      "input_file": "data/careers.json",
+      "source_reference_file": "data/sources.json"
+    }
+  },
+  "careers": [
+    {
+      "career_id": "role_software_developer",
+      "career_title": "Software Developer",
+      "masco_code": "2512",
+      "oecd": {
+        "status": "missing_exact_onet_code",
+        "onet_code": "15-1252.00",
+        "occupation_title": null,
+        "baseline_reversed_normalized_gap_index": null,
+        "plus_one_cognitive_capability_research_scenario_index": null,
+        "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+        "interpretation": "Higher reversed normalized index indicates smaller AI capability gap; not job displacement or a Malaysia-specific rate.",
+        "source_id": "src_oecd_ai_exposure_2026"
+      },
+      "ilo": {
+        "isco_code": "2512",
+        "occupation_title": "Software developers",
+        "exposure_category_2025": "Exposed: Gradient 3",
+        "task_count": 8,
+        "status": "matched_isco_code",
+        "mapping_quality": "direct_comparable",
+        "occupation_mean_score_2025": null,
+        "representative_occupations": [],
+        "measurement": "Potential exposure of occupational tasks to generative AI, not predicted job loss.",
+        "occupation_mean_score_status": "Not in the provided 4digits_with_tasks.xlsx; do not calculate or label a published mean from this file.",
+        "source_id": "src_ilo_genai_exposure_2025"
+      },
+      "malaysian_context": {
+        "published_ai_impact_label": "low",
+        "evidence_note": "Low AI impact is based on TalentCorp's Software Engineer classification, not an independently calculated prediction.",
+        "occupation_mapping_note": "Malaysian Software Developers (MASCO 2512) mapped to TalentCorp ICT Software Engineer and ESCO software developer (ISCO 2512). These occupation records are not identical.",
+        "source_ids": [
+          "src_mycol_2024",
+          "src_ict_2024",
+          "src_esco_121",
+          "src_masco_2020",
+          "src_dosm_jmi_q2_2026"
+        ],
+        "evidence_claim_ids": [
+          "ict_sw_ai_impact",
+          "ict_sw_specific_skills",
+          "ict_sw_basic_skills",
+          "masco_sw_classification_2512",
+          "dosm_sw_job_offerings_2026_q2"
+        ]
+      },
+      "limitations": [
+        "The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.",
+        "AI capability overlap and GenAI exposure are not job replacement probabilities.",
+        "International occupational evidence is not a measured Malaysian employment or AI-adoption rate."
+      ],
+      "display_status": "available_with_mapping_caveat",
+      "overall_ai_risk_score": null
+    },
+    {
+      "career_id": "role_accountant_auditor",
+      "career_title": "Accountants and Auditors",
+      "masco_code": "2411",
+      "oecd": {
+        "status": "matched_exact_onet_code",
+        "onet_code": "13-2011.00",
+        "occupation_title": "Accountants and Auditors",
+        "baseline_reversed_normalized_gap_index": 0.854066,
+        "plus_one_cognitive_capability_research_scenario_index": 0.972523,
+        "mapping_note": "Existing verified mapping retained; US occupation evidence, not an official MASCO-O*NET crosswalk.",
+        "interpretation": "Higher reversed normalized index indicates smaller AI capability gap; not job displacement or a Malaysia-specific rate.",
+        "source_id": "src_oecd_ai_exposure_2026"
+      },
+      "ilo": {
+        "isco_code": "2411",
+        "occupation_title": "Accountants",
+        "exposure_category_2025": "Exposed: Gradient 3",
+        "task_count": 8,
+        "status": "matched_isco_code",
+        "mapping_quality": "partial_comparable_accountants_only",
+        "occupation_mean_score_2025": null,
+        "representative_occupations": [],
+        "measurement": "Potential exposure of occupational tasks to generative AI, not predicted job loss.",
+        "occupation_mean_score_status": "Not in the provided 4digits_with_tasks.xlsx; do not calculate or label a published mean from this file.",
+        "source_id": "src_ilo_genai_exposure_2025"
+      },
+      "malaysian_context": {
+        "published_ai_impact_label": null,
+        "evidence_note": "TalentCorp identifies Cost Accountant, Internal Auditor and General Ledger Accountant among medium AI-impacted GBS roles. No single AI-impact level is assigned to the entire MASCO 2411 occupation.",
+        "occupation_mapping_note": "MASCO 2411 Accountants and Auditors is broader than the Finance and Accounting Function roles covered by the TalentCorp GBS study.",
+        "source_ids": [
+          "src_mycol_2024",
+          "src_masco_accountants_2020",
+          "src_gbs_2024",
+          "src_dosm_jmi_q2_2026"
+        ],
+        "evidence_claim_ids": [
+          "mycol_acc_critical_2024_2025",
+          "masco_accountants_2411",
+          "gbs_acc_medium_ai_impact",
+          "gbs_acc_specific_skills",
+          "gbs_acc_basic_skills",
+          "dosm_acc_job_offerings_2026_q2"
+        ]
+      },
+      "limitations": [
+        "The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.",
+        "AI capability overlap and GenAI exposure are not job replacement probabilities.",
+        "International occupational evidence is not a measured Malaysian employment or AI-adoption rate."
+      ],
+      "display_status": "available_with_mapping_caveat",
+      "overall_ai_risk_score": null
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "career_title": "Advertising and Marketing Professionals",
+      "masco_code": "2431",
+      "oecd": {
+        "status": "matched_exact_onet_code",
+        "onet_code": "13-1161.00",
+        "occupation_title": "Market Research Analysts and Marketing Specialists",
+        "baseline_reversed_normalized_gap_index": 0.856771,
+        "plus_one_cognitive_capability_research_scenario_index": 0.972451,
+        "mapping_note": "Matches market research, campaigns and analytics; narrower than all advertising, social-media execution and creative marketing positions under MASCO 2431.",
+        "interpretation": "Higher reversed normalized index indicates smaller AI capability gap; not job displacement or a Malaysia-specific rate.",
+        "source_id": "src_oecd_ai_exposure_2026"
+      },
+      "ilo": {
+        "isco_code": "2431",
+        "occupation_title": "Advertising and marketing professionals",
+        "exposure_category_2025": "Exposed: Gradient 3",
+        "task_count": 9,
+        "status": "matched_isco_code",
+        "mapping_quality": "direct_comparable",
+        "occupation_mean_score_2025": null,
+        "representative_occupations": [],
+        "measurement": "Potential exposure of occupational tasks to generative AI, not predicted job loss.",
+        "occupation_mean_score_status": "Not in the provided 4digits_with_tasks.xlsx; do not calculate or label a published mean from this file.",
+        "source_id": "src_ilo_genai_exposure_2025"
+      },
+      "malaysian_context": {
+        "published_ai_impact_label": null,
+        "evidence_note": "No verified, group-wide Malaysian AI-impact classification is assigned. OECD/ILO exposure integration pending.",
+        "occupation_mapping_note": "Marketing Executive (2431-02) is a representative sub-occupation used to support several skills for the wider MASCO 2431 unit group.",
+        "source_ids": [
+          "src_mycol_2024",
+          "src_emasco_marketing_2431",
+          "src_emasco_marketing_exec_2431_02"
+        ],
+        "evidence_claim_ids": [
+          "mycol_marketing_critical_2024_2025",
+          "emasco_marketing_2431_class",
+          "emasco_marketing_2431_tasks",
+          "emasco_marketing_exec_digital_campaign",
+          "emasco_marketing_exec_research",
+          "emasco_marketing_exec_basic"
+        ]
+      },
+      "limitations": [
+        "The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.",
+        "AI capability overlap and GenAI exposure are not job replacement probabilities.",
+        "International occupational evidence is not a measured Malaysian employment or AI-adoption rate."
+      ],
+      "display_status": "available_with_mapping_caveat",
+      "overall_ai_risk_score": null
+    },
+    {
+      "career_id": "role_electrical_engineer",
+      "career_title": "Electrical Engineers",
+      "masco_code": "2151",
+      "oecd": {
+        "status": "matched_exact_onet_code",
+        "onet_code": "17-2071.00",
+        "occupation_title": "Electrical Engineers",
+        "baseline_reversed_normalized_gap_index": 0.843004,
+        "plus_one_cognitive_capability_research_scenario_index": 0.967102,
+        "mapping_note": "Core electrical system design, testing and fault investigation align. Engineering licensure, regulations and specializations differ across countries.",
+        "interpretation": "Higher reversed normalized index indicates smaller AI capability gap; not job displacement or a Malaysia-specific rate.",
+        "source_id": "src_oecd_ai_exposure_2026"
+      },
+      "ilo": {
+        "isco_code": "2151",
+        "occupation_title": "Electrical engineers",
+        "exposure_category_2025": "Not Exposed",
+        "task_count": 6,
+        "status": "matched_isco_code",
+        "mapping_quality": "direct_comparable",
+        "occupation_mean_score_2025": null,
+        "representative_occupations": [],
+        "measurement": "Potential exposure of occupational tasks to generative AI, not predicted job loss.",
+        "occupation_mean_score_status": "Not in the provided 4digits_with_tasks.xlsx; do not calculate or label a published mean from this file.",
+        "source_id": "src_ilo_genai_exposure_2025"
+      },
+      "malaysian_context": {
+        "published_ai_impact_label": null,
+        "evidence_note": "TalentCorp E&E report printed pp. 28–29 (PDF p.15) discusses industry trends, not occupation-wide risk for all electrical engineers.",
+        "occupation_mapping_note": "E&E specialist roles in TalentCorp report do not map directly onto all MASCO 2151 engineers.",
+        "source_ids": [
+          "src_emasco_electrical_2151",
+          "src_ee_2024"
+        ],
+        "evidence_claim_ids": [
+          "emasco_ee_class_2151",
+          "emasco_ee_design_tasks_2151",
+          "emasco_ee_safety_maintenance_2151",
+          "ee_sector_ai_upskilling_2024"
+        ]
+      },
+      "limitations": [
+        "The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.",
+        "AI capability overlap and GenAI exposure are not job replacement probabilities.",
+        "International occupational evidence is not a measured Malaysian employment or AI-adoption rate."
+      ],
+      "display_status": "available_with_mapping_caveat",
+      "overall_ai_risk_score": null
+    },
+    {
+      "career_id": "role_nursing_professional",
+      "career_title": "Nursing Professionals",
+      "masco_code": "2221",
+      "oecd": {
+        "status": "matched_exact_onet_code",
+        "onet_code": "29-1141.00",
+        "occupation_title": "Registered Nurses",
+        "baseline_reversed_normalized_gap_index": 0.663774,
+        "plus_one_cognitive_capability_research_scenario_index": 0.816017,
+        "mapping_note": "Matches patient care, monitoring and nursing planning, but Malaysian scope-of-practice and registration may differ from US Registered Nurses.",
+        "interpretation": "Higher reversed normalized index indicates smaller AI capability gap; not job displacement or a Malaysia-specific rate.",
+        "source_id": "src_oecd_ai_exposure_2026"
+      },
+      "ilo": {
+        "isco_code": "2221",
+        "occupation_title": "Nursing professionals",
+        "exposure_category_2025": "Not Exposed",
+        "task_count": 10,
+        "status": "matched_isco_code",
+        "mapping_quality": "direct_comparable",
+        "occupation_mean_score_2025": null,
+        "representative_occupations": [],
+        "measurement": "Potential exposure of occupational tasks to generative AI, not predicted job loss.",
+        "occupation_mean_score_status": "Not in the provided 4digits_with_tasks.xlsx; do not calculate or label a published mean from this file.",
+        "source_id": "src_ilo_genai_exposure_2025"
+      },
+      "malaysian_context": {
+        "published_ai_impact_label": null,
+        "evidence_note": "No nursing occupation-wide AI-exposure or job replacement risk determined from the Medical Devices report.",
+        "occupation_mapping_note": "MASCO group 2221 is broader than the Professional Nurse 2221-01 skills profile used as a representative specialization.",
+        "source_ids": [
+          "src_emasco_nursing_2221",
+          "src_emasco_professional_nurse_2221_01"
+        ],
+        "evidence_claim_ids": [
+          "emasco_nurse_2221_class",
+          "emasco_nurse_2221_duties",
+          "emasco_prof_nurse_assessment_care",
+          "emasco_prof_nurse_medication_infection",
+          "emasco_prof_nurse_communication_thinking"
+        ]
+      },
+      "limitations": [
+        "The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.",
+        "AI capability overlap and GenAI exposure are not job replacement probabilities.",
+        "International occupational evidence is not a measured Malaysian employment or AI-adoption rate."
+      ],
+      "display_status": "available_with_mapping_caveat",
+      "overall_ai_risk_score": null
+    },
+    {
+      "career_id": "role_data_professional",
+      "career_title": "Data Professionals",
+      "masco_code": "2524",
+      "oecd": {
+        "status": "missing_exact_onet_code",
+        "onet_code": "15-2051.00",
+        "occupation_title": null,
+        "baseline_reversed_normalized_gap_index": null,
+        "plus_one_cognitive_capability_research_scenario_index": null,
+        "mapping_note": "MASCO 2524 spans data-science, analytical and other data-related roles; O*NET Data Scientists is a technical representative, not a one-to-one crosswalk. Advanced modelling tasks exceed the current six-skill profile.",
+        "interpretation": "Higher reversed normalized index indicates smaller AI capability gap; not job displacement or a Malaysia-specific rate.",
+        "source_id": "src_oecd_ai_exposure_2026"
+      },
+      "ilo": {
+        "status": "no_direct_isco_equivalent",
+        "isco_code": null,
+        "occupation_title": null,
+        "exposure_category_2025": null,
+        "occupation_mean_score_2025": null,
+        "mapping_quality": "unresolved",
+        "representative_occupations": [
+          {
+            "isco_code": "2120",
+            "occupation_title": "Mathematicians, actuaries and statisticians",
+            "exposure_category_2025": "Exposed: Gradient 3",
+            "task_count": 10,
+            "mapping_quality": "partial_representative",
+            "mapping_rationale": "Partial analytical/statistical tasks; broader than Data Professionals."
+          },
+          {
+            "isco_code": "2521",
+            "occupation_title": "Database designers and administrators",
+            "exposure_category_2025": "Exposed: Gradient 3",
+            "task_count": 6,
+            "mapping_quality": "partial_representative",
+            "mapping_rationale": "Partial database/data-management tasks; not a Data Analyst equivalent."
+          }
+        ],
+        "measurement": "Potential exposure of occupational tasks to generative AI, not predicted job loss.",
+        "occupation_mean_score_status": "Not in the provided 4digits_with_tasks.xlsx; do not calculate or label a published mean from this file.",
+        "source_id": "src_ilo_genai_exposure_2025"
+      },
+      "malaysian_context": {
+        "published_ai_impact_label": null,
+        "evidence_note": "No occupation-wide AI-impact grade or job-replacement probability is asserted for Data Professionals.",
+        "occupation_mapping_note": "MASCO 2524 covers Data Scientists, Data Analysts and other data professionals; no precise O*NET-SOC equivalence has been verified.",
+        "source_ids": [
+          "src_mycol_2024",
+          "src_masco_data_2020",
+          "src_emasco_data_2524",
+          "src_emasco_data_analyst_skills_2524"
+        ],
+        "evidence_claim_ids": [
+          "mycol_data_critical_2024_2025",
+          "masco_data_classification_2524",
+          "masco_data_tasks_2524",
+          "emasco_data_tasks_2524",
+          "emasco_data_analyst_technical_skills",
+          "emasco_data_analyst_critical_thinking"
+        ]
+      },
+      "limitations": [
+        "The OECD, ILO and TalentCorp assessments use different methods and cannot be averaged.",
+        "AI capability overlap and GenAI exposure are not job replacement probabilities.",
+        "International occupational evidence is not a measured Malaysian employment or AI-adoption rate."
+      ],
+      "display_status": "representative_evidence_only",
+      "overall_ai_risk_score": null
+    }
+  ]
+}
