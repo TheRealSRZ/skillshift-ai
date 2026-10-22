@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useCallback,  useState } from 'react'
 import Layout, { type Tab } from './components/Layout'
+import LoginCurtain from './components/LoginCurtain'
 import ProfilePage from './pages/ProfilePage'
 import TrendsPage from './pages/TrendsPage'
 import CareersPage from './pages/CareersPage'
@@ -342,10 +343,20 @@ export default function App() {
   const userEmail = authUser?.email || user?.email || ''
   const avatarUrl = authUser ? String(authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || '') : null
 
-  if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
-  if (!userName) return <LoginPage onSignIn={signIn} careers={careers} />
+  /* Login curtain */
+  const [curtain, setCurtain] = useState(false)
+  const endCurtain = useCallback(() => setCurtain(false), [])
+  const handleSignIn = (...args: Parameters<typeof signIn>) => {
+    if (!reduceMotion) setCurtain(true)
+    return signIn(...args)
+  }
 
-  return <Layout active={tab} onSelect={setTab} userName={userName} avatarUrl={avatarUrl} theme={theme} onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>
+  if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
+  if (!userName) return <LoginPage onSignIn={handleSignIn} careers={careers} />
+
+  return <>
+  {curtain && <LoginCurtain onDone={endCurtain} />}
+  <Layout active={tab} onSelect={setTab} userName={userName} avatarUrl={avatarUrl} theme={theme} onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>
     {error && <ErrorBanner message={error} onRetry={skills.length === 0 ? loadData : undefined} onDismiss={() => setError('')} />}
     <div className="page-fade" key={tab}>
     {tab === 'Dashboard' && <DashboardPage name={userName} matches={matches} scenarios={scenarios} roadmap={roadmap} skills={skills} sdgs={sdgs} loading={loading} onNavigate={setTab} onAnalyze={() => void analyze()} analysedAt={analysedAt} selectedMatch={selectedMatch} targetRoleId={targetRoleId} roadmapLoading={roadmapLoading} />}
@@ -359,4 +370,5 @@ export default function App() {
     </div>  
     <p className="muted data-footnote">Demo catalog: {skills.length} skills · {careers.length} careers. Readiness is not hiring probability.</p>
   </Layout>
+  </>
 }
