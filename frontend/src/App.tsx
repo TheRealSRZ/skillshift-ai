@@ -343,7 +343,7 @@ export default function App() {
   const avatarUrl = authUser ? String(authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || '') : null
 
   if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
-  if (!userName) return <LoginPage onSignIn={signIn} />
+  if (!userName) return <LoginPage onSignIn={signIn} careers={careers} />
 
   return <Layout active={tab} onSelect={setTab} userName={userName} avatarUrl={avatarUrl} theme={theme} onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>
     {error && <ErrorBanner message={error} onRetry={skills.length === 0 ? loadData : undefined} onDismiss={() => setError('')} />}
