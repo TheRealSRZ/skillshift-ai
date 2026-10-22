@@ -18,16 +18,60 @@
   "previous_period": "2026-Q1",
   "latest_period": "2026-Q2",
   "generated_date": "2026-10-21",
-  "method": "Quarter-on-quarter change = (latest - previous) / previous * 100. Null when previous count is zero; rounded to 2 decimals.",
+  "method": "Quarter-on-quarter count change = (new-old)/old*100. Market share = group offerings / sum of reported groups that period. Percentage-point change = latest share - previous share. Relative share change = (latest share/previous share - 1)*100. Null where denominator is zero.",
   "career_specific": false,
   "skill_specific": false,
   "ai_exposure_measure": false,
   "can_directly_adjust_career_scores": false,
+  "previous_reported_group_total": 626861,
+  "latest_reported_group_total": 555509,
+  "historical_reported_group_totals": [
+    {
+      "period": "2025-Q1",
+      "sum_of_reported_groups": 263083
+    },
+    {
+      "period": "2025-Q2",
+      "sum_of_reported_groups": 281736
+    },
+    {
+      "period": "2025-Q3",
+      "sum_of_reported_groups": 588148
+    },
+    {
+      "period": "2025-Q4",
+      "sum_of_reported_groups": 587801
+    },
+    {
+      "period": "2026-Q1",
+      "sum_of_reported_groups": 626861
+    },
+    {
+      "period": "2026-Q2",
+      "sum_of_reported_groups": 555509
+    }
+  ],
+  "market_share_denominator": "sum_of_available_reported_occupation_groups_per_period",
+  "latest_comparison_crosses_2025_q3_review_boundary": false,
+  "historical_comparability_warnings": [
+    {
+      "between": [
+        "2025-Q2",
+        "2025-Q3"
+      ],
+      "flag": "large_historical_jump_review_comparability",
+      "total_change_pct": 108.76,
+      "methodology_break_confirmed": false,
+      "note": "Unusually large published-volume movement; reason not established. Do not infer an official series break or AI impact."
+    }
+  ],
   "limitations": [
     "Online job offerings are not unique vacancies, employment totals, or verified skill demand.",
+    "Group-share denominators sum reported occupation rows; missing groups or revisions can distort comparisons with published grand totals.",
+    "2025-Q2 to Q3 had a large published volume jump; cause of any discontinuity is unverified.",
     "Major occupation groups are broader than MASCO four-digit career groups.",
     "Quarterly movement is not a forecast, AI impact, or evidence of an individual career's growth.",
-    "A backend must not apply these group-level percentages as career- or skill-specific score multipliers."
+    "Do not directly convert these major-group signals into specific career or skill score multipliers."
   ],
   "missing_latest_quarter_groups": [],
   "group_comparisons": [
@@ -40,7 +84,11 @@
       "absolute_change": -8376,
       "percent_change": -17.17,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 7.7823,
+      "latest_market_share_pct": 7.274,
+      "market_share_change_pp": -0.5082,
+      "relative_market_share_change_pct": -6.53
     },
     {
       "occupation_group": "Craft and related trades workers",
@@ -51,7 +99,11 @@
       "absolute_change": -1536,
       "percent_change": -25.21,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 0.9721,
+      "latest_market_share_pct": 0.8205,
+      "market_share_change_pp": -0.1516,
+      "relative_market_share_change_pct": -15.6
     },
     {
       "occupation_group": "Elementary Occupations",
@@ -62,7 +114,11 @@
       "absolute_change": 576,
       "percent_change": 14.15,
       "direction": "increase",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 0.6493,
+      "latest_market_share_pct": 0.8364,
+      "market_share_change_pp": 0.1871,
+      "relative_market_share_change_pct": 28.81
     },
     {
       "occupation_group": "Managers",
@@ -73,7 +129,11 @@
       "absolute_change": -11497,
       "percent_change": -11.56,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 15.8643,
+      "latest_market_share_pct": 15.8323,
+      "market_share_change_pp": -0.032,
+      "relative_market_share_change_pct": -0.2
     },
     {
       "occupation_group": "Plant and machine operators and assemblers",
@@ -84,7 +144,11 @@
       "absolute_change": -3462,
       "percent_change": -21.14,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 2.6127,
+      "latest_market_share_pct": 2.3251,
+      "market_share_change_pp": -0.2876,
+      "relative_market_share_change_pct": -11.01
     },
     {
       "occupation_group": "Professionals",
@@ -95,7 +159,11 @@
       "absolute_change": -29861,
       "percent_change": -9.46,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 50.3729,
+      "latest_market_share_pct": 51.4676,
+      "market_share_change_pp": 1.0947,
+      "relative_market_share_change_pct": 2.17
     },
     {
       "occupation_group": "Service and sales workers",
@@ -106,7 +174,11 @@
       "absolute_change": -9583,
       "percent_change": -22.77,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 6.715,
+      "latest_market_share_pct": 5.8525,
+      "market_share_change_pp": -0.8626,
+      "relative_market_share_change_pct": -12.85
     },
     {
       "occupation_group": "Skilled agricultural, forestry, livestock and fishery workers",
@@ -117,7 +189,11 @@
       "absolute_change": -138,
       "percent_change": -57.74,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 0.0381,
+      "latest_market_share_pct": 0.0182,
+      "market_share_change_pp": -0.0199,
+      "relative_market_share_change_pct": -52.31
     },
     {
       "occupation_group": "Technicians and associate professionals",
@@ -128,7 +204,11 @@
       "absolute_change": -7475,
       "percent_change": -7.95,
       "direction": "decrease",
-      "evidence_level": "major_occupation_group"
+      "evidence_level": "major_occupation_group",
+      "previous_market_share_pct": 14.9933,
+      "latest_market_share_pct": 15.5735,
+      "market_share_change_pp": 0.5802,
+      "relative_market_share_change_pct": 3.87
     }
   ]
 }

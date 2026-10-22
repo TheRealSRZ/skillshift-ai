@@ -1,5 +1,10 @@
 [
   {
+    "sdg": 3,
+    "title": "Good Health and Well-being",
+    "rationale": "Nursing care, patient monitoring, medication safety and infection prevention can support health and well-being; effect not measured."
+  },
+  {
     "sdg": 4,
     "title": "Quality Education",
     "rationale": "Reskilling pathways can support access to relevant lifelong learning; effect not measured."

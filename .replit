@@ -3,4 +3,7 @@ entrypoint = "backend/main.py"
 
 [nix]
 channel = "stable-24_05"
-      
+
+[deployment]
+build = ["bash", "-c", "bash scripts/build_frontend.sh"]
+run = ["bash", "-c", "REQUIRE_FRONTEND_BUILD=true bash scripts/start.sh"]

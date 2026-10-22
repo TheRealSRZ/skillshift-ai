@@ -1,0 +1,98 @@
+{
+  "snapshot_id": "dosm_career_pilot_2026_q2",
+  "status": "observed_occupation_qoq_comparison",
+  "generated_date": "2026-10-21",
+  "career_specific": true,
+  "skill_specific": false,
+  "can_directly_adjust_career_scores": false,
+  "method": "(Q2 count - Q1 count) / Q1 count * 100",
+  "limitations": [
+    "Online job offerings are not unique vacancies or employment totals.",
+    "Two quarterly points cannot establish a lasting trend.",
+    "No causal attribution to AI is supported.",
+    "No career recommendation multiplier is produced."
+  ],
+  "career_signals": [
+    {
+      "career_id": "role_accountant_auditor",
+      "career_title": "Accountants and Auditors",
+      "masco_code": "2411",
+      "occupation_title_in_source": "Accountants and Auditors",
+      "geography": "Malaysia",
+      "metric": "online_job_offerings_occupation",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 24784,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 22067,
+      "absolute_change": -2717,
+      "percent_change": -10.96,
+      "direction": "decrease",
+      "evidence_level": "reported_occupation_title",
+      "source_ids": [
+        "src_dosm_jmi_q1_2026",
+        "src_dosm_jmi_q2_2026"
+      ],
+      "source_urls": [
+        "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q12026",
+        "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026"
+      ],
+      "can_directly_adjust_career_scores": false,
+      "ai_impact_measure": false,
+      "note": "Observed quarterly online advertisements; not unique vacancies, a forecast, or AI-caused change. Career title/MASCO mapping follows the project careers file."
+    },
+    {
+      "career_id": "role_marketing_professional",
+      "career_title": "Advertising and Marketing Professionals",
+      "masco_code": "2431",
+      "occupation_title_in_source": "Advertising and Marketing Professionals",
+      "geography": "Malaysia",
+      "metric": "online_job_offerings_occupation",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 48186,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 40640,
+      "absolute_change": -7546,
+      "percent_change": -15.66,
+      "direction": "decrease",
+      "evidence_level": "reported_occupation_title",
+      "source_ids": [
+        "src_dosm_jmi_q1_2026",
+        "src_dosm_jmi_q2_2026"
+      ],
+      "source_urls": [
+        "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q12026",
+        "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026"
+      ],
+      "can_directly_adjust_career_scores": false,
+      "ai_impact_measure": false,
+      "note": "Observed quarterly online advertisements; not unique vacancies, a forecast, or AI-caused change. Career title/MASCO mapping follows the project careers file."
+    },
+    {
+      "career_id": "role_software_developer",
+      "career_title": "Software Developer",
+      "masco_code": "2512",
+      "occupation_title_in_source": "Software Developers",
+      "geography": "Malaysia",
+      "metric": "online_job_offerings_occupation",
+      "previous_period": "2026-Q1",
+      "previous_job_offerings": 20089,
+      "latest_period": "2026-Q2",
+      "latest_job_offerings": 19899,
+      "absolute_change": -190,
+      "percent_change": -0.95,
+      "direction": "decrease",
+      "evidence_level": "reported_occupation_title",
+      "source_ids": [
+        "src_dosm_jmi_q1_2026",
+        "src_dosm_jmi_q2_2026"
+      ],
+      "source_urls": [
+        "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q12026",
+        "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026"
+      ],
+      "can_directly_adjust_career_scores": false,
+      "ai_impact_measure": false,
+      "note": "Observed quarterly online advertisements; not unique vacancies, a forecast, or AI-caused change. Career title/MASCO mapping follows the project careers file."
+    }
+  ]
+}

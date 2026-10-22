@@ -108,11 +108,16 @@ def generate_roadmap(
 
 
         except Exception as e:
-            # Log only the error category, never the full exception.
-            logger.warning(
-                "AI roadmap fallback: %s",
-                type(e).__name__,
-            )
+            # Diagnostic categories come only from our own validation messages;
+            # never log raw provider output, course prompt, token, or API key.
+            known_failures = {
+                "AI did not return a valid course ID array": "missing_course_id_array",
+                "AI must return a JSON array": "invalid_array_type",
+                "Invalid AI course selection": "invalid_or_duplicate_course_ids",
+                "AI selection has incomplete skill coverage": "incomplete_skill_coverage",
+            }
+            category = known_failures.get(str(e), 'external_error_or_malformed_output') if isinstance(e, ValueError) else 'provider_or_transport_error'
+            logger.warning("AI roadmap fallback: %s (%s)", type(e).__name__, category)
             selected_courses = []
             generation_mode = "deterministic_fallback"
 
