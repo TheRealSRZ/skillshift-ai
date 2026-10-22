@@ -130,8 +130,8 @@ def _validated_steps(raw: object, *, target_role: str, scenario: str,
 
 
 def generate_safe_roadmap(target_role: str, missing_skills: list[str], scenario: str,
-                          resources: object, known_skill_ids: set[str]) -> dict:
-    """Use deterministic path first, optional RunPod second, with safe fallback.
+                          resources: object, known_skill_ids: set[str], *, attempt_ai: bool = False) -> dict:
+    """Return verified courses immediately unless AI was explicitly requested.
 
     Member 3's generate_roadmap must maintain the current (target_role,
     missing_skills, scenario, verified_courses, *, use_ai=False) signature. When
@@ -151,7 +151,7 @@ def generate_safe_roadmap(target_role: str, missing_skills: list[str], scenario:
         raise RoadmapDataError("Deterministic planner contract is invalid") from exc
 
     # No reason to consume AI/GPU time if nothing can be taught from the catalog.
-    if not ai_roadmap_enabled() or not safe_fallback["steps"]:
+    if not attempt_ai or not ai_roadmap_enabled() or not safe_fallback["steps"]:
         return safe_fallback
 
     try:
@@ -170,7 +170,19 @@ def generate_safe_roadmap(target_role: str, missing_skills: list[str], scenario:
             raise ValueError("AI output reduced approved course coverage")
         return ai_result
     except Exception as exc:  # Boundary: third-party calls can fail in many ways.
-        logger.warning("AI roadmap unavailable (%s); using verified fallback", type(exc).__name__)
+        # Fixed categories only: never write raw model replies, user data, or secrets to logs.
+        known = {
+            "Member 3 planner reported no successful AI selection": "planner_reported_fallback",
+            "Planner selected an unverified or duplicate course ID": "course_not_approved_or_duplicate",
+            "Course does not cover any requested missing skill": "course_coverage_mismatch",
+            "AI output reduced approved course coverage": "insufficient_approved_coverage",
+            "Planner changed target role": "target_role_mismatch",
+            "Planner changed scenario": "scenario_mismatch",
+            "Invalid planner steps": "malformed_steps",
+            "Course explanation is missing or out of bounds": "bad_course_explanation",
+        }
+        reason = known.get(str(exc), 'other_validation_or_transport_error') if isinstance(exc, ValueError) else 'provider_or_transport_error'
+        logger.warning("AI roadmap unavailable (%s, %s); using verified fallback", type(exc).__name__, reason)
         safe_fallback["note"] = ("AI personalization unavailable; showing approved fallback. "
                                  + safe_fallback["note"])
         return safe_fallback
