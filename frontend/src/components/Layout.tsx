@@ -20,7 +20,7 @@ export default function Layout({ active, onSelect, userName, avatarUrl, theme, o
   return (
     <div className="app">
       <aside className="sidebar">
-        <div className="brand">SkillShift AI</div>
+        <div className="brand"><span className={`brand-badge brand-badge-${theme}`} aria-hidden="true">✦</span><span>SkillShift <span className={`brand-ai brand-ai-${theme}`}>AI</span></span></div>
         <nav aria-label="Application sections">
           {tabs.map(t => {
             const Icon = icons[t]
@@ -39,9 +39,9 @@ export default function Layout({ active, onSelect, userName, avatarUrl, theme, o
           </button>
         </div>
       </aside>
-      <div className="content">
+              <div className={`content content-grid content-grid-${theme}`}>
         <header className="topbar">
-          <h1>{active}</h1>
+          <h1 key={active} className="page-title">{active}</h1>
           <div className="topbar-actions">
             <span className="badge" title="Trend scenario weights are synthetic, even if you are signed in">Demo data</span>
             <button type="button" className="theme-toggle" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>

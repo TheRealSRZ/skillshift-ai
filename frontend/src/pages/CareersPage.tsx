@@ -13,7 +13,7 @@ function RoleCard({ role, isTop, isTarget, nameOf, sdgs, onSelect, onOpenRoadmap
   const roleSdgs = role.sdgs ?? []
 
   return (
-    <article className={isTarget ? 'role-card target' : isTop ? 'role-card top' : 'role-card'}>
+    <article className={isTarget ? 'role-card target' : isTop ? 'role-card top' : 'role-card'} onClick={e => { if (!(e.target as HTMLElement).closest('button')) onSelect() }}>
       <div className="role-head">
         <h3>{role.title}</h3>
         <div className="role-badges">
@@ -55,6 +55,7 @@ function RoleCard({ role, isTop, isTarget, nameOf, sdgs, onSelect, onOpenRoadmap
         {roleSdgs.length === 0 && <span className="chip none">None</span>}
         {roleSdgs.map(n => <span className="chip tag" key={n} title={sdgs.find(g => g.sdg === n)?.title}>SDG {n}</span>)}
       </div>
+
       <CareerMarketSignal careerId={role.role_id} snapshot={marketSignals} loading={marketLoading} error={marketError} />
     </article>
   )

@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useCallback,  useState } from 'react'
 import Layout, { type Tab } from './components/Layout'
+import LoginCurtain from './components/LoginCurtain'
 import ProfilePage from './pages/ProfilePage'
 import TrendsPage from './pages/TrendsPage'
 import CareersPage from './pages/CareersPage'
@@ -28,6 +29,14 @@ function initialTheme(): Theme {
   return 'light'
 }
 
+function initialMotion(): boolean {
+  try {
+    const saved = localStorage.getItem('skillshift-reduce-motion')
+    if (saved === 'on' || saved === 'off') return saved === 'on'
+  } catch { /* localStorage may be unavailable */ }
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export default function App() {
   const auth = useAuth()
   const { notify } = useToast()
@@ -39,6 +48,7 @@ export default function App() {
     } catch { return null }
   })
   const [theme, setTheme] = useState<Theme>(initialTheme)
+  const [reduceMotion, setReduceMotion] = useState<boolean>(initialMotion)
   const [tab, setTab] = useState<Tab>('Dashboard')
   const [skills, setSkills] = useState<Skill[]>([])
   const [careers, setCareers] = useState<Career[]>([])
@@ -72,6 +82,15 @@ export default function App() {
     document.documentElement.dataset.theme = theme
     try { localStorage.setItem('skillshift-theme', theme) } catch { /* optional preference */ }
   }, [theme])
+
+    useEffect(() => {
+    document.documentElement.dataset.motion = reduceMotion ? 'reduced' : 'full'
+  }, [reduceMotion])
+
+  const changeMotion = (value: boolean) => {
+    setReduceMotion(value)
+    try { localStorage.setItem('skillshift-reduce-motion', value ? 'on' : 'off') } catch { /* optional preference */ }
+  }
 
   const loadData = () => {
     setBooting(true)
@@ -324,11 +343,22 @@ export default function App() {
   const userEmail = authUser?.email || user?.email || ''
   const avatarUrl = authUser ? String(authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || '') : null
 
-  if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
-  if (!userName) return <LoginPage onSignIn={signIn} />
+  /* Login curtain */
+  const [curtain, setCurtain] = useState(false)
+  const endCurtain = useCallback(() => setCurtain(false), [])
+  const handleSignIn = (...args: Parameters<typeof signIn>) => {
+    if (!reduceMotion) setCurtain(true)
+    return signIn(...args)
+  }
 
-  return <Layout active={tab} onSelect={setTab} userName={userName} avatarUrl={avatarUrl} theme={theme} onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>
+  if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
+  if (!userName) return <LoginPage onSignIn={handleSignIn} careers={careers} />
+
+  return <>
+  {curtain && <LoginCurtain onDone={endCurtain} />}
+  <Layout active={tab} onSelect={setTab} userName={userName} avatarUrl={avatarUrl} theme={theme} onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>
     {error && <ErrorBanner message={error} onRetry={skills.length === 0 ? loadData : undefined} onDismiss={() => setError('')} />}
+    <div className="page-fade" key={tab}>
     {tab === 'Dashboard' && <DashboardPage name={userName} matches={matches} scenarios={scenarios} roadmap={roadmap} skills={skills} sdgs={sdgs} loading={loading} onNavigate={setTab} onAnalyze={() => void analyze()} analysedAt={analysedAt} selectedMatch={selectedMatch} targetRoleId={targetRoleId} roadmapLoading={roadmapLoading} />}
     {tab === 'Profile' && <ProfilePage skills={skills} careers={careers} profile={profile} onChange={changeProfile} targetRoleId={targetRoleId} onSelectTarget={selectTarget} onAnalyze={() => void analyze()} loading={loading} booting={booting} userName={userName} avatarUrl={avatarUrl} authenticated={Boolean(authUser)} onSave={() => void saveCurrentProfile()} saving={profileSaving} />}
     {tab === 'Trends' && <TrendsPage trend={trend} skills={skills} booting={booting} marketSignals={marketSignals} marketLoading={marketLoading} marketError={marketError} onRefreshMarket={refreshMarketSignals} />}
@@ -336,7 +366,9 @@ export default function App() {
     {tab === 'Simulator' && <SimulatorPage results={scenarios} />}
     {tab === 'Roadmap' && <RoadmapPage roadmap={roadmap} skills={skills} careers={careers} results={matches} targetRoleId={targetRoleId} onSelectRole={selectTarget} onGenerate={() => void generateRoadmap()} onPersonalize={() => void personalizeRoadmap()} aiAuthenticated={Boolean(authUser && auth.session?.access_token)} onSignIn={() => void signOut()} loading={roadmapLoading} aiLoading={aiLoading} aiError={aiError} error={roadmapError} onNavigate={setTab} />}
     {tab === 'SDG Impact' && <SDGPage mappings={sdgs} topMatch={selectedMatch ?? matches?.matches[0] ?? null} booting={booting} />}
-    {tab === 'Account' && <AccountPage name={userName} email={userEmail} avatarUrl={avatarUrl} onSignOut={() => void signOut()} profile={profile} targetRoleId={targetRoleId} careers={careers} theme={theme} matches={matches} roadmap={roadmap} onRestoreProfile={restoreProfile} />}
+    {tab === 'Account' && <AccountPage name={userName} email={userEmail} avatarUrl={avatarUrl} onSignOut={() => void signOut()} profile={profile} targetRoleId={targetRoleId} careers={careers} theme={theme} matches={matches} roadmap={roadmap} onRestoreProfile={restoreProfile} reduceMotion={reduceMotion} onReduceMotion={changeMotion} />} 
+    </div>  
     <p className="muted data-footnote">Demo catalog: {skills.length} skills · {careers.length} careers. Readiness is not hiring probability.</p>
   </Layout>
+  </>
 }
