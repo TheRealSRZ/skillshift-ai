@@ -96,8 +96,17 @@ export default function DashboardPage({analysedAt, name, matches, scenarios, roa
     <section>
       <div className="dash-head">
         <div>
-          <h2>Hi, {name}</h2>
-          <p className="muted">Here's your latest analysis{analysedAt ? `, updated ${analysedAt.toLocaleTimeString()}` : ''}.</p>
+          <h2 className="dash-greet">
+            <span className="dash-hi">Hi,</span>{' '}
+            <span className="dash-name">
+              {name}
+              <svg className="dash-line" viewBox="0 0 100 14" preserveAspectRatio="none" aria-hidden="true">
+                <path className="dl1" pathLength="1" d="M2 8 C 25 2, 45 13, 70 6 S 92 5, 98 7" />
+                <path className="dl2" pathLength="1" d="M4 11 C 28 6, 50 14, 74 9 S 93 8, 97 10" />
+              </svg>
+            </span>
+          </h2>
+          <p className="muted dash-sub">Here's your latest analysis{analysedAt ? `, updated ${analysedAt.toLocaleTimeString()}` : ''}.</p>
         </div>
         <div className="dash-actions">
           {justUpdated && <span className="updated-pill" role="status">✓ Analysis updated</span>}

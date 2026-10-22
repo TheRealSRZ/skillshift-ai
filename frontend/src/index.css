@@ -108,11 +108,61 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
 .hero-card h2 { font-size: 26px; margin-bottom: 10px; }
 .hero-card p { color: var(--muted); font-size: 16px; margin-bottom: 24px; }
 .hero-card button { font-size: 16px; padding: 12px 24px; }
+.content-grid .hero-card {
+  border: 1px solid rgba(22, 122, 137, 0.45);
+}
 
 .dash-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
 .dash-head h2 { margin-bottom: 2px; }
 .dash-head p { margin: 0; }
 .dash-actions { display: flex; gap: 10px; }
+
+/* Dashboard greeting */
+.dash-head .dash-greet {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+.dash-head .dash-sub {
+  margin-top: 22px; /* more space under the underline */
+}
+.dash-head { margin-bottom: 26px; }
+
+.dash-name {
+  position: relative;
+  display: inline-block;
+  padding: 0 4px;
+  color: #0f5f6b;
+}
+.content-grid-dark .dash-name { color: #63e0d0; }
+
+.dash-line {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 14px;
+  z-index: -1;
+  overflow: visible;
+}
+.dash-line path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: dash-draw 0.9s cubic-bezier(0.65, 0, 0.2, 1) 0.4s backwards;
+}
+.dash-line .dl1 { stroke: #d6f26b; stroke-width: 6; }
+.dash-line .dl2 { stroke: #167a89; stroke-width: 2.5; animation-delay: 0.6s; }
+
+.dash-hi, .dash-name { animation: dash-rise 0.45s ease backwards; }
+.dash-name { animation-delay: 0.15s; }
+.dash-head .dash-sub { animation: dash-rise 0.5s ease 0.7s backwards; }
+
+@keyframes dash-draw { from { stroke-dashoffset: 1; } }
+@keyframes dash-rise { from { opacity: 0; transform: translateY(8px); } }
 
 .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
 .kpi { border: 1px solid var(--border); border-radius: 12px; padding: 16px; background: var(--surface); display: flex; flex-direction: column; gap: 4px; }
@@ -283,6 +333,17 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
   .sim-delta { text-align: left; }
 }
 
+/* SDG page readability */
+.content-grid .sdg-label {
+  font-weight: 600;
+}
+.content-grid-light .sdg-label {
+  color: #2a3b4d;
+}
+.content-grid .sdg-path {
+  border: 1px solid rgba(22, 122, 137, 0.4);
+}
+
 .sdg-hero { display: flex; align-items: center; gap: 18px; background: var(--surface); border: 2px solid #c5192d; border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; }
 .sdg-hero p { margin: 0; }
 .sdg-hero .kicker { font-size: 12px; color: var(--muted); }
@@ -390,6 +451,9 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
 .target-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0 0 15px; }
 .target-summary > div { display: flex; flex-direction: column; gap: 5px; padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
 .target-summary strong { font-size: 17px; }
+.content-grid-light .target-summary > div {
+  background-color: #fff;
+}
 .roadmap-gaps { margin: 12px 0; }
 .roadmap-gaps .form-label { margin-bottom: 9px; }
 .empty-state { border: 1px dashed var(--border); border-radius: 10px; padding: 20px; background: var(--bg); color: var(--muted); line-height: 1.5; margin: 12px 0; }
@@ -407,6 +471,20 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
   .theme-toggle { padding: 9px; }
   .theme-toggle span { display: none; }
   .roadmap-controls .primary { width: 100%; }
+}
+
+/* solid backgrounds for boxes that used to sit on the big white box (light mode) */
+.content-grid-light .roadmap-controls,
+.content-grid-light .target-summary,
+.content-grid-light .roadmap-gaps,
+.content-grid-light .empty-state {
+  background-color: #fff;
+}
+
+.content-grid-light .roadmap-gaps {
+  padding: 14px 16px;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 14px;
 }
 
 /* Dark theme builds on Member 1's original layout and uses the same teal brand. */
@@ -552,6 +630,39 @@ button:disabled { cursor: not-allowed; }
 .auth-feedback { font-size: 13px; padding: 12px; line-height: 1.5; border-radius: 10px; margin: 12px 0 0; }
 .auth-feedback--error { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger); }
 .auth-feedback--success { background: var(--accent-soft); color: var(--text); border: 1px solid var(--accent); }
+
+/* sidebar logo badge */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: #0b3d47;
+  color: #d6f26b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.brand:hover .brand-badge {
+  transform: rotate(90deg) scale(1.1);
+}
+:root[data-motion="reduced"] .brand:hover .brand-badge {
+  transform: none;
+}
+
+.brand-ai-light { color: #6b8f00; }
+.brand-ai-dark { color: #d6f26b; }
+
+.brand-badge-light { background: #0b3d47; color: #d6f26b; }
+.brand-badge-dark { background: #d6f26b; color: #0b3d47; }
 
 /* Profile: gentle visual hierarchy, easy scanning and explicit save action. */
 .profile-workspace { max-width: 1100px; }
@@ -1059,3 +1170,100 @@ button:not(:disabled):active { transform: scale(0.96); }
 @keyframes lc-drift1 { to { transform: translate(40vw, 30vh); } }
 @keyframes lc-drift2 { to { transform: translate(-35vw, -25vh); } }
 
+/* ===== Dashboard grid background (only when Layout adds .content-grid) ===== */
+.content-grid {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  background-color: #fff; 
+  background-image:
+    linear-gradient(to right, rgba(128, 128, 128, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.14) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* take the big white box away so the cards sit on the grid */
+.content-grid main {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* two soft color patches behind the cards */
+.content-grid::before,
+.content-grid::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+.content-grid::before {
+  width: 260px;
+  height: 260px;
+  background: #1d9aa8;
+  opacity: 0.35;
+  left: 0;
+  top: 40px;
+  animation: cg-drift1 12s ease-in-out infinite alternate;
+}
+.content-grid::after {
+  width: 240px;
+  height: 240px;
+  background: #d6f26b;
+  opacity: 0.3;
+  right: 0;
+  top: 260px;
+  animation: cg-drift2 14s ease-in-out infinite alternate;
+}
+@keyframes cg-drift1 { to { transform: translate(120px, 80px); } }
+@keyframes cg-drift2 { to { transform: translate(-110px, 60px); } }
+
+/* dark mode version of the Dashboard grid */
+.content-grid-dark {
+  background-color: transparent; /* keep your normal dark page color */
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+.content-grid-dark::before { opacity: 0.18; }
+.content-grid-dark::after { opacity: 0.1; }
+
+/* readability fixes for light mode */
+.content-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(128, 128, 128, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.08) 1px, transparent 1px);
+}
+.content-grid-light::before { opacity: 0.2; }
+.content-grid-light::after { opacity: 0.18; }
+.content-grid-light .muted { color: #44566a; }
+
+/* page title with lime accent */
+.topbar .page-title {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.topbar .page-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 42%;
+  height: 4px;
+  border-radius: 99px;
+  background: #d6f26b;
+  transform-origin: left center;
+  animation: title-accent 0.6s cubic-bezier(0.65, 0, 0.2, 1) 0.1s backwards;
+}
+@keyframes title-accent { from { transform: scaleX(0); } }
+
+/* Page title animation */
+.topbar .page-title {
+  animation: title-rise 0.45s ease backwards;
+}
+@keyframes title-rise { from { opacity: 0; transform: translateY(6px); } }

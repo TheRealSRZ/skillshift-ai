@@ -29,8 +29,6 @@ export default function SDGPage({ mappings, topMatch, booting }: { mappings: Map
 
   return (
     <section>
-      <h2>SDG impact</h2>
-
       <div className="sdg-hero">
         <SdgIcon n={PRIMARY_SDG} size={64} src={PRIMARY_GIF} />
         <div>
