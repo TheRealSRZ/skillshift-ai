@@ -55,10 +55,8 @@ function RoleCard({ role, isTop, isTarget, nameOf, sdgs, onSelect, onOpenRoadmap
         {roleSdgs.length === 0 && <span className="chip none">None</span>}
         {roleSdgs.map(n => <span className="chip tag" key={n} title={sdgs.find(g => g.sdg === n)?.title}>SDG {n}</span>)}
       </div>
-      
-      <CareerMarketSignal careerId={role.role_id} snapshot={marketSignals} loading={marketLoading} error={marketError} />
 
-      {!isTarget && <p className="role-hint">Click to choose this career →</p>}
+      <CareerMarketSignal careerId={role.role_id} snapshot={marketSignals} loading={marketLoading} error={marketError} />
     </article>
   )
 }
