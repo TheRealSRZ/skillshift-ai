@@ -29,7 +29,7 @@ A Malaysia-focused, evidence-informed career-readiness and reskilling platform b
 </div>
 
 > [!IMPORTANT]
-> **Read this before evaluating the repository.** This repository is an **early working scaffold**, not a fully completed or validated workforce forecasting system. The current occupation catalog, skill weights, trend multipliers, SDG links, and example profiles are **synthetic demonstration fixtures**. RunPod client code exists but **RunPod is not yet enabled in the application roadmap route**. The real Malaysian trend-refresh pipeline and verified course catalog remain implementation tasks. This README labels *working*, *partially implemented*, and *planned* features separately.
+> **Current implementation:** SkillShift AI has a catalog-backed, instant `/api/roadmap` and an *optional*, authenticated `/api/roadmap/personalize` backed by RunPod when `AI_ENABLED=true`. The curated Malaysian career/course catalog and DOSM evidence are included; not every career has observed market data or approved courses for every skill. AI output is revalidated against the catalog. Production readiness depends on the security and deployment checks in **[Security Hardening](docs/SECURITY_HARDENING_2026.md)**; a green unit-test run is not a production penetration test.
 
 ---
 
@@ -515,17 +515,16 @@ Copy the template locally:
 Copy-Item .env.example .env
 ```
 
-The template includes:
+The template includes backend-only RunPod and Supabase credentials as well as configurable
+API size/rate limits and GPU quotas. RunPod's endpoint identifier is named
+`RUNPOD_ENDPOINT_ID` (not `RUNPOD_BASE_URL`). Set `AI_ENABLED=false` for
+the safest guest-only deployment. In development, `python-dotenv` loads `.env`;
+Member 3's `ai/runpod_client.py` also explicitly calls `load_dotenv()`.
 
-```dotenv
-RUNPOD_API_KEY=
-RUNPOD_BASE_URL=
-RUNPOD_MODEL=
-AI_ENABLED=false
-PORT=8000
-```
-
-**Current implementation detail:** `ai/runpod_client.py` reads process environment variables using `os.getenv` and **does not automatically load `.env`**; Member 3 must add an explicit `load_dotenv()` in the appropriate initialization path or export the variables before testing. `AI_ENABLED` is currently **reserved** and is not wired to `POST /api/roadmap`. The route currently calls `generate_roadmap(..., use_ai=False)`.
+**The `AI_ENABLED` flag controls only `POST /api/roadmap/personalize`.**
+`POST /api/roadmap` is deliberately deterministic and never calls RunPod.
+For production host restrictions, threat-model notes and deployment examples, see
+[docs/SECURITY_HARDENING_2026.md](docs/SECURITY_HARDENING_2026.md).
 
 Never commit `.env`. Only `.env.example` belongs in Git.
 

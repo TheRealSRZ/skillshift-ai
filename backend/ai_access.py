@@ -13,22 +13,32 @@ import httpx
 from fastapi import HTTPException
 
 
-def verify_supabase_user(authorization: str | None) -> str:
+def parse_bearer_token(authorization: str | None) -> str:
+    """Accept one well-formed bearer token; never trust client-supplied IDs."""
     if not authorization or not authorization.startswith('Bearer '):
-        raise HTTPException(status_code=401, detail='Sign in to use AI personalization.')
-    token = authorization[7:].strip()
-    if not token or len(token) > 8192 or any(ch.isspace() for ch in token):
+        raise HTTPException(status_code=401, detail='Sign in to use this feature.')
+    token = authorization[7:]
+    if not token or token != token.strip() or len(token) > 8192 or any(ch.isspace() for ch in token):
         raise HTTPException(status_code=401, detail='Invalid authentication token.')
+    return token
 
+
+def supabase_public_settings() -> tuple[str, str]:
+    """Trust only a configured HTTPS Supabase-hosted origin, never request input."""
     base = os.getenv('SUPABASE_URL', '').strip().rstrip('/')
     publishable_key = os.getenv('SUPABASE_PUBLISHABLE_KEY', '').strip()
     parts = urlsplit(base)
     if (parts.scheme != 'https' or not parts.hostname or
             not parts.hostname.endswith('.supabase.co') or
             parts.username or parts.password or parts.port or parts.path or
-            not publishable_key):
-        raise HTTPException(status_code=503, detail='AI account verification is not configured.')
+            parts.query or parts.fragment or not publishable_key):
+        raise HTTPException(status_code=503, detail='Account verification is not configured.')
+    return base, publishable_key
 
+
+def verify_supabase_user(authorization: str | None) -> str:
+    token = parse_bearer_token(authorization)
+    base, publishable_key = supabase_public_settings()
     try:
         with httpx.Client(timeout=8.0, follow_redirects=False) as client:
             response = client.get(
