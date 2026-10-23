@@ -5,15 +5,23 @@ from backend.security import ApiSecurityMiddleware
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from backend.routes import catalog, trends, analysis, roadmap, account, market_signals
+from backend.routes import catalog, trends, analysis, roadmap, account, market_signals, what_if
 
 # Explicitly opt into production hardening; local Vite/FastAPI development keeps
 # the interactive OpenAPI docs for debugging.
 APP_ENV = os.getenv('APP_ENV', 'development').strip().lower()
+# Fail closed on typos like APP_ENV=prod instead of silently disabling
+# production-only controls (host restrictions and hidden API docs).
+if APP_ENV not in {'development', 'testing', 'production'}:
+    raise RuntimeError('APP_ENV must be development, testing, or production')
 PRODUCTION = APP_ENV == 'production'
-allowed_hosts = [host.strip() for host in os.getenv('ALLOWED_HOSTS', '').split(',') if host.strip()]
-if PRODUCTION and (not allowed_hosts or '*' in allowed_hosts):
-    raise RuntimeError('Production requires an explicit ALLOWED_HOSTS allowlist')
+allowed_hosts = [host.strip().lower() for host in os.getenv('ALLOWED_HOSTS', '').split(',') if host.strip()]
+if PRODUCTION:
+    import re
+    if (not allowed_hosts or any(not re.fullmatch(
+            r'(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?', host
+        ) for host in allowed_hosts)):
+        raise RuntimeError('Production requires explicit, exact ALLOWED_HOSTS hostnames without wildcards or ports')
 if PRODUCTION and os.getenv('AI_ENABLED', 'false').strip().lower() in {'true', 'yes', 'on', '1'}:
     if not os.getenv('AI_QUOTA_DB_PATH', '').strip():
         raise RuntimeError('Production AI requires an explicit, persistent AI_QUOTA_DB_PATH')
@@ -28,7 +36,7 @@ app.add_middleware(ApiSecurityMiddleware)
 if allowed_hosts:
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts, www_redirect=False)
 
-for module in (catalog, trends, analysis, roadmap, account, market_signals):
+for module in (catalog, trends, analysis, roadmap, account, market_signals, what_if):
     app.include_router(module.router)
 
 @app.get('/api/health')

@@ -24,3 +24,15 @@ export type MarketSignalsResponse = {
   method: string; limitations: string[]; can_directly_adjust_career_scores: false
   career_signals: MarketSignal[]
 }
+
+export type WhatIfResponse = {
+  target_role: string
+  scenario: 'moderate' | 'rapid'
+  trend_snapshot_id: string
+  original_readiness: number
+  hypothetical_readiness: number
+  delta_points: number
+  added_skill_ids: string[]
+  remaining_missing_skills: string[]
+  note: string
+}

@@ -59,6 +59,14 @@ def _roadmap(body: RoadmapRequest, *, personalize: bool, authorization: str | No
 
     try:
         if personalize:
+            # Never reserve a paid-AI attempt when no approved course can
+            # address the requested gaps (including direct API calls that
+            # bypass the frontend's disabled personalization button).
+            if not build(attempt_ai=False)["steps"]:
+                raise HTTPException(
+                    status_code=422,
+                    detail="No approved courses cover these skill gaps. Use the standard roadmap instead.",
+                )
             # Verify session with Supabase (not untrusted JWT claims), then
             # reserve a server-side GPU budget slot before calling RunPod.
             user_id = verify_supabase_user(authorization)

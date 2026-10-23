@@ -504,7 +504,7 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
   --warn-bg: #493924;
 }
 :root[data-theme='dark'] body { background: var(--bg); }
-:root[data-theme='dark'] button:not(.primary):not(.nav-item):not(.link-btn):not(.chip):not(.theme-toggle):not(.role-select-btn):not(.target-selected-btn) { background: var(--surface); border-color: var(--border); color: var(--text); }
+:root[data-theme='dark'] button:not(.primary):not(.nav-item):not(.link-btn):not(.chip):not(.theme-toggle):not(.role-select-btn):not(.target-selected-btn):not(.primary-btn):not(.what-if-choice) { background: var(--surface); border-color: var(--border); color: var(--text); }
 :root[data-theme='dark'] .nav-item { color: var(--muted); }
 :root[data-theme='dark'] .nav-item.selected { color: var(--accent); }
 :root[data-theme='dark'] .role-select-btn { background: var(--surface); border-color: var(--border); color: var(--text); }
@@ -1267,3 +1267,29 @@ button:not(:disabled):active { transform: scale(0.96); }
   animation: title-rise 0.45s ease backwards;
 }
 @keyframes title-rise { from { opacity: 0; transform: translateY(6px); } }
+/* Career readiness what-if: no paid inference, lightweight and keyboard friendly. */
+.what-if-panel { margin-top: 20px; padding: 22px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+.what-if-header { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+.what-if-header h3 { display: flex; align-items: center; gap: 9px; font-size: 19px; margin: 0 0 8px; }
+.what-if-header p { margin: 0; }
+.what-if-tag { padding: 7px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; white-space: nowrap; color: var(--text-muted, var(--text)); }
+.what-if-label { margin: 18px 0 9px; }
+.what-if-choices { display: flex; flex-wrap: wrap; gap: 9px; }
+.what-if-choice { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 30px; padding: 8px 12px; cursor: pointer; font: inherit; font-size: 13px; }
+.what-if-choice:hover:not(:disabled), .what-if-choice.selected { border-color: #0d9488; background: rgba(13,148,136,.12); }
+.what-if-choice:disabled { cursor: not-allowed; opacity: .6; }
+.what-if-actions { display: flex; gap: 10px; align-items: center; margin-top: 16px; flex-wrap: wrap; }
+.what-if-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+.what-if-actions .primary-btn { background: #14b8a6; color: #052623; border: none; border-radius: 10px; padding: 11px 15px; font-weight: 700; cursor: pointer; }
+.what-if-actions .primary-btn:disabled { opacity: .6; cursor: not-allowed; }
+.what-if-reset { border: 1px solid var(--border); color: var(--text); background: transparent; border-radius: 10px; padding: 10px 14px; cursor: pointer; }
+.what-if-reset:disabled { opacity: .55; cursor: not-allowed; }
+.what-if-result { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 15px; margin-top: 17px; border: 1px solid rgba(13,148,136,.35); border-radius: 12px; background: rgba(13,148,136,.07); }
+.what-if-result strong { font-size: 21px; color: var(--text); }
+.what-if-delta { color: #0d9488; font-weight: 800; }
+.what-if-note { margin-bottom: 0; font-size: 13px; }
+.what-if-error { color: #dc2626; font-size: 13px; }
+
+:root[data-theme='dark'] .what-if-actions button.primary-btn { background: #5eead4; border-color: transparent; color: #042f2e; }
+:root[data-theme='dark'] button.what-if-choice.selected { border-color: #5eead4; background: rgba(94,234,212,.14); color: #ccfbf1; }
+:root[data-theme='dark'] .what-if-delta { color: #5eead4; }

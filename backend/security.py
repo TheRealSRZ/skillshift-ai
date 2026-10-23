@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import sqlite3
 import time
+from uuid import uuid4
 from typing import Callable
 
 from fastapi.responses import JSONResponse
@@ -22,7 +23,7 @@ logger = logging.getLogger(__name__)
 MAX_DEFAULT_BODY_BYTES = 32 * 1024
 RATE_LIMITED_PATHS = frozenset({
     '/api/analyze', '/api/scenarios', '/api/roadmap',
-    '/api/roadmap/personalize',
+    '/api/roadmap/personalize', '/api/what-if',
 })
 JSON_POST_PATHS = RATE_LIMITED_PATHS
 
@@ -93,9 +94,18 @@ class ApiSecurityMiddleware:
         raw_headers = scope.get('headers', [])
         headers = {key.lower(): value for key, value in raw_headers}
         is_api = path.startswith('/api/')
+        request_id = uuid4().hex if is_api else None
+        started = time.monotonic()
 
         async def secure_send(message):
             if message['type'] == 'http.response.start':
+                # Record only server-generated IDs, bounded static route categories,
+                # status and duration. Never log tokens, request bodies or query params.
+                status = int(message['status'])
+                if is_api and status >= 400:
+                    category = path if path in RATE_LIMITED_PATHS else 'other_api'
+                    logger.info('api_response request_id=%s route=%s status=%d elapsed_ms=%d',
+                                request_id, category, status, round((time.monotonic()-started)*1000))
                 present = {key.lower() for key, _ in message.get('headers', [])}
                 security_headers = {
                     b'x-content-type-options': b'nosniff',
@@ -112,6 +122,7 @@ class ApiSecurityMiddleware:
                 }
                 if is_api:
                     security_headers[b'cache-control'] = b'no-store'
+                    security_headers[b'x-request-id'] = request_id.encode('ascii')
                 if os.getenv('SECURITY_HSTS_ENABLED', 'false').lower() == 'true':
                     # Enable only when the *whole public site* uses HTTPS.
                     security_headers[b'strict-transport-security'] = b'max-age=31536000'
