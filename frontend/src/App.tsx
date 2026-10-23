@@ -81,6 +81,8 @@ export default function App() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     try { localStorage.setItem('skillshift-theme', theme) } catch { /* optional preference */ }
+    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+    if (link) link.href = theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg'
   }, [theme])
 
     useEffect(() => {

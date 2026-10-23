@@ -673,11 +673,8 @@ button:disabled { cursor: not-allowed; }
   transform: none;
 }
 
-.brand-ai-light { color: #6b8f00; }
-.brand-ai-dark { color: #d6f26b; }
-
-.brand-badge-light { background: #0b3d47; color: #d6f26b; }
-.brand-badge-dark { background: #d6f26b; color: #0b3d47; }
+.brand-badge-light { background: #d6f26b; color: #0b3d47; }
+.brand-badge-dark { background: #6ce5d4; color: #0b3d47; }
 
 /* Profile: gentle visual hierarchy, easy scanning and explicit save action. */
 .profile-workspace { max-width: 1100px; }
@@ -1903,3 +1900,6 @@ html[data-motion="reduced"] .profile-summary .ps-step:hover .ps-num,
 html[data-motion="reduced"] .profile-summary .ps-step:hover .ps-text,
 html[data-motion="reduced"] .profile-summary .ps-step:active .ps-num,
 html[data-motion="reduced"] .profile-summary .ps-step:active .ps-text{transform:none !important}
+
+/* Profile: step bar appears after the tagline pill */
+.profile-summary{animation:intro-pop2 .5s 1.4s backwards !important}
