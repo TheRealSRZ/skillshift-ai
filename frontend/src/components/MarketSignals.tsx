@@ -48,14 +48,16 @@ export function CareerMarketSignal({ careerId, snapshot, loading, error }: {
 }) {
   const signal = snapshot?.career_signals.find(item => item.career_id === careerId)
   return <div className="market-inline">
-    <div className="market-inline-head">
-      <strong>Malaysia job-market context</strong>
-      <span className="market-source-tag">DOSM · occupation-level</span>
+    <div className="market-card">
+      <div className="market-inline-head">
+        <strong>Malaysia job-market context</strong>
+        <span className="market-source-tag">DOSM · occupation-level</span>
+      </div>
+      {loading ? <p className="muted" role="status">Loading occupation evidence…</p>
+        : error ? <p className="muted">Market evidence is temporarily unavailable. Skill-readiness scores are unaffected.</p>
+        : !signal ? <p className="muted">No curated DOSM occupation comparison for this demo career.</p>
+        : <Availability signal={signal} />}
     </div>
-    {loading ? <p className="muted" role="status">Loading occupation evidence…</p>
-      : error ? <p className="muted">Market evidence is temporarily unavailable. Skill-readiness scores are unaffected.</p>
-      : !signal ? <p className="muted">No curated DOSM occupation comparison for this demo career.</p>
-      : <Availability signal={signal} />}
     <p className="market-fineprint">Online job offerings, not unique vacancies, a forecast, AI impact or hiring probability. Does not change readiness.</p>
   </div>
 }
@@ -70,7 +72,7 @@ export function MarketSignalsOverview({ snapshot, loading, error, onRetry }: {
     <div className="market-overview-head">
       <div>
         <p className="market-eyebrow">OFFICIAL SOURCE CONTEXT · MALAYSIA</p>
-        <h2 id="market-signals-title">Career-specific job-offering comparisons</h2>
+        <h2 id="market-signals-title" className="intro-title"><span className="intro-w">Career-specific</span>{' '}<b className="intro-w"><span className="intro-hl">job-offering</span></b>{' '}<span className="intro-w">comparisons</span></h2>
         <p className="muted">DOSM occupation-level observations, {snapshot ? snapshot.periods.join(' vs ') : 'most recent saved periods'}. Not skill-demand estimates.</p>
       </div>
       <button className="market-refresh" type="button" onClick={onRetry} disabled={loading} aria-label="Refresh latest saved market evidence">

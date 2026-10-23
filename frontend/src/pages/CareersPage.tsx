@@ -9,6 +9,9 @@ const SHOW_MISSING = 2
 
 function RoleCard({ role, isTop, isTarget, nameOf, sdgs, onSelect, onOpenRoadmap, marketSignals, marketLoading, marketError }: { role: Match; marketSignals: MarketSignalsResponse | null; marketLoading: boolean; marketError: string; isTop: boolean; isTarget: boolean; nameOf: (id: string) => string; sdgs: SdgInfo[]; onSelect: () => void; onOpenRoadmap: () => void }) {
   const [expanded, setExpanded] = useState(false)
+  const [marketOpen, setMarketOpen] = useState(false)
+  const [marketHover, setMarketHover] = useState(false)
+  const showMarket = marketOpen || marketHover
   const missing = expanded ? role.missing_skills : role.missing_skills.slice(0, SHOW_MISSING)
   const hidden = role.missing_skills.length - SHOW_MISSING
   const roleSdgs = role.sdgs ?? []
@@ -57,7 +60,22 @@ function RoleCard({ role, isTop, isTarget, nameOf, sdgs, onSelect, onOpenRoadmap
         {roleSdgs.map(n => <span className="chip tag" key={n} title={sdgs.find(g => g.sdg === n)?.title}>SDG {n}</span>)}
       </div>
 
-      <CareerMarketSignal careerId={role.role_id} snapshot={marketSignals} loading={marketLoading} error={marketError} />
+      <div className={`market-fold${showMarket ? ' open' : ''}${marketOpen ? ' pinned' : ''}`} onMouseEnter={() => setMarketHover(true)} onMouseLeave={() => setMarketHover(false)}>
+        <button type="button" className="market-fold-head" onClick={() => setMarketOpen(!marketOpen)} aria-expanded={showMarket} aria-pressed={marketOpen} title={marketOpen ? 'Unpin' : 'Pin open'}>
+          <span>Malaysia job-market context</span>
+          <span className="market-fold-icons">
+            <span className="market-fold-pin" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="17" x2="12" y2="22" /><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z" /></svg>
+            </span>
+            <span className="market-fold-arrow" aria-hidden="true">⌄</span>
+          </span>
+        </button>
+        <div className="market-fold-body">
+          <div className="market-fold-inner">
+            <CareerMarketSignal careerId={role.role_id} snapshot={marketSignals} loading={marketLoading} error={marketError} />
+          </div>
+        </div>
+      </div>
     </article>
   )
 }
@@ -67,13 +85,20 @@ export default function CareersPage({ results, skills, sdgs, selectedRoleId, onS
 
   return (
     <section>
-      <h2>Career matches and skill gaps</h2>
-      <p className="muted section-lead">Select the career you want to pursue. The highest score is only a suggestion.</p>
-      <div className="market-careers-toolbar">
-        <span>Career-readiness scores and DOSM job-market observations measure different things.</span>
-        <button type="button" className="market-refresh" onClick={onRefreshMarket} disabled={marketLoading}>
-          {marketLoading ? 'Loading market data…' : 'Refresh DOSM evidence'}
-        </button>
+      <h2 className="intro-title">
+        <span className="intro-w">Career</span>{' '}
+        <span className="intro-w">matches</span>{' '}
+        <span className="intro-chip" aria-hidden="true">✦</span>{' '}
+        <span className="intro-w">and</span>{' '}
+        <b className="intro-w"><span className="intro-hl">skill gaps</span></b>
+      </h2>
+      <button type="button" className="market-refresh" onClick={onRefreshMarket} disabled={marketLoading}>
+        {marketLoading ? 'Loading market data…' : 'Refresh DOSM evidence'}
+      </button>
+      <div className="intro-pills">
+        <span className="intro-pill">Select the career you want to pursue.</span>
+        <span className="intro-pill">The highest score is only a suggestion.</span>
+        <span className="intro-pill lime">Career-readiness scores and DOSM job-market observations measure different things.</span>
       </div>
       {marketError && <div className="market-api-error" role="alert">
         Market evidence is temporarily unavailable. Career matching remains usable.

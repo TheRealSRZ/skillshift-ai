@@ -117,6 +117,13 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
 .dash-head p { margin: 0; }
 .dash-actions { display: flex; gap: 10px; }
 
+/* Dashboard: Edit profile + Re-analyse lift on hover, shrink on click */
+.content-grid main .dash-actions button{transition:transform .15s,box-shadow .15s,border-color .15s,background .15s}
+.content-grid main .dash-actions button:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 10px 22px rgba(11,61,71,.22)}
+.content-grid main .dash-actions button:active:not(:disabled){transform:scale(.94);box-shadow:none}
+html[data-motion="reduced"] .content-grid main .dash-actions button:hover,
+html[data-motion="reduced"] .content-grid main .dash-actions button:active{transform:none !important}
+
 /* Dashboard greeting */
 .dash-head .dash-greet {
   font-size: clamp(2rem, 4vw, 2.6rem);
@@ -273,6 +280,14 @@ input[type=text], input:not([type]) { display: block; border: 1px solid #b8c5d2;
 .sim-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
 .sim-top h2 { margin-bottom: 4px; }
 .sim-top p { margin: 0; }
+
+/* ===== Simulator heading timing ===== */
+.sim-top .intro-title > :nth-child(1) { animation-delay: 0.05s; }
+.sim-top .intro-title > :nth-child(2) { animation-delay: 0.12s; }
+.sim-top .intro-title > :nth-child(3) { animation-delay: 0.19s; }
+.sim-top .intro-title > :nth-child(4) { animation-delay: 0.26s; }
+.sim-top .intro-title > :nth-child(6) { animation-delay: 0.45s; }
+.sim-top .intro-pills > :nth-child(1) { animation-delay: 0.9s; }
 
 .verdict { display: flex; align-items: center; gap: 10px; border-radius: 10px; padding: 12px 16px; margin-bottom: 16px; font-size: 15px; max-height: 80px; overflow: hidden; transition: opacity 0.6s ease, max-height 0.6s ease, padding 0.6s ease, margin 0.6s ease; }
 .verdict.ok { background: #e4f5ea; color: #1b6b3a; }
@@ -658,11 +673,8 @@ button:disabled { cursor: not-allowed; }
   transform: none;
 }
 
-.brand-ai-light { color: #6b8f00; }
-.brand-ai-dark { color: #d6f26b; }
-
-.brand-badge-light { background: #0b3d47; color: #d6f26b; }
-.brand-badge-dark { background: #d6f26b; color: #0b3d47; }
+.brand-badge-light { background: #d6f26b; color: #0b3d47; }
+.brand-badge-dark { background: #6ce5d4; color: #0b3d47; }
 
 /* Profile: gentle visual hierarchy, easy scanning and explicit save action. */
 .profile-workspace { max-width: 1100px; }
@@ -943,6 +955,12 @@ button:not(:disabled):active { transform: scale(0.96); }
 .market-inline .market-counts strong { font-size: 13px; }
 .market-inline .muted { margin: 6px 0 0; }
 .market-fineprint { font-size: 11px; color: var(--muted); line-height: 1.5; margin: 12px 0 0; }
+
+/* Trends: scenario box gets a solid background */
+.content-grid-light .scenario-radar { background-color: #fff; }
+.content-grid-dark .scenario-radar { background-color: rgba(255, 255, 255, 0.04); }
+.content-grid .scenario-radar { border-radius: 22px; }
+
 .scenario-radar { padding: clamp(16px, 2vw, 24px); border: 1px solid var(--border); border-radius: 14px; }
 .scenario-radar .trend-head { margin-bottom: 14px; }
 .scenario-radar .trend-head h2 { line-height: 1.3; }
@@ -957,6 +975,118 @@ button:not(:disabled):active { transform: scale(0.96); }
 
 .market-careers-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; color: var(--muted); font-size: 12px; }
 @media (max-width: 550px) { .market-careers-toolbar .market-refresh { width: 100%; justify-content: center; } }
+
+/* ===== Trends page (market overview) ===== */
+
+/* remove the big box-in-a-box */
+.content-grid .market-overview {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.market-overview-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.market-overview .market-eyebrow {
+  color: #167a89;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+}
+.content-grid-dark .market-overview .market-eyebrow { color: #63e0d0; }
+
+.market-overview .intro-title {
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  max-width: none;
+  margin: 2px 0 8px;
+}
+.market-overview .intro-title > :nth-child(3) { animation-delay: 0.25s; }
+
+/* refresh button: dark pill in one line */
+.market-overview .market-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+  margin: 0;
+  animation: intro-rise 0.5s ease 0.3s backwards;
+}
+
+/* summary strip becomes pills */
+.content-grid .market-summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 14px 0 18px;
+}
+.market-summary-strip > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(128, 128, 128, 0.28);
+  font-size: 13px;
+}
+.content-grid-light .market-summary-strip > span { background: #fff; color: #2a3b4d; }
+.content-grid-dark .market-summary-strip > span { background: rgba(255, 255, 255, 0.06); }
+.market-summary-strip > span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #167a89;
+  flex-shrink: 0;
+}
+.market-summary-strip > span:nth-child(1)::before { background: #d6f26b; box-shadow: 0 0 0 1px rgba(11, 61, 71, 0.3); }
+.market-summary-strip > span:nth-child(2)::before { background: #b9c2cc; }
+
+/* career cards: the number is the hero */
+.market-career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.content-grid .market-career-item {
+  border: 1px solid rgba(128, 128, 128, 0.22);
+  border-radius: 22px;
+  padding: 16px 18px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.content-grid-light .market-career-item { background: #fff; }
+.content-grid-dark .market-career-item { background: rgba(255, 255, 255, 0.04); }
+.content-grid .market-career-item:hover {
+  transform: translateY(-4px);
+  border-color: #167a89;
+  box-shadow: 0 10px 24px rgba(22, 122, 137, 0.14);
+}
+.content-grid .market-career-item:active { transform: scale(0.97); }
+:root[data-motion="reduced"] .content-grid .market-career-item:hover,
+:root[data-motion="reduced"] .content-grid .market-career-item:active { transform: none !important; }
+
+.market-career-item h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #44566a;
+}
+.content-grid-dark .market-career-item h3 { color: inherit; opacity: 0.8; }
+.market-career-item .market-change-line { gap: 10px; flex-wrap: wrap; }
+.market-career-item .market-change-line strong {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.content-grid-light .market-career-item .market-change-line strong { color: #0f5f6b; }
 
 /* Phase 6D: instant roadmap followed by optional non-blocking AI refinement */
 .roadmap-ai-stage{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.2rem;margin:1rem 0;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
@@ -1267,6 +1397,362 @@ button:not(:disabled):active { transform: scale(0.96); }
   animation: title-rise 0.45s ease backwards;
 }
 @keyframes title-rise { from { opacity: 0; transform: translateY(6px); } }
+
+/* ===== Soft rounded style (shared) ===== */
+
+/* cards get rounder corners */
+.content-grid .kpi,
+.content-grid .widget,
+.content-grid .role-card,
+.content-grid .path-card,
+.content-grid .hero-card,
+.content-grid .roadmap-controls,
+.content-grid .roadmap-ai-stage,
+.content-grid .target-summary > div,
+.content-grid .sdg-path,
+.content-grid .empty-state {
+  border-radius: 22px;
+}
+
+/* buttons inside the page area become pills */
+.content-grid main button {
+  border-radius: 999px;
+  padding-inline: 1.1em;
+}
+
+/* ===== Careers intro: big headline + pill notes ===== */
+.content-grid main .intro-title {
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 18px;
+  max-width: 640px;
+}
+.content-grid main .intro-title b { font-weight: 600; }
+.content-grid-light .intro-title { color: #101d2b; }
+
+.intro-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05em;
+  height: 0.78em;
+  vertical-align: middle;
+  border-radius: 99px;
+  background: #d6f26b;
+  color: #0b3d47;
+  font-size: 0.62em;
+  margin: 0 0.1em;
+  position: relative;
+  top: -0.04em;
+}
+
+.intro-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.intro-pill,
+.content-grid .market-careers-toolbar > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(128, 128, 128, 0.28);
+  font-size: 13px;
+}
+.content-grid-light .intro-pill,
+.content-grid-light .market-careers-toolbar > span {
+  background: #fff;
+  color: #2a3b4d;
+}
+.content-grid-dark .intro-pill,
+.content-grid-dark .market-careers-toolbar > span {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.content-grid .market-careers-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* refresh button: dark pill (lime in dark mode) */
+.content-grid .market-refresh {
+  background: #0b3d47;
+  color: #fff;
+  border: none;
+  padding: 11px 18px;
+  font-weight: 500;
+}
+.content-grid-dark .market-refresh {
+  background: #d6f26b;
+  color: #0b3d47;
+}
+
+/* ===== Careers intro fixes ===== */
+
+/* keep "skill gaps" together on one line */
+.content-grid main .intro-title { max-width: none; }
+.content-grid main .intro-title b { white-space: nowrap; }
+
+/* refresh button sits right under the title */
+.content-grid main .market-refresh {
+  display: block;
+  width: fit-content;
+  margin: 0 0 16px;
+  transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.content-grid main .market-refresh:hover:not(:disabled) {
+  background: #145a68;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(11, 61, 71, 0.25);
+}
+.content-grid main .market-refresh:active:not(:disabled) {
+  transform: scale(0.95);
+}
+.content-grid-dark .market-refresh:hover:not(:disabled) {
+  background: #e4f78d;
+}
+:root[data-motion="reduced"] .content-grid main .market-refresh:hover,
+:root[data-motion="reduced"] .content-grid main .market-refresh:active {
+  transform: none !important;
+}
+
+/* the colored dots inside the pills */
+.intro-pills { margin-bottom: 18px; }
+.intro-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #167a89;
+  flex-shrink: 0;
+}
+.intro-pill.lime::before {
+  background: #d6f26b;
+  box-shadow: 0 0 0 1px rgba(11, 61, 71, 0.3);
+}
+
+/* Careers: refresh button text stays readable on hover/press */
+.content-grid main .market-refresh:hover:not(:disabled),
+.content-grid main .market-refresh:active:not(:disabled) {
+  color: #fff;
+}
+.content-grid-dark .market-refresh:hover:not(:disabled),
+.content-grid-dark .market-refresh:active:not(:disabled) {
+  color: #0b3d47;
+}
+
+/* ===== Careers intro animation ===== */
+.intro-w {
+  display: inline-block;
+  animation: intro-rise 0.5s ease backwards;
+}
+.intro-title > :nth-child(1) { animation-delay: 0.05s; }
+.intro-title > :nth-child(2) { animation-delay: 0.15s; }
+.intro-title > :nth-child(4) { animation-delay: 0.45s; }
+.intro-title > :nth-child(5) { animation-delay: 0.55s; }
+
+.intro-title .intro-chip {
+  animation: intro-pop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 0.3s backwards;
+}
+
+/* lime highlighter that sweeps in behind "skill gaps" */
+.intro-hl {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0 0.12em;
+}
+.intro-hl::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.06em;
+  height: 0.5em;
+  border-radius: 99px;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(214, 242, 107, 0.95), rgba(214, 242, 107, 0.55));
+  transform-origin: left center;
+  animation: intro-sweep 0.8s cubic-bezier(0.65, 0, 0.2, 1) 0.8s backwards;
+}
+.content-grid-dark .intro-hl::before { opacity: 0.35; }
+
+/* button and pills come in after the headline */
+.content-grid main .market-refresh { animation: intro-rise 0.5s ease 1s backwards; }
+.intro-pill { animation: intro-pop2 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) backwards; }
+.intro-pills > :nth-child(1) { animation-delay: 1.15s; }
+.intro-pills > :nth-child(2) { animation-delay: 1.27s; }
+.intro-pills > :nth-child(3) { animation-delay: 1.39s; }
+
+@keyframes intro-rise { from { opacity: 0; transform: translateY(10px); } }
+@keyframes intro-pop { from { opacity: 0; transform: scale(0.3) rotate(-120deg); } }
+@keyframes intro-pop2 { from { opacity: 0; transform: translateY(8px) scale(0.9); } }
+@keyframes intro-sweep { from { transform: scaleX(0); } }
+
+/* ===== Careers card: fold-away market evidence ===== */
+.market-fold { margin-top: 12px; }
+.role-card .market-fold-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  background: #f4f6f9;
+  border: 1px solid rgba(128, 128, 128, 0.22);
+  color: #2a3b4d;
+}
+.content-grid-dark .role-card .market-fold-head {
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+}
+.market-fold-arrow {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.market-fold.open .market-fold-arrow { transform: rotate(180deg); }
+.market-fold-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, margin-top 0.3s ease, visibility 0s linear 0.3s;
+}
+.market-fold.open .market-fold-body {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  margin-top: 8px;
+  transition: grid-template-rows 0.3s ease, margin-top 0.3s ease, visibility 0s;
+}
+.market-fold-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ===== Careers: bar + details as one combined box ===== */
+.market-fold {
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 14px;
+  background: #f4f6f9;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.content-grid-dark .market-fold { background: rgba(255, 255, 255, 0.05); }
+.market-fold.open { border-color: #167a89; }
+
+/* the bar becomes the header of the combined box */
+.role-card .market-fold-head {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* the details sit inside the same box, with no second border */
+.market-fold.open .market-fold-body { margin-top: 0; }
+.market-fold-inner > * {
+  border: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 14px 12px !important;
+}
+
+/* Careers fold: header already has the title, keep only the DOSM tag inside */
+.market-fold .market-inline-head strong { display: none; }
+.market-fold .market-fold-inner > * { padding: 0 12px 12px !important; }
+
+.market-fold .market-card {
+  background: #fff;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.content-grid-dark .market-fold .market-card { background: rgba(255, 255, 255, 0.06); }
+
+.market-fold .market-observation,
+.market-fold .market-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.market-fold .market-unavailable p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* the two quarter counts as small tiles */
+.market-fold .market-counts {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+.market-fold .market-counts > span:not([aria-hidden]) {
+  background: #f4f6f9;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.content-grid-dark .market-fold .market-counts > span:not([aria-hidden]) {
+  background: rgba(255, 255, 255, 0.05);
+}
+.market-fold .market-counts small { display: block; }
+
+/* small print sits below the card, quiet */
+.market-fold .market-fineprint {
+  margin: 10px 0 0 !important;
+  padding: 0 4px;
+}
+
+/* Careers fold: more line spacing inside the white card */
+.market-fold .market-card { gap: 14px; padding: 16px; }
+.market-fold .market-observation,
+.market-fold .market-unavailable { gap: 14px; }
+.market-fold .market-unavailable p { line-height: 1.75; }
+.market-fold .market-fineprint { line-height: 1.7; margin-top: 14px !important; }
+
+/* Careers: each card keeps its own height when one opens */
+.role-grid { align-items: start; }
+
+/* ===== Careers fold: pin icon ===== */
+.market-fold-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.market-fold-pin {
+  display: inline-flex;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  color: #167a89;
+  transform: scale(0.3) rotate(-30deg);
+  transition: width 0.25s ease, opacity 0.2s ease, transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.content-grid-dark .market-fold-pin { color: #63e0d0; }
+.market-fold.pinned .market-fold-pin {
+  width: 15px;
+  opacity: 1;
+  transform: none;
+}
 /* Career readiness what-if: no paid inference, lightweight and keyboard friendly. */
 .what-if-panel { margin-top: 20px; padding: 22px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
 .what-if-header { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
@@ -1293,3 +1779,127 @@ button:not(:disabled):active { transform: scale(0.96); }
 :root[data-theme='dark'] .what-if-actions button.primary-btn { background: #5eead4; border-color: transparent; color: #042f2e; }
 :root[data-theme='dark'] button.what-if-choice.selected { border-color: #5eead4; background: rgba(94,234,212,.14); color: #ccfbf1; }
 :root[data-theme='dark'] .what-if-delta { color: #5eead4; }
+
+/* Trends refresh button: icon and text on one line */
+.content-grid main .market-overview .market-refresh {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* Trends: pills and cards come in after the headline */
+.market-summary-strip > span {
+  animation: intro-pop2 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) backwards;
+}
+.market-summary-strip > :nth-child(1) { animation-delay: 1.15s; }
+.market-summary-strip > :nth-child(2) { animation-delay: 1.27s; }
+.market-summary-strip > :nth-child(3) { animation-delay: 1.39s; }
+
+.market-career-item {
+  animation: intro-rise 0.5s ease 0.85s backwards;
+}
+.market-career-grid > :nth-child(2) { animation-delay: 0.93s; }
+.market-career-grid > :nth-child(3) { animation-delay: 1.01s; }
+.market-career-grid > :nth-child(4) { animation-delay: 1.09s; }
+.market-career-grid > :nth-child(5) { animation-delay: 1.17s; }
+.market-career-grid > :nth-child(6) { animation-delay: 1.25s; }
+.market-career-item { animation: none; }
+
+/* ===== Profile: hero + steps ===== */
+.profile-hero{background:transparent !important;border:0 !important;box-shadow:none !important;padding:8px 4px !important}
+.ph-avatar{display:inline-flex;border-radius:50%;outline:2px solid #d6f26b;outline-offset:5px;margin:8px;flex-shrink:0}
+.profile-hero h2.intro-title{font-size:clamp(30px,4.6vw,46px)}
+.profile-state{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:99px;background:#0b3d47;color:#d6f26b;font-size:13px;font-weight:600}
+
+.profile-summary{display:grid !important;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;background:transparent !important;border:0 !important;box-shadow:none !important;padding:0 !important}
+.profile-summary::before{content:"";position:absolute;left:16%;right:16%;top:30px;border-top:2px dashed rgba(22,122,137,.35);z-index:0}
+.ps-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:2px;background:#fff;border:1px solid rgba(128,128,128,.22);border-radius:22px;padding:14px 16px;transition:transform .18s,border-color .18s,box-shadow .18s;animation:intro-pop2 .5s backwards}
+.ps-step:nth-child(1){animation-delay:.5s}
+.ps-step:nth-child(2){animation-delay:.62s}
+.ps-step:nth-child(3){animation-delay:.74s}
+.ps-step:hover{transform:translateY(-4px);border-color:#167a89;box-shadow:0 10px 24px rgba(22,122,137,.14)}
+.ps-step:active{transform:scale(.97)}
+.ps-step > span:not(.ps-num){font-size:12px;color:#5e6c7b}
+.ps-step strong{font-size:18px;font-weight:600;color:#0f5f6b}
+.ps-num{width:32px;height:32px;border-radius:50%;background:#e5f3f5;color:#167a89;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-bottom:8px}
+.ps-step.done .ps-num{background:#d6f26b;color:#0b3d47}
+.ps-bar{display:block;width:100%;height:6px;border-radius:99px;background:#e5f3f5;margin-top:8px;overflow:hidden}
+.ps-bar i{display:block;height:100%;background:#167a89;border-radius:99px;transition:width .4s}
+
+.content-grid-dark .ps-step{background:#16222e;border-color:rgba(255,255,255,.14)}
+.content-grid-dark .ps-step > span:not(.ps-num){color:#a9b8c4}
+.content-grid-dark .ps-step strong{color:#8fd3dc}
+.content-grid-dark .ps-num,.content-grid-dark .ps-bar{background:rgba(255,255,255,.12)}
+html[data-motion="reduced"] .ps-step:hover{transform:none !important}
+
+.profile-summary .ps-step{display:flex !important;flex-direction:column !important;align-items:flex-start !important;justify-content:flex-start !important;text-align:left !important;gap:2px !important;min-height:0 !important;height:auto !important}
+.profile-summary .ps-step > span:not(.ps-num):not(.ps-bar),
+.profile-summary .ps-step strong{margin:0 !important;text-align:left !important;align-self:flex-start !important}
+.profile-summary .ps-num{margin:0 0 8px !important}
+.profile-summary .ps-bar{margin:8px 0 0 !important;align-self:stretch !important}
+
+/* ===== Profile: numbered sections, search, chips ===== */
+.profile-section.card{border-radius:22px !important;border:1px solid rgba(128,128,128,.22) !important;padding:18px 20px !important;background:#fff}
+.profile-section-title{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.profile-section-title h3{margin:0;font-size:19px;font-weight:600}
+.profile-section-title p{margin:2px 0 0;font-size:13px}
+.ps-no{flex-shrink:0;font-size:12px;font-weight:700;padding:5px 11px;border-radius:99px;background:#d6f26b;color:#0b3d47}
+
+.profile-search svg{color:#c3e04a !important;stroke-width:2.4;flex-shrink:0}
+.profile-search:focus-within{border-color:#167a89 !important}
+.count-pill{padding:6px 12px !important;border-radius:99px !important;background:#e5f3f5 !important;color:#167a89 !important;font-size:13px;font-weight:600}
+
+.skill-chip{display:inline-flex !important;align-items:center;gap:6px;padding:8px 14px !important;border-radius:99px !important;border:1px solid rgba(128,128,128,.32) !important;background:#fff !important;font-size:13px;cursor:pointer;transition:transform .12s,border-color .15s}
+.skill-chip:hover{border-color:#167a89 !important}
+.skill-chip:active{transform:scale(.94)}
+.skill-chip.on{background:#0b3d47 !important;color:#fff !important;border-color:#0b3d47 !important}
+.skill-chip.on svg{color:#d6f26b}
+.profile-clear{color:#167a89;text-decoration:underline}
+
+.content-grid-dark .profile-section.card{background:#16222e}
+.content-grid-dark .skill-chip{background:#16222e !important;color:#e8f0f4;border-color:rgba(255,255,255,.2) !important}
+.content-grid-dark .count-pill{background:rgba(255,255,255,.12) !important;color:#8fd3dc !important}
+html[data-motion="reduced"] .skill-chip:active{transform:none !important}
+
+/* ===== Profile steps: one card, three parts (option C) ===== */
+.profile-summary{display:grid !important;grid-template-columns:repeat(3,1fr);gap:0 !important;padding:0 !important;overflow:hidden;background:#fff !important;border:1px solid rgba(128,128,128,.25) !important;border-radius:22px !important;box-shadow:none !important;animation:intro-pop2 .5s .5s backwards}
+.profile-summary::before{display:none !important}
+.profile-summary .ps-step{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:flex-start !important;gap:12px !important;padding:16px 20px !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;animation:none !important;transform:none !important;transition:background .18s}
+.profile-summary .ps-step + .ps-step{border-left:1px solid rgba(128,128,128,.22) !important}
+.profile-summary .ps-step:hover{background:#f2f9fa !important}
+.profile-summary .ps-num{margin:0 !important;width:34px;height:34px;flex-shrink:0}
+.profile-summary .ps-text{display:flex;flex-direction:column;align-items:flex-start !important;gap:2px;min-width:0;text-align:left}
+.profile-summary .ps-text > span,.profile-summary .ps-text > strong{margin:0 !important;text-align:left !important;align-self:flex-start !important}
+.profile-summary .ps-text > span:not(.ps-bar){font-size:12px;color:#5e6c7b}
+.profile-summary .ps-text > strong{font-size:17px;line-height:1.2}
+.profile-summary .ps-bar{width:110px;margin:6px 0 0 !important}
+.profile-summary::before{animation:ps-line-in .5s .9s backwards}
+@keyframes ps-line-in{from{opacity:0}}
+.profile-summary .ps-text{position:relative}
+.profile-summary .ps-bar{position:absolute !important;left:0;top:100%;width:110px;margin:3px 0 0 !important}
+
+/* dark mode */
+.content-grid-dark .profile-summary{background:#16222e !important;border-color:rgba(255,255,255,.14) !important}
+.content-grid-dark .profile-summary .ps-step + .ps-step{border-left-color:rgba(255,255,255,.14) !important}
+.content-grid-dark .profile-summary .ps-step:hover{background:rgba(255,255,255,.05) !important}
+.content-grid-dark .profile-summary .ps-text > span:not(.ps-bar){color:#a9b8c4}
+.content-grid-dark .profile-summary .ps-text > strong{color:#8fd3dc}
+.profile-summary .ps-step.done .ps-num{background:#d6f26b !important;color:#0b3d47 !important}
+.profile-summary .ps-step.done .ps-num svg{color:#0b3d47 !important;stroke:#0b3d47 !important;stroke-width:3}
+
+/* Profile steps: only the hovered box lifts */
+.profile-summary .ps-num,.profile-summary .ps-text{transition:transform .2s cubic-bezier(.2,.8,.2,1)}
+.profile-summary .ps-step:hover .ps-num,
+.profile-summary .ps-step:hover .ps-text{transform:translateY(-3px)}
+.profile-summary .ps-step:active .ps-num,
+.profile-summary .ps-step:active .ps-text{transform:translateY(-1px) scale(.97)}
+html[data-motion="reduced"] .profile-summary .ps-step:hover .ps-num,
+html[data-motion="reduced"] .profile-summary .ps-step:hover .ps-text,
+html[data-motion="reduced"] .profile-summary .ps-step:active .ps-num,
+html[data-motion="reduced"] .profile-summary .ps-step:active .ps-text{transform:none !important}
+
+/* Profile: step bar appears after the tagline pill */
+.profile-summary{animation:intro-pop2 .5s 1.4s backwards !important}

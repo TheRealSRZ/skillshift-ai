@@ -81,6 +81,8 @@ export default function App() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     try { localStorage.setItem('skillshift-theme', theme) } catch { /* optional preference */ }
+    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+    if (link) link.href = theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg'
   }, [theme])
 
     useEffect(() => {
@@ -350,6 +352,12 @@ export default function App() {
     if (!reduceMotion) setCurtain(true)
     return signIn(...args)
   }
+
+  // jump to the top whenever the page changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.querySelector('.content')?.scrollTo(0, 0)
+  }, [tab])
 
   if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
   if (!userName) return <LoginPage onSignIn={handleSignIn} careers={careers} />
