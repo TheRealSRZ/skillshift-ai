@@ -26,32 +26,47 @@ export default function ProfilePage({ skills, careers, targetRoleId, onSelectTar
   const targetCareer = careers.find(role => role.id === targetRoleId)
   const toggle = (id: string, on: boolean) =>
     onChange({ ...profile, skills: on ? [...profile.skills, id] : profile.skills.filter(skill => skill !== id) })
+  const skillPct = skills.length ? Math.round((profile.skills.length / skills.length) * 100) : 0
+  const hasBg = profile.education.trim().length > 0
 
   return <section className="profile-workspace">
     <div className="profile-hero">
       <div className="profile-hero-user">
-        <UserAvatar name={userName} imageUrl={avatarUrl} size="large" />
-        <div><span className="page-eyebrow">CAREER READINESS PROFILE</span><h2>Make your next move, {userName.split(' ')[0]}</h2>
-          <p>Tell us about your background and skills. We'll map your strengths to career paths.</p></div>
+        <span className="ph-avatar"><UserAvatar name={userName} imageUrl={avatarUrl} size="large" /></span>
+        <div>
+          <span className="page-eyebrow">CAREER READINESS PROFILE</span>
+          <h2 className="intro-title"><span className="intro-w">Make your</span>{' '}<b className="intro-w"><span className="intro-hl">next move</span></b><span className="intro-w">, {userName.split(' ')[0]}</span></h2>
+          <div className="intro-pills"><span className="intro-pill">Tell us about your background and skills. We'll map your strengths to career paths.</span></div>
+        </div>
       </div>
       <span className="profile-state"><ShieldCheck size={16} aria-hidden="true" />{authenticated ? 'Private profile' : 'Guest demo'}</span>
     </div>
 
     <div className="profile-summary" aria-label="Profile completeness">
-      <div><GraduationCap size={18} aria-hidden="true" /><span>Background</span><strong>{profile.education.trim() ? 'Added' : 'Not set'}</strong></div>
-      <div><Sparkles size={18} aria-hidden="true" /><span>Skills selected</span><strong>{profile.skills.length} of {skills.length}</strong></div>
-      <div><Target size={18} aria-hidden="true" /><span>Target career</span><strong>{targetCareer?.title || 'Exploring'}</strong></div>
+      <div className={hasBg ? 'ps-step done' : 'ps-step'}>
+        <span className="ps-num">{hasBg ? <Check size={16} aria-hidden="true" /> : 1}</span>
+        <div className="ps-text"><span>Background</span><strong>{hasBg ? 'Added' : 'Not set'}</strong></div>
+      </div>
+      <div className={profile.skills.length ? 'ps-step done' : 'ps-step'}>
+        <span className="ps-num">{profile.skills.length ? <Check size={16} aria-hidden="true" /> : 2}</span>
+        <div className="ps-text"><span>Skills selected</span><strong>{profile.skills.length} of {skills.length}</strong>
+          <span className="ps-bar"><i style={{ width: `${skillPct}%` }} /></span></div>
+      </div>
+      <div className={targetCareer ? 'ps-step done' : 'ps-step'}>
+        <span className="ps-num">{targetCareer ? <Check size={16} aria-hidden="true" /> : 3}</span>
+        <div className="ps-text"><span>Target career</span><strong>{targetCareer?.title || 'Exploring'}</strong></div>
+      </div>
     </div>
 
     <div className="profile-section card">
-      <div className="profile-section-title"><span className="profile-section-icon"><GraduationCap size={21} aria-hidden="true" /></span><div><h3>Education & background</h3><p className="muted">A short description helps you keep track of where you're starting from.</p></div></div>
+      <div className="profile-section-title"><span className="ps-no">01</span><div><h3>Education & background</h3><p className="muted">A short description helps you keep track of where you're starting from.</p></div></div>
       <label htmlFor="education" className="form-label">Your current background</label>
       <input id="education" className="text-field" maxLength={200} placeholder="e.g. Diploma in Computer Science"
         value={profile.education} onChange={event => onChange({ ...profile, education: event.target.value })}/>
     </div>
 
     <div className="profile-section card">
-      <div className="profile-section-title"><span className="profile-section-icon"><Target size={21} aria-hidden="true" /></span><div><h3>Target career</h3><p className="muted">Pick a direction now or compare matches first. You can switch later.</p></div></div>
+      <div className="profile-section-title"><span className="ps-no">02</span><div><h3>Target career</h3><p className="muted">Pick a direction now or compare matches first. You can switch later.</p></div></div>
       <label htmlFor="target-career" className="form-label">Career you're interested in</label>
       <select id="target-career" className="text-field" value={targetRoleId} onChange={event => onSelectTarget(event.target.value)} disabled={booting}>
         <option value="">Explore all careers first</option>
@@ -61,7 +76,7 @@ export default function ProfilePage({ skills, careers, targetRoleId, onSelectTar
     </div>
 
     <div className="profile-section card">
-      <div className="profile-section-title"><span className="profile-section-icon"><Sparkles size={21} aria-hidden="true" /></span><div><h3>Skills you already have</h3><p className="muted">Select your current skills. Your choices directly affect readiness scores.</p></div></div>
+      <div className="profile-section-title"><span className="ps-no">03</span><div><h3>Skills you already have</h3><p className="muted">Select your current skills. Your choices directly affect readiness scores.</p></div></div>
       <div className="profile-skill-tools">
         <div className="profile-search"><Search size={17} aria-hidden="true" /><input aria-label="Search skills" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search skills…" /></div>
         <span className="count-pill">{profile.skills.length} selected</span>
