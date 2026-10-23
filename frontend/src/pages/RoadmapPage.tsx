@@ -31,8 +31,14 @@ export default function RoadmapPage({ roadmap, skills, careers, results, targetR
 
   return (
     <section>
-      <h2>Learning roadmap</h2>
-      <p className="muted section-lead">Build a learning plan for the career you've chosen.</p>
+      <h2 className="intro-title">
+        <span className="intro-w">Learning</span>{' '}
+        <span className="intro-chip" aria-hidden="true">✦</span>{' '}
+        <b className="intro-w"><span className="intro-hl">roadmap</span></b>
+      </h2>
+      <div className="intro-pills">
+        <span className="intro-pill">Build a learning plan for the career you've chosen.</span>
+      </div>
       <div className="roadmap-controls">
         <div className="roadmap-field">
           <label htmlFor="roadmap-career" className="form-label">Target career</label>
