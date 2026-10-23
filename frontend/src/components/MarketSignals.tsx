@@ -48,14 +48,16 @@ export function CareerMarketSignal({ careerId, snapshot, loading, error }: {
 }) {
   const signal = snapshot?.career_signals.find(item => item.career_id === careerId)
   return <div className="market-inline">
-    <div className="market-inline-head">
-      <strong>Malaysia job-market context</strong>
-      <span className="market-source-tag">DOSM · occupation-level</span>
+    <div className="market-card">
+      <div className="market-inline-head">
+        <strong>Malaysia job-market context</strong>
+        <span className="market-source-tag">DOSM · occupation-level</span>
+      </div>
+      {loading ? <p className="muted" role="status">Loading occupation evidence…</p>
+        : error ? <p className="muted">Market evidence is temporarily unavailable. Skill-readiness scores are unaffected.</p>
+        : !signal ? <p className="muted">No curated DOSM occupation comparison for this demo career.</p>
+        : <Availability signal={signal} />}
     </div>
-    {loading ? <p className="muted" role="status">Loading occupation evidence…</p>
-      : error ? <p className="muted">Market evidence is temporarily unavailable. Skill-readiness scores are unaffected.</p>
-      : !signal ? <p className="muted">No curated DOSM occupation comparison for this demo career.</p>
-      : <Availability signal={signal} />}
     <p className="market-fineprint">Online job offerings, not unique vacancies, a forecast, AI impact or hiring probability. Does not change readiness.</p>
   </div>
 }
