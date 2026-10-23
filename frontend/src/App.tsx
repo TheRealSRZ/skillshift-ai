@@ -351,6 +351,12 @@ export default function App() {
     return signIn(...args)
   }
 
+  // jump to the top whenever the page changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.querySelector('.content')?.scrollTo(0, 0)
+  }, [tab])
+
   if (auth.loading && !user) return <div className="auth-loading" role="status">Restoring your session…</div>
   if (!userName) return <LoginPage onSignIn={handleSignIn} careers={careers} />
 
