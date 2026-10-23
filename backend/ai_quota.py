@@ -144,11 +144,16 @@ def anonymize_deleted_user(user_id: str) -> None:
     with closing(_open()) as conn:
         conn.execute('BEGIN IMMEDIATE')
         try:
-            for table in ('ai_attempts', 'ai_active'):
-                conn.execute(
-                    f"UPDATE {table} SET user_id = 'deleted:' || request_id WHERE user_id = ?",
-                    (user_id,),
-                )
+            # SQL table identifiers cannot be parameterized with DB-API `?`.
+            # Keep both statements static; only the user ID is supplied as data.
+            conn.execute(
+                "UPDATE ai_attempts SET user_id = 'deleted:' || request_id WHERE user_id = ?",
+                (user_id,),
+            )
+            conn.execute(
+                "UPDATE ai_active SET user_id = 'deleted:' || request_id WHERE user_id = ?",
+                (user_id,),
+            )
             conn.execute('COMMIT')
         except Exception:
             if conn.in_transaction:

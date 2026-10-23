@@ -37,7 +37,7 @@ def generate_roadmap(
         try:
             prompt = (
                 "You are SkillShift AI, a learning roadmap assistant.\n"
-                "Select courses ONLY from the supplied list.\n"
+                "Choose courses ONLY from the supplied list.\n"
                 "Return ONLY a valid JSON array of course IDs.\n"
                 "Do not invent course IDs, URLs, or statistics.\n\n"
                 f"Target career: {target_role}\n"

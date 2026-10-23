@@ -69,7 +69,7 @@ def ask_ai(prompt: str) -> str:
     deadline = time.monotonic() + timeout_seconds
 
     while time.monotonic() < deadline:
-        response = requests.get(
+        response = requests.get(  # nosec B113: bounded dynamic timeout below
             f"{base_url}/status/{job_id}",
             headers=headers,
             timeout=min(10.0, max(0.5, deadline - time.monotonic())),
