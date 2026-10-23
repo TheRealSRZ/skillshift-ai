@@ -39,8 +39,17 @@ export default function SimulatorPage({ results }: { results: Results | null }) 
     <section>
       <div className="sim-top">
         <div>
-          <h2>Does your best match hold up?</h2>
-          <p className="muted">Moderate and Rapid are hypothetical AI adoption scenarios, not forecasts. Rapid is compared with Moderate.</p>
+          <h2 className="intro-title">
+            <span className="intro-w">Does</span>{' '}
+            <span className="intro-w">your</span>{' '}
+            <span className="intro-w">best</span>{' '}
+            <span className="intro-w">match</span>{' '}
+            <span className="intro-chip" aria-hidden="true">✦</span>{' '}
+            <b className="intro-w"><span className="intro-hl">hold up?</span></b>
+          </h2>
+          <div className="intro-pills">
+            <span className="intro-pill">Moderate and Rapid are hypothetical AI adoption scenarios, not forecasts. Rapid is compared with Moderate.</span>
+          </div>
         </div>
         {!showVerdict && (
           <span className={same ? 'verdict-pill' : 'verdict-pill warn'}>
