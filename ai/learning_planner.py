@@ -37,7 +37,7 @@ def generate_roadmap(
         try:
             prompt = (
                 "You are SkillShift AI, a learning roadmap assistant.\n"
-                "Select courses ONLY from the supplied list.\n"
+                "Choose courses ONLY from the supplied list.\n"
                 "Return ONLY a valid JSON array of course IDs.\n"
                 "Do not invent course IDs, URLs, or statistics.\n\n"
                 f"Target career: {target_role}\n"
@@ -57,6 +57,8 @@ def generate_roadmap(
             )
 
             raw = ask_ai(prompt)
+            if not isinstance(raw, str) or len(raw) > 16000:
+                raise ValueError('AI output exceeds safe limits')
 
             # Accept a JSON array even when Qwen wraps it in explanations.
             match = re.search(r'\[\s*"[^"]+"(?:\s*,\s*"[^"]+")*\s*\]', raw)
@@ -115,6 +117,7 @@ def generate_roadmap(
                 "AI must return a JSON array": "invalid_array_type",
                 "Invalid AI course selection": "invalid_or_duplicate_course_ids",
                 "AI selection has incomplete skill coverage": "incomplete_skill_coverage",
+                "AI output exceeds safe limits": "oversized_ai_output",
             }
             category = known_failures.get(str(e), 'external_error_or_malformed_output') if isinstance(e, ValueError) else 'provider_or_transport_error'
             logger.warning("AI roadmap fallback: %s (%s)", type(e).__name__, category)

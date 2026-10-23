@@ -2,6 +2,8 @@
 """Member 3: RunPod Serverless AI client."""
 
 import os
+import re
+import math
 import time
 
 import requests
@@ -16,6 +18,12 @@ def ask_ai(prompt: str) -> str:
 
     if not api_key or not endpoint_id:
         raise RuntimeError("Missing RunPod API configuration")
+    # These strings become URL path components / authorization headers.
+    # Reject unexpected characters before making any outbound HTTP request.
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', endpoint_id):
+        raise ValueError('Invalid RunPod endpoint ID')
+    if len(api_key) > 4096 or any(ch.isspace() or ord(ch) < 33 for ch in api_key):
+        raise ValueError('Invalid RunPod API key')
 
     base_url = f"https://api.runpod.ai/v2/{endpoint_id}"
 
@@ -44,27 +52,33 @@ def ask_ai(prompt: str) -> str:
     response.raise_for_status()
 
     result = response.json()
+    if not isinstance(result, dict):
+        raise RuntimeError("Invalid RunPod job response")
     job_id = result.get("id")
 
-    if not job_id:
-        raise RuntimeError("RunPod did not return a job ID")
+    if not isinstance(job_id, str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,160}', job_id):
+        raise RuntimeError("RunPod returned an invalid job ID")
 
     # Maximum time to wait for a RunPod job.
     # Default: 30 seconds for a responsive demo.
     timeout_seconds = float(
         os.getenv("RUNPOD_POLL_TIMEOUT", "30")
     )
+    if not math.isfinite(timeout_seconds) or not 0 <= timeout_seconds <= 600:
+        raise ValueError('Invalid RunPod polling timeout')
     deadline = time.monotonic() + timeout_seconds
 
     while time.monotonic() < deadline:
-        response = requests.get(
+        response = requests.get(  # nosec B113: bounded dynamic timeout below
             f"{base_url}/status/{job_id}",
             headers=headers,
-            timeout=20,
+            timeout=min(10.0, max(0.5, deadline - time.monotonic())),
         )
         response.raise_for_status()
 
         result = response.json()
+        if not isinstance(result, dict):
+            raise RuntimeError("Invalid RunPod status response")
         status = result.get("status")
 
         if status == "COMPLETED":
@@ -73,14 +87,18 @@ def ask_ai(prompt: str) -> str:
             if not output:
                 raise RuntimeError("RunPod returned no output")
 
+            if not isinstance(output, list) or not isinstance(output[0], dict):
+                raise RuntimeError("Invalid RunPod output structure")
             choices = output[0].get("choices", [])
 
             if not choices:
                 raise RuntimeError("RunPod returned no choices")
 
+            if not isinstance(choices, list) or not isinstance(choices[0], dict):
+                raise RuntimeError("Invalid RunPod choice structure")
             text = choices[0].get("text", "")
 
-            if not text.strip():
+            if not isinstance(text, str) or not text.strip():
                 raise RuntimeError("RunPod returned an empty response")
 
             return text.strip()
