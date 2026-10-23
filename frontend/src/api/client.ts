@@ -1,4 +1,4 @@
-import type { AnalyzeResponse, Career, Profile, RoadmapResponse, Skill, TrendData, MarketSignalsResponse } from '../types'
+import type { AnalyzeResponse, Career, Profile, RoadmapResponse, Skill, TrendData, MarketSignalsResponse, WhatIfResponse } from '../types'
 
 export class ApiError extends Error {
   constructor(public readonly status: number, message: string, public readonly retryAfter: number | null = null) {
@@ -28,6 +28,7 @@ export const api = {
   trends: () => request<TrendData>('/trends'),
   marketSignals: () => request<MarketSignalsResponse>('/market-signals', {cache: 'no-store'}),
   analyze: (profile: Profile, scenario: string) => request<AnalyzeResponse>('/analyze', { method:'POST',body:JSON.stringify({ profile, scenario }) }),
+  whatIf: (profile: Profile, role: string, added: string[], scenario: string = 'moderate') => request<WhatIfResponse>('/what-if', {method:'POST',body:JSON.stringify({profile, target_role:role, add_skills:added, scenario})}),
   scenarios: (profile: Profile) => request<{ moderate: AnalyzeResponse; rapid: AnalyzeResponse }>('/scenarios', {method:'POST',body:JSON.stringify({ profile, scenario:'moderate' })}),
   roadmap: (role: string, missing: string[], scenario: string) => request<RoadmapResponse>('/roadmap', {method:'POST',body:JSON.stringify({ target_role:role, missing_skills:missing, scenario })}),
   personalizeRoadmap: (role: string, missing: string[], scenario: string, accessToken: string) => request<RoadmapResponse>('/roadmap/personalize', {

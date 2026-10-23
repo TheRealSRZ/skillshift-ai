@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import type { AnalyzeResponse, Match, Skill, MarketSignalsResponse } from '../types'
+import type { AnalyzeResponse, Match, Skill, Profile, MarketSignalsResponse } from '../types'
+import WhatIfPanel from '../components/WhatIfPanel'
 import { CareerMarketSignal } from '../components/MarketSignals'
 
 type SdgInfo = { sdg: number; title: string }
@@ -61,7 +62,7 @@ function RoleCard({ role, isTop, isTarget, nameOf, sdgs, onSelect, onOpenRoadmap
   )
 }
 
-export default function CareersPage({ results, skills, sdgs, selectedRoleId, onSelectRole, onOpenRoadmap, marketSignals, marketLoading, marketError, onRefreshMarket }: { results: AnalyzeResponse | null; marketSignals: MarketSignalsResponse | null; marketLoading: boolean; marketError: string; onRefreshMarket: () => void; skills: Skill[]; sdgs: SdgInfo[]; selectedRoleId: string; onSelectRole: (roleId: string) => void; onOpenRoadmap: () => void }) {
+export default function CareersPage({ results, skills, sdgs, selectedRoleId, onSelectRole, onOpenRoadmap, marketSignals, marketLoading, marketError, onRefreshMarket, profile }: { results: AnalyzeResponse | null; profile: Profile; marketSignals: MarketSignalsResponse | null; marketLoading: boolean; marketError: string; onRefreshMarket: () => void; skills: Skill[]; sdgs: SdgInfo[]; selectedRoleId: string; onSelectRole: (roleId: string) => void; onOpenRoadmap: () => void }) {
   const nameOf = (id: string) => skills.find(s => s.id === id)?.name ?? id
 
   return (
@@ -85,6 +86,9 @@ export default function CareersPage({ results, skills, sdgs, selectedRoleId, onS
               <RoleCard key={r.role_id} role={r} isTop={i === 0 && r.readiness_score > 0} isTarget={r.role_id === selectedRoleId} nameOf={nameOf} sdgs={sdgs} onSelect={() => onSelectRole(r.role_id)} onOpenRoadmap={onOpenRoadmap} marketSignals={marketSignals} marketLoading={marketLoading} marketError={marketError} />
             ))}
           </div>
+          {results.matches.find(r => r.role_id === selectedRoleId) && (
+            <WhatIfPanel key={selectedRoleId} role={results.matches.find(r => r.role_id === selectedRoleId)!} profile={profile} skills={skills} />
+          )}
           <p className="page-foot">Skill compatibility only; not hiring probability.</p>
         </>
       ) : (
