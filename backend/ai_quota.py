@@ -9,6 +9,7 @@ from __future__ import annotations
 from contextlib import contextmanager, closing
 from datetime import datetime, timezone
 import os
+import math
 from pathlib import Path
 import sqlite3
 import time
@@ -59,6 +60,14 @@ def _admit(user_id: str) -> str:
     concurrent = _int_env('AI_MAX_CONCURRENT', 1, minimum=1, maximum=10)
     cooldown = _int_env('AI_COOLDOWN_SECONDS', 45, minimum=0, maximum=3600)
     slot_ttl = _int_env('AI_SLOT_TTL_SECONDS', 300, minimum=60, maximum=3600)
+    # The slot must not expire while a cold-start GPU request can still be
+    # running, otherwise a second request could evade the concurrency limit.
+    try:
+        max_poll = float(os.getenv('RUNPOD_POLL_TIMEOUT', '30'))
+    except ValueError as exc:
+        raise QuotaUnavailable('Invalid RunPod poll timeout') from exc
+    if not math.isfinite(max_poll) or not 0 <= max_poll <= 600 or slot_ttl < max_poll + 45:
+        raise QuotaUnavailable('AI_SLOT_TTL_SECONDS must exceed RunPod poll timeout by 45 seconds')
     now = time.time()
     day_start = datetime.fromtimestamp(now, tz=timezone.utc).replace(
         hour=0, minute=0, second=0, microsecond=0).timestamp()
@@ -122,3 +131,26 @@ def ai_job_slot(user_id: str):
         except (sqlite3.Error, OSError):
             # Fail closed on next admission until the stale slot expires.
             pass
+
+
+def anonymize_deleted_user(user_id: str) -> None:
+    """Erase the Supabase user ID from local AI quotas after account deletion.
+
+    Preserve anonymous global spend counters and active slot IDs so deletion
+    cannot reset the GPU daily limit or release another running job early.
+    """
+    if not _quota_path().exists():
+        return
+    with closing(_open()) as conn:
+        conn.execute('BEGIN IMMEDIATE')
+        try:
+            for table in ('ai_attempts', 'ai_active'):
+                conn.execute(
+                    f"UPDATE {table} SET user_id = 'deleted:' || request_id WHERE user_id = ?",
+                    (user_id,),
+                )
+            conn.execute('COMMIT')
+        except Exception:
+            if conn.in_transaction:
+                conn.execute('ROLLBACK')
+            raise
