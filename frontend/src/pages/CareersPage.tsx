@@ -66,13 +66,20 @@ export default function CareersPage({ results, skills, sdgs, selectedRoleId, onS
 
   return (
     <section>
-      <h2>Career matches and skill gaps</h2>
-      <p className="muted section-lead">Select the career you want to pursue. The highest score is only a suggestion.</p>
-      <div className="market-careers-toolbar">
-        <span>Career-readiness scores and DOSM job-market observations measure different things.</span>
-        <button type="button" className="market-refresh" onClick={onRefreshMarket} disabled={marketLoading}>
-          {marketLoading ? 'Loading market data…' : 'Refresh DOSM evidence'}
-        </button>
+      <h2 className="intro-title">
+        <span className="intro-w">Career</span>{' '}
+        <span className="intro-w">matches</span>{' '}
+        <span className="intro-chip" aria-hidden="true">✦</span>{' '}
+        <span className="intro-w">and</span>{' '}
+        <b className="intro-w"><span className="intro-hl">skill gaps</span></b>
+      </h2>
+      <button type="button" className="market-refresh" onClick={onRefreshMarket} disabled={marketLoading}>
+        {marketLoading ? 'Loading market data…' : 'Refresh DOSM evidence'}
+      </button>
+      <div className="intro-pills">
+        <span className="intro-pill">Select the career you want to pursue.</span>
+        <span className="intro-pill">The highest score is only a suggestion.</span>
+        <span className="intro-pill lime">Career-readiness scores and DOSM job-market observations measure different things.</span>
       </div>
       {marketError && <div className="market-api-error" role="alert">
         Market evidence is temporarily unavailable. Career matching remains usable.

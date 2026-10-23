@@ -1267,3 +1267,203 @@ button:not(:disabled):active { transform: scale(0.96); }
   animation: title-rise 0.45s ease backwards;
 }
 @keyframes title-rise { from { opacity: 0; transform: translateY(6px); } }
+
+/* ===== Soft rounded style (shared) ===== */
+
+/* cards get rounder corners */
+.content-grid .kpi,
+.content-grid .widget,
+.content-grid .role-card,
+.content-grid .path-card,
+.content-grid .hero-card,
+.content-grid .roadmap-controls,
+.content-grid .roadmap-ai-stage,
+.content-grid .target-summary > div,
+.content-grid .sdg-path,
+.content-grid .empty-state {
+  border-radius: 22px;
+}
+
+/* buttons inside the page area become pills */
+.content-grid main button {
+  border-radius: 999px;
+  padding-inline: 1.1em;
+}
+
+/* ===== Careers intro: big headline + pill notes ===== */
+.content-grid main .intro-title {
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 18px;
+  max-width: 640px;
+}
+.content-grid main .intro-title b { font-weight: 600; }
+.content-grid-light .intro-title { color: #101d2b; }
+
+.intro-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05em;
+  height: 0.78em;
+  vertical-align: middle;
+  border-radius: 99px;
+  background: #d6f26b;
+  color: #0b3d47;
+  font-size: 0.62em;
+  margin: 0 0.1em;
+  position: relative;
+  top: -0.04em;
+}
+
+.intro-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.intro-pill,
+.content-grid .market-careers-toolbar > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(128, 128, 128, 0.28);
+  font-size: 13px;
+}
+.content-grid-light .intro-pill,
+.content-grid-light .market-careers-toolbar > span {
+  background: #fff;
+  color: #2a3b4d;
+}
+.content-grid-dark .intro-pill,
+.content-grid-dark .market-careers-toolbar > span {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.content-grid .market-careers-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* refresh button: dark pill (lime in dark mode) */
+.content-grid .market-refresh {
+  background: #0b3d47;
+  color: #fff;
+  border: none;
+  padding: 11px 18px;
+  font-weight: 500;
+}
+.content-grid-dark .market-refresh {
+  background: #d6f26b;
+  color: #0b3d47;
+}
+
+/* ===== Careers intro fixes ===== */
+
+/* keep "skill gaps" together on one line */
+.content-grid main .intro-title { max-width: none; }
+.content-grid main .intro-title b { white-space: nowrap; }
+
+/* refresh button sits right under the title */
+.content-grid main .market-refresh {
+  display: block;
+  width: fit-content;
+  margin: 0 0 16px;
+  transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.content-grid main .market-refresh:hover:not(:disabled) {
+  background: #145a68;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(11, 61, 71, 0.25);
+}
+.content-grid main .market-refresh:active:not(:disabled) {
+  transform: scale(0.95);
+}
+.content-grid-dark .market-refresh:hover:not(:disabled) {
+  background: #e4f78d;
+}
+:root[data-motion="reduced"] .content-grid main .market-refresh:hover,
+:root[data-motion="reduced"] .content-grid main .market-refresh:active {
+  transform: none !important;
+}
+
+/* the colored dots inside the pills */
+.intro-pills { margin-bottom: 18px; }
+.intro-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #167a89;
+  flex-shrink: 0;
+}
+.intro-pill.lime::before {
+  background: #d6f26b;
+  box-shadow: 0 0 0 1px rgba(11, 61, 71, 0.3);
+}
+
+/* Careers: refresh button text stays readable on hover/press */
+.content-grid main .market-refresh:hover:not(:disabled),
+.content-grid main .market-refresh:active:not(:disabled) {
+  color: #fff;
+}
+.content-grid-dark .market-refresh:hover:not(:disabled),
+.content-grid-dark .market-refresh:active:not(:disabled) {
+  color: #0b3d47;
+}
+
+/* ===== Careers intro animation ===== */
+.intro-w {
+  display: inline-block;
+  animation: intro-rise 0.5s ease backwards;
+}
+.intro-title > :nth-child(1) { animation-delay: 0.05s; }
+.intro-title > :nth-child(2) { animation-delay: 0.15s; }
+.intro-title > :nth-child(4) { animation-delay: 0.45s; }
+.intro-title > :nth-child(5) { animation-delay: 0.55s; }
+
+.intro-title .intro-chip {
+  animation: intro-pop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 0.3s backwards;
+}
+
+/* lime highlighter that sweeps in behind "skill gaps" */
+.intro-hl {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0 0.12em;
+}
+.intro-hl::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.06em;
+  height: 0.5em;
+  border-radius: 99px;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(214, 242, 107, 0.95), rgba(214, 242, 107, 0.55));
+  transform-origin: left center;
+  animation: intro-sweep 0.8s cubic-bezier(0.65, 0, 0.2, 1) 0.8s backwards;
+}
+.content-grid-dark .intro-hl::before { opacity: 0.35; }
+
+/* button and pills come in after the headline */
+.content-grid main .market-refresh { animation: intro-rise 0.5s ease 1s backwards; }
+.intro-pill { animation: intro-pop2 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) backwards; }
+.intro-pills > :nth-child(1) { animation-delay: 1.15s; }
+.intro-pills > :nth-child(2) { animation-delay: 1.27s; }
+.intro-pills > :nth-child(3) { animation-delay: 1.39s; }
+
+@keyframes intro-rise { from { opacity: 0; transform: translateY(10px); } }
+@keyframes intro-pop { from { opacity: 0; transform: scale(0.3) rotate(-120deg); } }
+@keyframes intro-pop2 { from { opacity: 0; transform: translateY(8px) scale(0.9); } }
+@keyframes intro-sweep { from { transform: scaleX(0); } }
