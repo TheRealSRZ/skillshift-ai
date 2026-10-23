@@ -951,6 +951,12 @@ button:not(:disabled):active { transform: scale(0.96); }
 .market-inline .market-counts strong { font-size: 13px; }
 .market-inline .muted { margin: 6px 0 0; }
 .market-fineprint { font-size: 11px; color: var(--muted); line-height: 1.5; margin: 12px 0 0; }
+
+/* Trends: scenario box gets a solid background */
+.content-grid-light .scenario-radar { background-color: #fff; }
+.content-grid-dark .scenario-radar { background-color: rgba(255, 255, 255, 0.04); }
+.content-grid .scenario-radar { border-radius: 22px; }
+
 .scenario-radar { padding: clamp(16px, 2vw, 24px); border: 1px solid var(--border); border-radius: 14px; }
 .scenario-radar .trend-head { margin-bottom: 14px; }
 .scenario-radar .trend-head h2 { line-height: 1.3; }
@@ -965,6 +971,118 @@ button:not(:disabled):active { transform: scale(0.96); }
 
 .market-careers-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; color: var(--muted); font-size: 12px; }
 @media (max-width: 550px) { .market-careers-toolbar .market-refresh { width: 100%; justify-content: center; } }
+
+/* ===== Trends page (market overview) ===== */
+
+/* remove the big box-in-a-box */
+.content-grid .market-overview {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.market-overview-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.market-overview .market-eyebrow {
+  color: #167a89;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+}
+.content-grid-dark .market-overview .market-eyebrow { color: #63e0d0; }
+
+.market-overview .intro-title {
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  max-width: none;
+  margin: 2px 0 8px;
+}
+.market-overview .intro-title > :nth-child(3) { animation-delay: 0.25s; }
+
+/* refresh button: dark pill in one line */
+.market-overview .market-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+  margin: 0;
+  animation: intro-rise 0.5s ease 0.3s backwards;
+}
+
+/* summary strip becomes pills */
+.content-grid .market-summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 14px 0 18px;
+}
+.market-summary-strip > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(128, 128, 128, 0.28);
+  font-size: 13px;
+}
+.content-grid-light .market-summary-strip > span { background: #fff; color: #2a3b4d; }
+.content-grid-dark .market-summary-strip > span { background: rgba(255, 255, 255, 0.06); }
+.market-summary-strip > span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #167a89;
+  flex-shrink: 0;
+}
+.market-summary-strip > span:nth-child(1)::before { background: #d6f26b; box-shadow: 0 0 0 1px rgba(11, 61, 71, 0.3); }
+.market-summary-strip > span:nth-child(2)::before { background: #b9c2cc; }
+
+/* career cards: the number is the hero */
+.market-career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.content-grid .market-career-item {
+  border: 1px solid rgba(128, 128, 128, 0.22);
+  border-radius: 22px;
+  padding: 16px 18px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.content-grid-light .market-career-item { background: #fff; }
+.content-grid-dark .market-career-item { background: rgba(255, 255, 255, 0.04); }
+.content-grid .market-career-item:hover {
+  transform: translateY(-4px);
+  border-color: #167a89;
+  box-shadow: 0 10px 24px rgba(22, 122, 137, 0.14);
+}
+.content-grid .market-career-item:active { transform: scale(0.97); }
+:root[data-motion="reduced"] .content-grid .market-career-item:hover,
+:root[data-motion="reduced"] .content-grid .market-career-item:active { transform: none !important; }
+
+.market-career-item h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #44566a;
+}
+.content-grid-dark .market-career-item h3 { color: inherit; opacity: 0.8; }
+.market-career-item .market-change-line { gap: 10px; flex-wrap: wrap; }
+.market-career-item .market-change-line strong {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.content-grid-light .market-career-item .market-change-line strong { color: #0f5f6b; }
 
 /* Phase 6D: instant roadmap followed by optional non-blocking AI refinement */
 .roadmap-ai-stage{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.2rem;margin:1rem 0;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
@@ -1657,3 +1775,31 @@ button:not(:disabled):active { transform: scale(0.96); }
 :root[data-theme='dark'] .what-if-actions button.primary-btn { background: #5eead4; border-color: transparent; color: #042f2e; }
 :root[data-theme='dark'] button.what-if-choice.selected { border-color: #5eead4; background: rgba(94,234,212,.14); color: #ccfbf1; }
 :root[data-theme='dark'] .what-if-delta { color: #5eead4; }
+
+/* Trends refresh button: icon and text on one line */
+.content-grid main .market-overview .market-refresh {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* Trends: pills and cards come in after the headline */
+.market-summary-strip > span {
+  animation: intro-pop2 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) backwards;
+}
+.market-summary-strip > :nth-child(1) { animation-delay: 1.15s; }
+.market-summary-strip > :nth-child(2) { animation-delay: 1.27s; }
+.market-summary-strip > :nth-child(3) { animation-delay: 1.39s; }
+
+.market-career-item {
+  animation: intro-rise 0.5s ease 0.85s backwards;
+}
+.market-career-grid > :nth-child(2) { animation-delay: 0.93s; }
+.market-career-grid > :nth-child(3) { animation-delay: 1.01s; }
+.market-career-grid > :nth-child(4) { animation-delay: 1.09s; }
+.market-career-grid > :nth-child(5) { animation-delay: 1.17s; }
+.market-career-grid > :nth-child(6) { animation-delay: 1.25s; }
+.market-career-item { animation: none; }
