@@ -59,15 +59,28 @@ def test_check_mode_reports_old_packages_without_installs(monkeypatch):
 
 
 def test_requirements_and_replit_build_are_wired_correctly():
+    """Check secure dependency wiring for the isolated Replit deployment."""
+    import tomllib
+
     root = SCRIPT.parents[1]
-    req = (root / 'requirements.txt').read_text()
+    req = (root / 'requirements.txt').read_text(encoding='utf-8')
     assert 'certifi>=2026.10.23' in req
     assert '\nhttpx2' not in req
     assert '\nhttpcore2' not in req
     assert '\nPygments' not in req
-    replit = (root / '.replit').read_text()
-    assert 'scripts/build_replit.sh' in replit
-    build = (root / 'scripts/build_replit.sh').read_text()
-    assert 'python -m pip install -r requirements.txt' in build
-    assert 'python scripts/replit_dependency_security.py --upgrade' in build
-    assert 'bash scripts/build_frontend.sh' in build
+
+    # The new Replit build does not use the legacy system-level pip wrapper:
+    # it installs patched requirements using the Python virtual environment.
+    config = tomllib.loads((root / '.replit').read_text(encoding='utf-8'))
+    build = config['deployment']['build']
+    run = config['deployment']['run']
+    assert build[:2] == ['bash', '-c']
+    assert run[:2] == ['bash', '-c']
+    build_command, run_command = build[2], run[2]
+    assert 'python -m venv .venv' in build_command
+    assert 'PIP_CONFIG_FILE=/dev/null' in build_command
+    assert '.venv/bin/python -m pip install --no-user -r requirements.txt' in build_command
+    assert 'bash scripts/build_frontend.sh' in build_command
+    assert '.venv/bin/python -m uvicorn backend.main:app' in run_command
+    assert 'frontend/dist/index.html' in run_command
+    assert 'exit 1' in run_command

@@ -182,31 +182,59 @@ def test_failed_ai_attempt_charges_quota_and_preserves_public_roadmap(monkeypatc
 
 
 def test_replit_build_run_commands_and_frontend_guard(tmp_path):
-    """Check deployment wiring portably; execute Bash only on POSIX hosts.
+    """Verify the published venv startup and fail-closed frontend guard.
 
-    Windows `bash` can invoke WSL, whose startup is unrelated to the script.
+    Exercise the shell guard only on POSIX: Windows Bash may invoke WSL.
     """
     import os
     import shutil
 
     root = Path(__file__).resolve().parents[2]
     config = tomllib.loads((root / '.replit').read_text(encoding='utf-8'))
-    # Replit's build wrapper installs patched Python packages, then builds React.
-    assert 'build_replit.sh' in str(config['deployment']['build'])
-    build_script = (root / 'scripts/build_replit.sh').read_text(encoding='utf-8')
-    assert 'python -m pip install -r requirements.txt' in build_script
-    assert 'build_frontend.sh' in build_script
-    assert 'REQUIRE_FRONTEND_BUILD=true' in str(config['deployment']['run'])
+    build = config['deployment']['build']
+    run = config['deployment']['run']
+    assert build[:2] == ['bash', '-c']
+    assert run[:2] == ['bash', '-c']
+    build_command, run_command = build[2], run[2]
 
+    # Replit's system Python is externally managed. Build in an isolated venv.
+    assert 'python -m venv .venv' in build_command
+    assert 'PIP_CONFIG_FILE=/dev/null' in build_command
+    assert '.venv/bin/python -m pip install --no-user -r requirements.txt' in build_command
+    assert 'bash scripts/build_frontend.sh' in build_command
+    frontend_build = (root / 'scripts/build_frontend.sh').read_text(encoding='utf-8')
+    assert 'npm ci' in frontend_build
+    assert 'npm run build' in frontend_build
+    assert 'dist/index.html' in frontend_build
+
+    # The deployed service must use the same venv and reject a missing React build.
+    assert 'frontend/dist/index.html' in run_command
+    assert 'frontend/dist is missing' in run_command
+    assert 'exit 1' in run_command
+    assert '.venv/bin/python -m uvicorn backend.main:app' in run_command
+    assert '--host 0.0.0.0' in run_command
+    assert '--port ${PORT:-8000}' in run_command
+    assert '--workers 1' in run_command
+
+    # The local start script has its own guard, independent from the published run.
     script = (root / 'scripts/start.sh').read_text(encoding='utf-8')
     assert 'REQUIRE_FRONTEND_BUILD' in script
     assert 'frontend/dist/index.html' in script
     assert 'frontend/dist is missing' in script
     assert 'exit 1' in script
 
-    # Verify the actual missing-build guard in an isolated directory on Linux/macOS.
-    # Never invoke Windows `bash`, which may start WSL and hang or emit RPC errors.
+    # Do not start Uvicorn. With no dist/ folder, the deployment shell must fail
+    # BEFORE any Python interpreter or network listener can be reached.
     if os.name != 'nt' and shutil.which('bash'):
+        result = subprocess.run(
+            ['bash', '-c', run_command],
+            cwd=tmp_path,
+            env={**os.environ, 'PORT': '1234'},
+            text=True, capture_output=True, timeout=10,
+        )
+        assert result.returncode != 0
+        assert 'frontend/dist is missing' in result.stderr
+
         (tmp_path / 'scripts').mkdir()
         (tmp_path / 'scripts' / 'start.sh').write_text(script, encoding='utf-8')
         result = subprocess.run(
