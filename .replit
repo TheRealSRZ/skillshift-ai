@@ -6,5 +6,5 @@ channel = "stable-24_05"
 
 [deployment]
 build = ["bash", "-c", "python -m venv .venv && PIP_CONFIG_FILE=/dev/null .venv/bin/python -m pip install --no-user -r requirements.txt && bash scripts/build_frontend.sh"]
-run = ["bash", "-c", "REQUIRE_FRONTEND_BUILD=true .venv/bin/python -m uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1"]
+run = ["bash", "-c", "if [ ! -f frontend/dist/index.html ]; then echo 'ERROR: frontend/dist is missing; build frontend before deployment.' >&2; exit 1; fi; REQUIRE_FRONTEND_BUILD=true .venv/bin/python -m uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1"]
 
