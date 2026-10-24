@@ -191,7 +191,11 @@ def test_replit_build_run_commands_and_frontend_guard(tmp_path):
 
     root = Path(__file__).resolve().parents[2]
     config = tomllib.loads((root / '.replit').read_text(encoding='utf-8'))
-    assert 'build_frontend.sh' in str(config['deployment']['build'])
+    # Replit's build wrapper installs patched Python packages, then builds React.
+    assert 'build_replit.sh' in str(config['deployment']['build'])
+    build_script = (root / 'scripts/build_replit.sh').read_text(encoding='utf-8')
+    assert 'python -m pip install -r requirements.txt' in build_script
+    assert 'build_frontend.sh' in build_script
     assert 'REQUIRE_FRONTEND_BUILD=true' in str(config['deployment']['run'])
 
     script = (root / 'scripts/start.sh').read_text(encoding='utf-8')
