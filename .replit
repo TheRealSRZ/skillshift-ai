@@ -5,5 +5,5 @@ entrypoint = "backend/main.py"
 channel = "stable-24_05"
 
 [deployment]
-build = ["bash", "-c", "bash scripts/build_frontend.sh"]
+build = ["bash", "-c", "bash scripts/build_replit.sh"]
 run = ["bash", "-c", "REQUIRE_FRONTEND_BUILD=true bash scripts/start.sh"]
