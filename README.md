@@ -10,9 +10,6 @@ An explainable, Malaysia-focused career-readiness and reskilling platform develo
 **Supporting SDG:** SDG 8 — Decent Work and Economic Growth
 
 **Team:** PostDepresSQL  
-**Live application:** [SkillShift AI](https://skillshift-ai.replit.app/)  
-**Source code:** [GitHub Repository](https://github.com/TheRealSRZ/skillshift-ai)  
-**Pitch & prototype demo:** [Watch on YouTube](https://youtu.be/cILYuKGY0Is)
 
 </div>
 
