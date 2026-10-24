@@ -9,11 +9,24 @@ An explainable, Malaysia-focused career-readiness and reskilling platform develo
 **Primary SDG:** SDG 4 — Quality Education (Target 4.4)  
 **Supporting SDG:** SDG 8 — Decent Work and Economic Growth
 
-**Live application:** [SkillShift AI - Website](https://skillshift-ai.replit.app)
-**Source code:** [SkillShift AI - GitHub](https://github.com/TheRealSRZ/skillshift-ai) 
-**Video demonstration:** _Add a link when the video is published_
+**Team:** PostDepresSQL  
+**Live application:** [SkillShift AI](https://skillshift-ai.replit.app/)  
+**Source code:** [GitHub Repository](https://github.com/TheRealSRZ/skillshift-ai)  
+**Pitch & prototype demo:** [Watch on YouTube](https://youtu.be/cILYuKGY0Is)
 
 </div>
+
+## Links
+
+| Resource | Link |
+| --- | --- |
+| GitHub Repository | [https://github.com/TheRealSRZ/skillshift-ai](https://github.com/TheRealSRZ/skillshift-ai) |
+| Live Demo | [https://skillshift-ai.replit.app/](https://skillshift-ai.replit.app/) |
+| RunPod Endpoint | [https://api.runpod.ai/v2/8rywx0u0uw2601](https://api.runpod.ai/v2/8rywx0u0uw2601) |
+| Slide Deck | [View SkillShift AI Pitch Deck (Google Drive)](https://drive.google.com/file/d/1qDGToWGGI1Cp6ZgjqRvVAxkQ4i-K7Se6/view?usp=sharing) |
+| Demo Video | [Watch SkillShift AI Pitch & Live Demo (YouTube)](https://youtu.be/cILYuKGY0Is) |
+
+> **RunPod note:** The endpoint hosts Qwen/Qwen2.5-3B-Instruct for optional AI-assisted roadmap personalisation. This is an authenticated API endpoint, not a public web demo; API credentials are intentionally not included.
 
 ## The problem
 
