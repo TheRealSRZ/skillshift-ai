@@ -9,8 +9,8 @@ An explainable, Malaysia-focused career-readiness and reskilling platform develo
 **Primary SDG:** SDG 4 — Quality Education (Target 4.4)  
 **Supporting SDG:** SDG 8 — Decent Work and Economic Growth
 
-**Live application:** _Add the verified public Replit deployment URL_  
-**Source code:** _Add the public GitHub repository URL_  
+**Live application:** [SkillShift AI - Website](https://skillshift-ai.replit.app)
+**Source code:** [SkillShift AI - GitHub](https://github.com/TheRealSRZ/skillshift-ai) 
 **Video demonstration:** _Add a link when the video is published_
 
 </div>
